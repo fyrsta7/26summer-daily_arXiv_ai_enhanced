@@ -1,0 +1,197 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 61,
+  "input_total": 54,
+  "cs.SE_kept": 24,
+  "cs.AI_candidates": 30,
+  "cs.AI_kept": 24,
+  "output_total": 48,
+  "filter_usage": {
+    "prompt_tokens": 10087,
+    "completion_tokens": 3154,
+    "total_tokens": 13241
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2607.26119",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "研究RL与SFT模型数学推理的表征差异，不涉及agent或代码优化。"
+    },
+    {
+      "id": "2607.26120",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "多agent系统欺骗与目标不一致研究，通用agent行为分析可迁移。"
+    },
+    {
+      "id": "2607.26155",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "临床数据科学长期编码agent基准，直接涉及coding agent长程任务。"
+    },
+    {
+      "id": "2607.26159",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "AI评估中基准推理的可组合性分析，对agent评测方法论有启发。"
+    },
+    {
+      "id": "2607.26160",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "临床推理agent的可执行技能进化机制，通用agent技能学习方法可迁移。"
+    },
+    {
+      "id": "2607.26181",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "硬件验证agent框架，实现端到端覆盖率闭合，属于软件工程agent。"
+    },
+    {
+      "id": "2607.26367",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "物理问题结构发现的AI agent，提出-验证-修改循环可用于代码优化。"
+    },
+    {
+      "id": "2607.26393",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "多模态社会推理agent，因果感知与多模态感知可启发agent设计。"
+    },
+    {
+      "id": "2607.26452",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "世界状态数据集用于世界模型，对agent规划与状态表示有参考价值。"
+    },
+    {
+      "id": "2607.26465",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态动机推理基准，不涉及agent或代码优化。"
+    },
+    {
+      "id": "2607.26490",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "自动发现PINN算法的agent框架，直接进行程序性能优化与算法发现。"
+    },
+    {
+      "id": "2607.26512",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "证据账本裁决用于写作，涉及agent验证与基准评估，可借鉴其验证方法。"
+    },
+    {
+      "id": "2607.26588",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "社会模拟ABM框架，因果推理与自校正机制可迁移到agent系统。"
+    },
+    {
+      "id": "2607.26611",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "编码助手个性化歧义适应基准，直接面向coding agent的长期记忆与适配。"
+    },
+    {
+      "id": "2607.26642",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "金融alpha挖掘agent，结构化语义空间探索与迭代机制可迁移到代码优化。"
+    },
+    {
+      "id": "2607.26643",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "技能自进化框架缓解过拟合，通用agent技能优化方法可直接迁移。"
+    },
+    {
+      "id": "2607.26661",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "自动生成Ascend C算子，直接面向NPU代码性能优化，高度相关。"
+    },
+    {
+      "id": "2607.26724",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "城市数据科学多agent系统，数据集图与规划机制可迁移到代码优化agent。"
+    },
+    {
+      "id": "2607.26773",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "多agent潜在通信因果审计，通用agent评测方法可借鉴。"
+    },
+    {
+      "id": "2607.26787",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "MDP因果抽象方法，与agent或代码优化关联较弱。"
+    },
+    {
+      "id": "2607.26903",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "机器人学习领域，未涉及代码优化或通用agent方法"
+    },
+    {
+      "id": "2607.26935",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出AI agent行为检测框架，对agent安全与评测有启发"
+    },
+    {
+      "id": "2607.26946",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出信念引导决策架构，可迁移至agent规划与不确定性处理"
+    },
+    {
+      "id": "2607.27056",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "个性化agent记忆基准，对agent长程记忆与抽象推理有参考"
+    },
+    {
+      "id": "2607.27081",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM安全蒸馏方法，非agent方向"
+    },
+    {
+      "id": "2607.27130",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "多agent LLM框架用于本体匹配，协作推理方法可迁移"
+    },
+    {
+      "id": "2607.27134",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "语言学理论分析，与agent无关"
+    },
+    {
+      "id": "2607.27155",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "LLM agent长程办公任务基准，含经济验证，对agent评测有直接贡献"
+    },
+    {
+      "id": "2607.27177",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "多agent能力估计与适应方法，可迁移至协作agent设计"
+    },
+    {
+      "id": "2607.27191",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "评估AI agent进行开放式研究能力，对agent长程任务与验证有直接贡献"
+    }
+  ]
+}
