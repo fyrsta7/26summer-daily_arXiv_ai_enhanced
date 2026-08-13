@@ -1,0 +1,317 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 63,
+  "input_total": 58,
+  "cs.SE_kept": 8,
+  "cs.AI_candidates": 50,
+  "cs.AI_kept": 22,
+  "output_total": 30,
+  "filter_usage": {
+    "prompt_tokens": 17226,
+    "completion_tokens": 7713,
+    "total_tokens": 24939
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2608.09986",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态情感分析中的互信息解缠与融合，与LLM agent或代码优化无关。"
+    },
+    {
+      "id": "2608.10108",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "面向长程agent的结构化记忆动态选择与融合框架，提出查询自适应的记忆组合与harness优化，可直接迁移到coding agent的长程轨迹记忆设计。"
+    },
+    {
+      "id": "2608.10218",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "研究多智能体系统中观念/目标的自我传播风险与免疫机制，涉及多agent协作、安全与鲁棒性控制，对agent系统可靠性设计有启发。"
+    },
+    {
+      "id": "2608.10300",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "EHR互操作边界架构，虽涉及LLM接入但无通用agent方法，且结果为零覆盖，与用户研究无关。"
+    },
+    {
+      "id": "2608.10434",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "无人机入侵检测的可解释性界面对比研究，聚焦人类信任与依赖，非agent方法。"
+    },
+    {
+      "id": "2608.10438",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "为扩散语言模型设计工具交互的异步运行时，将工具调用融入迭代去噪，提出工具增强推理的新接口与效率评估，对agent工具使用机制有参考价值。"
+    },
+    {
+      "id": "2608.10448",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态情感识别的理由引导学习，属于认知启发训练方法，与agent无关。"
+    },
+    {
+      "id": "2608.10464",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "量子增量学习与混合态原型，与LLM agent或代码优化无关。"
+    },
+    {
+      "id": "2608.10471",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "用递归语言模型驱动提示优化的agent，具备失败分析、候选生成、预算分配与停止决策，属于LLM驱动的搜索/自我改进方法，可迁移到代码优化agent。"
+    },
+    {
+      "id": "2608.10475",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "评估LLM agent在自然语言合同谈判与执行中的理性与合作性，提供多步不确定环境下的agent评测套件与基线，对agent评测方法有贡献。"
+    },
+    {
+      "id": "2608.10480",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "分子性质预测中的多粒度理由引导LLM，属化学领域应用，无通用agent贡献。"
+    },
+    {
+      "id": "2608.10483",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "材料科学空间群预测的LLM agent框架，领域属性强且方法偏规则检索，无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.10492",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "学生模拟器的内部推理轨迹建模，属教育领域应用，与agent研究无关。"
+    },
+    {
+      "id": "2608.10494",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "无训练自进化agent框架，将轨迹蒸馏为结构化记忆（工作流图、行动经验、SOP）并在检索中复用，规划不更新LLM，可迁移到代码优化agent的经验复用。"
+    },
+    {
+      "id": "2608.10502",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "针对记忆增强agent故障后的恢复，基于依赖图选择性回滚与重放，修复错误记忆并保留良性状态，对长程agent的可靠性与纠错有直接价值。"
+    },
+    {
+      "id": "2608.10504",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "面向agent系统的自进化优化基础设施，通过智慧图积累可迁移知识并引导后续优化，与SemOpt系统优化目标高度一致。"
+    },
+    {
+      "id": "2608.10505",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "放射学报告生成的可控阈值框架，属医学影像应用，无agent方法。"
+    },
+    {
+      "id": "2608.10509",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "带溯源感知的共享记忆层，分离权限过滤与路径信任，并按动作风险门控，适用于多agent工作流的访问控制与安全执行。"
+    },
+    {
+      "id": "2608.10537",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "SAE特征语义抽象度的非局部性度量，属可解释性研究，与agent方法无关。"
+    },
+    {
+      "id": "2608.10538",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "通过自然语言强化学习为小模型自动生成executor特定技能，直接服务于agent harness的技能复用并降低成本，对coding agent技能提取有参考。"
+    },
+    {
+      "id": "2608.10549",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "强化学习用于激光切割参数优化，属于工业过程优化，与LLM/coding agent无关。"
+    },
+    {
+      "id": "2608.10567",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出了可复现交互轨迹的LLM dashboard生成基准及VLM评测方法，对agent评测设计有可迁移价值。"
+    },
+    {
+      "id": "2608.10579",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "DataMaster用LLM agent自动编排指令数据选择策略，可应用于代码指令数据筛选，属通用agent方法。"
+    },
+    {
+      "id": "2608.10584",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "学者评估框架，与程序优化或LLM agent方法无关。"
+    },
+    {
+      "id": "2608.10644",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "知识图谱实体解析与本体标注，无LLM agent或代码优化贡献。"
+    },
+    {
+      "id": "2608.10650",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "信度函数近似用于组合优化，纯数学优化且与agent无关。"
+    },
+    {
+      "id": "2608.10664",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "因果知识可识别性理论，无agent或代码优化方法贡献。"
+    },
+    {
+      "id": "2608.10665",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出无需训练的逐步推理验证方法，利用验证者间分歧信号，可迁移到agent推理步骤验证。"
+    },
+    {
+      "id": "2608.10668",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "时序知识图谱链接预测，与agent或代码优化无关。"
+    },
+    {
+      "id": "2608.10669",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "可执行的LLM agent红队评测框架，强调忠实测量与识别-执行差距，对agent安全与可靠性评测有直接参考价值。"
+    },
+    {
+      "id": "2608.10676",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "用树结构记忆实现长程搜索agent的自我纠正与证据溯源，对长程coding agent的上下文管理与纠错有强启发。"
+    },
+    {
+      "id": "2608.10720",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态对话与视频生成模型，无agent或代码优化内容。"
+    },
+    {
+      "id": "2608.10740",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "跨轨迹演化推理驱动自动化研究构思，属于通用agent规划/推理方法，可迁移到长程任务设计。"
+    },
+    {
+      "id": "2608.10765",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "人类动作识别基准合成，与LLM agent和软件工程无关。"
+    },
+    {
+      "id": "2608.10766",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "XAI解释方法，非agent架构或训练/推理机制。"
+    },
+    {
+      "id": "2608.10775",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "用视觉技能卡绑定可复用流程与视觉证据，实现检索增强的GUI agent动作预测与蒸馏，对coding agent的技能记忆复用很有借鉴。"
+    },
+    {
+      "id": "2608.10792",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "可编程、可重放的化学agent实验环境，分离公共契约与隐藏规律，对构建可控的agent评估环境有方法论启发。"
+    },
+    {
+      "id": "2608.10795",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "为LLM驱动的进化代码优化引入持久记忆跨运行复用变异知识，直接切合SemOpt系列研究核心。"
+    },
+    {
+      "id": "2608.10843",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "验证器引导LLM与符号搜索协作并进行精确修复，可迁移到verifier-guided代码生成与优化。"
+    },
+    {
+      "id": "2608.10881",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "约束逻辑编程中的TSP过滤算法，与LLM agent无关。"
+    },
+    {
+      "id": "2608.10915",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "人本智能体框架面向健康与陪伴场景，与软件工程、代码优化或通用agent方法无直接迁移价值。"
+    },
+    {
+      "id": "2608.10920",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "大规模多agent社会模拟用于信息战分析，非任务求解型agent，对coding agent研究启发有限。"
+    },
+    {
+      "id": "2608.10928",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "检索增强推理迹属于普通测试时推理增强，没有agent循环与工具交互，属于应排除的单纯推理增强。"
+    },
+    {
+      "id": "2608.10929",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "联邦跨域推荐系统方法，与agent机制及代码优化无关。"
+    },
+    {
+      "id": "2608.10976",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "面向自动驾驶的可执行CoT视觉语言动作模型，领域特化强，无可迁移到软件agent的通用方法。"
+    },
+    {
+      "id": "2608.11047",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "金融表格推理基准生成框架，验证的是数值答案而非程序行为，与自动代码优化benchmark无关。"
+    },
+    {
+      "id": "2608.11079",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "面向自我进化agent的技能压缩与可维护性优化，直接关乎coding agent的轨迹/经验复用与长程演进。"
+    },
+    {
+      "id": "2608.11080",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "轨道交通站点知识图谱数据集，与LLM agent和代码优化无关联。"
+    },
+    {
+      "id": "2608.11136",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "神经符号逻辑张量网络扩展，非agent架构或推理机制，无可迁移价值。"
+    },
+    {
+      "id": "2608.11195",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "长程AI数学研究agent案例研究，讨论了agent取得新颖洞察的条件与协作经验，对长程agent设计有启发。"
+    }
+  ]
+}
