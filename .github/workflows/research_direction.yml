@@ -36,11 +36,6 @@ jobs:
         curl -LsSf https://astral.sh/uv/install.sh | sh
         uv sync
 
-    - name: Check out data branch
-      run: |
-        git fetch origin data
-        git worktree add data-branch origin/data
-
     - name: Select papers strongly related to automatic code optimization
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -49,29 +44,29 @@ jobs:
       run: |
         source .venv/bin/activate
         python3 scripts/filter_research_direction.py \
-          --data-dir data-branch/data \
-          --output-dir data-branch/data/research/auto-code-optimization \
+          --data-dir data \
+          --output-dir data/research/auto-code-optimization \
           --start-date "${{ inputs.start_date }}" \
           --end-date "${{ inputs.end_date }}" \
           --threshold "${{ inputs.threshold }}" \
           --batch-size 16 \
           --max-workers 8
 
-    - name: Commit collection to data branch
+    - name: Commit collection to main
       env:
         START_DATE: ${{ inputs.start_date }}
         END_DATE: ${{ inputs.end_date }}
         EMAIL: ${{ vars.EMAIL }}
         NAME: ${{ vars.NAME }}
       run: |
-        git -C data-branch config user.email "$EMAIL"
-        git -C data-branch config user.name "$NAME"
-        git -C data-branch add data/research/auto-code-optimization
-        if git -C data-branch diff --staged --quiet; then
+        git config user.email "$EMAIL"
+        git config user.name "$NAME"
+        git add data/research/auto-code-optimization
+        if git diff --staged --quiet; then
           echo "No research collection changes to publish"
         else
-          git -C data-branch commit -m \
+          git commit -m \
             "research: automatic code optimization papers ${START_DATE} through ${END_DATE}"
-          git -C data-branch pull --rebase origin data
-          git -C data-branch push origin HEAD:data
+          git pull --rebase origin main
+          git push origin HEAD:main
         fi

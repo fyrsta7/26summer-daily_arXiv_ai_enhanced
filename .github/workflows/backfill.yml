@@ -154,7 +154,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        ref: data
+        ref: main
         fetch-depth: 0
     - name: Download newly processed dates
       uses: actions/download-artifact@v4
@@ -162,7 +162,7 @@ jobs:
         pattern: backfill-*
         path: incoming
         merge-multiple: true
-    - name: Merge results into data branch
+    - name: Merge results into main
       run: |
         mkdir -p data assets
         if [ -d incoming ]; then
@@ -184,5 +184,5 @@ jobs:
           echo "No new historical files to publish"
         else
           git commit -m "backfill: ${START_DATE} through ${END_DATE} arXiv papers"
-          git push origin data
+          git push origin main
         fi

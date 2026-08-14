@@ -23,7 +23,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--folder-token", required=True)
     parser.add_argument("--repo", default=".")
-    parser.add_argument("--git-ref", default="origin/data")
+    parser.add_argument("--git-ref", default="origin/main")
     parser.add_argument("--start-date")
     parser.add_argument("--end-date")
     parser.add_argument("--categories", default="cs.AI,cs.SE")

@@ -21,9 +21,9 @@ echo "[$(timestamp)] Checking whether today's Daily arXiv workflow already ran"
 
 publish_feishu_document() {
   echo "[$(timestamp)] Publishing ${local_date} digest through lark-cli"
-  git -C "$REPO_DIR" fetch origin data --quiet
-  if git -C "$REPO_DIR" cat-file -e "origin/data:data/${local_date}.md" 2>/dev/null; then
-    git -C "$REPO_DIR" show "origin/data:data/${local_date}.md" \
+  git -C "$REPO_DIR" fetch origin main --quiet
+  if git -C "$REPO_DIR" cat-file -e "origin/main:data/${local_date}.md" 2>/dev/null; then
+    git -C "$REPO_DIR" show "origin/main:data/${local_date}.md" \
       | python3 "$FEISHU_PUBLISHER" \
           --identity user \
           --date "$local_date" \

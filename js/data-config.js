@@ -4,7 +4,7 @@
  * DO NOT EDIT MANUALLY
  *
  * The repository information is injected during the CI/CD build process
- * to enable fetching data from the data branch
+ * to enable fetching data from the main branch
  */
 
 const DATA_CONFIG = {
@@ -21,13 +21,13 @@ const DATA_CONFIG = {
     repoName: '26summer-daily_arXiv_ai_enhanced',
 
     /**
-     * Data branch name
-     * Default: 'data'
+     * Branch that stores the daily data
+     * Default: 'main'
      */
-    dataBranch: 'data',
+    dataBranch: 'main',
 
     /**
-     * Get the base URL for raw GitHub content from data branch
+     * Get the base URL for raw GitHub content from the main branch
      * @returns {string} Base URL for raw GitHub content
      */
     getDataBaseUrl: function() {
