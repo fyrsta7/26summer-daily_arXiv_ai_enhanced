@@ -1,0 +1,16 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 0,
+  "input_total": 0,
+  "cs.SE_kept": 0,
+  "cs.AI_candidates": 0,
+  "cs.AI_kept": 0,
+  "output_total": 0,
+  "filter_usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "cs.AI_decisions": []
+}

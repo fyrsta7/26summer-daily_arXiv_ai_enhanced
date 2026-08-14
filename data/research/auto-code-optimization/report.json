@@ -1,0 +1,30 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "semopt_strong_relevance",
+  "threshold": 0.82,
+  "start_date": "2026-04-18",
+  "end_date": "2026-07-22",
+  "generated_at": "2026-07-22T17:42:17+00:00",
+  "date_files": 96,
+  "missing_dates": [],
+  "input_records": 7330,
+  "unique_papers": 7105,
+  "heuristic_candidates": 2247,
+  "first_pass_selected": 89,
+  "selected_total": 55,
+  "first_pass_usage": {
+    "prompt_tokens": 1141085,
+    "completion_tokens": 335499,
+    "total_tokens": 1476584
+  },
+  "verification_usage": {
+    "prompt_tokens": 37361,
+    "completion_tokens": 17850,
+    "total_tokens": 55211
+  },
+  "filter_usage": {
+    "prompt_tokens": 1178446,
+    "completion_tokens": 353349,
+    "total_tokens": 1531795
+  }
+}

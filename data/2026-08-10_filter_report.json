@@ -1,0 +1,449 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 74,
+  "input_total": 74,
+  "cs.SE_kept": 2,
+  "cs.AI_candidates": 72,
+  "cs.AI_kept": 33,
+  "output_total": 35,
+  "filter_usage": {
+    "prompt_tokens": 24942,
+    "completion_tokens": 13462,
+    "total_tokens": 38404
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2608.05206",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "象棋人类走法预测模型，非 coding/agent 相关。"
+    },
+    {
+      "id": "2608.05218",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "语音驱动说话人头像生成，与 agent 或代码优化无关。"
+    },
+    {
+      "id": "2608.05439",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "选择性共形预测+语义验证决定是否接受生成结果，可迁移为 agent 输出的可靠验证与弃权机制。"
+    },
+    {
+      "id": "2608.05455",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "教学排序的随机最短路径复杂度分析，与 LLM agent 无关。"
+    },
+    {
+      "id": "2608.05466",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "递归验证合成 long-horizon terminal agent 任务并用于 SFT/PPO 训练，直接提升 Terminal-Bench 性能，高度相关。"
+    },
+    {
+      "id": "2608.05587",
+      "relevant": true,
+      "score": 0.78,
+      "reason_zh": "将 GUI agent 逐步反思建模为结构化预测，用 SFT/蒸馏/偏好优化提升长程执行，方法可迁移到 coding agent。"
+    },
+    {
+      "id": "2608.05602",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "关于生成式 AI 信任的哲学规范框架，无可迁移的技术机制。"
+    },
+    {
+      "id": "2608.05628",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "用假说驱动自验证与树搜索在稀疏奖励下自主进化 agent 技能，是通用 agent 自我改进方法。"
+    },
+    {
+      "id": "2608.05642",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "设计选项选择的不确定性减少认知模型，非 agent 方法。"
+    },
+    {
+      "id": "2608.05643",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "用广度采样+迭代自批判纠错替代单纯增采样，验证 test-time compute 利用方式，可迁移到 agent 推理。"
+    },
+    {
+      "id": "2608.05673",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "轨迹预测中的社会交互建模，与 coding agent 无关。"
+    },
+    {
+      "id": "2608.05685",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "油田异常检测，与 agent 和代码优化无关。"
+    },
+    {
+      "id": "2608.05695",
+      "relevant": true,
+      "score": 0.88,
+      "reason_zh": "基于风险感知世界模型的运行时 guardrail，动作执行前预测多时间尺度风险，直接面向 agent 安全。"
+    },
+    {
+      "id": "2608.05710",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "人机交互中信念与策略行为的论文，非 agent 算法贡献。"
+    },
+    {
+      "id": "2608.05714",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "ReAct 式 CAD 代码生成 agent，通过生成-执行-批判-重写循环和轨迹级 GRPO 优化 critique，属于代码生成 agent。"
+    },
+    {
+      "id": "2608.05716",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "教育平台 BlockPython，非 coding agent 研究方法。"
+    },
+    {
+      "id": "2608.05729",
+      "relevant": true,
+      "score": 0.78,
+      "reason_zh": "提出跨设备长程交互智能体的状态设计原则并构建基准，状态管理思想可迁移到 coding agent。"
+    },
+    {
+      "id": "2608.05734",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "隐式学习蒸馏现象，与 agent 设计无关。"
+    },
+    {
+      "id": "2608.05778",
+      "relevant": true,
+      "score": 0.82,
+      "reason_zh": "研究 prompt-side playbook 在 agent 部署中的迁移性，给出准确率/成本/运行时的条件性结论，对 agent 工作流设计有实证价值。"
+    },
+    {
+      "id": "2608.05784",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "用确定零模型管线把屏幕活动编译为 agent 可读记忆，显著降 token 并测量 routine 复用率，对 agent memory/cost 有启发。"
+    },
+    {
+      "id": "2608.05790",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "提出区块链场景下的分层agent框架，含事件驱动、模拟安全、监控与跨层记忆，对通用agent的可控执行与可观测性设计有迁移价值。"
+    },
+    {
+      "id": "2608.05792",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "系统梳理agentic AI闭环框架与成熟度等级，提出agent化评测标准，虽面向通信领域但对agent评测与架构设计有参考。"
+    },
+    {
+      "id": "2608.05810",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "直接研究agent自我进化中技能污染导致的性能退化，提出预提交门控与验证者分层过滤，对经验复用与自我改进型coding agent至关重要。"
+    },
+    {
+      "id": "2608.05813",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "仅是关于LM个性化上下文引导的适配器方法，无agent循环、工具或软件工程内容。"
+    },
+    {
+      "id": "2608.05833",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态知识图谱补全任务，非agent方法，与代码优化或通用agent无关。"
+    },
+    {
+      "id": "2608.05863",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "关注LLM运行时的注意力记忆可观测性，是系统/形式验证主题，不涉及agent行为或决策。"
+    },
+    {
+      "id": "2608.05864",
+      "relevant": true,
+      "score": 0.62,
+      "reason_zh": "提出多模态CEO决策agent基准并揭示视觉感知与约束行动分离的瓶颈，对agent可靠决策和选择性grounding有启发。"
+    },
+    {
+      "id": "2608.05867",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "本体对齐与互操作性任务，与LLM agent或代码优化无关。"
+    },
+    {
+      "id": "2608.05876",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "面向深度研究agent的个性化查询精炼，学习澄清策略并平衡证据获取成本，可迁移到需多轮信息收集的coding agent。"
+    },
+    {
+      "id": "2608.05891",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "移动GUI agent用可执行代码增量作为world model，支持闭环SFT与测试时RL，对代码/环境建模式agent训练有借鉴意义。"
+    },
+    {
+      "id": "2608.05893",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "心电图报告生成，纯垂直医疗应用，无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.05896",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "高斯泼溅波束成形，无线通信物理层优化，与agent无关。"
+    },
+    {
+      "id": "2608.05910",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "课程重叠检测的语义相似度方法，非agent研究。"
+    },
+    {
+      "id": "2608.05948",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "物理仿真器与视频world model的保真度评测，不涉及LLM agent或代码任务。"
+    },
+    {
+      "id": "2608.05949",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "仅用VLM为游戏帧做奖励标注，无agent方法或通用贡献。"
+    },
+    {
+      "id": "2608.05954",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "在VLM标注数据上训练条件视频游戏agent，属垂直游戏RL，无可迁移的通用agent机制。"
+    },
+    {
+      "id": "2608.05958",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "层次分析法中成对比较模式的稳定性分析，数学决策支持，与LLM agent无关。"
+    },
+    {
+      "id": "2608.05981",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "气候数据超分辨率的时序对齐方法，非agent研究。"
+    },
+    {
+      "id": "2608.05987",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "提出递归自蒸馏的回合级信用分配方法，将稀疏结果转为稠密回合信号，适用于长程agentic RL训练。"
+    },
+    {
+      "id": "2608.05990",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "为自主光学实验agent设计算符-残差反馈，避免仅靠分数导致假阳性，该反馈思想可迁移到coding agent的可靠验证。"
+    },
+    {
+      "id": "2608.06001",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "牲畜生长预测的混合机器学习框架，属垂直农业应用且无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.06012",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "针对搜索agent奖励的对抗性审计与最小修复，提出反事实干预与奖励稳健性分析，可迁移到agent评测与奖励设计。"
+    },
+    {
+      "id": "2608.06020",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出经济世界模型与多agent仿真系统的六层能力蓝图，涉及自进化agent与仿真环境设计，对agent架构有通用启发。"
+    },
+    {
+      "id": "2608.06037",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "皮肤病变图像分类中的图关系建模，与代码/通用agent无关。"
+    },
+    {
+      "id": "2608.06057",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "研究工具调用agent在误导性多轮历史下的可靠性，提出基准与教师-学生策略迁移方法，对coding agent历史鲁棒性有直接启发。"
+    },
+    {
+      "id": "2608.06085",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "审计LLM社会推断中元数据线索的因果影响，涉及随机化干预与可靠性评测，可迁移到agent行为审计方法。"
+    },
+    {
+      "id": "2608.06108",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出过程导向的个性化金融agent基准，强调可回放的决策轨迹与事件绑定，对agent评测设计有可迁移价值。"
+    },
+    {
+      "id": "2608.06110",
+      "relevant": false,
+      "score": 0.45,
+      "reason_zh": "健康助手agent含ReAct与记忆，但属垂直医疗应用且通用方法贡献有限。"
+    },
+    {
+      "id": "2608.06112",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "医院AI系统多agent编排架构，属垂直医疗部署蓝图，缺乏通用agent方法创新。"
+    },
+    {
+      "id": "2608.06115",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "人群体仿真模型，虽用LLM但聚焦个体预测，与软件agent方法距离较远。"
+    },
+    {
+      "id": "2608.06123",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "LLM政治偏见审计框架，属安全评测但非agent方法，迁移价值有限。"
+    },
+    {
+      "id": "2608.06128",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "面向搜索agent的证据导向RL优化，显式对齐检索后推理与外部证据，对coding agent工具使用与验证有直接借鉴。"
+    },
+    {
+      "id": "2608.06144",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "自进化agent纵向基准，覆盖专业工作流、经验复用与多维度评估，对agent自我改进研究高度相关。"
+    },
+    {
+      "id": "2608.06146",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "文档解析的布局并行解码方法，主要贡献在推理加速而非agent机制。"
+    },
+    {
+      "id": "2608.06150",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "开放词汇变化检测的视觉感知框架，与编程/agent无关。"
+    },
+    {
+      "id": "2608.06161",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "迭代agentic RL用于3D场景生成，LLM生成奖励程序并迭代精炼，对agent奖励设计有一般启发。"
+    },
+    {
+      "id": "2608.06167",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "基于schema的生成式信息抽取与语义评测，非agent方法且领域局限。"
+    },
+    {
+      "id": "2608.06183",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "LLM+MCTS用于微架构设计空间探索，属LLM驱动的自动化优化agent，与自动代码优化思路相通。"
+    },
+    {
+      "id": "2608.06196",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "比较agent技能检索与知识图谱方法，揭示结构对检索的机制性边界，对coding agent工具选择与检索设计有启发。"
+    },
+    {
+      "id": "2608.06197",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "通过世界排演内化环境动态的agentic RL，无需外部执行环境即训练长程工具agent，对coding agent训练范式高度相关。"
+    },
+    {
+      "id": "2608.06223",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "时序预测的RAG方法，与coding agent、自动代码优化及通用agent方法均无关。"
+    },
+    {
+      "id": "2608.06243",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "RLVR+自蒸馏训练机制，虽能提升LLM推理，但未涉及agent架构或工具使用，对SemOpt借鉴有限。"
+    },
+    {
+      "id": "2608.06265",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "面向医疗AI agent的合成基准真实性优化，与代码优化无关，其通用benchmark设计思路可借鉴但领域性过强。"
+    },
+    {
+      "id": "2608.06270",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "对视觉工具使用的因果审计框架，从policy/trajectory/step三层干预，方法论可迁移到coding agent工具调用验证。"
+    },
+    {
+      "id": "2608.06294",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "量子-时序模型与agentic特征选择应用于心脏猝死预测，垂直医疗任务，无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.06300",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "口语评估系统的偏差分析与CAV解释性，与agent或代码优化无关。"
+    },
+    {
+      "id": "2608.06301",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "直接研究LLM作为优化器迭代改进agent harness（提示词、工具、控制流），并提供benchmark与评测协议，与SemOpt核心高度契合。"
+    },
+    {
+      "id": "2608.06305",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "用可解释的代理式确定性操作替代embedding检索，提供可回放审计轨迹，对coding agent的检索与可追溯性设计有借鉴价值。"
+    },
+    {
+      "id": "2608.06346",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "面向长程agent轨迹的关键错误定位与生命周期追踪，含SWE-Bench Pro等代码场景benchmark，直接帮助coding agent调试。"
+    },
+    {
+      "id": "2608.06351",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "XAI解释方法评估与概念漂移，与LLM agent及代码优化无关。"
+    },
+    {
+      "id": "2608.06361",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "视频语言模型事件计数诊断与分析，不涉及agent设计或程序优化。"
+    },
+    {
+      "id": "2608.06366",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "医疗EHR特征工程的多agent流水线，垂直应用为主，通用方法贡献有限，仅能弱借鉴多agent协作思想。"
+    }
+  ]
+}

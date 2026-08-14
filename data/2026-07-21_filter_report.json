@@ -1,0 +1,173 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 41,
+  "input_total": 40,
+  "cs.SE_kept": 14,
+  "cs.AI_candidates": 26,
+  "cs.AI_kept": 13,
+  "output_total": 27,
+  "filter_usage": {
+    "prompt_tokens": 8961,
+    "completion_tokens": 4260,
+    "total_tokens": 13221
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2607.15280",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "多智能体协作框架用于顺序诊断，提出成本感知规划与知识图谱，通用agent架构可迁移。"
+    },
+    {
+      "id": "2607.15281",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "因果推理框架，无agent机制，不相关。"
+    },
+    {
+      "id": "2607.15314",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "医疗LLM训练中使用agent自我进化循环，方法可迁移到code agent训练。"
+    },
+    {
+      "id": "2607.15367",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "本地多智能体语音助手，含LLM规划、多agent编排、递归元agent与恢复循环，通用agent架构。"
+    },
+    {
+      "id": "2607.15388",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "多智能体数学推理中评审协议比较，发现批评采纳问题，对code agent评审机制设计有启发。"
+    },
+    {
+      "id": "2607.15418",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "建筑图纸VQA基准，多模态推理，非agent相关。"
+    },
+    {
+      "id": "2607.15439",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "直接研究coding agent是否需要可执行世界模型、简化与验证，对代码优化agent设计有直接参考。"
+    },
+    {
+      "id": "2607.15442",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多角度推理检测有害幽默，非agent方法。"
+    },
+    {
+      "id": "2607.15459",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "将强化学习策略提取为可执行逻辑程序，非agent方向。"
+    },
+    {
+      "id": "2607.15480",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "可信AI工具分析，非agent方法。"
+    },
+    {
+      "id": "2607.15532",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "逻辑与优化综述，无agent内容。"
+    },
+    {
+      "id": "2607.15550",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "移动GUI agent安全框架，使用世界模型预执行风险评估，安全机制可迁移至coding agent。"
+    },
+    {
+      "id": "2607.15592",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态知识图谱补全，非agent工作。"
+    },
+    {
+      "id": "2607.15647",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "特定领域LEED合规神经符号管道，非通用agent方法。"
+    },
+    {
+      "id": "2607.15660",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "大规模工具集成环境用于agent强化学习，提出长程任务设计与奖励机制，直接助力agent训练。"
+    },
+    {
+      "id": "2607.15686",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "科学推理统一模型，非agent架构。"
+    },
+    {
+      "id": "2607.15715",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "研究agent组件（反思、记忆）对信息提取的可控性，比较固定工作流与反思agent，对code agent设计有借鉴。"
+    },
+    {
+      "id": "2607.15776",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "本体推理神经符号框架，非agent。"
+    },
+    {
+      "id": "2607.15781",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "多agent协同评估框架，包含批评检查与迭代，通用多agent协作方法。"
+    },
+    {
+      "id": "2607.15845",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "知识中心agent用于工作流生成，含知识逆推、注入、推理与自精炼，可类比代码生成优化。"
+    },
+    {
+      "id": "2607.15901",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "提出数据科学世界模型加速agent训练和推理，可迁移至代码优化agent的规划与效率提升。"
+    },
+    {
+      "id": "2607.15987",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "无关agent和代码优化，关于ODRL策略评估器实现。"
+    },
+    {
+      "id": "2607.15992",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "讨论AI信任认证，不涉及agent或优化方法。"
+    },
+    {
+      "id": "2607.16038",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "科学发现AI工作台，包含agent架构和工作流，对设计通用agent有启发但非直接代码优化。"
+    },
+    {
+      "id": "2607.16112",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "讨论AI安全阈值，与agent方法无关。"
+    },
+    {
+      "id": "2607.16122",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出LLM能力诊断方法，可迁移至agent评测与弱点定位，辅助代码优化agent改进。"
+    }
+  ]
+}

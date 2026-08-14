@@ -1,0 +1,323 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 81,
+  "input_total": 75,
+  "cs.SE_kept": 24,
+  "cs.AI_candidates": 51,
+  "cs.AI_kept": 27,
+  "output_total": 51,
+  "filter_usage": {
+    "prompt_tokens": 16706,
+    "completion_tokens": 6554,
+    "total_tokens": 23260
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2607.21596",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出训练-免代理自进化框架，通过工作流-技能共演化提升代码生成等任务性能，直接与自动代码优化代理相关。"
+    },
+    {
+      "id": "2607.21597",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "野火风险信号评估的垂直应用，未提出通用代理方法。"
+    },
+    {
+      "id": "2607.21600",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "多模态安全防御，与代理无关。"
+    },
+    {
+      "id": "2607.21601",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "手势交互失败分析，非代理相关。"
+    },
+    {
+      "id": "2607.21602",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "LLM延迟预测，为模型部署优化，非代理方法。"
+    },
+    {
+      "id": "2607.21604",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出代理记忆系统中KV缓存复用方法，可迁移至编码代理以降低推理开销。"
+    },
+    {
+      "id": "2607.21606",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "扩散模型文本到图像生成，与代理无关。"
+    },
+    {
+      "id": "2607.21607",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "图神经网络长程传播，非代理相关。"
+    },
+    {
+      "id": "2607.21609",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出分层搜索架构自动合成代理工作流，应用于代码生成，直接相关。"
+    },
+    {
+      "id": "2607.21610",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "模式归纳基准与管道，非代理方法。"
+    },
+    {
+      "id": "2607.21612",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "揭示LoRA在多步程序任务中的局限，对代理训练微调有重要启示。"
+    },
+    {
+      "id": "2607.21613",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "Transformer决策层分析，非代理特定。"
+    },
+    {
+      "id": "2607.21614",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "LLM实体解析的垂直应用（人口数据），无通用代理贡献。"
+    },
+    {
+      "id": "2607.21615",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "训练数据归因框架，非代理方法。"
+    },
+    {
+      "id": "2607.21616",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "研究推理模型中的上下文焦虑现象，对长程代理的可靠性与效率有潜在启发。"
+    },
+    {
+      "id": "2607.21617",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "VLM转录忠实性研究，与代理无关。"
+    },
+    {
+      "id": "2607.21618",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "提出代理系统LeafData自动生成数据迁移配置，属于软件工程代理，直接相关。"
+    },
+    {
+      "id": "2607.21620",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "个性化文本生成，非代理方法。"
+    },
+    {
+      "id": "2607.21624",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "移动GPU微调内存布局优化，非代理相关。"
+    },
+    {
+      "id": "2607.21625",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出轨迹感知检索代理框架，虽应用于医疗/金融但通用方法可迁移至编码代理。"
+    },
+    {
+      "id": "2607.21626",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "聚焦GRPO在小型模型连续控制中的问题，与代码优化或通用agent方法无关。"
+    },
+    {
+      "id": "2607.21627",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出复合LLM系统中角色漂移问题及正则化方法，可迁移到coding agent模块职责分配。"
+    },
+    {
+      "id": "2607.21628",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "图像翻译论文，与agent无关。"
+    },
+    {
+      "id": "2607.21659",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "定义AI-native系统为具有自主修改代码权限的agent，直接关联coding agent与自动代码修改。"
+    },
+    {
+      "id": "2607.21686",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "世界模型运行时状态管理，与代码优化agent关联弱。"
+    },
+    {
+      "id": "2607.21735",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "分析AI红队评估的统计界限，对agent安全评测有一般方法论启示。"
+    },
+    {
+      "id": "2607.21785",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "交通预测应用，无agent通用方法。"
+    },
+    {
+      "id": "2607.21793",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "改进GRPO进行响应长度控制，可迁移到agent训练中的推理效率优化。"
+    },
+    {
+      "id": "2607.21859",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "生物医学因果图工具，领域特定。"
+    },
+    {
+      "id": "2607.21867",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "机器人运动策略适配审计，与代码agent无关。"
+    },
+    {
+      "id": "2607.21873",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "多智能体系统与数字孪生综述，涉及多agent协作架构。"
+    },
+    {
+      "id": "2607.21910",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "世界模型一致性管理，提出可审计状态维护方法，对agent数据管理有启发。"
+    },
+    {
+      "id": "2607.21933",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出HexLogicAgent框架改进LLM逻辑推理，可迁移到coding agent的验证与规划。"
+    },
+    {
+      "id": "2607.22002",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "改进GRPO的渐进式rollout分配，提高训练效率，可迁移到agent RL训练。"
+    },
+    {
+      "id": "2607.22014",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出MissionBench用于多模态agent长程任务评测，对agent benchmark设计有参考。"
+    },
+    {
+      "id": "2607.22083",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "发布紧凑型agent模型，包含代码agent、工具使用、RL训练，直接相关coding agent。"
+    },
+    {
+      "id": "2607.22098",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "推理轨迹去噪用于幻觉检测，可提升agent生成质量。"
+    },
+    {
+      "id": "2607.22153",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "工业健康管理tokenization，领域特定。"
+    },
+    {
+      "id": "2607.22157",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "利用部署反馈进行持续学习，支持冻结权重agent自我改进，可迁移到coding agent。"
+    },
+    {
+      "id": "2607.22186",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出熵缩放信任区域解决异步RL off-policy问题，可迁移到agent训练稳定性优化。"
+    },
+    {
+      "id": "2607.22260",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "产品线工程中的AI集成，非agent或代码优化相关。"
+    },
+    {
+      "id": "2607.22305",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多元价值对齐研究，与agent方法无关。"
+    },
+    {
+      "id": "2607.22365",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "时序推理基准，非agent或代码优化领域。"
+    },
+    {
+      "id": "2607.22368",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "审计agent基准的协议有效性，提出HackDetect方法，对agent评测和可靠性有直接贡献。"
+    },
+    {
+      "id": "2607.22375",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "多agent质量-多样性搜索框架用于研究想法生成，通用agent方法可迁移至代码优化。"
+    },
+    {
+      "id": "2607.22385",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "零样本agent框架用于根因分析，结合数字孪生和工具增强，推理方法可迁移。"
+    },
+    {
+      "id": "2607.22393",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "3D场景agent行动基准，涉及agent-环境交互与评测，对一般agent设计有启发。"
+    },
+    {
+      "id": "2607.22445",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "动态能力范围架构，针对agent安全与控制，提出最小权限原则，可迁移至编码agent。"
+    },
+    {
+      "id": "2607.22465",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "任务级路由框架TRACE-Router，优化agentic工作流的成本-质量权衡，对agent部署有借鉴。"
+    },
+    {
+      "id": "2607.22520",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "深入分析技能对LLM agent的正面与负面影响，识别回归模式，对agent技能设计有重要启示。"
+    },
+    {
+      "id": "2607.22525",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "可解释RL用于空中交通管制，领域应用无通用agent方法贡献。"
+    }
+  ]
+}

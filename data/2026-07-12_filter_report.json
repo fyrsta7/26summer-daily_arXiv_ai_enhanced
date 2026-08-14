@@ -1,0 +1,341 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 72,
+  "input_total": 67,
+  "cs.SE_kept": 13,
+  "cs.AI_candidates": 54,
+  "cs.AI_kept": 17,
+  "output_total": 30,
+  "filter_usage": {
+    "prompt_tokens": 17662,
+    "completion_tokens": 6067,
+    "total_tokens": 23729
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2607.07721",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出主动企业agent的上下文图与主动性评分，通用agent架构可迁移至coding agent的主动监控与信息检索。"
+    },
+    {
+      "id": "2607.07759",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "农业供应链AI工具，纯垂直应用，无通用agent方法贡献。"
+    },
+    {
+      "id": "2607.07760",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "对抗性社会认识论，非agent方法，与编程优化无关。"
+    },
+    {
+      "id": "2607.07761",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "医学推理LLM综述，无agent架构或新方法。"
+    },
+    {
+      "id": "2607.07766",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "医疗AI对齐框架，非agent方法。"
+    },
+    {
+      "id": "2607.07775",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "机器人假肢隐私研究，与agent无关。"
+    },
+    {
+      "id": "2607.07836",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "文档解析多模态模型，非agent。"
+    },
+    {
+      "id": "2607.07846",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "教育用途LLM助手，无通用agent方法。"
+    },
+    {
+      "id": "2607.07850",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "sEMG手势识别，图神经网络，与agent无关。"
+    },
+    {
+      "id": "2607.07858",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "多Agent RAG用于承保，包含检索、工具调用、规划，可迁移至coding agent的多步验证与检索增强。"
+    },
+    {
+      "id": "2607.07859",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "反馈操纵正则化实现离线agent对齐，通用alignment方法适用于coding agent的安全训练。"
+    },
+    {
+      "id": "2607.07883",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "工业数据集与CoT推理，纯数据贡献，无agent方法。"
+    },
+    {
+      "id": "2607.07916",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "LLM人格特征操控，影响agent安全与行为控制，可启发coding agent的偏差修正。"
+    },
+    {
+      "id": "2607.07957",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "自闭症行为分类，视频帧率分析，无关。"
+    },
+    {
+      "id": "2607.07984",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "AgentNAS将LLM与NAS结合，提出分槽架构自动搜索，直接相关自动优化领域，可迁移至代码优化搜索。"
+    },
+    {
+      "id": "2607.08018",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "具体命题提示提升推理，非agent方法。"
+    },
+    {
+      "id": "2607.08038",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "医疗诊断多agent框架含角色合约与验证门，可迁移至coding agent的多步验证与安全设计。"
+    },
+    {
+      "id": "2607.08065",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "研究LLM自一致性作为置信度信号，对agent可靠性评估有启发。"
+    },
+    {
+      "id": "2607.08066",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "研究说服攻击对CoT监控的影响，提出事实检查监控对抗策略，对agent安全与鲁棒性有直接贡献。"
+    },
+    {
+      "id": "2607.08079",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "光伏预测的物理感知检索增强，时间序列预测，与agent无关。"
+    },
+    {
+      "id": "2607.08093",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出了评估数据科学agent因果推理的benchmark，涉及工具使用和推理，对coding agent评估有启发。"
+    },
+    {
+      "id": "2607.08136",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "神经符号推理与ASP结合，非agent或代码优化相关。"
+    },
+    {
+      "id": "2607.08173",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "关注LLM隐藏信息提取，非agent或代码优化方法。"
+    },
+    {
+      "id": "2607.08177",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出模块化agent框架用于报告生成，包含Field Generation和Structural Optimizer agent，具有通用架构可迁移性。"
+    },
+    {
+      "id": "2607.08196",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "理论论文关于慢思考与感知的数学形式化，不涉及agent或代码优化。"
+    },
+    {
+      "id": "2607.08233",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "评估agent在视觉概念归纳中的主动学习能力，属于agent评测benchmark，对agent主动信息收集有启发。"
+    },
+    {
+      "id": "2607.08252",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出多时间尺度循环引擎解决长期人格agent的自我锁定问题，涉及记忆与状态管理，属通用agent方法。"
+    },
+    {
+      "id": "2607.08255",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "多教师协作生成可验证课程，结合执行验证与RLVR改进coding student，直接相关于代码优化agent。"
+    },
+    {
+      "id": "2607.08257",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "精神科临床会诊的虚拟评估环境，特定领域应用，无通用agent方法贡献。"
+    },
+    {
+      "id": "2607.08268",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "结构化文本蒸馏任务，涉及模型蒸馏而非agent方法。"
+    },
+    {
+      "id": "2607.08269",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "结构感知Web RAG框架，非agent或代码优化相关。"
+    },
+    {
+      "id": "2607.08284",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "长上下文推理benchmark，非agent或代码优化。"
+    },
+    {
+      "id": "2607.08285",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI评估中的心理能力维度，非agent方法。"
+    },
+    {
+      "id": "2607.08316",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "车辆意图预测的LSTM框架，自动驾驶领域，非agent。"
+    },
+    {
+      "id": "2607.08317",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态模型盲点benchmark，非agent。"
+    },
+    {
+      "id": "2607.08357",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "移动数据生成的离散扩散框架，非agent。"
+    },
+    {
+      "id": "2607.08368",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "联邦学习的视觉提示调优，非agent。"
+    },
+    {
+      "id": "2607.08393",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM微调中知识泛化机制研究，非agent。"
+    },
+    {
+      "id": "2607.08403",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "博弈论驱动的多agent框架减少LLM幻觉，提出自适应多agent协作，可迁移至coding agent场景。"
+    },
+    {
+      "id": "2607.08423",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "VLM营养推理benchmark，特定领域，无通用agent方法贡献。"
+    },
+    {
+      "id": "2607.08465",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "网络指纹表示学习，与agent或代码优化无关"
+    },
+    {
+      "id": "2607.08490",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "生物医学文本语义漂移建模，非agent领域"
+    },
+    {
+      "id": "2607.08533",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI引导刺激生成用于自闭症研究，非agent方法"
+    },
+    {
+      "id": "2607.08554",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "城市社区非正式行为量化，垂直应用无通用agent贡献"
+    },
+    {
+      "id": "2607.08573",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态情感识别融合方法，非agent"
+    },
+    {
+      "id": "2607.08602",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "临床LLM诊疗决策，领域特定无通用agent机制"
+    },
+    {
+      "id": "2607.08625",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "医疗对话AI评估，非agent方法创新"
+    },
+    {
+      "id": "2607.08652",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "多agent市场中自利agent的稳定机制与对抗鲁棒性，可迁移至agent协作设计"
+    },
+    {
+      "id": "2607.08681",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "物理约束经济agent基准与LLM规划器/审计器，对agent评估与安全控制有启发"
+    },
+    {
+      "id": "2607.08716",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "主动记忆agent改善长程任务执行，直接相关coding agent的记忆与长程策略"
+    },
+    {
+      "id": "2607.08734",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "量化对LLM行为的影响分析，非agent"
+    },
+    {
+      "id": "2607.08745",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "自动驾驶VQA基准，非agent研究方向"
+    },
+    {
+      "id": "2607.08748",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI学习助手使用分析，无agent方法贡献"
+    },
+    {
+      "id": "2607.08758",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "科学谱系推理基准，领域特定与code agent无关"
+    }
+  ]
+}

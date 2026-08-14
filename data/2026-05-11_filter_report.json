@@ -1,0 +1,2093 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 384,
+  "input_total": 384,
+  "cs.SE_kept": 38,
+  "cs.AI_candidates": 346,
+  "cs.AI_kept": 119,
+  "output_total": 157,
+  "filter_usage": {
+    "prompt_tokens": 113725,
+    "completion_tokens": 38839,
+    "total_tokens": 152564
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2605.09825",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "关于FP4硬件预训练，与agent或代码优化无关。"
+    },
+    {
+      "id": "2605.09826",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "具身智能体功能心智理论基准，可迁移至多智能体协作场景。"
+    },
+    {
+      "id": "2605.09827",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "时尚属性提取垂直任务，无通用agent方法贡献。"
+    },
+    {
+      "id": "2605.16378",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "MLM马尔可夫链理论分析，与agent无关。"
+    },
+    {
+      "id": "2605.09839",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "混合贝叶斯网络推理，非agent相关。"
+    },
+    {
+      "id": "2605.09842",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "金融收益率曲线预测，与agent无关。"
+    },
+    {
+      "id": "2605.09844",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "LLM置信度校准诊断，可用于agent自我评估与可靠性。"
+    },
+    {
+      "id": "2605.09846",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "音频可视化艺术工具，无agent方法贡献。"
+    },
+    {
+      "id": "2605.09850",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "路由条件校准探针，对agent置信度校准有潜在参考价值。"
+    },
+    {
+      "id": "2605.09852",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "XAI公平性综述，非agent相关。"
+    },
+    {
+      "id": "2605.09856",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "人体网格恢复计算机视觉论文，无关。"
+    },
+    {
+      "id": "2605.16379",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "合成数据信息论标准，对agent训练数据策略有间接启发。"
+    },
+    {
+      "id": "2605.09860",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "长期推理中自适应承诺深度方法，可直接迁移至agent规划与重规划。"
+    },
+    {
+      "id": "2605.09861",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "神经网络对齐几何理论，非agent方法。"
+    },
+    {
+      "id": "2605.09862",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "持续图学习噪声处理，与agent无关。"
+    },
+    {
+      "id": "2605.09863",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "生产级LLM编码agent角色漂移检测与记忆层，直接相关。"
+    },
+    {
+      "id": "2605.09867",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "连续潜在上下文实现在线学习算法，可迁移至agent在线适应。"
+    },
+    {
+      "id": "2605.09870",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "时间序列因果发现，与agent无关。"
+    },
+    {
+      "id": "2605.09874",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "长期记忆驱动视频理解基准，可迁移至agent长期记忆评测。"
+    },
+    {
+      "id": "2605.09875",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "跨族LLM行为轴对齐框架，对agent行为控制有潜在启发。"
+    },
+    {
+      "id": "2605.11034",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "网络流量分类，与LLM agent或代码优化无关。"
+    },
+    {
+      "id": "2605.09877",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "注意力机制改进，不是agent方法。"
+    },
+    {
+      "id": "2605.09879",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "提出数学与agent推理协同的模型合并方法，提升SWE-Bench结果，直接用于coding agent。"
+    },
+    {
+      "id": "2605.09883",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "视觉推理benchmark，与agent无关。"
+    },
+    {
+      "id": "2605.09887",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "稀疏自编码器几何分析，与agent无关。"
+    },
+    {
+      "id": "2605.11036",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "LLM agent行为水印，涉及agent溯源与安全性，属于agent可靠性与安全控制。"
+    },
+    {
+      "id": "2605.09893",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "分析LLM价值-行动差距，提出多agent审计框架，与agent评估对齐相关。"
+    },
+    {
+      "id": "2605.16380",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "临床时间序列预测，与agent无关。"
+    },
+    {
+      "id": "2605.22840",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "文明计算能力估算，与agent无关。"
+    },
+    {
+      "id": "2605.09899",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "3D目标检测，与agent无关。"
+    },
+    {
+      "id": "2605.09900",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "VLM推理benchmark，不是agent。"
+    },
+    {
+      "id": "2605.09905",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "睡眠分期，与agent无关。"
+    },
+    {
+      "id": "2605.09906",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "音频视觉问答，不是agent方法。"
+    },
+    {
+      "id": "2605.09907",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "多agent通信拓扑生成，使用扩散模型，直接贡献于多agent协作架构。"
+    },
+    {
+      "id": "2605.09908",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "语音生物标记检测，与agent无关。"
+    },
+    {
+      "id": "2605.09915",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "讨论AI agent对学术会议的影响，属于agent系统风险分析，值得关注。"
+    },
+    {
+      "id": "2605.09918",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM广告数据集，与agent无关。"
+    },
+    {
+      "id": "2605.09920",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出无验证器的强化学习奖励，对LLM agent训练有潜在启发。"
+    },
+    {
+      "id": "2605.09922",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "团队自对弈微调方法，可视为多agent协作训练范式。"
+    },
+    {
+      "id": "2605.09923",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "RLVR方法改进，针对LLM推理，对agent强化学习有可迁移性。"
+    },
+    {
+      "id": "2605.09931",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "提出了针对工具调用轨迹的剪枝与重采样方法，可提升代码解释器agent的推理效率与正确性。"
+    },
+    {
+      "id": "2605.15213",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "应用于饮食推荐垂直领域，未提出通用agent方法。"
+    },
+    {
+      "id": "2605.09942",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "基于RL的加权图演化智能体记忆系统，改进了长程推理中的记忆检索。"
+    },
+    {
+      "id": "2605.09948",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出基于充分性估计的递归精炼架构，可迁移到coding agent的推理早停策略。"
+    },
+    {
+      "id": "2605.09950",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "GPU加速特征选择算法，与LLM agent无关。"
+    },
+    {
+      "id": "2605.09956",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "人脸嘴型合成，与agent无关。"
+    },
+    {
+      "id": "2605.11039",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "提出基于参数溯源的安全运行时监控，解决agent工具调用的信任粒度问题。"
+    },
+    {
+      "id": "2605.09959",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "无监督自我进化框架，通过自博弈与内在奖励提升LLM能力，可迁移至agent。"
+    },
+    {
+      "id": "2605.09964",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "蛋白质相互作用预测，非agent研究。"
+    },
+    {
+      "id": "2605.09971",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "文本到触觉生成，非agent相关。"
+    },
+    {
+      "id": "2605.09973",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "PII提取模型，非agent研究。"
+    },
+    {
+      "id": "2605.13880",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出在无任务场景下通过自生成合成练习构建agent记忆的方法。"
+    },
+    {
+      "id": "2605.09981",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "蛋白质结构分词器，非agent相关。"
+    },
+    {
+      "id": "2605.09984",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "4D场景生成与拼接，非agent相关。"
+    },
+    {
+      "id": "2605.09985",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "研究程序合成中的前瞻性抽象学习，与代码优化agent的库学习机制相关。"
+    },
+    {
+      "id": "2605.16381",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出部分观测下的主动决策框架，可迁移到agent的时序决策。"
+    },
+    {
+      "id": "2605.09991",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "深度学习优化器理论，与agent无关。"
+    },
+    {
+      "id": "2605.09992",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "揭示推测解码中的注意力漂移现象，对agent推理效率改进有潜在参考。"
+    },
+    {
+      "id": "2605.09998",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "提出具身agent的在线持续自我改进框架，与自动代码优化agent的改进机制直接相关。"
+    },
+    {
+      "id": "2605.10019",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "分析生成模型规则学习与记忆的时序窗口，对agent泛化创新有理论启发。"
+    },
+    {
+      "id": "2605.10025",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "医疗领域tag-based少样本选择，无通用agent方法贡献。"
+    },
+    {
+      "id": "2605.10027",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "心理危机语音评估，领域特定LLM应用，非agent。"
+    },
+    {
+      "id": "2605.10035",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "分子优化编辑，领域非编程，方法不直接迁移。"
+    },
+    {
+      "id": "2605.10036",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "6G网络agent记忆架构概念性讨论，无具体可迁移方法。"
+    },
+    {
+      "id": "2605.10038",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出探索性执行学习框架，将轨迹经验蒸馏复用，可迁移至代码优化agent。"
+    },
+    {
+      "id": "2605.10043",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM个性化反馈校准，非agent方法。"
+    },
+    {
+      "id": "2605.10044",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "RL动作组块自适应，非LLM agent相关。"
+    },
+    {
+      "id": "2605.10047",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "损失重加权长尾分类，非agent。"
+    },
+    {
+      "id": "2605.10051",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "机器人策略推理时引导，非通用agent。"
+    },
+    {
+      "id": "2605.10052",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "提出可移植自演化多agent系统规范，协调工程通用方法，可迁移至coding agent团队。"
+    },
+    {
+      "id": "2605.18793",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "时空预测维度平衡，非agent。"
+    },
+    {
+      "id": "2605.23954",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "音频LLM自蒸馏鲁棒性，非agent。"
+    },
+    {
+      "id": "2605.10057",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "多agent故障感知路由，基于失败类型规划恢复，可直接迁移至代码agent执行控制。"
+    },
+    {
+      "id": "2605.10059",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "电商市场agent欺骗行为仿真框架，对agent策略性交互有启发，但迁移价值有限。"
+    },
+    {
+      "id": "2605.18794",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "Transformer模型B样条分解压缩，非agent。"
+    },
+    {
+      "id": "2605.10061",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "语言学理论讨论，非agent。"
+    },
+    {
+      "id": "2605.10064",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "多agent自演化知识图谱框架，外部化经验并检索指导冻结模型，对编码agent进化极具参考价值。"
+    },
+    {
+      "id": "2605.18795",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "MoE模型PEFT微调，非agent。"
+    },
+    {
+      "id": "2605.10065",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM解码负约束处理，非agent。"
+    },
+    {
+      "id": "2605.10067",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM越狱攻击策略优化，安全领域，非通用agent可迁移方法。"
+    },
+    {
+      "id": "2605.10075",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "主动测试方法，不涉及agent或代码优化。"
+    },
+    {
+      "id": "2605.10084",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "音频表示学习，与agent和代码优化无关。"
+    },
+    {
+      "id": "2605.10094",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "机器人VLA的在线成功记忆测试时自适应，涉及记忆复用和检索，可迁移到coding agent经验复用。"
+    },
+    {
+      "id": "2605.10100",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "3D人体姿态估计，与agent和代码优化无关。"
+    },
+    {
+      "id": "2605.10106",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "视频空间推理agent，模块化训练-free架构，可迁移到coding agent的推理设计。"
+    },
+    {
+      "id": "2605.10107",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "使用MCTS探索规则序列的断言约简框架，类似自动代码优化，agent规划可迁移。"
+    },
+    {
+      "id": "2605.18797",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "循环Transformer架构改进，非agent方法。"
+    },
+    {
+      "id": "2605.10111",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "EEG解码，与agent和代码优化无关。"
+    },
+    {
+      "id": "2605.10117",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "自动驾驶自适应感知，应用特定，无通用agent方法贡献。"
+    },
+    {
+      "id": "2605.10120",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "知识图增强MLLM推理的RAG agent，可迁移到coding agent的知识检索。"
+    },
+    {
+      "id": "2605.10121",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "BCI解释性，无关。"
+    },
+    {
+      "id": "2605.10122",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "神经路由求解器状态嵌入改进，属于组合优化agent方法，可借鉴到代码优化agent。"
+    },
+    {
+      "id": "2605.10125",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "评估AI科研工具，非agent方法。"
+    },
+    {
+      "id": "2605.10141",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "形式定理证明奖励模型基准，直接关联LLM agent的奖励建模，可迁移到代码优化agent。"
+    },
+    {
+      "id": "2605.10142",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "视觉模型规模与解释性质量关系，无关。"
+    },
+    {
+      "id": "2605.10146",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "知识编辑安全风险基准，涉及LLM推理安全，对agent安全有参考价值。"
+    },
+    {
+      "id": "2605.12553",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "信道预测，与agent和代码优化无关。"
+    },
+    {
+      "id": "2605.10163",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "因果模型粗化，无关。"
+    },
+    {
+      "id": "2605.10165",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "医学图像噪声标签检测，无关。"
+    },
+    {
+      "id": "2605.10169",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "无限状态多项式博弈求解，涉及自动规划与策略，可迁移到agent规划方法。"
+    },
+    {
+      "id": "2605.10171",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出多Agent框架IMPACT用于结构化矛盾分析，体现了多Agent协作与推理，对Agent设计有通用启发。"
+    },
+    {
+      "id": "2605.10176",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "聚焦SQL注入安全防护框架，非Agent方法，与代码优化或通用Agent无关。"
+    },
+    {
+      "id": "2605.10177",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "自动驾驶中的多模态融合与强化学习，非Agent方法，不涉及代码优化或通用Agent架构。"
+    },
+    {
+      "id": "2605.10179",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "不规则时间序列分类的图神经流，与Agent和程序优化无关。"
+    },
+    {
+      "id": "2605.10181",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "OOD检测中的机器学习与深度学习对比，非Agent方法。"
+    },
+    {
+      "id": "2605.10184",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "遥感基础模型，非Agent相关。"
+    },
+    {
+      "id": "2605.10185",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "动态鬼影成像的Transformer架构，非Agent方法。"
+    },
+    {
+      "id": "2605.10186",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "法律引用可靠性基准，非Agent领域。"
+    },
+    {
+      "id": "2605.10189",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "蛋白质设计的偏好对齐，垂直领域应用（非软件工程），无通用Agent方法贡献。"
+    },
+    {
+      "id": "2605.11042",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "动态博弈中的无模型学习，非LLM Agent，与程序优化无关。"
+    },
+    {
+      "id": "2605.10194",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "Token路由自对齐训练方法，非Agent架构或交互，不属通用Agent方法。"
+    },
+    {
+      "id": "2605.10198",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "扩散模型概念擦除，非Agent相关。"
+    },
+    {
+      "id": "2605.10201",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "机器人操控的两阶段框架，任务特定，无通用Agent方法贡献。"
+    },
+    {
+      "id": "2605.10211",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "政府文档敏感性分类，非Agent方法。"
+    },
+    {
+      "id": "2605.10224",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出假设驱动的深度研究方法论HDRI，包含迭代推理、质量评估，属于通用研究Agent架构，对Coding Agent设计有启发。"
+    },
+    {
+      "id": "2605.10236",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "强化学习中的非均匀回放研究，非LLM Agent方法。"
+    },
+    {
+      "id": "2605.10242",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "测试时自适应异常检测，非Agent相关。"
+    },
+    {
+      "id": "2605.10246",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出AI科学家系统的学术诚信基准，直接评估Agent完整性，对Agent可靠性与安全控制有直接借鉴。"
+    },
+    {
+      "id": "2605.18799",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出过渡感知强化学习框架ReCrit，优化LLM在交互中的正确性维持，属于Agent的自我改进与交互方法，可迁移至Coding Agent。"
+    },
+    {
+      "id": "2605.10253",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "医疗多模态RAG的知识投毒攻击，非Agent方法。"
+    },
+    {
+      "id": "2605.10256",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "音频去混响，与LLM agent或代码优化无关"
+    },
+    {
+      "id": "2605.10257",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "铁路车辆重调度强化学习，非agent通用方法"
+    },
+    {
+      "id": "2605.10261",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "神经网络可解释性，与agent无关"
+    },
+    {
+      "id": "2605.10267",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "工业采购QA基准，非agent或代码优化"
+    },
+    {
+      "id": "2605.10268",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出记忆引导重读的agent长上下文推理方法，属通用agent记忆机制"
+    },
+    {
+      "id": "2605.10272",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "差分隐私联邦微调，非agent"
+    },
+    {
+      "id": "2605.10281",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "鼓合成，无关"
+    },
+    {
+      "id": "2605.16383",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "图像分类神经符号框架，无关"
+    },
+    {
+      "id": "2605.10286",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "医疗多模态agent基准，单/多agent对比有通用启发，但领域垂直"
+    },
+    {
+      "id": "2605.10291",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "经济学分析，无关"
+    },
+    {
+      "id": "2605.10292",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "时间序列预测框架，非agent"
+    },
+    {
+      "id": "2605.10293",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "离线强化学习安全屏蔽，非LLM agent"
+    },
+    {
+      "id": "2605.10296",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "RAG文档理解，非agent"
+    },
+    {
+      "id": "2605.10310",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "AI对齐理论，无具体agent方法"
+    },
+    {
+      "id": "2605.10315",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "表格数据增强，无关"
+    },
+    {
+      "id": "2605.10317",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "知识图谱嵌入，无关"
+    },
+    {
+      "id": "2605.10325",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "密集可验证过程奖励用于agent推理训练，通用RLVR方法，可迁移"
+    },
+    {
+      "id": "2605.10327",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "量子电路分析神经符号框架，非agent"
+    },
+    {
+      "id": "2605.10332",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "具身agent技能自演化框架（反思与修正），通用技能提取方法可迁移"
+    },
+    {
+      "id": "2605.10335",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "优化器内存优化，非agent"
+    },
+    {
+      "id": "2605.10337",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "跨模态脑信号迁移，与代码优化或通用agent方法无关。"
+    },
+    {
+      "id": "2605.10343",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "流式视频理解的自演进框架，非编码agent领域，通用方法贡献有限。"
+    },
+    {
+      "id": "2605.10344",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "多agent协同测试时扩展，含记忆与规划，可迁移至coding agent。"
+    },
+    {
+      "id": "2605.10347",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "GUI agent世界模型，探索未来状态预测对agent的引导，对agent规划有启发。"
+    },
+    {
+      "id": "2605.16384",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "图像tokenization自适应压缩，与agent或代码优化无关。"
+    },
+    {
+      "id": "2605.18800",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM量化压缩技术，不涉及agent方法。"
+    },
+    {
+      "id": "2605.10349",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "目标检测主动学习，非agent或代码优化。"
+    },
+    {
+      "id": "2605.10357",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "事实核查benchmark，领域特定，通用agent方法贡献不足。"
+    },
+    {
+      "id": "2605.10365",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "专用agent价值观benchmark，对agent安全与对齐有参考价值。"
+    },
+    {
+      "id": "2605.10366",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "图推理agent中指令与工具协同进化，信用分配机制可直接迁移至coding agent。"
+    },
+    {
+      "id": "2605.10370",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "FAIR数字对象自治知识管理，与agent代码优化无关。"
+    },
+    {
+      "id": "2605.10380",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "端侧agent全流水加速，虽为工程优化，但对agent部署有参考。"
+    },
+    {
+      "id": "2605.10384",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "边缘agent性能基准，提供模型选择与部署约束的经验。"
+    },
+    {
+      "id": "2605.10386",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "自动驾驶安全逻辑，领域特定，通用agent方法贡献有限。"
+    },
+    {
+      "id": "2605.10391",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态模型技术报告，非agent或代码优化。"
+    },
+    {
+      "id": "2605.10397",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "视觉异常检测agent，多工具多轮反驳，agent推理与工具使用方法可迁移。"
+    },
+    {
+      "id": "2605.10401",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "LLM发现混合整数规划分支策略，涉及算法优化，与代码优化间接相关。"
+    },
+    {
+      "id": "2605.10402",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "纯数学群论结果，与agent或代码优化无关。"
+    },
+    {
+      "id": "2605.18801",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "数据对LLM影响的研究方法论，非直接agent方法。"
+    },
+    {
+      "id": "2605.10419",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM在数据上的问答能力，不涉及agent或代码优化。"
+    },
+    {
+      "id": "2605.10425",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "讨论AI科学验证基础设施，与agent或代码优化无关。"
+    },
+    {
+      "id": "2605.10426",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "自动驾驶VLA模型，应用领域非软件工程，无通用agent方法贡献。"
+    },
+    {
+      "id": "2605.10429",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "分子表示学习，不相关于agent或代码优化。"
+    },
+    {
+      "id": "2605.10430",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "因果效应评估方法，非agent领域。"
+    },
+    {
+      "id": "2605.10442",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM偏见检测，非agent方法。"
+    },
+    {
+      "id": "2605.10447",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "宏观经济ABM统计模型检验，非agent。"
+    },
+    {
+      "id": "2605.10448",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出agent benchmark结果证据层，评估可靠性直接相关agent评价。"
+    },
+    {
+      "id": "2605.10473",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "量子计算架构，与agent无关。"
+    },
+    {
+      "id": "2605.10474",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "模拟神经网络验证，非agent。"
+    },
+    {
+      "id": "2605.10480",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "LLM agent自动进行系统识别，直接相关coding agent与优化。"
+    },
+    {
+      "id": "2605.10488",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "LLM agent知识库精炼，RL训练推理，可迁移至coding agent改进。"
+    },
+    {
+      "id": "2605.10494",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "音频探测策略，与agent无关。"
+    },
+    {
+      "id": "2605.10498",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态长尾识别，非agent。"
+    },
+    {
+      "id": "2605.10500",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "元技能学习agent迭代改进代码，包含GPU内核优化，直接相关。"
+    },
+    {
+      "id": "2605.10503",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "改进LLM注意力以增强结构理解，可应用于coding agent推理。"
+    },
+    {
+      "id": "2605.10510",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "生物医学知识图谱持续学习，非agent。"
+    },
+    {
+      "id": "2605.10515",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI与DLT综述，无直接agent贡献。"
+    },
+    {
+      "id": "2605.10516",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "统计评估agent可靠性，直接相关agent评估方法。"
+    },
+    {
+      "id": "2605.10518",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "掩码扩散模型蒸馏，非agent。"
+    },
+    {
+      "id": "2605.10521",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "医学图像分割公平性，非agent。"
+    },
+    {
+      "id": "2605.10529",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "持续图学习基准，涉及LLM-RAG agent但不突出，非代码优化或通用agent方法。"
+    },
+    {
+      "id": "2605.10531",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "面向老年人的反思性讲故事agent，垂直应用而无通用agent方法贡献。"
+    },
+    {
+      "id": "2605.10536",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "稀疏自编码器层次知识发现，非agent方法。"
+    },
+    {
+      "id": "2605.11047",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "自动化红队测试agent执行上下文安全，方法可迁移至coding agent安全评估。"
+    },
+    {
+      "id": "2605.10541",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "表观遗传年龄预测，与agent无关。"
+    },
+    {
+      "id": "2605.11048",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "机器人力感知模仿学习，非agent方法。"
+    },
+    {
+      "id": "2605.10555",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出面向agent的工具API范式，对coding agent工具接口设计有直接启发。"
+    },
+    {
+      "id": "2605.10563",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "威胁检测NLP基准，非agent。"
+    },
+    {
+      "id": "2605.10569",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "神经符号可解释分类，非agent方法。"
+    },
+    {
+      "id": "2605.16385",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "立体几何形式化推理，非agent。"
+    },
+    {
+      "id": "2605.10574",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "研究LLM锯齿状能力，通过组合模型提升创意，对agent集成有启发。"
+    },
+    {
+      "id": "2605.10575",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "安全微调防御评估协议，非agent方法。"
+    },
+    {
+      "id": "2605.10576",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "遥感低层视觉感知基准，非agent。"
+    },
+    {
+      "id": "2605.10582",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "LLM越狱防御，非agent方法。"
+    },
+    {
+      "id": "2605.18802",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "心血管稳定性指数，与agent无关。"
+    },
+    {
+      "id": "2605.10584",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "引力波对应体关联agent框架，展示领域agent设计与工具集成，可迁移至科学计算agent。"
+    },
+    {
+      "id": "2605.10592",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "下水道溢流监测，与agent无关。"
+    },
+    {
+      "id": "2605.10598",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "基于LLM的自动算法设计，代码图表示与修正搜索，直接相关代码优化agent。"
+    },
+    {
+      "id": "2605.10601",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "关于AI部署验证的讨论，非agent方法。"
+    },
+    {
+      "id": "2605.10604",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "算法公平性-性能权衡，非agent。"
+    },
+    {
+      "id": "2605.10606",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "研究文本风格嵌入敏感性，与agent或代码优化无关"
+    },
+    {
+      "id": "2605.10611",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM越狱检测，非agent方法"
+    },
+    {
+      "id": "2605.10614",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "多agent LLM流水线中的秘密泄漏检测与防御，直接涉及agent安全"
+    },
+    {
+      "id": "2605.10624",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "模型预测控制的可解释框架，与agent无关"
+    },
+    {
+      "id": "2605.10627",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "共指消解评估，与agent无关"
+    },
+    {
+      "id": "2605.10633",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM人格与安全对齐，非agent方法"
+    },
+    {
+      "id": "2605.10634",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "基于LLM的启发式程序进化优化，直接与自动代码优化相关"
+    },
+    {
+      "id": "2605.18803",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "世界模型训练，与agent方法无直接关联"
+    },
+    {
+      "id": "2605.10639",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM毒性基准偏差，与agent无关"
+    },
+    {
+      "id": "2605.10640",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "语言模型持续事实知识获取，与agent无关"
+    },
+    {
+      "id": "2605.10641",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "视觉语言模型知识蒸馏，与agent无关"
+    },
+    {
+      "id": "2605.10647",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "轨迹合成与隐私，与agent无关"
+    },
+    {
+      "id": "2605.10651",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "因果结构学习框架，与agent无关"
+    },
+    {
+      "id": "2605.10654",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "高斯过程主动学习，与agent无关"
+    },
+    {
+      "id": "2605.10659",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "数字人代理替代人类调查，无通用agent方法贡献"
+    },
+    {
+      "id": "2605.10661",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "视觉Transformer重复块，与agent无关"
+    },
+    {
+      "id": "2605.10663",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "端到端优化agent自进化能力，直接涉及经验提取与利用的强化学习"
+    },
+    {
+      "id": "2605.10664",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "激活引导改进，针对对话但KV缓存污染问题对agent设计有启发"
+    },
+    {
+      "id": "2605.11053",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "LLM agent工具调用攻击检测，提出图结构方法与特征分析，直接相关agent安全"
+    },
+    {
+      "id": "2605.10684",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "数据选择方法，与agent无关"
+    },
+    {
+      "id": "2605.10685",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "遗传编程符号回归，非LLM agent或代码优化"
+    },
+    {
+      "id": "2605.10698",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "多agent推理中的认知懈怠，直接研究多agent协作，可迁移至coding agent"
+    },
+    {
+      "id": "2605.18804",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "前向-前向学习算法，与agent无关"
+    },
+    {
+      "id": "2605.10714",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "低资源NLP跨语言迁移，与agent无关"
+    },
+    {
+      "id": "2605.10718",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "不确定性感知容错微代理，通用agent架构（因果推理、自由能原理）可迁移"
+    },
+    {
+      "id": "2605.10723",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "音乐视频资源分配，与agent无关"
+    },
+    {
+      "id": "2605.10732",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "支付动作识别，非agent"
+    },
+    {
+      "id": "2605.10739",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "遥感VQA数据集，与agent无关"
+    },
+    {
+      "id": "2605.10748",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "联邦学习模型逆向，与agent无关"
+    },
+    {
+      "id": "2605.10754",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "提出Agent Cybernetics理论框架，直接为agent设计提供第一性原理，包含代码生成"
+    },
+    {
+      "id": "2605.10762",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "自适应测试时计算，动态选择推理帧，可迁移至agent的规划与资源分配"
+    },
+    {
+      "id": "2605.10763",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "agent系统威胁建模框架，直接相关agent安全与可靠性"
+    },
+    {
+      "id": "2605.10764",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "VLM越狱攻击，涉及LLM安全，可迁移至agent安全防护"
+    },
+    {
+      "id": "2605.10765",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "动态提示生成用于持续微调，prompt学习方法可迁移至agent"
+    },
+    {
+      "id": "2605.10769",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "遥感分割，MLLM引导，与agent无关"
+    },
+    {
+      "id": "2605.10772",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "SAR目标识别，与agent无关"
+    },
+    {
+      "id": "2605.10780",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "视觉tokenizer融合，与agent无关"
+    },
+    {
+      "id": "2605.10782",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "轨迹理解基准，与agent无关"
+    },
+    {
+      "id": "2605.10791",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "知识图谱问答路径监督，涉及LLM推理与路径生成，可视为检索增强agent"
+    },
+    {
+      "id": "2605.10794",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "LLM写作信息泄漏，涉及agent安全与保密控制，可迁移"
+    },
+    {
+      "id": "2605.10796",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "足球表现分析，与LLM agent或代码优化无关。"
+    },
+    {
+      "id": "2605.10799",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "研究CoT污染实验中的格式混淆，对评估agent推理可信度有启发。"
+    },
+    {
+      "id": "2605.10804",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "校园心理健康领域专用工具，无通用agent方法贡献。"
+    },
+    {
+      "id": "2605.10805",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出推理/非推理judge的成本效益路由方法(RACER)，可迁移至agent模型选择。"
+    },
+    {
+      "id": "2605.10806",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "视频生成物理推理基准，非agent。"
+    },
+    {
+      "id": "2605.10808",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "威胁建模中LLM评估，非agent方法。"
+    },
+    {
+      "id": "2605.10811",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "强化学习Q值迭代的数学分析，与agent无关。"
+    },
+    {
+      "id": "2605.10813",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "多agent科研自动化框架，含技能、记忆、策略共进化，可迁移至coding agent。"
+    },
+    {
+      "id": "2605.10815",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态LLM内部机制，非agent。"
+    },
+    {
+      "id": "2605.10816",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "非马尔可夫RL策略梯度方法，可优化agent状态表征与策略。"
+    },
+    {
+      "id": "2605.10817",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "EEG基础模型，非agent。"
+    },
+    {
+      "id": "2605.10819",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "机器人VLA模型，非代码优化agent。"
+    },
+    {
+      "id": "2605.10820",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "物理环境中信息获取与规划agent基准，可迁移至科学发现agent设计。"
+    },
+    {
+      "id": "2605.10828",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "研究长上下文中的误导信息影响，对RAG和长程agent系统有启发。"
+    },
+    {
+      "id": "2605.10831",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "分子编辑中稀疏潜在引导，领域专用，通用性弱。"
+    },
+    {
+      "id": "2605.10833",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "工业异常检测视频理解，非agent。"
+    },
+    {
+      "id": "2605.10834",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "渗透测试agent评估协议，可迁移至coding agent的评估方法。"
+    },
+    {
+      "id": "2605.10840",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "EHR预训练框架，非agent。"
+    },
+    {
+      "id": "2605.10843",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "文化对齐推理时干预，非agent。"
+    },
+    {
+      "id": "2605.16387",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "手术阶段识别，非agent。"
+    },
+    {
+      "id": "2605.10848",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "搜索agent，涉及工具使用和检索，可迁移到coding agent的检索规划"
+    },
+    {
+      "id": "2605.10851",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "通用智能比较框架，对agent评测有潜在启发"
+    },
+    {
+      "id": "2605.10867",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "游戏行为数据集，与agent无关"
+    },
+    {
+      "id": "2605.10870",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "提出决策中心记忆框架DeMem，直接针对agent记忆，可迁移"
+    },
+    {
+      "id": "2605.10871",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "血压估计，与agent无关"
+    },
+    {
+      "id": "2605.10873",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "CAD程序生成benchmark，涉及代码生成agent，可迁移"
+    },
+    {
+      "id": "2605.10876",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "生物学虚拟细胞benchmark，无通用agent方法贡献"
+    },
+    {
+      "id": "2605.10886",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "低精度计算优化，与agent无关"
+    },
+    {
+      "id": "2605.10888",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "概率安全屏蔽框架，适用于agent安全控制"
+    },
+    {
+      "id": "2605.10889",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "蒸馏诊断框架，对agent训练有参考价值"
+    },
+    {
+      "id": "2605.10906",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "自主数据工程agent，含树搜索、记忆，通用agent方法"
+    },
+    {
+      "id": "2605.10907",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "论证agent工作流硬化与重用，直接启发agent架构"
+    },
+    {
+      "id": "2605.23955",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "金融AI确定性调查，涉及LLM agent工作流，可迁移"
+    },
+    {
+      "id": "2605.10916",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "字符识别，与agent无关"
+    },
+    {
+      "id": "2605.10934",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "变分推断，与agent无关"
+    },
+    {
+      "id": "2605.10938",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "扩散语言模型，与agent无关"
+    },
+    {
+      "id": "2605.11086",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "agent漏洞利用benchmark，直接评估agent长程任务与工具使用，高度可迁移"
+    },
+    {
+      "id": "2605.11091",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "ASD分类，与agent无关"
+    },
+    {
+      "id": "2605.11102",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "强化学习用于电力系统，非agent"
+    },
+    {
+      "id": "2605.11107",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "VLM表示学习，与agent无关"
+    },
+    {
+      "id": "2605.11109",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "地震数据去噪，与agent或代码优化无关。"
+    },
+    {
+      "id": "2605.16389",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "触觉渲染，与agent或代码优化无关。"
+    },
+    {
+      "id": "2605.13884",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "意识理论，与agent或代码优化无关。"
+    },
+    {
+      "id": "2605.11114",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "机器人操作，非LLM agent且无通用agent方法贡献。"
+    },
+    {
+      "id": "2605.11118",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "电商推荐，与agent或代码优化无关。"
+    },
+    {
+      "id": "2605.11130",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "时间序列预测，与agent或代码优化无关。"
+    },
+    {
+      "id": "2605.11134",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "偏好学习机制分析，不涉及agent方法。"
+    },
+    {
+      "id": "2605.11135",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出自适应控制图监控多agent系统，发现学习与安全性的权衡，对agent可靠性有启发。"
+    },
+    {
+      "id": "2605.11136",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "多agent协同进化框架，涵盖个体、团队、种群层面，可迁移至多agent协作与自我改进。"
+    },
+    {
+      "id": "2605.23956",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "量化复合AI系统扰动传播的框架，直接适用于LLM pipeline的鲁棒性分析与评测。"
+    },
+    {
+      "id": "2605.11143",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "临床QA，领域特定且无通用agent方法贡献。"
+    },
+    {
+      "id": "2605.23957",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "作业车间调度超启发式，非agent方法。"
+    },
+    {
+      "id": "2605.18805",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "LLM推荐agent的评测框架和行为指标，可迁移至coding agent的benchmark设计。"
+    },
+    {
+      "id": "2605.11151",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "离线到在线RL方法，非LLM agent。"
+    },
+    {
+      "id": "2605.11154",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM评估方法可复现性，与agent无关。"
+    },
+    {
+      "id": "2605.11157",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "投票理论，与agent无关。"
+    },
+    {
+      "id": "2605.11161",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "可解释性观点论文，不涉及agent方法。"
+    },
+    {
+      "id": "2605.11163",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "LLM用于智能合约静态分析，属于代码安全agent，对coding agent有参考价值。"
+    },
+    {
+      "id": "2605.11167",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "两LLM通过隐藏状态耦合协作执行工具和代码，新架构直接适用于coding agent。"
+    },
+    {
+      "id": "2605.11169",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "LLM ReAct agent在线动作适应框架，体现自我改进与推理时学习，直接相关agent方法。"
+    },
+    {
+      "id": "2605.11178",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "图神经网络表示退化，与LLM agent或代码优化无关。"
+    },
+    {
+      "id": "2605.11181",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "优化器研究，非agent或代码优化。"
+    },
+    {
+      "id": "2605.22841",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多agent地缘政治模拟，应用性强，通用方法贡献少。"
+    },
+    {
+      "id": "2605.11182",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "模型蒸馏训练方法，非agent相关。"
+    },
+    {
+      "id": "2605.11186",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM推理加速，非agent或代码优化。"
+    },
+    {
+      "id": "2605.11188",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "SQL注入生成，安全测试应用，非agent通用方法。"
+    },
+    {
+      "id": "2605.11192",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "音频tokenizer，无关。"
+    },
+    {
+      "id": "2605.11205",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "评估方法研究，非agent特定，与代码优化无直接关系。"
+    },
+    {
+      "id": "2606.11219",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "音频语言模型评估，无关。"
+    },
+    {
+      "id": "2605.11215",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM预训练容错系统，非agent。"
+    },
+    {
+      "id": "2605.11217",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "基于RAG的免训练对齐方法，可提升agent安全护栏，对agent安全控制有启发。"
+    },
+    {
+      "id": "2605.11218",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "VLM视觉锚定偏见，无关。"
+    },
+    {
+      "id": "2605.11223",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "VLM在解谜游戏中的推理，通用性一般，非代码优化。"
+    },
+    {
+      "id": "2605.11224",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "放射科agent benchmark，含通用工具调用与评分架构，可迁移至其他agent。"
+    },
+    {
+      "id": "2605.11225",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "提出PIVOT框架，通过轨迹优化对齐agent规划与执行，自监督且高效，直接适用于代码优化agent。"
+    },
+    {
+      "id": "2605.11231",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "合成数据选择方法，非agent。"
+    },
+    {
+      "id": "2605.11232",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM serving优化，非agent或代码优化。"
+    },
+    {
+      "id": "2605.11234",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "本体论驱动的工具架构，解决agent语义漂移，对agent工具使用有通用贡献。"
+    },
+    {
+      "id": "2605.11235",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "内部化课程判断的强化微调方法，在代码生成和agent函数调用上验证，可迁移至agent训练。"
+    },
+    {
+      "id": "2605.11242",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "教育评分任务，无关。"
+    },
+    {
+      "id": "2606.05194",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "关注LLM时间偏好机制，非agent或代码优化方法。"
+    },
+    {
+      "id": "2605.11258",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出类比推理增强LLM生成多样性，可迁移至agent规划与创新搜索。"
+    },
+    {
+      "id": "2605.11259",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "制造业数据基础设施，核心非通用agent方法。"
+    },
+    {
+      "id": "2605.11260",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "知识蒸馏课程学习，纯训练方法无agent。"
+    },
+    {
+      "id": "2605.11265",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "医学图像域适应，无关agent。"
+    },
+    {
+      "id": "2605.11269",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "LLM coding agent科学建模评测Benchmark，直接相关agent评测与长程任务。"
+    },
+    {
+      "id": "2605.11272",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "搜索排序偏差校正，无关agent。"
+    },
+    {
+      "id": "2605.11276",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "生成安全图像，无关agent。"
+    },
+    {
+      "id": "2605.20218",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "HIV网络干预优化，非agent。"
+    },
+    {
+      "id": "2605.11280",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "LLM agent构建可解释替代模型，涉及agent workflow与验证，可迁移至代码优化。"
+    },
+    {
+      "id": "2605.11284",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "模型外部验证统计框架，无关agent。"
+    },
+    {
+      "id": "2605.11287",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "时间序列注意力机制，非agent。"
+    },
+    {
+      "id": "2605.11290",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "能力蒸馏，无agent。"
+    },
+    {
+      "id": "2605.18807",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "编码器-解码器架构，非agent。"
+    },
+    {
+      "id": "2605.11301",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "多模态模型路由，可作为agent工具选择的通用方法。"
+    },
+    {
+      "id": "2605.11302",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "语言生成时间性理论，非agent方法。"
+    },
+    {
+      "id": "2605.11312",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "数据归因剪枝，非agent。"
+    },
+    {
+      "id": "2605.18808",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM文学特点分析，不相关。"
+    },
+    {
+      "id": "2605.11314",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "医学步态分析，无关。"
+    },
+    {
+      "id": "2605.11317",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多轮LLM服务优化，非agent方法。"
+    },
+    {
+      "id": "2605.23958",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "企业Copilot使用行为分析，无agent方法或代码优化贡献"
+    },
+    {
+      "id": "2605.11325",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出结构化记忆检索方法与精度基准，可迁移至coding agent的记忆组件"
+    },
+    {
+      "id": "2605.11328",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "利用不确定性实现探索的通用agent方法，对agent自我改进有启发"
+    },
+    {
+      "id": "2605.11330",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "构建RAG幻觉检测基准，涉及agent可靠性评估，有一定参考价值"
+    },
+    {
+      "id": "2605.11336",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "地理空间网络搜索分类，与agent或代码优化无关"
+    },
+    {
+      "id": "2605.11341",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出模块化agent编排框架用于心理筛查，设计模式可迁移至通用agent"
+    }
+  ]
+}

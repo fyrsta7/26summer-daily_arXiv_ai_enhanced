@@ -1,0 +1,209 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 59,
+  "input_total": 50,
+  "cs.SE_kept": 18,
+  "cs.AI_candidates": 32,
+  "cs.AI_kept": 19,
+  "output_total": 37,
+  "filter_usage": {
+    "prompt_tokens": 10307,
+    "completion_tokens": 2752,
+    "total_tokens": 13059
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2607.13037",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "数据溯源与遗忘集，无关Agent"
+    },
+    {
+      "id": "2607.13049",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "多Agent编排与调试框架，可迁移至coding agent"
+    },
+    {
+      "id": "2607.13069",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "Chain-of-Thought依赖审计，对Agent推理验证有潜在启发"
+    },
+    {
+      "id": "2607.13073",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "理论神经符号AGI，与实践脱节"
+    },
+    {
+      "id": "2607.13104",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "自我改进Agent综述，直接相关SemOpt方向"
+    },
+    {
+      "id": "2607.13115",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "Agentic工具使用框架，通用方法"
+    },
+    {
+      "id": "2607.13157",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "Agent长期记忆系统，对Agent架构有参考"
+    },
+    {
+      "id": "2607.13172",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "从人类偏好学习安全Agent，可迁移的安全训练方法"
+    },
+    {
+      "id": "2607.13219",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "解谜包，与Agent无关"
+    },
+    {
+      "id": "2607.13220",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "多用户多Agent协作框架，通用方法"
+    },
+    {
+      "id": "2607.13230",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "保险框架，无关Agent"
+    },
+    {
+      "id": "2607.13239",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "部署组合优化，与Agent无关"
+    },
+    {
+      "id": "2607.13292",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "自动形式化，非Agent"
+    },
+    {
+      "id": "2607.13344",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "约束求解器，无关Agent"
+    },
+    {
+      "id": "2607.13501",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "多轮搜索Agent的过程奖励，与自我改进、强化学习相关"
+    },
+    {
+      "id": "2607.13548",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "多Agent根因分析，可迁移至调试Agent"
+    },
+    {
+      "id": "2607.13558",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "多Agent协作推理框架，通用方法"
+    },
+    {
+      "id": "2607.13562",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI建议对人类判断影响，非Agent方法"
+    },
+    {
+      "id": "2607.13594",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "Agent安全守卫，三路路由，对安全控制有启发"
+    },
+    {
+      "id": "2607.13608",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "科学发现Agent，通用Agent框架可迁移"
+    },
+    {
+      "id": "2607.13618",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出STOCKTAKE基准，分离感知与行动差距，评估LLM agent的多步决策能力，属于通用agent评测方法，可迁移。"
+    },
+    {
+      "id": "2607.13621",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "专注于具身机器人搜索与跟随，与代码优化或通用agent方法无关。"
+    },
+    {
+      "id": "2607.13655",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "使用逻辑编程解释RL agent策略，提出可解释性度量，对agent决策解释有潜在启发。"
+    },
+    {
+      "id": "2607.13679",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "研究OSS项目中bot采用的社会影响，不涉及agent方法或代码优化。"
+    },
+    {
+      "id": "2607.13716",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出agent行为规范化和验证框架CAVA，涉及agent治理与安全控制，属于通用方法。"
+    },
+    {
+      "id": "2607.13884",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出EMG框架，通过图匹配实现LLM agent的单次错误修正，直接涉及agent记忆与自我改进。"
+    },
+    {
+      "id": "2607.13899",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "聚焦数学推理模型的可解释性挑战，不涉及agent或代码优化。"
+    },
+    {
+      "id": "2607.13940",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "HealthClaw提出自演化agent架构，分离安全规则与记忆，具有通用agent设计贡献。"
+    },
+    {
+      "id": "2607.14004",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "评估agent优化方法的持续学习性能，直接比较多种优化策略，对SemOpt研究高度相关。"
+    },
+    {
+      "id": "2607.14044",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "面向专业技能提升的教育框架，无通用agent方法贡献。"
+    },
+    {
+      "id": "2607.14046",
+      "relevant": false,
+      "score": 0,
+      "reason_zh": "面向小学地震教育的RAG框架，无通用agent方法。"
+    },
+    {
+      "id": "2607.14049",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出Deep Interaction方法，通过直接编辑CoT纠正推理错误，对agent交互调试有启发。"
+    }
+  ]
+}
