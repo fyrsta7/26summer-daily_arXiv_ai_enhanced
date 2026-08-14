@@ -24,6 +24,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--identity", choices=("user", "bot"), default="user")
     parser.add_argument("--workers", type=int, default=2)
     parser.add_argument("--retries", type=int, default=6)
+    parser.add_argument("--start-date")
+    parser.add_argument("--end-date")
     return parser.parse_args()
 
 
@@ -86,6 +88,8 @@ def main() -> None:
         path.stem: path
         for path in sorted(args.data_dir.glob("????-??-??.md"))
         if re.fullmatch(r"\d{4}-\d{2}-\d{2}", path.stem)
+        and (not args.start_date or path.stem >= args.start_date)
+        and (not args.end_date or path.stem <= args.end_date)
     }
     documents = find_documents(args.folder_token, args.identity)
     missing = sorted(set(markdown_files) - set(documents))
