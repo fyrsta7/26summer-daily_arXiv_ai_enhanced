@@ -72,6 +72,24 @@ def overwrite_document(
             data = envelope.get("data") or {}
             if data.get("result") != "success":
                 raise RuntimeError(f"unexpected update result: {data!r}")
+            title_envelope = run_lark(
+                [
+                    "drive",
+                    "+update-title",
+                    "--as",
+                    identity,
+                    "--token",
+                    token,
+                    "--type",
+                    "docx",
+                    "--title",
+                    str(document["name"]),
+                    "--format",
+                    "json",
+                ]
+            )
+            if not ((title_envelope.get("data") or {}).get("updated")):
+                raise RuntimeError(f"document title was not preserved: {token}")
             return
         except RuntimeError:
             if attempt + 1 == retries:
