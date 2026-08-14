@@ -28,5 +28,13 @@ class DailyArxivPipeline:
         item["title"] = paper.title
         item["categories"] = paper.categories
         item["comment"] = paper.comment
+        item["journal_ref"] = paper.journal_ref
+        item["doi"] = paper.doi
+        raw_authors = paper._raw.get("authors", [])
+        item["author_affiliations"] = [
+            {"author": author.name, "affiliation": raw_author.get("arxiv_affiliation")}
+            for author, raw_author in zip(paper.authors, raw_authors)
+            if raw_author.get("arxiv_affiliation")
+        ]
         item["summary"] = paper.summary
         return item

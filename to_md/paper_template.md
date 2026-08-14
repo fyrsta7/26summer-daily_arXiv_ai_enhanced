@@ -3,6 +3,8 @@
 
 Main category: {cate}
 
+{publication_metadata}
+
 Selection reason: {selection_reason}
 
 TL;DR: {tldr}
