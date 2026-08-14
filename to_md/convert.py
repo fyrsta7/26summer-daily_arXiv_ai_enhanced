@@ -3,6 +3,36 @@ import argparse
 import os
 from itertools import count
 
+
+def build_publication_metadata(item):
+    lines = []
+    comment = str(item.get("comment") or "").strip()
+    if comment:
+        lines.append(f"Comments: {comment}")
+
+    journal_ref = str(item.get("journal_ref") or "").strip()
+    if journal_ref:
+        lines.append(f"Journal reference: {journal_ref}")
+
+    doi = str(item.get("doi") or "").strip()
+    if doi:
+        doi_url = doi if doi.startswith(("http://", "https://")) else f"https://doi.org/{doi}"
+        lines.append(f"DOI: [{doi}]({doi_url})")
+
+    author_affiliations = item.get("author_affiliations") or []
+    affiliation_text = []
+    for entry in author_affiliations:
+        if not isinstance(entry, dict):
+            continue
+        author = str(entry.get("author") or "").strip()
+        affiliation = str(entry.get("affiliation") or "").strip()
+        if affiliation:
+            affiliation_text.append(f"{author}: {affiliation}" if author else affiliation)
+    if affiliation_text:
+        lines.append("Author affiliations: " + "; ".join(affiliation_text))
+
+    return "\n\n".join(lines)
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--data", type=str, help="Path to the jsonline file")
@@ -65,6 +95,7 @@ if __name__ == "__main__":
                         method=ai_data.get('method', ''),
                         result=ai_data.get('result', ''),
                         conclusion=ai_data.get('conclusion', ''),
+                        publication_metadata=build_publication_metadata(item),
                         cate=item['categories'][0],
                         idx=next(idx)
                     )
