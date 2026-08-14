@@ -9,6 +9,7 @@ from unittest.mock import patch
 from scripts.publish_feishu_doc import (
     _parse_json_envelope,
     build_content,
+    ensure_month_folder,
     normalize_digest_markdown,
     publish,
     run_lark,
@@ -42,19 +43,30 @@ class PublishFeishuDocTests(unittest.TestCase):
 
     @patch("scripts.publish_feishu_doc.run_lark")
     def test_existing_document_is_not_created_again(self, mocked_run):
-        mocked_run.return_value = {
-            "ok": True,
-            "data": {
-                "files": [
-                    {
-                        "type": "docx",
-                        "name": "Daily arXiv 2026-08-14",
-                        "url": "https://example.feishu.cn/docx/existing",
-                    }
-                ],
-                "has_more": False,
+        mocked_run.side_effect = [
+            {
+                "ok": True,
+                "data": {
+                    "files": [
+                        {"type": "folder", "name": "2026-08", "token": "month-token"}
+                    ],
+                    "has_more": False,
+                },
             },
-        }
+            {
+                "ok": True,
+                "data": {
+                    "files": [
+                        {
+                            "type": "docx",
+                            "name": "Daily arXiv 2026-08-14",
+                            "url": "https://example.feishu.cn/docx/existing",
+                        }
+                    ],
+                    "has_more": False,
+                },
+            },
+        ]
         args = argparse.Namespace(
             date="2026-08-14",
             folder_token="folder-token",
@@ -64,7 +76,23 @@ class PublishFeishuDocTests(unittest.TestCase):
             identity="user",
         )
         self.assertEqual(publish(args), "https://example.feishu.cn/docx/existing")
-        self.assertEqual(mocked_run.call_count, 1)
+        self.assertEqual(mocked_run.call_count, 2)
+
+    @patch("scripts.publish_feishu_doc.run_lark")
+    def test_missing_month_folder_is_created(self, mocked_run):
+        mocked_run.side_effect = [
+            {"ok": True, "data": {"files": [], "has_more": False}},
+            {
+                "ok": True,
+                "data": {
+                    "folder_token": "new-month-token",
+                    "url": "https://example.feishu.cn/drive/folder/new-month-token",
+                },
+            },
+        ]
+        folder = ensure_month_folder("root-token", "2026-09-01", "user")
+        self.assertEqual(folder["token"], "new-month-token")
+        self.assertEqual(folder["name"], "2026-09")
 
     @patch("scripts.publish_feishu_doc.subprocess.run")
     def test_run_lark_reports_structured_error(self, mocked_run):

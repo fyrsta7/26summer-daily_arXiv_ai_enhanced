@@ -82,9 +82,8 @@ def run_lark(arguments: list[str], *, input_text: str | None = None) -> dict[str
     return envelope
 
 
-def find_existing_document(
-    folder_token: str, title: str, identity: str
-) -> dict[str, Any] | None:
+def list_folder_items(folder_token: str, identity: str) -> list[dict[str, Any]]:
+    items: list[dict[str, Any]] = []
     page_token = ""
     while True:
         arguments = [
@@ -103,14 +102,57 @@ def find_existing_document(
         if page_token:
             arguments.extend(["--page-token", page_token])
         data = run_lark(arguments).get("data") or {}
-        for item in data.get("files") or []:
-            if item.get("type") == "docx" and item.get("name") == title:
-                return item
+        items.extend(data.get("files") or [])
         if not data.get("has_more"):
-            return None
+            return items
         page_token = str(data.get("next_page_token") or "")
         if not page_token:
             raise RuntimeError("Feishu Drive pagination returned has_more without next_page_token")
+
+
+def ensure_month_folder(parent_token: str, date: str, identity: str) -> dict[str, Any]:
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date):
+        raise ValueError(f"Invalid date: {date}")
+    month = date[:7]
+    matches = [
+        item
+        for item in list_folder_items(parent_token, identity)
+        if item.get("type") == "folder" and item.get("name") == month
+    ]
+    if len(matches) > 1:
+        raise RuntimeError(f"Multiple Feishu month folders have the title {month}")
+    if matches:
+        return matches[0]
+
+    envelope = run_lark(
+        [
+            "drive",
+            "+create-folder",
+            "--as",
+            identity,
+            "--folder-token",
+            parent_token,
+            "--name",
+            month,
+            "--format",
+            "json",
+        ]
+    )
+    data = envelope.get("data") or {}
+    folder = data.get("folder") or data
+    token = str(folder.get("folder_token") or folder.get("token") or "")
+    if not token:
+        raise RuntimeError("Feishu month folder creation succeeded without a folder token")
+    return {"type": "folder", "name": month, "token": token, "url": folder.get("url", "")}
+
+
+def find_existing_document(
+    folder_token: str, title: str, identity: str
+) -> dict[str, Any] | None:
+    for item in list_folder_items(folder_token, identity):
+        if item.get("type") == "docx" and item.get("name") == title:
+            return item
+    return None
 
 
 def normalize_digest_markdown(markdown: str) -> str:
@@ -149,7 +191,9 @@ def build_content(args: argparse.Namespace) -> str:
 def publish(args: argparse.Namespace, markdown_text: str | None = None) -> str:
     title = f"{TITLE_PREFIX} {args.date}"
     with publication_lock(args.folder_token, title):
-        existing = find_existing_document(args.folder_token, title, args.identity)
+        month_folder = ensure_month_folder(args.folder_token, args.date, args.identity)
+        month_folder_token = str(month_folder.get("token") or "")
+        existing = find_existing_document(month_folder_token, title, args.identity)
         if existing:
             url = existing.get("url") or ""
             print(
@@ -169,7 +213,7 @@ def publish(args: argparse.Namespace, markdown_text: str | None = None) -> str:
                 "--as",
                 args.identity,
                 "--parent-token",
-                args.folder_token,
+                month_folder_token,
                 "--title",
                 title,
                 "--doc-format",

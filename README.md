@@ -22,7 +22,7 @@ This innovative tool transforms how you stay updated with arXiv papers by combin
 
 📨 **Dual Daily Delivery**
 - Sends the complete daily digest by email
-- Creates one date-named Feishu cloud document in the configured Drive folder
+- Creates one date-named Feishu cloud document under its `YYYY-MM` Drive subfolder
 - Uses an exact-title check to avoid duplicate Feishu documents on retries
 
 💫 **Smart Reading Experience**
@@ -78,7 +78,7 @@ Otherwise, you can watch the video above first and directly use this repo in htt
 
 ### Feishu cloud document delivery
 
-The server-side scheduler uses the official `lark-cli` with the authorized user identity. After the GitHub Actions email workflow succeeds, it reads the same Markdown digest from the `data` branch and creates `Daily arXiv YYYY-MM-DD` in the configured Feishu Drive folder.
+The server-side scheduler uses the official `lark-cli` with the authorized user identity. After the GitHub Actions email workflow succeeds, it reads the same Markdown digest from the `data` branch, reuses or creates the matching `YYYY-MM` subfolder, and creates `Daily arXiv YYYY-MM-DD` inside it.
 
 Before creation, it lists the target folder, performs an exact-title check, and uses a local per-date lock. Re-running the scheduler therefore does not create another document, even while Feishu search indexing is delayed. A no-new-paper day is also recorded as a short status document.
 
