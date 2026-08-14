@@ -41,7 +41,7 @@ def main():
         message.set_content(
             f"今日的 Daily arXiv 任务已正常运行。\n"
             f"在去重后没有发现新的 {categories} 论文，因此今天没有论文附件。\n\n"
-            f"在线阅读：https://fyrsta7.github.io/daily-arXiv-ai-enhanced/\n"
+            f"在线阅读：https://fyrsta7.github.io/26summer-daily_arXiv_ai_enhanced/\n"
         )
 
         with smtplib.SMTP_SSL("smtp.163.com", 465, timeout=60) as smtp:
@@ -79,7 +79,7 @@ def main():
     message["Subject"] = f"[Daily arXiv] {args.date} {categories} 新论文（{paper_count}篇）"
     message.set_content(
         f"今日共收录 {paper_count} 篇 {categories} 论文。\n"
-        f"在线阅读：https://fyrsta7.github.io/daily-arXiv-ai-enhanced/\n\n"
+        f"在线阅读：https://fyrsta7.github.io/26summer-daily_arXiv_ai_enhanced/\n\n"
         f"{markdown}"
     )
 

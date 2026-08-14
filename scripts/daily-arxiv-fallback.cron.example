@@ -2,4 +2,4 @@
 SHELL=/bin/bash
 PATH=/usr/local/bin:/usr/bin:/bin
 CRON_TZ=Asia/Shanghai
-30 9 * * * /usr/bin/flock -n /tmp/daily-arxiv-dispatch.cron.lock /data2/zyw/daily-arXiv-ai-enhanced/scripts/dispatch_daily_fallback.sh >> /data2/zyw/daily-arXiv-ai-enhanced/.daily-dispatch.log 2>&1
+30 9 * * * /usr/bin/flock -n /tmp/daily-arxiv-dispatch.cron.lock /data2/zyw/other/26summer-daily_arXiv_ai_enhanced/scripts/dispatch_daily_fallback.sh >> /data2/zyw/other/26summer-daily_arXiv_ai_enhanced/.daily-dispatch.log 2>&1

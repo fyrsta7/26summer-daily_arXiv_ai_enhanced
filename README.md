@@ -20,6 +20,11 @@ This innovative tool transforms how you stay updated with arXiv papers by combin
 - Daily paper crawling with DeepSeek-powered summaries
 - Cost-effective: Only ~0.2 CNY per day
 
+📨 **Dual Daily Delivery**
+- Sends the complete daily digest by email
+- Creates one date-named Feishu cloud document in the configured Drive folder
+- Uses an exact-title check to avoid duplicate Feishu documents on retries
+
 💫 **Smart Reading Experience**
 - Personalized paper highlighting based on your interests
 - Cross-device compatibility (desktop & mobile)
@@ -37,7 +42,7 @@ This innovative tool transforms how you stay updated with arXiv papers by combin
 
 ## Personal research collections
 
-- [自动代码优化强相关论文精选](https://github.com/fyrsta7/daily-arXiv-ai-enhanced/blob/data/data/research/auto-code-optimization/README.md) — 以 SemOpt 为锚点，从已收录论文中进行严格的二次筛选。
+- [自动代码优化强相关论文精选](https://github.com/fyrsta7/26summer-daily_arXiv_ai_enhanced/blob/data/data/research/auto-code-optimization/README.md) — 以 SemOpt 为锚点，从已收录论文中进行严格的二次筛选。
 
 
 
@@ -70,6 +75,14 @@ Otherwise, you can watch the video above first and directly use this repo in htt
 8. Go to your-own-repo -> Actions -> arXiv-daily-ai-enhanced
 9. You can manually click **Run workflow** to test if it works well (it may take about one hour). By default, this action will automatically run every day. You can modify it in `.github/workflows/run.yml`
 10. Set up GitHub pages: Go to your own repo -> Settings -> Pages. In `Build and deployment`, set `Source="Deploy from a branch"`, `Branch="main", "/(root)"`. Wait for a few minutes, go to https://\<username\>.github.io/daily-arXiv-ai-enhanced/. Please see this [issue](https://github.com/dw-dengwei/daily-arXiv-ai-enhanced/issues/14) for more precise instructions.
+
+### Feishu cloud document delivery
+
+The server-side scheduler uses the official `lark-cli` with the authorized user identity. After the GitHub Actions email workflow succeeds, it reads the same Markdown digest from the `data` branch and creates `Daily arXiv YYYY-MM-DD` in the configured Feishu Drive folder.
+
+Before creation, it lists the target folder, performs an exact-title check, and uses a local per-date lock. Re-running the scheduler therefore does not create another document, even while Feishu search indexing is delayed. A no-new-paper day is also recorded as a short status document.
+
+Existing date-named Markdown digests on the `data` branch can be imported with `scripts/backfill_feishu_docs.py`. Each date becomes a separate Feishu document, and exact-title checks make interrupted backfills safe to resume.
 </details>
 
 # Contributors
