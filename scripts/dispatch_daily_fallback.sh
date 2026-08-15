@@ -12,6 +12,8 @@ readonly JQ="/usr/bin/jq"
 readonly REPO_DIR="/data2/zyw/other/26summer-daily_arXiv_ai_enhanced"
 readonly FEISHU_FOLDER_TOKEN="WIUBfb9OClJC7qd9aHmc5Eannsd"
 readonly FEISHU_PUBLISHER="$REPO_DIR/scripts/publish_feishu_doc.py"
+readonly FEISHU_READING_TRACKER="IIt3dA5uHo2bsExRYcccAKRYnBg"
+readonly FEISHU_READING_TRACKER_UPDATER="$REPO_DIR/scripts/update_feishu_reading_tracker.py"
 
 timestamp() {
   date '+%Y-%m-%d %H:%M:%S %Z'
@@ -39,6 +41,7 @@ publish_feishu_document() {
   echo "[$(timestamp)] Publishing ${local_date} digest through lark-cli"
   fetch_main_with_retry
   if git -C "$REPO_DIR" cat-file -e "origin/main:data/${local_date}.md" 2>/dev/null; then
+    set +o pipefail
     git -C "$REPO_DIR" show "origin/main:data/${local_date}.md" \
       | python3 "$FEISHU_PUBLISHER" \
           --identity user \
@@ -46,14 +49,25 @@ publish_feishu_document() {
           --folder-token "$FEISHU_FOLDER_TOKEN" \
           --categories "cs.AI,cs.SE" \
           --markdown -
+    local pipeline_status=("${PIPESTATUS[@]}")
+    set -o pipefail
+    if [[ "${pipeline_status[1]}" -ne 0 ]] || \
+       { [[ "${pipeline_status[0]}" -ne 0 ]] && [[ "${pipeline_status[0]}" -ne 141 ]]; }; then
+      echo "[$(timestamp)] Failed to publish the Feishu document"
+      return 1
+    fi
   else
     python3 "$FEISHU_PUBLISHER" \
       --identity user \
       --date "$local_date" \
       --folder-token "$FEISHU_FOLDER_TOKEN" \
-      --categories "cs.AI,cs.SE" \
-      --no-new-content
+          --categories "cs.AI,cs.SE" \
+          --no-new-content
   fi
+  python3 "$FEISHU_READING_TRACKER_UPDATER" \
+      --identity user \
+      --doc "$FEISHU_READING_TRACKER" \
+      --date "$local_date"
 }
 
 wait_for_run_and_publish() {
