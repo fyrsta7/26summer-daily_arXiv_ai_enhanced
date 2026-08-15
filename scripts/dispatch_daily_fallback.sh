@@ -19,9 +19,25 @@ timestamp() {
 
 echo "[$(timestamp)] Checking whether today's Daily arXiv workflow already ran"
 
+fetch_main_with_retry() {
+  local attempt
+  for attempt in 1 2 3 4; do
+    if git -C "$REPO_DIR" fetch origin main --quiet; then
+      return 0
+    fi
+    if [[ "$attempt" -lt 4 ]]; then
+      local delay_seconds=$((attempt * 5))
+      echo "[$(timestamp)] Fetch failed; retrying in ${delay_seconds}s (attempt ${attempt}/4)"
+      sleep "$delay_seconds"
+    fi
+  done
+  echo "[$(timestamp)] Unable to fetch origin/main after 4 attempts"
+  return 1
+}
+
 publish_feishu_document() {
   echo "[$(timestamp)] Publishing ${local_date} digest through lark-cli"
-  git -C "$REPO_DIR" fetch origin main --quiet
+  fetch_main_with_retry
   if git -C "$REPO_DIR" cat-file -e "origin/main:data/${local_date}.md" 2>/dev/null; then
     git -C "$REPO_DIR" show "origin/main:data/${local_date}.md" \
       | python3 "$FEISHU_PUBLISHER" \
