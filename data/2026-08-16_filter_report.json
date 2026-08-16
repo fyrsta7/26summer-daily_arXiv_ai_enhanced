@@ -1,0 +1,281 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 45,
+  "input_total": 45,
+  "cs.SE_kept": 1,
+  "cs.AI_candidates": 44,
+  "cs.AI_kept": 6,
+  "output_total": 7,
+  "filter_usage": {
+    "prompt_tokens": 14521,
+    "completion_tokens": 11565,
+    "total_tokens": 26086
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2608.12346",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "对齐方法双用途讨论，不涉及 agent 或代码优化。"
+    },
+    {
+      "id": "2608.12368",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "人类与 LLM 道德判断一致性分析，与 agent 方法无关。"
+    },
+    {
+      "id": "2608.12372",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "主张对齐需模拟人类推理的观点文章，无具体 agent 方法。"
+    },
+    {
+      "id": "2608.12395",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "医药领域 agent 系统描述，属垂直应用且无通用方法贡献。"
+    },
+    {
+      "id": "2608.12574",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "针对大有限集合的约束解码加速，保证输出有效性并大幅提升吞吐，对 coding agent 的结构化输出与校验有直接启发。"
+    },
+    {
+      "id": "2608.12590",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "甲状腺超声诊断的医疗 agent，垂直领域且无通用方法。"
+    },
+    {
+      "id": "2608.12657",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "因果推断理论，与 agent 无关。"
+    },
+    {
+      "id": "2608.12670",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "ITSM 数据分析管道，非 agent 方法。"
+    },
+    {
+      "id": "2608.12671",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "Transformer 表达能力的理论综述，非 agent。"
+    },
+    {
+      "id": "2608.12674",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "多专用 agent 构建零售价格分层，任务分解与协作模式可迁移到代码优化 agent。"
+    },
+    {
+      "id": "2608.12675",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "RAG 隐私保护（实体别名）非 agent 通用方法。"
+    },
+    {
+      "id": "2608.12677",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "医学视频诊断的视觉语言模型，与 agent 无关。"
+    },
+    {
+      "id": "2608.12679",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "用进化策略提升 LLM 方案覆盖率，优于 RL，可直接用于代码生成 agent 的多样化解探索。"
+    },
+    {
+      "id": "2608.12842",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "模型合并优化，不涉及 agent。"
+    },
+    {
+      "id": "2608.12863",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "印度消费者权益与 AI 责任法律分析，非 agent 技术。"
+    },
+    {
+      "id": "2608.12892",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "模型内部记忆定位与干预路径预测，偏可解释性，非 agent 方法。"
+    },
+    {
+      "id": "2608.12928",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "波兰语医学 VQA 基准与评测，与 agent 无关。"
+    },
+    {
+      "id": "2608.12932",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "自动驾驶 VLA 推理加速，虽用 KV 缓存/投机解码但对 coding agent 无直接通用贡献。"
+    },
+    {
+      "id": "2608.12935",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "扰动响应归因分解的可解释方法，非 agent。"
+    },
+    {
+      "id": "2608.12961",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "本体上的神经符号概念学习，与 agent 无关。"
+    },
+    {
+      "id": "2608.12995",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "面向无人船追捕的 MARL 方法，领域耦合强，且非 LLM/编码 agent，缺少可迁移的通用 agent 机制。"
+    },
+    {
+      "id": "2608.13018",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "概率逻辑编程的形式化基础，与 LLM agent 无关。"
+    },
+    {
+      "id": "2608.13043",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "扩散模型推理缓存策略优化，属于视觉生成加速而非代码/LLM agent 优化。"
+    },
+    {
+      "id": "2608.13048",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM 可解释性输入归因方法，不涉及 agent 架构或流程。"
+    },
+    {
+      "id": "2608.13061",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "持续学习的外样例回放方法，非 agent 研究。"
+    },
+    {
+      "id": "2608.13069",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM 行为微调与 DPO 的实验分析，关注人格/对齐而非 agent 方法。"
+    },
+    {
+      "id": "2608.13072",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "EEG 解码基础模型，垂直脑机领域且无通用 agent 贡献。"
+    },
+    {
+      "id": "2608.13076",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "边缘-云端推测解码推理优化，属于 LLM serving 而非 agent。"
+    },
+    {
+      "id": "2608.13100",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "在线考试防作弊的数学伪装框架，与 agent 无关。"
+    },
+    {
+      "id": "2608.13108",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "Dempster-Shafer 证据融合方法，无 agent 成分。"
+    },
+    {
+      "id": "2608.13129",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM 数值能力综述，非 agent 方法；仅对模型底层能力诊断，编码 agent 借鉴有限。"
+    },
+    {
+      "id": "2608.13156",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "归一化位置与课程深度训练的模型训练研究，无 agent。"
+    },
+    {
+      "id": "2608.13263",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "KV cache 虚拟化内存管理，是推理系统优化，与 agent 行为无关。"
+    },
+    {
+      "id": "2608.13272",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI 出口管制与网络安全的政策分析，非技术 agent 方法。"
+    },
+    {
+      "id": "2608.13283",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "帕金森步态检测的垂直医疗应用，无通用 agent 贡献。"
+    },
+    {
+      "id": "2608.13293",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "硬件感知 NAS 与量化探索，面向边缘部署，非 agent。"
+    },
+    {
+      "id": "2608.13344",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "长程时序推理 benchmark 与 GRPO 奖励训练机制，对 coding agent 的长程任务评测与 reward 设计有迁移价值。"
+    },
+    {
+      "id": "2608.13345",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "建模性格塑造与规则过滤的安全资源分配，可迁移到 coding agent 的可靠性/安全控制设计。"
+    },
+    {
+      "id": "2608.13409",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "基于 Transformer 的成绩预测，教育应用，无通用 agent 方法。"
+    },
+    {
+      "id": "2608.13410",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "查询相关权威加权的多视角 RAG 生成与引用评估，对 coding agent 的检索与来源可信度有借鉴。"
+    },
+    {
+      "id": "2608.13420",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "虚拟代理的SLM边缘评估，属于垂直应用且无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.13447",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "学生学术联盟组织框架，与LLM/coding agent完全无关。"
+    },
+    {
+      "id": "2608.13456",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "因果世界模型的理论综述，非LLM agent方法，与代码优化无迁移。"
+    },
+    {
+      "id": "2608.13492",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "长时程视频生成的世界模型技术报告，不涉及agent或软件工程。"
+    }
+  ]
+}
