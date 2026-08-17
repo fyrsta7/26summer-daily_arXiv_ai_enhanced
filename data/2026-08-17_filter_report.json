@@ -1,0 +1,263 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 47,
+  "input_total": 47,
+  "cs.SE_kept": 6,
+  "cs.AI_candidates": 41,
+  "cs.AI_kept": 4,
+  "output_total": 10,
+  "filter_usage": {
+    "prompt_tokens": 14077,
+    "completion_tokens": 7700,
+    "total_tokens": 21777
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2608.12346",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "讨论AI对齐方法的双用途风险，属于伦理立场文章，与代码优化或agent方法无关。"
+    },
+    {
+      "id": "2608.12368",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "研究LLM道德判断与人类标注的一致性，属于伦理评估，与agent设计和代码优化无关。"
+    },
+    {
+      "id": "2608.12372",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "主张AI推理需要认知对齐，是立场性讨论，无可迁移的agent方法。"
+    },
+    {
+      "id": "2608.12373",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "发现提示语言影响LLM安全行为，但对coding agent设计无直接可迁移贡献。"
+    },
+    {
+      "id": "2608.12385",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "提出双流Transformer分离预填充与解码计算，是模型架构/推理优化，非agent方法。"
+    },
+    {
+      "id": "2608.12555",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "提出因果归因分数用于可解释性，属于XAI方法，与agent或代码优化无关。"
+    },
+    {
+      "id": "2608.12590",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "甲状腺超声诊断的医疗agent系统，垂直应用且无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.12599",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "针对对话中约束撤销失效提出可执行检查器、探测与修复机制，可迁移到coding agent的约束跟踪与验证。"
+    },
+    {
+      "id": "2608.12657",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多值因果概率的界收紧研究，纯因果推断，与agent无关。"
+    },
+    {
+      "id": "2608.12670",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "ITSM数据分析的LLM流水线，垂直业务场景，无通用agent方法。"
+    },
+    {
+      "id": "2608.12671",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "Transformer表达能力的理论综述，与agent或代码优化无关。"
+    },
+    {
+      "id": "2608.12675",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "RAG隐私保护通过实体别名隐藏敏感信息，属于隐私方法，非agent方法论。"
+    },
+    {
+      "id": "2608.12677",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "基于视觉-语言模型的蚊虫感染分类，生物医学应用，agent无关。"
+    },
+    {
+      "id": "2608.12842",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "模型合并方法CABS+，属于多任务模型融合，与agent自动代码优化无关。"
+    },
+    {
+      "id": "2608.12863",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "印度消费者权益法律分析，政策法规，非技术论文。"
+    },
+    {
+      "id": "2608.12892",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "激活干预路径预测的机制可解释性研究，与agent规划/记忆/工具使用无关。"
+    },
+    {
+      "id": "2608.12928",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "波兰语医疗VQA基准与评测，垂直医学应用，无通用agent贡献。"
+    },
+    {
+      "id": "2608.12932",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "自动驾驶VLA推理系统优化降低延迟，属于推理加速而非agent或代码优化。"
+    },
+    {
+      "id": "2608.12935",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "扰动响应分解的可解释性方法，与agent无关。"
+    },
+    {
+      "id": "2608.12961",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "本体上的神经符号概念学习，形式化方法，与agent自动代码优化无关。"
+    },
+    {
+      "id": "2608.12995",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多智能体强化学习用于无人船追捕，与LLM/coding agent无关。"
+    },
+    {
+      "id": "2608.13018",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "概率逻辑编程的数学基础，不涉及agent方法。"
+    },
+    {
+      "id": "2608.13043",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "扩散模型推理缓存优化，非agent或程序优化。"
+    },
+    {
+      "id": "2608.13048",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM可解释性分析，非agent方法。"
+    },
+    {
+      "id": "2608.13061",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "类增量学习中的样本回放，与agent无关。"
+    },
+    {
+      "id": "2608.13069",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM对齐与PEFT行为塑形，无agent循环或软件工程应用。"
+    },
+    {
+      "id": "2608.13072",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "EEG解码基础模型，与agent无关。"
+    },
+    {
+      "id": "2608.13076",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "推测解码推理加速，非agent方法。"
+    },
+    {
+      "id": "2608.13100",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "在线评估防作弊的语义伪装，与agent无关。"
+    },
+    {
+      "id": "2608.13108",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "Dempster-Shafer证据融合，不涉及agent。"
+    },
+    {
+      "id": "2608.13129",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "分析LLM数值能力缺陷并建议外部工具改进，对依赖数值推理的代码优化agent有间接参考。"
+    },
+    {
+      "id": "2608.13156",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "Transformer归一化位置与课程深度增长，训练架构研究，非agent。"
+    },
+    {
+      "id": "2608.13263",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "KV缓存虚拟化优化LLM服务，非agent方法。"
+    },
+    {
+      "id": "2608.13272",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI出口管制与网络安全的政策分析，与agent无关。"
+    },
+    {
+      "id": "2608.13283",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "帕金森冻结步态检测的临床运动理解，垂直医疗应用且无通用agent贡献。"
+    },
+    {
+      "id": "2608.13293",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "硬件感知NAS与量化Pareto探索，非agent相关。"
+    },
+    {
+      "id": "2608.13409",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "学生课程与成绩预测的Transformer模型，教育应用且无通用agent方法。"
+    },
+    {
+      "id": "2608.13420",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "探索SLM驱动边缘agent的Think与Memory认知组件，对agent记忆与推理架构设计有可迁移启发。"
+    },
+    {
+      "id": "2608.13447",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "大学AI学术联盟组织框架，与agent研究无关。"
+    },
+    {
+      "id": "2608.13456",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "从因果视角形式化世界模型，可为agent规划与状态表示提供理论参考。"
+    },
+    {
+      "id": "2608.13492",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "论文主要讨论视频生成世界模型的编码与条件注入技术，既非代码优化agent，也未提出通用agent规划/训练机制，与用户研究主题无关。"
+    }
+  ]
+}
