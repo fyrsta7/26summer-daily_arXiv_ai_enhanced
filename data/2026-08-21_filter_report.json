@@ -1,0 +1,317 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 59,
+  "input_total": 57,
+  "cs.SE_kept": 7,
+  "cs.AI_candidates": 50,
+  "cs.AI_kept": 28,
+  "output_total": 35,
+  "filter_usage": {
+    "prompt_tokens": 17189,
+    "completion_tokens": 8116,
+    "total_tokens": 25305
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2608.18078",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "论证推理agent在市场决策中可能隐式共谋并提出行为认证要求，涉及CoT行为评估与安全控制，对agent治理有可迁移启发。"
+    },
+    {
+      "id": "2608.18079",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出Transition Complexity Profile刻画环境转换复杂度，可作为agent评测的通用元数据，对长程任务环境分析有参考价值。"
+    },
+    {
+      "id": "2608.18080",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "心理健康领域LLM应用综述，垂直应用且无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.18081",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "主张从行为科学视角系统评估agent的行为过程而非仅性能结果，提出策略恢复、环境扰动等可迁移的agent评测研究方向。"
+    },
+    {
+      "id": "2608.18086",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "讨论开放权重模型卡片、AUPs与许可证治理，与agent设计及代码优化无关。"
+    },
+    {
+      "id": "2608.18092",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "将LLM多agent系统失败归因于并发控制问题，提出冲突检测、隔离保证等机制，对多agent协作与可靠性设计有直接借鉴。"
+    },
+    {
+      "id": "2608.18099",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "金融领域agent技能评测基准，对比预置技能与自生成技能效果并跨harness复现，对agent技能检索与复用研究有价值。"
+    },
+    {
+      "id": "2608.18104",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "将自进化agent建模为动态图变换，系统梳理记忆、工具、技能、工作流等演化机制，为agent长期自适应提供结构化视角。"
+    },
+    {
+      "id": "2608.18110",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "Agentic AI综合综述，涵盖架构、工作原则与应用，可作为通用agent背景跟踪。"
+    },
+    {
+      "id": "2608.18111",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "几何题图解推理benchmark，侧重数学绘图能力而非软件或agent任务，与SemOpt无关。"
+    },
+    {
+      "id": "2608.18117",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "关于全球南方AI leaderboard治理的立场论文，不涉及agent方法。"
+    },
+    {
+      "id": "2608.18131",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "跨语言安全对齐缺口研究，属于模型安全而非agent机制。"
+    },
+    {
+      "id": "2608.18133",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "模糊逻辑变压器故障诊断，与LLM agent无关。"
+    },
+    {
+      "id": "2608.18135",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI在乡村用药安全中的scoping review，垂直医疗应用，无通用方法贡献。"
+    },
+    {
+      "id": "2608.18136",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "构建策略接地银行agent对抗自适应欺诈的benchmark，考察工具访问、政策检索与历史依赖安全，为agent安全评测提供可迁移范式。"
+    },
+    {
+      "id": "2608.18142",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "罗马乌尔都语仇恨言论检测与PEFT微调，与agent无关。"
+    },
+    {
+      "id": "2608.18165",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "RDF与微分动态逻辑的集成，非LLM agent方向。"
+    },
+    {
+      "id": "2608.18171",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "循环语言模型在组合工具调用上的实验，发现循环深度与自适应推理改善多步工具使用，对agent架构与推理分配有启发。"
+    },
+    {
+      "id": "2608.18194",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "Jaccard距离三角不等式的格论推广，纯数学理论。"
+    },
+    {
+      "id": "2608.18238",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "SARS-CoV-2变异检测的图表示方法，生物信息学应用，与agent无关。"
+    },
+    {
+      "id": "2608.18260",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM隐私匿名化工具，与agent方法或代码优化无直接关联。"
+    },
+    {
+      "id": "2608.18289",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "公共部门文档信息抽取评估，垂直应用，无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.18300",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出了LLM-as-a-Judge的完整生命周期与rubric调优方法，对agent评测与验证机制有可迁移价值。"
+    },
+    {
+      "id": "2608.18307",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "面向computer-use agent的组件级评测与失败诊断基准，属于agent评测方法，对长程agent可靠性分析有参考。"
+    },
+    {
+      "id": "2608.18336",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "针对特定考试评分制的基准，与agent或代码优化无关。"
+    },
+    {
+      "id": "2608.18389",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "直接研究代码agent在语义保持变换下的鲁棒性，对SemOpt的可靠性与稳健性评估高度相关。"
+    },
+    {
+      "id": "2608.18397",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "可穿戴生理信号分类的可信度监测，非agent领域且无通用agent机制贡献。"
+    },
+    {
+      "id": "2608.18409",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "神经符号框架将自然语言调度问题转译为求解器表示，通过形式化抽象提升小模型可行性，对代码优化的外部工具集成有启发。"
+    },
+    {
+      "id": "2608.18423",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "长程管理任务benchmark，评估agent在多年期决策中的规划与记忆，属于通用agent长程任务评测。"
+    },
+    {
+      "id": "2608.18504",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态检索的嵌入与排序方法，非agent主题。"
+    },
+    {
+      "id": "2608.18521",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "稠密字幕检索的对比学习损失改进，与agent无关。"
+    },
+    {
+      "id": "2608.18531",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "离线LLM输出选择中pairwise排序优于单动作RL的实证，对agent的候选筛选机制有潜在借鉴。"
+    },
+    {
+      "id": "2608.18534",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "金融领域证据检索与推理分离评测基准，揭示检索架构对AI系统性能的根本影响，可迁移至coding agent的检索设计。"
+    },
+    {
+      "id": "2608.18543",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "电商客户再激活的垂直多agent应用，无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.18580",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "面向终端agent的任务合成框架，强调源意图保持与可执行状态，可为代码agent训练数据合成提供方法。"
+    },
+    {
+      "id": "2608.18591",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "轻量模型预估LLM推理性能以分配预算，属推理优化而非agent方法。"
+    },
+    {
+      "id": "2608.18613",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "为agent构建结构化检索工具与技能层，显著提升小模型agent能力，对coding agent的库导航与工具设计有迁移价值。"
+    },
+    {
+      "id": "2608.18677",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "艺术史叙事的多agent对话系统，垂直应用，无通用方法贡献。"
+    },
+    {
+      "id": "2608.18682",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出逆序回合策略优化稳定多轮agentic RL训练，直接适用于带工具调用的coding agent训练。"
+    },
+    {
+      "id": "2608.18719",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "为无参考LLM judge gate提供预部署判别力诊断，可应用于agent技能优化中的验证门设计。"
+    },
+    {
+      "id": "2608.18836",
+      "relevant": true,
+      "score": 0.62,
+      "reason_zh": "提出可验证弃权与LLM审计的监督-执行双agent架构，对agent可靠决策与证据验证有可迁移思路。"
+    },
+    {
+      "id": "2608.18846",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "LLM决策agent使用固定proposer排名、结构化报告、工具取证和独立critic检查，该决策框架可迁移到编码agent。"
+    },
+    {
+      "id": "2608.18938",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "针对VLM视觉编码器的对抗攻击，与LLM/coding agent方法无关。"
+    },
+    {
+      "id": "2608.19002",
+      "relevant": true,
+      "score": 0.58,
+      "reason_zh": "研究辩论式AI的判断机制与形式化保证，对多agent评审和结果验证设计有启发。"
+    },
+    {
+      "id": "2608.19025",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "探讨LLM自提示与跨模型共识提升可重复数据提取，属于通用agent协作验证思路但贡献较通用。"
+    },
+    {
+      "id": "2608.19029",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "医疗领域多agent但提出自适应记忆与反思框架，可迁移到编码agent的记忆与反馈机制。"
+    },
+    {
+      "id": "2608.19047",
+      "relevant": true,
+      "score": 0.78,
+      "reason_zh": "提出任务条件化元Agent架构，含动态规划、宏Agent组建、验证与执行优化，通用agent设计可直接借鉴。"
+    },
+    {
+      "id": "2608.19072",
+      "relevant": true,
+      "score": 0.82,
+      "reason_zh": "实证分析LLM agent后训练LLM时策略锁定问题，直接关系编码agent长程执行与自主策略改进。"
+    },
+    {
+      "id": "2608.19073",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "Wasserstein风险度量与鲁棒动态规划，纯数学优化与agent无关。"
+    },
+    {
+      "id": "2608.19161",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "监控多agent隐式通信与隐蔽协调，对agent安全控制和可靠性验证有重要参考。"
+    }
+  ]
+}
