@@ -1,0 +1,161 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 24,
+  "input_total": 24,
+  "cs.SE_kept": 0,
+  "cs.AI_candidates": 24,
+  "cs.AI_kept": 8,
+  "output_total": 8,
+  "filter_usage": {
+    "prompt_tokens": 8557,
+    "completion_tokens": 3319,
+    "total_tokens": 11876
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2608.19214",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "港口调度鲁棒元启发式优化综述，与LLM/agent无关。"
+    },
+    {
+      "id": "2608.19215",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI意识哲学讨论，非agent方法。"
+    },
+    {
+      "id": "2608.19216",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "讨论部署者对模型的有限控制权及AI控制协议的可执行性，对agent可靠性与安全控制有启发。"
+    },
+    {
+      "id": "2608.19222",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "奶牛社会网络计算机视觉分析，与应用领域专一且无通用方法贡献。"
+    },
+    {
+      "id": "2608.19831",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "因果图模型理论，与agent或代码优化无关。"
+    },
+    {
+      "id": "2608.19842",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出单轨迹自回归策略优化SAPO，改进agentic RL的长程任务训练，可迁移到coding agent强化学习。"
+    },
+    {
+      "id": "2608.19889",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM架构的DSL跨框架编译，与agent无关。"
+    },
+    {
+      "id": "2608.19891",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "机器人VLA策略的探索-模仿-优化三阶段微调流程，可迁移到agent技能获取与样本效率提升。"
+    },
+    {
+      "id": "2608.19907",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "脉冲神经网络贝叶斯控制，非LLM agent。"
+    },
+    {
+      "id": "2608.19932",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "心脏CT统计形状模型与补全，医学影像领域无关。"
+    },
+    {
+      "id": "2608.19953",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "利用搜索早期解与最终解一致性引导MILP求解，其一致性预测与搜索引导思路可类比agent规划与验证。"
+    },
+    {
+      "id": "2608.19966",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多变量时间序列预测的语义分块，与agent无关。"
+    },
+    {
+      "id": "2608.20009",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "物理属性学习benchmark，无agent或软件工程连接。"
+    },
+    {
+      "id": "2608.20011",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "流匹配偏好优化中的reward hacking，不是agent对齐方法。"
+    },
+    {
+      "id": "2608.20019",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "不完整多模态情感分析的提示学习，领域特定。"
+    },
+    {
+      "id": "2608.20041",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出高级AI系统agency三维类型学，为agent概念化提供哲学与法律视角。"
+    },
+    {
+      "id": "2608.20053",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "神经网络安全认证与查找表，无agent成分。"
+    },
+    {
+      "id": "2608.20114",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "机器人全身世界动作模型，领域特定且无通用agent方法。"
+    },
+    {
+      "id": "2608.20204",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "首个法律合同终审benchmark，评估LLM长上下文一致性检查，对文档审查类agent评测有参考价值。"
+    },
+    {
+      "id": "2608.20218",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "电子海图变更分类，应用垂直且无通用方法贡献。"
+    },
+    {
+      "id": "2608.20220",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出面向欠充分查询的LLM评测基准，考察模型识别缺失信息并避免过早结论的能力，对coding agent处理不明确需求及agent评测有可迁移价值。"
+    },
+    {
+      "id": "2608.20240",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "量子-经典混合网络用于卫星物理层认证，与LLM agent或代码优化无关。"
+    },
+    {
+      "id": "2608.20271",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "用XGBoost等预测Solana上欺诈性迷因币，属于金融风控应用，无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.20320",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "三agent工作流结合对话数据收集与LLM预测，比较了prompt框架、persona、few-shot和视觉输入等经验结论，虽为交通垂直领域但对agent工作流设计有参考价值。"
+    }
+  ]
+}
