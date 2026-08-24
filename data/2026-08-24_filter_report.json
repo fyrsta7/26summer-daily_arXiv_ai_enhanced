@@ -1,0 +1,149 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 22,
+  "input_total": 22,
+  "cs.SE_kept": 0,
+  "cs.AI_candidates": 22,
+  "cs.AI_kept": 0,
+  "output_total": 0,
+  "filter_usage": {
+    "prompt_tokens": 8037,
+    "completion_tokens": 2636,
+    "total_tokens": 10673
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2608.19214",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "港口调度鲁棒元启发式优化综述，与LLM/coding agent无关。"
+    },
+    {
+      "id": "2608.19215",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "关于AI意识不确定性的哲学讨论，与agent方法无关。"
+    },
+    {
+      "id": "2608.19222",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "奶牛社会网络分析，垂直应用且无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.19680",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "智能合约漏洞检测的持续学习框架，属于纯模型训练/适配，无agent交互或优化方法。"
+    },
+    {
+      "id": "2608.19751",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "网约车派单生成式匹配框架，应用领域特定且无agent通用方法。"
+    },
+    {
+      "id": "2608.19789",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "量子启发张量网络图像去噪，与代码优化或agent无关。"
+    },
+    {
+      "id": "2608.19804",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "HVAC控制的扩散世界模型，属于控制领域，无通用agent架构启发。"
+    },
+    {
+      "id": "2608.19812",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI视频内容生成的教学把关流程，无agent方法贡献。"
+    },
+    {
+      "id": "2608.19831",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "因果推理理论模型，与LLM/coding agent无关。"
+    },
+    {
+      "id": "2608.19838",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "数据平台规范增量驱动治理的工作流研究，非LLM agent方法。"
+    },
+    {
+      "id": "2608.19889",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM架构跨框架编译的DSL，非代码优化agent，且不涉及代理机制。"
+    },
+    {
+      "id": "2608.19907",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "脉冲神经网络贝叶斯控制，与agent研究无关。"
+    },
+    {
+      "id": "2608.19932",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "心脏CT形状补全统计模型，医学应用且无agent方法。"
+    },
+    {
+      "id": "2608.19966",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多变量时间序列预测的分块划分方法，与agent无关。"
+    },
+    {
+      "id": "2608.20009",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多目标轨迹预测物理属性benchmark，无agent或代码优化关联。"
+    },
+    {
+      "id": "2608.20011",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "流匹配偏好优化的奖励黑客问题，虽涉及可靠性但面向生成模型而非agent机制。"
+    },
+    {
+      "id": "2608.20019",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态情感分析中的提示学习，垂直任务且无通用agent方法。"
+    },
+    {
+      "id": "2608.20053",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "航空安全神经网络认证的Safety Nets，无agent或代码优化关联。"
+    },
+    {
+      "id": "2608.20114",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "四足移动操作的世界动作模型，机器人控制，无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.20218",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "电子海图变更分类，应用特定且无agent方法。"
+    },
+    {
+      "id": "2608.20240",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "量子-经典混合网络用于卫星物理层认证，属于深度学习和安全分类任务，不涉及LLM/coding agent或通用agent方法。"
+    },
+    {
+      "id": "2608.20271",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "用经典机器学习预测Solana memecoin欺诈，属于金融数据挖掘应用，没有agent或代码优化相关贡献。"
+    }
+  ]
+}
