@@ -1,0 +1,323 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 84,
+  "input_total": 73,
+  "cs.SE_kept": 22,
+  "cs.AI_candidates": 51,
+  "cs.AI_kept": 26,
+  "output_total": 48,
+  "filter_usage": {
+    "prompt_tokens": 18261,
+    "completion_tokens": 13162,
+    "total_tokens": 31423
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2608.24886",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "建筑平面图多粒度图表示与VLM信息抽取，与agent或代码优化无关。"
+    },
+    {
+      "id": "2608.24888",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "个性化agent规划中的结构化用户上下文表示方法，研究表示格式对规划行为的影响，可迁移到coding agent的上下文建模。"
+    },
+    {
+      "id": "2608.24889",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "供应链决策引擎的架构论述，垂直应用且无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.24890",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "心理健康聊天机器人综述，垂直医疗应用，无通用方法。"
+    },
+    {
+      "id": "2608.24891",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "量子学习的测量预算分配理论，与agent或代码优化无关。"
+    },
+    {
+      "id": "2608.24892",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "海事信息模型LLM转换管线，垂直领域应用，无通用agent方法。"
+    },
+    {
+      "id": "2608.24893",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "CS2账号一致性验证任务，与agent或代码优化无关。"
+    },
+    {
+      "id": "2608.24918",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "工业知识图谱数据集成，虽暴露MCP工具但主体非agent方法。"
+    },
+    {
+      "id": "2608.24921",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "Graph RAG存储引擎工程实现，不涉及agent机制或通用方法。"
+    },
+    {
+      "id": "2608.24986",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "Robust POMDP求解理论，纯数学优化，与agent无直接关联。"
+    },
+    {
+      "id": "2608.25023",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "电商搜索属性索引与风险控制，垂直应用，无通用agent贡献。"
+    },
+    {
+      "id": "2608.25037",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "电商产品链接级联系统，agent仅作现成组件，无通用方法贡献。"
+    },
+    {
+      "id": "2608.25039",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "LLM agent地理空间规划评测，覆盖工具使用、多约束推理与失败分析，benchmark思路可迁移到编码agent长程任务评测。"
+    },
+    {
+      "id": "2608.25067",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "系统研究模拟agent成功在物理部署中的可靠性，提供验证框架与风险预测，对SemOpt的speedup验证与部署可靠性有直接启发。"
+    },
+    {
+      "id": "2608.25091",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "针对agent skill权限借用安全问题，提出带类型化策略和机器可验证守卫的Skill封装，可迁移到coding agent工具安全设计。"
+    },
+    {
+      "id": "2608.25097",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "物理奥赛推理benchmark，非agent研究。"
+    },
+    {
+      "id": "2608.25100",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "知识编辑的多目标RL，属模型行为编辑而非agent方法。"
+    },
+    {
+      "id": "2608.25198",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "通过表示引导无训练控制LLM agent工具调用率，实现成本/准确率权衡，可直接用于代码优化agent决定何时调用工具。"
+    },
+    {
+      "id": "2608.25215",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "对AI合著agent的LLM与RL策略等实现做实证对比，揭示推理灵活性、成本与可复现性的权衡，结论可迁移到代码优化agent架构选择。"
+    },
+    {
+      "id": "2608.25217",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "LLM驱动硬件兼容性验证的模块化任务分解、可追踪验证和上下文压缩，对自动代码验证与优化agent的验证环节有方法论参考。"
+    },
+    {
+      "id": "2608.25220",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "LLM agent 结合 Lean 定理证明验证 MILP 重构，可迁移到自动代码优化的变换验证。"
+    },
+    {
+      "id": "2608.25261",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "医学影像多模态 MoE 分类，不涉及 LLM agent 或代码优化。"
+    },
+    {
+      "id": "2608.25275",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "交通行为模型联合训练，非 LLM agent 或代码优化，不相关。"
+    },
+    {
+      "id": "2608.25286",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "生物计算长程任务 agent benchmark，评估多步执行与大数据管理，方法可迁移到 coding agent。"
+    },
+    {
+      "id": "2608.25325",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "金融风控 LLM 垂直评估，无通用 agent 方法贡献。"
+    },
+    {
+      "id": "2608.25329",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出层级记忆策略协同演化，是通用 agent 记忆管理方法。"
+    },
+    {
+      "id": "2608.25358",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "分解结构化输出中的结构/内容失败并用 RL 奖励改进，对 coding agent 工具输出有启发。"
+    },
+    {
+      "id": "2608.25399",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "直接研究 agentic coding 任务规格对 token 消耗的影响并可预测成本，高度相关。"
+    },
+    {
+      "id": "2608.25417",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "多模态 agent 工具使用与闭环稳定性评测，可作为通用 agent 评测借鉴。"
+    },
+    {
+      "id": "2608.25429",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "机器遗忘鲁棒性研究，与 agent 无关。"
+    },
+    {
+      "id": "2608.25460",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "用 RL 训练对齐审计 agent，具备通用 agent 训练与安全控制价值。"
+    },
+    {
+      "id": "2608.25486",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "长叙述推理的 RAG 框架，对 agent 记忆/检索设计有借鉴。"
+    },
+    {
+      "id": "2608.25500",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "技能图检索与校准，直接提升 agent 任务表现，可迁移到 coding agent 技能复用。"
+    },
+    {
+      "id": "2608.25518",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "将 agent 化游戏开发作为可验证数据引擎，强调可执行环境提供奖励，对代码优化 RL 范式有启发。"
+    },
+    {
+      "id": "2608.25623",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "认知能力画像评估 AI 任务适配性，与 agent 设计无关。"
+    },
+    {
+      "id": "2608.25775",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "Tree-of-Thought 教学框架，多路径规划方法可参考，但领域较远。"
+    },
+    {
+      "id": "2608.25777",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "本地 GUI agent 的长短期控制架构，对 coding agent 的状态管理有迁移价值。"
+    },
+    {
+      "id": "2608.25917",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "车辆交互博弈结构测量，不涉及 LLM agent。"
+    },
+    {
+      "id": "2608.25926",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "ATC 程序运行时监控，非 LLM agent 方法。"
+    },
+    {
+      "id": "2608.25934",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "自动事实核查跨基准评估，非 agent 方法，不相关。"
+    },
+    {
+      "id": "2608.25937",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "多智能体系统中LLM评判与候选选择机制的实证研究，对agent验证与答案择优设计有直接启发。"
+    },
+    {
+      "id": "2608.25960",
+      "relevant": true,
+      "score": 0.68,
+      "reason_zh": "可写可复用的经验存储增强Graph RAG，为agent记忆与经验复用提供可迁移机制。"
+    },
+    {
+      "id": "2608.25968",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "鲁棒MDP的定量理论分析，与LLM agent或代码优化无关。"
+    },
+    {
+      "id": "2608.25973",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "科学领域多模态指令遵循评测，垂直领域基准，无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.25986",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态知识图谱RAG上下文增强，属检索增强技术，与agent方法关联弱。"
+    },
+    {
+      "id": "2608.25992",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "多agent LLM工作流的在线进度引导路由，兼顾质量与成本，可直接用于coding agent编排优化。"
+    },
+    {
+      "id": "2608.26004",
+      "relevant": true,
+      "score": 0.62,
+      "reason_zh": "面向agentic LLM的不对称投机解码，缓解上下文压缩精度损失，对长程agent推理效率有参考价值。"
+    },
+    {
+      "id": "2608.26009",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "定理证明中的模仿学习与策略搜索，非LLM agent，与代码优化agent无直接关联。"
+    },
+    {
+      "id": "2608.26036",
+      "relevant": true,
+      "score": 0.82,
+      "reason_zh": "提出LLM data agent的trace完整性评估标准，强调可审计可执行计算，对coding agent验证与可靠评测具有直接借鉴意义。"
+    },
+    {
+      "id": "2608.26081",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "无预设角色的LLM多agent社会涌现技术，研究协作、stigmergy与经验积累机制，可迁移到agent协作设计。"
+    },
+    {
+      "id": "2608.26088",
+      "relevant": true,
+      "score": 0.52,
+      "reason_zh": "端到端自主地理空间预测系统，展示数据发现与模型搜索的agent工作流，虽领域特定但具有一定泛化启发。"
+    }
+  ]
+}
