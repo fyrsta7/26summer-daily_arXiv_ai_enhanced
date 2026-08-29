@@ -1,0 +1,203 @@
+name: Recover and rerun arXiv digest for 2026-08-29
+
+on:
+  push:
+    paths:
+      - .github/workflows/recover_2026_08_29.yml
+
+permissions:
+  actions: write
+  contents: write
+
+concurrency:
+  group: recover-arxiv-2026-08-29
+  cancel-in-progress: false
+
+jobs:
+  recover-and-rerun:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      TARGET_DATE: "2026-08-29"
+      SOURCE_FAILED_JOB_ID: "99031397480"
+      LANGUAGE: ${{ vars.LANGUAGE }}
+      CATEGORIES: ${{ vars.CATEGORIES }}
+      MODEL_NAME: ${{ vars.MODEL_NAME }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Stop superseded rerun attempts
+        run: |
+          set +e
+          for run_id in 33263622954 33226569745; do
+            echo "Requesting cancellation of superseded workflow run ${run_id}"
+            gh api --method POST \
+              "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/cancel"
+          done
+          set -e
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Recover the exact 2026-08-29 raw paper set from the failed job log
+        run: |
+          set -euo pipefail
+          gh api \
+            "repos/${GITHUB_REPOSITORY}/actions/jobs/${SOURCE_FAILED_JOB_ID}/logs" \
+            > /tmp/source-job.log
+
+          python3 - <<'PY'
+          import ast
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          expected = 137
+          target_date = os.environ["TARGET_DATE"]
+          log_text = Path("/tmp/source-job.log").read_text(
+              encoding="utf-8", errors="replace"
+          )
+          ansi = re.compile(r"\x1b\[[0-9;]*[A-Za-z]")
+          records = []
+
+          for raw_line in log_text.splitlines():
+              line = ansi.sub("", raw_line)
+              start = line.find("{'id':")
+              if start < 0:
+                  continue
+              try:
+                  item = ast.literal_eval(line[start:])
+              except (SyntaxError, ValueError):
+                  continue
+              if not isinstance(item, dict):
+                  continue
+              required = {"id", "categories", "title", "summary", "pdf", "abs"}
+              if not required.issubset(item):
+                  continue
+              records.append(item)
+
+          if len(records) != expected:
+              raise SystemExit(
+                  f"Recovered {len(records)} raw records; expected {expected}. "
+                  "Refusing to publish an incomplete or mismatched digest."
+              )
+
+          output = Path(f"data/{target_date}.jsonl")
+          output.parent.mkdir(parents=True, exist_ok=True)
+          output.write_text(
+              "".join(
+                  json.dumps(item, ensure_ascii=False) + "\n"
+                  for item in records
+              ),
+              encoding="utf-8",
+          )
+          print(f"RECOVERED_RAW_RECORDS={len(records)}")
+          print(f"FIRST_ID={records[0]['id']}")
+          print(f"LAST_ID={records[-1]['id']}")
+          PY
+
+          test -s "data/${TARGET_DATE}.jsonl"
+
+      - name: Install dependencies
+        run: |
+          set -euo pipefail
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          uv sync
+
+      - name: Filter cs.AI papers for SemOpt relevance
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+        run: |
+          set -euo pipefail
+          source .venv/bin/activate
+          rm -f "data/${TARGET_DATE}_filter_report.json"
+          python3 ai/filter_relevance.py \
+            --data "data/${TARGET_DATE}.jsonl" \
+            --report "data/${TARGET_DATE}_filter_report.json"
+          test -s "data/${TARGET_DATE}_filter_report.json"
+          echo "FILTERED_RECORDS=$(wc -l < "data/${TARGET_DATE}.jsonl")"
+
+      - name: Generate Chinese AI enhancement
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          TOKEN_GITHUB: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          source .venv/bin/activate
+          rm -f "data/${TARGET_DATE}_AI_enhanced_${LANGUAGE}.jsonl"
+          cd ai
+          python enhance.py \
+            --data "../data/${TARGET_DATE}.jsonl" \
+            --max_workers 2
+          test -s "../data/${TARGET_DATE}_AI_enhanced_${LANGUAGE}.jsonl"
+          echo "ENHANCED_RECORDS=$(wc -l < "../data/${TARGET_DATE}_AI_enhanced_${LANGUAGE}.jsonl")"
+
+      - name: Convert result to Markdown
+        run: |
+          set -euo pipefail
+          source .venv/bin/activate
+          rm -f "data/${TARGET_DATE}.md"
+          cd to_md
+          python convert.py \
+            --data "../data/${TARGET_DATE}_AI_enhanced_${LANGUAGE}.jsonl"
+          test -s "../data/${TARGET_DATE}.md"
+
+      - name: Validate, clean up temporary workflows, and publish
+        env:
+          EMAIL: ${{ vars.EMAIL }}
+          NAME: ${{ vars.NAME }}
+        run: |
+          set -euo pipefail
+          for path in \
+            "data/${TARGET_DATE}.jsonl" \
+            "data/${TARGET_DATE}_filter_report.json" \
+            "data/${TARGET_DATE}_AI_enhanced_${LANGUAGE}.jsonl" \
+            "data/${TARGET_DATE}.md"; do
+            test -s "$path"
+            echo "READY $path"
+          done
+
+          find data -maxdepth 1 -type f -name '*.jsonl' \
+            -printf '%f\n' | sort > assets/file-list.txt
+
+          rm -f \
+            .github/workflows/rerun_2026_08_29.yml \
+            .github/workflows/recover_2026_08_29.yml
+
+          git config user.email "$EMAIL"
+          git config user.name "$NAME"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to publish"
+          else
+            git commit -m "update: ${TARGET_DATE} arXiv papers (recovered rerun)"
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:main; then
+                echo "PUBLISH_STATUS=success"
+                break
+              fi
+              if [ "$attempt" -eq 5 ]; then
+                echo "PUBLISH_STATUS=failed"
+                exit 1
+              fi
+              git pull --rebase origin main
+            done
+          fi
+
+      - name: Send the recovered 2026-08-29 digest by email
+        env:
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_FROM: ${{ vars.EMAIL }}
+          EMAIL_TO: zhaoyuweiteddy@163.com
+        run: |
+          set -euo pipefail
+          source .venv/bin/activate
+          python3 send_email.py \
+            --date "${TARGET_DATE}" \
+            --markdown "data/${TARGET_DATE}.md" \
+            --raw-jsonl "data/${TARGET_DATE}.jsonl" \
+            --enhanced-jsonl "data/${TARGET_DATE}_AI_enhanced_${LANGUAGE}.jsonl" \
+            --filter-report "data/${TARGET_DATE}_filter_report.json"
