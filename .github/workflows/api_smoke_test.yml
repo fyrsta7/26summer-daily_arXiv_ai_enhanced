@@ -1,0 +1,96 @@
+name: API smoke test
+
+on:
+  push:
+    paths:
+      - .github/workflows/api_smoke_test.yml
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Test current OpenAI-compatible API configuration
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          MODEL_NAME: ${{ vars.MODEL_NAME }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+          import urllib.error
+          import urllib.request
+
+          required = ["OPENAI_API_KEY", "OPENAI_BASE_URL", "MODEL_NAME"]
+          missing = [name for name in required if not os.environ.get(name)]
+          if missing:
+              print("CONFIG_ERROR: missing " + ", ".join(missing))
+              sys.exit(2)
+
+          url = os.environ["OPENAI_BASE_URL"].rstrip("/") + "/chat/completions"
+          payload = {
+              "model": os.environ["MODEL_NAME"],
+              "messages": [
+                  {"role": "user", "content": "Reply with exactly API_OK"}
+              ],
+              "temperature": 0,
+              "max_tokens": 16,
+          }
+          request = urllib.request.Request(
+              url,
+              data=json.dumps(payload).encode("utf-8"),
+              headers={
+                  "Authorization": "Bearer " + os.environ["OPENAI_API_KEY"],
+                  "Content-Type": "application/json",
+              },
+              method="POST",
+          )
+
+          try:
+              with urllib.request.urlopen(request, timeout=60) as response:
+                  status = response.status
+                  raw = response.read().decode("utf-8", errors="replace")
+          except urllib.error.HTTPError as exc:
+              status = exc.code
+              raw = exc.read().decode("utf-8", errors="replace")
+          except Exception as exc:
+              print(f"NETWORK_ERROR: {type(exc).__name__}: {exc}")
+              sys.exit(3)
+
+          print(f"MODEL_NAME={os.environ['MODEL_NAME']}")
+          print(f"HTTP_STATUS={status}")
+
+          try:
+              body = json.loads(raw)
+          except json.JSONDecodeError:
+              body = None
+
+          if status == 200 and isinstance(body, dict):
+              choices = body.get("choices") or []
+              content = ""
+              if choices:
+                  content = str((choices[0].get("message") or {}).get("content", ""))
+              print("RESPONSE_CONTENT=" + content[:200].replace("\n", " "))
+              print("API_SMOKE_TEST=PASS")
+              sys.exit(0)
+
+          if isinstance(body, dict):
+              error = body.get("error", body)
+              if isinstance(error, dict):
+                  message = error.get("message") or error.get("detail") or str(error)
+                  code = error.get("code") or error.get("type") or ""
+                  print("ERROR_CODE=" + str(code)[:120])
+                  print("ERROR_MESSAGE=" + str(message)[:500].replace("\n", " "))
+              else:
+                  print("ERROR_BODY=" + str(error)[:500].replace("\n", " "))
+          else:
+              print("ERROR_BODY=" + raw[:500].replace("\n", " "))
+
+          print("API_SMOKE_TEST=FAIL")
+          sys.exit(1)
+          PY
