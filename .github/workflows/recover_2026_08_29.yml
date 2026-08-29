@@ -42,7 +42,7 @@ jobs:
       - name: Recover the exact 2026-08-29 raw paper set from the failed job log
         run: |
           set -euo pipefail
-          gh api \
+          gh api --allow-escape-sequences \
             "repos/${GITHUB_REPOSITORY}/actions/jobs/${SOURCE_FAILED_JOB_ID}/logs" \
             > /tmp/source-job.log
 
