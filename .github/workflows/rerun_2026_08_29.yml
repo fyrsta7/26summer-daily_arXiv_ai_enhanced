@@ -1,0 +1,134 @@
+name: Rerun arXiv digest for 2026-08-29
+
+on:
+  push:
+    paths:
+      - .github/workflows/rerun_2026_08_29.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rerun-arxiv-2026-08-29
+  cancel-in-progress: false
+
+jobs:
+  rerun:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      TARGET_DATE: "2026-08-29"
+      LANGUAGE: ${{ vars.LANGUAGE }}
+      CATEGORIES: ${{ vars.CATEGORIES }}
+      MODEL_NAME: ${{ vars.MODEL_NAME }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: |
+          set -euo pipefail
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          uv sync
+
+      - name: Fetch historical arXiv submissions
+        run: |
+          set -euo pipefail
+          source .venv/bin/activate
+          rm -f \
+            "data/${TARGET_DATE}.jsonl" \
+            "data/${TARGET_DATE}_filter_report.json" \
+            "data/${TARGET_DATE}_AI_enhanced_${LANGUAGE}.jsonl" \
+            "data/${TARGET_DATE}.md"
+          python3 scripts/fetch_arxiv_date.py \
+            --date "${TARGET_DATE}" \
+            --output "data/${TARGET_DATE}.jsonl"
+          test -s "data/${TARGET_DATE}.jsonl"
+          echo "RAW_RECORDS=$(wc -l < "data/${TARGET_DATE}.jsonl")"
+
+      - name: Filter cs.AI papers for SemOpt relevance
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+        run: |
+          set -euo pipefail
+          source .venv/bin/activate
+          python3 ai/filter_relevance.py \
+            --data "data/${TARGET_DATE}.jsonl" \
+            --report "data/${TARGET_DATE}_filter_report.json"
+          test -s "data/${TARGET_DATE}_filter_report.json"
+          echo "FILTERED_RECORDS=$(wc -l < "data/${TARGET_DATE}.jsonl")"
+
+      - name: Generate Chinese AI enhancement
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          TOKEN_GITHUB: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          source .venv/bin/activate
+          cd ai
+          python enhance.py \
+            --data "../data/${TARGET_DATE}.jsonl" \
+            --max_workers 1
+          test -s "../data/${TARGET_DATE}_AI_enhanced_${LANGUAGE}.jsonl"
+          echo "ENHANCED_RECORDS=$(wc -l < "../data/${TARGET_DATE}_AI_enhanced_${LANGUAGE}.jsonl")"
+
+      - name: Convert result to Markdown
+        run: |
+          set -euo pipefail
+          source .venv/bin/activate
+          cd to_md
+          python convert.py \
+            --data "../data/${TARGET_DATE}_AI_enhanced_${LANGUAGE}.jsonl"
+          test -s "../data/${TARGET_DATE}.md"
+
+      - name: Validate and publish rerun result
+        env:
+          EMAIL: ${{ vars.EMAIL }}
+          NAME: ${{ vars.NAME }}
+        run: |
+          set -euo pipefail
+          for path in \
+            "data/${TARGET_DATE}.jsonl" \
+            "data/${TARGET_DATE}_filter_report.json" \
+            "data/${TARGET_DATE}_AI_enhanced_${LANGUAGE}.jsonl" \
+            "data/${TARGET_DATE}.md"; do
+            test -s "$path"
+            echo "READY $path"
+          done
+
+          find data -maxdepth 1 -type f -name '*.jsonl' \
+            -printf '%f\n' | sort > assets/file-list.txt
+
+          git config user.email "$EMAIL"
+          git config user.name "$NAME"
+          git add \
+            "data/${TARGET_DATE}.jsonl" \
+            "data/${TARGET_DATE}_filter_report.json" \
+            "data/${TARGET_DATE}_AI_enhanced_${LANGUAGE}.jsonl" \
+            "data/${TARGET_DATE}.md" \
+            assets/file-list.txt
+
+          if git diff --staged --quiet; then
+            echo "No data changes to commit"
+          else
+            git commit -m "update: ${TARGET_DATE} arXiv papers (rerun)"
+            git push origin HEAD:main
+          fi
+
+      - name: Send rerun digest by email
+        env:
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_FROM: ${{ vars.EMAIL }}
+          EMAIL_TO: zhaoyuweiteddy@163.com
+        run: |
+          set -euo pipefail
+          source .venv/bin/activate
+          python3 send_email.py \
+            --date "${TARGET_DATE}" \
+            --markdown "data/${TARGET_DATE}.md" \
+            --raw-jsonl "data/${TARGET_DATE}.jsonl" \
+            --enhanced-jsonl "data/${TARGET_DATE}_AI_enhanced_${LANGUAGE}.jsonl" \
+            --filter-report "data/${TARGET_DATE}_filter_report.json"
