@@ -28,6 +28,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--folder-token", required=True)
     parser.add_argument("--start-date")
     parser.add_argument("--end-date")
+    parser.add_argument("--only-with-markdown", action="store_true")
     parser.add_argument("--identity", choices=("user", "bot"), default="user")
     return parser.parse_args()
 
@@ -91,6 +92,8 @@ def map_documents(root_token: str, identity: str) -> dict[str, dict[str, Any]]:
 def main() -> None:
     args = parse_args()
     paths = selected_paths(args)
+    if args.only_with_markdown:
+        paths = [path for path in paths if path.with_suffix(".md").exists()]
     if not paths:
         raise RuntimeError("no date-named JSONL files matched the requested range")
     documents = map_documents(args.folder_token, args.identity)
