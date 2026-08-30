@@ -1,0 +1,6 @@
+# Reconcile recently committed results twice an hour.  The publisher is
+# idempotent, so already-synchronized dates are only checked and skipped.
+SHELL=/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin
+CRON_TZ=Asia/Shanghai
+17,47 * * * * /usr/bin/flock -n /tmp/daily-arxiv-feishu-reconcile.cron.lock /data2/zyw/other/26summer-daily_arXiv_ai_enhanced/scripts/reconcile_feishu_sync.sh >> /data2/zyw/other/26summer-daily_arXiv_ai_enhanced/.daily-feishu-reconcile.log 2>&1
