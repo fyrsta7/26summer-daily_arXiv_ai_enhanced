@@ -1,0 +1,257 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 40,
+  "input_total": 40,
+  "cs.SE_kept": 0,
+  "cs.AI_candidates": 40,
+  "cs.AI_kept": 3,
+  "output_total": 3,
+  "filter_usage": {
+    "prompt_tokens": 13181,
+    "completion_tokens": 10681,
+    "total_tokens": 23862
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2608.26107",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "学业风险预测任务，非agent工作流，且与代码优化无关。"
+    },
+    {
+      "id": "2608.26111",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "电池健康管理综述，不涉及LLM agent方法与代码优化。"
+    },
+    {
+      "id": "2608.26134",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "设备能耗预测悖论分析，非agent方向。"
+    },
+    {
+      "id": "2608.26145",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM生成文献综述的评估，非agent方法。"
+    },
+    {
+      "id": "2608.26149",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "关系数据多表学习，属数据表示架构，无agent贡献。"
+    },
+    {
+      "id": "2608.26150",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM辅助系统文献综述抽取，无通用agent架构。"
+    },
+    {
+      "id": "2608.26151",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "电信客户流失预测与可解释性，垂直应用，非agent。"
+    },
+    {
+      "id": "2608.26153",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "脑电报告标注与生成框架，垂直医疗应用。"
+    },
+    {
+      "id": "2608.26156",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "零售选择偏差矫正，统计方法，与agent无关。"
+    },
+    {
+      "id": "2608.26160",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "边缘-云AI工作流本体建模，非LLM agent方法。"
+    },
+    {
+      "id": "2608.26162",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "心理健康支持的安全门控系统，垂直应用，无通用agent设计。"
+    },
+    {
+      "id": "2608.26164",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "化学问题求解符号规则系统，非agent。"
+    },
+    {
+      "id": "2608.26182",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "机器人LLM提示设计指南，偏HRI交互研究，非通用agent方法。"
+    },
+    {
+      "id": "2608.26184",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "编程教育行为状态数据集，虽涉及AI编程辅导，但非代码优化agent。"
+    },
+    {
+      "id": "2608.26185",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "代理发言的混合现实系统，属CSCW/HCI，与agent方法无关。"
+    },
+    {
+      "id": "2608.26188",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM城市安全判断中的地名刻板偏见，属模型行为研究。"
+    },
+    {
+      "id": "2608.26190",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "导航中潜在世界模型提出想象力驱动策略学习与模型内RL，通用模型-based agent机制可迁移。"
+    },
+    {
+      "id": "2608.26191",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "EHR风险预测的router-predictor-reviewer工作流，是通用LLM agent证据路由与评审架构。"
+    },
+    {
+      "id": "2608.26193",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AffectOmni用GRPO与可验证奖励训练多模态推理，属模型训练而非agent系统。"
+    },
+    {
+      "id": "2608.26200",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "游戏世界动作模型统一视觉预测与动作生成，含长程重规划机制，对agent设计有启发。"
+    },
+    {
+      "id": "2608.26291",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "研究LLM心理化认知的计算建模，属认知科学，不涉及coding agent或通用agent方法。"
+    },
+    {
+      "id": "2608.26430",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "参数高效微调方法，纯模型训练范畴，无agent内容。"
+    },
+    {
+      "id": "2608.26535",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态音视频生成的安全基准，与agent及代码优化无关。"
+    },
+    {
+      "id": "2608.26694",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI生成文本检测，基于图结构信号，非agent方法。"
+    },
+    {
+      "id": "2608.26710",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI检测器偏差研究，聚焦学术写作风格，与agent无关。"
+    },
+    {
+      "id": "2608.26750",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM辅助数据湖列关系发现，特定领域应用，无通用agent贡献。"
+    },
+    {
+      "id": "2608.26763",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "自动机与MDP的形式化合成，非LLM agent。"
+    },
+    {
+      "id": "2608.26896",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "基于强化学习的市场竞价agent隐性合谋研究，非LLM agent且无通用agent方法贡献。"
+    },
+    {
+      "id": "2608.26949",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "像素级表格压缩用于文档QA，与agent无关。"
+    },
+    {
+      "id": "2608.27010",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "边境管控队列预测的LSTM/MPC框架，特定行业应用，非agent。"
+    },
+    {
+      "id": "2608.27044",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态统一嵌入器，表示学习方法，与agent无关。"
+    },
+    {
+      "id": "2608.27101",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "本体学习竞赛的RAG管道，领域特定且无通用agent设计贡献。"
+    },
+    {
+      "id": "2608.27144",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "图异常检测的频率域滤波方法，非LLM agent。"
+    },
+    {
+      "id": "2608.27147",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "持续学习训练前沿模型，虽评测agentic任务但核心是模型训练。"
+    },
+    {
+      "id": "2608.27149",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "BPMN扩展建模对话AI，业务流程建模，与agent方法无关。"
+    },
+    {
+      "id": "2608.27268",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "盲文理解LLM基准，评测模型能力而非agent。"
+    },
+    {
+      "id": "2608.27364",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "企业员工生成式AI使用度实证，非agent方法。"
+    },
+    {
+      "id": "2608.27391",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "企业文档Q&A基准，关注长上下文推理，但非coding/agent任务。"
+    },
+    {
+      "id": "2608.27421",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "脓毒症评分预测的医学应用，与agent无关。"
+    },
+    {
+      "id": "2608.27429",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "化学反应预测的离散流匹配，化学领域，非agent。"
+    }
+  ]
+}
