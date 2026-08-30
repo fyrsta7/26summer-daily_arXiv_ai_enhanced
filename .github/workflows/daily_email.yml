@@ -162,6 +162,22 @@ jobs:
           --data "data/${today}.jsonl" \
           --report "data/${today}_filter_report.json"
 
+    - name: Filter cs.SE papers for SemOpt relevance
+      if: steps.dedup_check.outputs.has_new_content == 'true'
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+        MODEL_NAME: ${{ vars.MODEL_NAME }}
+      run: |
+        source .venv/bin/activate
+        today=${{ steps.crawl_step.outputs.crawl_date }}
+        python3 scripts/backfill_se_selection.py \
+          --data-dir data \
+          --start-date "$today" \
+          --end-date "$today" \
+          --workers 1 \
+          --no-render
+
     - name: AI Enhancement Processing
       if: steps.dedup_check.outputs.has_new_content == 'true'
       run: |
@@ -214,6 +230,16 @@ jobs:
             exit 1
         fi
         echo "Markdown转换完成 / Markdown conversion completed"
+
+    - name: Append selected cs.SE papers to Markdown
+      if: steps.dedup_check.outputs.has_new_content == 'true'
+      run: |
+        today=${{ steps.crawl_step.outputs.crawl_date }}
+        python3 scripts/backfill_se_selection.py \
+          --data-dir data \
+          --start-date "$today" \
+          --end-date "$today" \
+          --render-only
         
     - name: Send complete digest by email
       if: steps.dedup_check.outputs.has_new_content == 'true' && inputs.send_email == true

@@ -1,0 +1,80 @@
+name: Backfill selected cs.SE papers
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: First digest date to update (YYYY-MM-DD)
+        required: true
+        default: "2025-03-18"
+        type: string
+      end_date:
+        description: Last digest date to update (YYYY-MM-DD)
+        required: true
+        default: "2026-08-30"
+        type: string
+      workers:
+        description: Maximum concurrent model requests (1-128)
+        required: true
+        default: "128"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: backfill-se-selection
+  cancel-in-progress: false
+
+jobs:
+  classify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Install dependencies
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        uv sync
+
+    - name: Classify cs.SE papers and render digest addenda
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+        MODEL_NAME: ${{ vars.MODEL_NAME }}
+      run: |
+        source .venv/bin/activate
+        python3 scripts/backfill_se_selection.py \
+          --data-dir data \
+          --start-date "${{ inputs.start_date }}" \
+          --end-date "${{ inputs.end_date }}" \
+          --only-with-markdown \
+          --workers "${{ inputs.workers }}"
+
+    - name: Commit and push selected cs.SE papers
+      env:
+        EMAIL: ${{ vars.EMAIL }}
+        NAME: ${{ vars.NAME }}
+        START_DATE: ${{ inputs.start_date }}
+        END_DATE: ${{ inputs.end_date }}
+      run: |
+        git config user.email "$EMAIL"
+        git config user.name "$NAME"
+        git add data
+        if git diff --staged --quiet; then
+          echo "No cs.SE selection changes to publish"
+          exit 0
+        fi
+        git commit -m "research: add selected cs.SE papers ${START_DATE} through ${END_DATE}"
+        for attempt in 1 2 3; do
+          if git push origin HEAD:main; then
+            exit 0
+          fi
+          git pull --rebase origin main
+          if [ "$attempt" -eq 3 ]; then
+            exit 1
+          fi
+        done
