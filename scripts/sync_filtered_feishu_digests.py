@@ -7,6 +7,7 @@ import argparse
 import json
 import re
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 
@@ -26,6 +27,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--folder-token", required=True)
     parser.add_argument("--start-date")
     parser.add_argument("--end-date")
+    parser.add_argument("--workers", type=int, default=4, help="Concurrent independent document updates (1-8)")
     parser.add_argument("--identity", choices=("user", "bot"), default="user")
     return parser.parse_args()
 
@@ -73,20 +75,27 @@ def map_documents(root_token: str, identity: str) -> dict[str, dict[str, Any]]:
 
 def main() -> None:
     args = parse_args()
+    if not 1 <= args.workers <= 8:
+        raise ValueError("--workers must be between 1 and 8")
     paths = markdown_paths(args)
     if not paths:
         raise RuntimeError("no daily Markdown digests matched the requested date range")
     documents = map_documents(args.folder_token, args.identity)
-    updated = missing = 0
+    targets: list[tuple[str, Path, str]] = []
     missing_dates: list[str] = []
-    for index, path in enumerate(paths, 1):
+    for path in paths:
         date = path.stem
         document = documents.get(date)
         if not document:
-            missing += 1
             missing_dates.append(date)
             continue
         doc = str(document.get("token") or "")
+        if not doc:
+            missing_dates.append(date)
+            continue
+        targets.append((date, path, doc))
+
+    def sync_one(date: str, path: Path, doc: str) -> str:
         # Read immediately before the intentional complete replacement so the
         # target is verified as the expected existing generated digest.
         current = retry([
@@ -102,9 +111,16 @@ def main() -> None:
         ], input_text=content)
         if ((result.get("data") or {}).get("result")) != "success":
             raise RuntimeError(f"Feishu overwrite did not succeed for {date}: {result}")
-        updated += 1
-        print(f"FEISHU_PROGRESS {index}/{len(paths)} {date}", flush=True)
-    print(json.dumps({"documents_seen": len(paths), "updated": updated, "missing": missing, "missing_dates": missing_dates}, ensure_ascii=False))
+        return date
+
+    updated = 0
+    with ThreadPoolExecutor(max_workers=min(args.workers, len(targets))) as executor:
+        futures = [executor.submit(sync_one, date, path, doc) for date, path, doc in targets]
+        for future in as_completed(futures):
+            date = future.result()
+            updated += 1
+            print(f"FEISHU_PROGRESS {updated}/{len(paths)} {date}", flush=True)
+    print(json.dumps({"documents_seen": len(paths), "updated": updated, "missing": len(missing_dates), "missing_dates": missing_dates}, ensure_ascii=False))
 
 
 if __name__ == "__main__":
