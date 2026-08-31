@@ -23,12 +23,13 @@ class PublishFeishuDocTests(unittest.TestCase):
         self.assertTrue(value["ok"])
 
     def test_normalize_removes_html_wrappers_but_keeps_paper_content(self):
-        source = "<div id=toc></div>\n# Contents\n<details>\n<summary>Details</summary>\nMethod\n</details>\n"
+        source = "<div id=toc></div>\n# Contents\n<details>\n<summary>Details</summary>\nMethod\x02\n</details>\n"
         normalized = normalize_digest_markdown(source)
         self.assertNotIn("<div", normalized)
         self.assertNotIn("<details>", normalized)
         self.assertIn("#### 详细信息", normalized)
         self.assertIn("Method", normalized)
+        self.assertNotIn("\x02", normalized)
 
     def test_no_new_content_document(self):
         args = argparse.Namespace(

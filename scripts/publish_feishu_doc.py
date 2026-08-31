@@ -168,7 +168,12 @@ def normalize_digest_markdown(markdown: str) -> str:
             output.append("#### 详细信息")
             continue
         output.append(line)
-    return "\n".join(output).strip() + "\n"
+    # XML 1.0 forbids most ASCII control characters.  A few arXiv abstracts
+    # contain them, and Feishu's Markdown importer otherwise returns only a
+    # partial document with an XML-tokenization warning.
+    normalized = "\n".join(output)
+    normalized = re.sub(r"[\x00-\x08\x0B\x0C\x0E-\x1F]", "", normalized)
+    return normalized.strip() + "\n"
 
 
 def build_content(args: argparse.Namespace) -> str:
