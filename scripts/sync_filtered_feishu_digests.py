@@ -114,13 +114,35 @@ def main() -> None:
         return date
 
     updated = 0
+    failures: list[dict[str, str]] = []
     with ThreadPoolExecutor(max_workers=min(args.workers, len(targets))) as executor:
-        futures = [executor.submit(sync_one, date, path, doc) for date, path, doc in targets]
+        futures = {
+            executor.submit(sync_one, date, path, doc): date
+            for date, path, doc in targets
+        }
         for future in as_completed(futures):
-            date = future.result()
+            target_date = futures[future]
+            try:
+                date = future.result()
+            except Exception as error:
+                # Let the remaining independent documents finish.  A later
+                # targeted invocation can retry only the failed dates.
+                failures.append({"date": target_date, "error": str(error)})
+                print(f"FEISHU_ERROR {target_date}: {error}", flush=True)
+                continue
             updated += 1
             print(f"FEISHU_PROGRESS {updated}/{len(paths)} {date}", flush=True)
-    print(json.dumps({"documents_seen": len(paths), "updated": updated, "missing": len(missing_dates), "missing_dates": missing_dates}, ensure_ascii=False))
+    summary = {
+        "documents_seen": len(paths),
+        "updated": updated,
+        "failed": len(failures),
+        "failures": failures,
+        "missing": len(missing_dates),
+        "missing_dates": missing_dates,
+    }
+    print(json.dumps(summary, ensure_ascii=False))
+    if failures:
+        raise RuntimeError(f"{len(failures)} Feishu digest update(s) failed")
 
 
 if __name__ == "__main__":
