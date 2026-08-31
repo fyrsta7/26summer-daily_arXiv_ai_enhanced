@@ -23,3 +23,9 @@ def test_selection_markdown_keeps_only_relevant_se_papers():
     assert "Keep" in section
     assert "Drop" not in section
     assert "wrong category" not in section
+
+
+def test_classify_unique_allows_an_empty_se_batch():
+    decisions, usage = selection.classify_unique([], workers=1, batch_size=20)
+    assert decisions == {}
+    assert usage == {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}

@@ -146,6 +146,8 @@ def classify_unique(items: list[dict[str, Any]], workers: int, batch_size: int) 
         raise ValueError("--workers must be between 1 and 128")
     if not 1 <= batch_size <= 50:
         raise ValueError("--batch-size must be between 1 and 50")
+    if not items:
+        return {}, {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
     model = os.environ["MODEL_NAME"]
     base_url = os.environ["OPENAI_BASE_URL"]
     api_key = os.environ["OPENAI_API_KEY"]
