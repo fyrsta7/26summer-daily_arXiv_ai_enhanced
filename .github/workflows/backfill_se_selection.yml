@@ -40,7 +40,7 @@ jobs:
         curl -LsSf https://astral.sh/uv/install.sh | sh
         uv sync
 
-    - name: Classify cs.SE papers and render digest addenda
+    - name: Classify cs.SE papers and keep only selected papers
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
@@ -52,7 +52,17 @@ jobs:
           --start-date "${{ inputs.start_date }}" \
           --end-date "${{ inputs.end_date }}" \
           --only-with-markdown \
-          --workers "${{ inputs.workers }}"
+          --workers "${{ inputs.workers }}" \
+          --no-render
+
+        for raw in data/????-??-??.jsonl; do
+          date="${raw#data/}"
+          date="${date%.jsonl}"
+          if [[ "$date" < "${{ inputs.start_date }}" || "$date" > "${{ inputs.end_date }}" || ! -f "data/${date}.md" ]]; then
+            continue
+          fi
+          python3 scripts/prune_se_delivery_papers.py --data "$raw"
+        done
 
     - name: Commit and push selected cs.SE papers
       env:

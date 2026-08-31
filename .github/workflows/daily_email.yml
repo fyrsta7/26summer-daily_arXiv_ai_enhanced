@@ -178,6 +178,12 @@ jobs:
           --workers 1 \
           --no-render
 
+    - name: Keep only selected cs.SE papers for delivery
+      if: steps.dedup_check.outputs.has_new_content == 'true'
+      run: |
+        today=${{ steps.crawl_step.outputs.crawl_date }}
+        python3 scripts/prune_se_delivery_papers.py --data "data/${today}.jsonl"
+
     - name: AI Enhancement Processing
       if: steps.dedup_check.outputs.has_new_content == 'true'
       run: |
@@ -231,16 +237,6 @@ jobs:
         fi
         echo "Markdown转换完成 / Markdown conversion completed"
 
-    - name: Append selected cs.SE papers to Markdown
-      if: steps.dedup_check.outputs.has_new_content == 'true'
-      run: |
-        today=${{ steps.crawl_step.outputs.crawl_date }}
-        python3 scripts/backfill_se_selection.py \
-          --data-dir data \
-          --start-date "$today" \
-          --end-date "$today" \
-          --render-only
-        
     - name: Send complete digest by email
       if: steps.dedup_check.outputs.has_new_content == 'true' && inputs.send_email == true
       env:
