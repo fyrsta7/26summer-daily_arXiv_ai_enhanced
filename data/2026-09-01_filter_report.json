@@ -1,0 +1,281 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 44,
+  "input_total": 44,
+  "cs.SE_kept": 0,
+  "cs.AI_candidates": 44,
+  "cs.AI_kept": 5,
+  "output_total": 5,
+  "filter_usage": {
+    "prompt_tokens": 16100,
+    "completion_tokens": 9332,
+    "total_tokens": 25432
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2608.27459",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "评估LLM在Jeopardy问答上的表现，与agent或代码优化无关"
+    },
+    {
+      "id": "2608.27464",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "讨论XAI与信息寻求心理学，虽提及agentic AI但无具体agent方法，可迁移性弱"
+    },
+    {
+      "id": "2608.27471",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "RAG用于政治辩论谬误检测，是垂直领域的检索增强分类任务，非通用agent方法"
+    },
+    {
+      "id": "2608.27472",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "LLM与因果发现算法概率融合，非agent工作，对agent设计启发有限"
+    },
+    {
+      "id": "2608.27476",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "经典启发式搜索算法用于拼图求解，不涉及LLM或agent"
+    },
+    {
+      "id": "2608.27480",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "IoT与深度学习用于茶叶害虫检测，垂直农业应用，无agent通用方法"
+    },
+    {
+      "id": "2608.27482",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "知识库系统的上下文局部化形式化理论，与agent研究无关"
+    },
+    {
+      "id": "2608.27524",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出多语言个性化沟通辅导的agentic生态系统，含多agent协调与trust-aware编排，对coding agent多agent协作设计有迁移价值"
+    },
+    {
+      "id": "2608.27548",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "发布紧凑多模态安全审核器，作为agent系统的安全组件，对agent可靠性与安全控制有参考价值"
+    },
+    {
+      "id": "2608.27638",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "GenAI辅助本科生研究的教育实证，非agent方法研究"
+    },
+    {
+      "id": "2608.27671",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "对象中心预测性过程监控框架，与代码优化agent无关"
+    },
+    {
+      "id": "2608.27727",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "用Gibbs采样探针多模态LLM感知先验，属可解释性研究，非agent方法"
+    },
+    {
+      "id": "2608.27824",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "似真证据论证框架的逻辑形式化，与agent和代码优化不相关"
+    },
+    {
+      "id": "2608.27839",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "知识编辑方法KLOD，虽可用于agent持续更新但非agent工作本身，迁移距离较远"
+    },
+    {
+      "id": "2608.27840",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "跨城市POI推荐评测，虽然包含agentic方法诊断，但主体是推荐系统，非通用agent研究"
+    },
+    {
+      "id": "2608.27857",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "脉冲语言模型的on-policy蒸馏训练，属于模型训练方法，无agent内容"
+    },
+    {
+      "id": "2608.27867",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "CoRe-MoE为连续多模态指令微调设计，纯模型训练方法，非agent"
+    },
+    {
+      "id": "2608.27875",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "HyQuant是LLM注意力混合精度量化方法，明确属于模型压缩量化，应排除"
+    },
+    {
+      "id": "2608.27919",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "金融数值推理的合成数据管道和微调，垂直领域应用，无通用agent方法贡献"
+    },
+    {
+      "id": "2608.27940",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "深度集成学习用于涡轮风扇剩余寿命预测，无agent或代码优化关联"
+    },
+    {
+      "id": "2608.27942",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "交通拥堵时空预测，与LLM/agent无关。"
+    },
+    {
+      "id": "2608.27960",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM蒸馏训练方法，属于模型训练而非agent。"
+    },
+    {
+      "id": "2608.27996",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "合成数据训练的统计检验方法，非agent相关。"
+    },
+    {
+      "id": "2608.27998",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "多智能体LLM文献分析框架，含中央协调与幻觉控制，对agent工作流有参考但领域垂直。"
+    },
+    {
+      "id": "2608.27999",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "多agent平台通过独立检查和共享状态提升可靠性，验证/不确定性机制可迁移至coding agent。"
+    },
+    {
+      "id": "2608.28065",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "广告激励分配的离线RL，非agent方法。"
+    },
+    {
+      "id": "2608.28099",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "推理时分类监控技术，非agent方法。"
+    },
+    {
+      "id": "2608.28144",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "对话社会权力推理，与agent研究无关。"
+    },
+    {
+      "id": "2608.28152",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "痴呆护理生物信号预测，非agent相关。"
+    },
+    {
+      "id": "2608.28178",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "生物本体与LLM嵌入分析，无关。"
+    },
+    {
+      "id": "2608.28228",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "生成式AI与宗教对齐，无关。"
+    },
+    {
+      "id": "2608.28256",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "CT图像重建的生成模型，无关。"
+    },
+    {
+      "id": "2608.28271",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "流式生物信号测试时自适应，非agent。"
+    },
+    {
+      "id": "2608.28295",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "储备池计算与硬件实现，无关。"
+    },
+    {
+      "id": "2608.28334",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "超维度计算序列表示，无关。"
+    },
+    {
+      "id": "2608.28360",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "医学问答知识质量传播，非agent。"
+    },
+    {
+      "id": "2608.28361",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM遗忘的梯度数据选择，非agent。"
+    },
+    {
+      "id": "2608.28384",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "无障碍规划的多模态评测，领域特定，对coding agent启发有限。"
+    },
+    {
+      "id": "2608.28393",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "电商复购预测，无关。"
+    },
+    {
+      "id": "2608.28402",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "审计推理系统引入弃权与不确定性量化增强证据可靠性，对agent安全控制有启发；但属垂直应用。"
+    },
+    {
+      "id": "2608.28491",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "机器人视频预测的粒子世界建模，非代码优化/agent方法，无可迁移的通用agent机制。"
+    },
+    {
+      "id": "2608.28511",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "MoE语言模型的通信高效训练与层重配置，属模型架构/训练优化，与agent及代码优化无关。"
+    },
+    {
+      "id": "2608.28518",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "ASR错误对具身AI安全的风险分析，属垂直领域应用，缺乏可迁移的通用agent方法贡献。"
+    },
+    {
+      "id": "2608.28534",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "3D模型生成后细化工具，与代码优化或LLM agent无关。"
+    }
+  ]
+}
