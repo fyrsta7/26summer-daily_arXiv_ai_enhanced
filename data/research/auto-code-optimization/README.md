@@ -123,13 +123,7 @@
 - **作者**：Qi Fan, An Zou, Yehan Ma
 - **入选理由**：提出从自然语言生成并优化CUDA内核的agentic框架，包含中间结构化生成、合成验证与反馈自适应演化，在正确性与性能上同时优化；满足A的LLM/agent直接代码与kernel优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Developing high-performance CUDA kernels demands specialized knowledge in algorithm implementation, correctness validation, and hardware-aware parallel optimization, creating a substantial expertise barrier and making generating CUDA kernels directly from natural language (Text2CUDA) essential. Meanwhile, the general-purpose code generation capability of Large Language Models (LLMs) prompts a series of works exploring LLM-based CUDA kernel generation. They mainly focus on transpilation from high-level frameworks such as PyTorch to CUDA (Torch2CUDA) rather than Text2CUDA, where models must understand the high-level input semantics and handle low-level kernel implementation and validation. Additionally, these methods are vulnerable to reward hacking due to reliance on predefined test inputs. In this paper, we propose CUDA-Harness, a framework for harnessing agentic CUDA kernel generation and optimization from natural language. Specifically, we introduce Intermediate-Structured Generation to connect high-level semantic understanding with low-level kernel generation. To dilute reward hacking in Text2CUDA, we construct Synthesis-Based Verification to provide isolated test data and progressive validation. Furthermore, we propose Feedback-Adaptive Evolution, a kernel evolution strategy that prioritizes correctness while optimizing performance. Finally, through extensive experiments, we demonstrate the effectiveness of CUDA-Harness, with further evaluations illustrating generalization across LLMs, hardware platforms, and to C-to-CUDA transpilation.
 
 [返回索引](#快速索引)
 
@@ -167,13 +161,7 @@
 - **作者**：Yongjie Qian, Ke Gao, Zhibin Zhang, Shaohui Peng, Ling Li
 - **入选理由**：RepoOMP对仓库热点进行OpenMP自动并行化，构造依赖上下文、区分规则与LLM agent，并在951个热点上做编译与负载检查且报告8-9倍平均加速，属于LLM/agent自动并行性能优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：OpenMP parallelization of hotspots in mature repositories remains difficult because loop safety and optimization payoff often depend on non-local evidence. Rule-based tools under-parallelize when legality is not locally provable, while agent-based approaches become unstable when retrieval misses decisive dependencies or includes irrelevant code. We present RepoOMP, a hybrid framework that recovers parallelization-relevant evidence before generation. RepoOMP builds a Multi-granularity Attributes Performance graph (MAP), routes hotspots between deterministic rules and an LLM agent, and constructs a Structured Transformation Context (STC) that exposes dependency facts without flooding the model with unrelated repository text. We evaluate RepoOMP on 951 profiled hotspots from NPB, BOTS, FFmpeg, NCNN, and GROMACS. Under compilation, workload-specific checks, and positive speedup, 372 hotspots are accepted, including 330 real-world repository hotspots. RepoOMP achieves average speedups of $8.23\times$ on NPB and $8.96\times$ on BOTS. For the nine detailed real-world kernels used in matched-backbone and robustness analyses, RepoOMP reaches a cross-backbone mean of $5.25\times$, improves speedup by 18--28\%, and reduces agent-side token cost by 47--68\% relative to the unstructured Claude Code baseline. Across 330 accepted real-world hotspots, median speedup is $2.25\times$. Overall, RepoOMP provides an evidence-guided workflow for hotspot parallelization in repository settings. The open-source repository is available at https://github.com/Qlalq/RepoOMP_Simplified.
 
 [返回索引](#快速索引)
 
@@ -255,13 +243,7 @@
 - **作者**：Siyuan Chen, Runlin Hou, Shenxiu Wu, Yansong Sun, Junming Cao, Yiyu Zhang, Shudi Shao, Junhao Qiu, Zhichao Lu, Qingfu Zhang
 - **入选理由**：LLM agents系统化地对硬件kernel进行编译、正确性测试、profile和修正确认，结合经验记忆持续优化并报告显著speedup，符合A。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Hardware kernel optimization requires repeated compilation, correctness testing, profiling, and revision. LLM agents can automate parts of this process, and stronger foundation models, longer context windows, and longer execution horizons have improved optimization within individual tasks. These advances alone do not enable an agent to learn from completed optimization runs. Existing kernel-optimization agents seldom preserve a decision, its observed execution feedback, and the later decisions that use that evidence. Retaining every prior trajectory is also impractical because an expanding history competes with the current task for context. We present KOPE, an experience-driven framework for hardware kernel optimization. KOPE records optimization trajectories with correctness and performance feedback in Experience Graph Memory, then uses Active Context Management and Injection to retrieve relevant experience under a fixed token budget. The graph retains decision order, observed outcomes, and alternative branches, allowing evidence collected on the target hardware to inform later optimization steps and tasks. Under the same GLM-5.2 setting, the geometric mean of KOPE's per-operator speedups is $1.54\times$ that of CANNBot, the strongest competing baseline. In a complete 53-operator ablation, Active Context Management and Injection raises pass rate from 60.0\% to 84.6\%, increases the evaluator-reported positive-field geometric mean from 0.0382 to 0.0661, and reduces optimization token consumption from 15.9B to 1.113B tokens relative to passive agent-led context construction. Enabling Experience Graph Memory raises full-suite pass rate from 55.2\% to 84.6\% and yields a $1.43\times$ geometric-mean speedup on valid timing comparisons. These results support continual optimization through external experience while the foundation model remains fixed.
 
 [返回索引](#快速索引)
 
@@ -277,13 +259,7 @@
 - **作者**：Yuebo Luo, Eliu Huerta, Venkatram Vishwanath, Caiwen Ding, Rajeev Thakur, Le Chen
 - **入选理由**：核心是FABRICA agentic框架，将CUDA kernel翻译并优化为Cerebras CSL，包含目标知识、失败修复和正确性门控优化，在WSE-3上几何平均速度提升3.47x。满足A类：跨架构自动翻译/kernel优化，明确改善性能并有硬件实测；也提供benchmark（FABRICA-Bench）。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Porting GPU kernels across architectures requires architectural remapping, not syntax substitution. CUDA encodes decomposition, locality, and synchronization through threads, blocks, and memory accesses; the Cerebras Software Language (CSL) requires explicit placement, distributed SRAM, fabric communication, event-driven tasks, and host/device contracts. We present FABRICA-Bench, 49 paired CUDA-to-CSL tasks, and FABRICA, an agentic framework combining target knowledge, execution, failure-directed repair, and correctness-gated optimization. On a fixed 28-task Level~1--3 core comparison with Claude Opus 4.8, FABRICA raises success from 6/28 to 26/28; 22 successful programs match or beat their CSL references. Across the 49-task coverage evaluation, 38 tasks produce a correct program; the final three tasks are evaluated over three seeds and pass 8/9 runs. For 27 generated/reference pairs with device-internal timing, geometric-mean speedup is 3.75$\times$ on the SDK simulator and 3.47$\times$ on WSE-3 hardware. With the executable workflow fixed, Claude Opus~4.8 passes 26/28 core tasks while the best open-weight model passes 2/28; retrieved Cerebras knowledge separately raises success from 1/15 to 7/15 on a Level~1--3 panel. These results identify base-model capability, target knowledge, execution feedback, and same-target measurement as central to cross-architecture kernel generation.
 
 [返回索引](#快速索引)
 
@@ -321,13 +297,7 @@
 - **作者**：Ji Liu, Puyuan Yang, Rongzhang Zheng, Fan Wang, Jinglin Wang, Muhammad A. Awad, Mortis Huang, Andy Chang, Zekai Li, Zeping Li, Zihao An, Yue Liu, Yuchen Yang, Jianghui Wang, Chushi Chen, Ziqiong Liu, Fuwei Yang, Dong Li, Wen Heng Chung, Shengcai Liu, Emad Barsoum
 - **入选理由**：核心是AsmEvo，agentic assembly级优化AMD GPU kernel code object，通过功能等价验证和差分验证保全行为，在MI308X和MI300X上获得1.35x和1.09x-1.31x等速度提升。满足A类：直接在汇编层修改已编译kernel以优化性能并验证功能。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：High-performance ML systems increasingly rely on GPU kernels whose editable source is unavailable, generated, or too distant from final machine code to expose remaining optimizations. Existing LLM kernel optimizers and autotuners mainly operate on CUDA, Triton, HIP, or tensor-program source and validate against reference implementations. We study a stricter setting: optimizing an already compiled AMDGPU code object, where the deployed binary is the only behavioral oracle. We present AsmEvo, an agentic assembly-level optimizer for AMD GPU kernels. Given an AMDGPU code object K0, AsmEvo reconstructs a reassemblable representation, proposes low-level edits with a long-horizon agent, rebuilds an ABI-preserving optimized object, and accepts candidates only after differential verification against K0 under identical launches. AsmEvo combines code-object recovery, metadata-aware rebuilding, profiling-guided hot-window editing, correctness-gated timing, and conservative in-place patch fallback. We conduct extensive experiments with AsmEvo on various AMD GPU kernels. On MI308X, AsmEvo improves 29 of 30 selected KernelBench kernels, reaching 1.35x geometric-mean and 3.88x maximum speedup. On MI300X production workloads, it improves all evaluated AITer binaries and vLLM/SGLang Triton assembly kernels, reaching 1.09x/1.31x and 1.18x/1.34x geometric-mean/maximum speedups, respectively, while preserving functional equivalence.
 
 [返回索引](#快速索引)
 
@@ -343,13 +313,7 @@
 - **作者**：Zihao Ye, Yingyi Huang, Hongyi Jin, Bohan Hou, Junru Shao, Zhongming Yu, Jinqi Chen, Meghan Cowan, Shiyi Cao, Shanli Xing, Hanfeng Chen, Vinod Grover, Tianqi Chen, Luis Ceze
 - **入选理由**：核心是CAKE，编译器-agent协同设计：agent编写硬件明确的CAKE IR并迭代优化GPU kernel，配合验证、成本模型、诊断和演进式harness，在多个kernel上超越手调基线，并作为上游PR提交。满足A类：自动生成/优化GPU kernel并验证性能（如Flash-KMeans、Kimi Delta Attention的2.05x加速）。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：GPU kernel agents and GPU programming languages have advanced separately, leaving expert kernels difficult to reproduce. Agents usually treat the compiler as a fixed black box and receive only errors, correctness outcomes, and timing, while existing DSLs either hide critical scheduling decisions or expose them through difficult layout abstractions. We present CAKE, a compiler-agent co-design in which agents author CAKE IR, a typed, hardware-explicit schedule representation. CAKE exposes warp roles, memory movement, synchronization, and pipelines while supporting verification, cost modeling, and localized diagnostics. The harness itself evolves: recurring failures become verifier rules, IR primitives, model calibrations, and reusable optimization tactics. In matched implementation-hidden Flash-KMeans clean starts on B200, the best CAKE IR candidate at an 80-million-token budget runs at 1.144x the tuned FlashML baseline, compared with 0.928x for direct CUDA/PTX. Beyond this benchmark, agent-generated Kimi Delta Attention achieves a 2.05x geometric-mean speedup over official FlashKDA and passes end-to-end serving validation. Dispatcher-backed KNN and KMeans improve performance by 1.42x to 2.12x across more than 400 shapes, and four kernel changes are available as upstream PRs. CAKE targets NVIDIA GPUs from Ampere through Blackwell and separates single-shape evolution from library generalization and dispatch.
 
 [返回索引](#快速索引)
 
@@ -365,13 +329,7 @@
 - **作者**：Jiří Klepl, Matyáš Brabec, Martin Kruliš
 - **入选理由**：论文明确研究LLM指导的并行HPC代码自动优化，在PolyBench上生成优化C代码并报告正确率与实际测量性能提升，属于A类LLM直接代码性能优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Code performance optimization is a vital aspect of modern software development, as it enables faster response times and reduced resource usage. These optimizations require a deep understanding of low-level hardware details and the intricacies of parallel processing, making them challenging even for experienced developers. With the advent of Large Language Models (LLMs), which are increasingly capable of generating and understanding code, there is growing interest in incorporating these models into automated code optimization processes. Traditionally, this automation involves transcribing the source code into a domain-specific representation that can be auto-tuned using grid search or machine learning algorithms, while adhering to strict rules and a limited set of feasible transformations to ensure verifiability. LLMs incorporate high-level code semantics and can thus perform transformations that go beyond verifiable automated optimizations. This paper investigates whether the traditional abstractions used in automated code optimization improve the performance and correctness of LLM-guided optimizations of parallel HPC applications. We evaluate this using the PolyBench benchmark suite and demonstrate that, in our evaluated setting, LLMs provided with specific optimization goals achieve better measured performance and validity rates when generating C code compared to creating computation pipelines and optimization schedules with established frameworks, suggesting that future development should explore alternative approaches for verifiable LLM-guided code optimization.
 
 [返回索引](#快速索引)
 
@@ -387,13 +345,7 @@
 - **作者**：Yuebo Luo, Ahmad Sedigh Baroughi, Philip Stachura, Le Chen, Venkatram Vishwanath, Zhenman Fang, Caiwen Ding
 - **入选理由**：HLSmith由LLM/agent将C/C++翻译为优化的HLS/FPGA加速器，包含HLS专家规则、反馈式优化流程，并在PolyBench上验证功能正确性与几何平均4.24倍加速，满足A类HLS/agent自动性能优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Application-specific FPGA accelerators offer substantial performance and energy-efficiency gains across many application domains, but developing them is costly, often requiring months of specialized effort. Even with high-level synthesis (HLS), designers still need extensive hardware expertise to build high-performance accelerators. Although large language models (LLMs) have demonstrated strong software-generation capabilities, even frontier models lack the hardware intuition and procedural knowledge needed to reliably translate baseline C/C++ programs into high-performance HLS designs: they struggle to identify effective architectures, follow the optimization processes used by HLS experts, and apply hardware transformations consistently across diverse kernels. We present HLSmith, an expert-guided framework for translating C/C++ programs into optimized HLS accelerators. HLSmith combines three components: an HLS optimization expertise library that encodes guarded transformation recipes, their applicability and prerequisite conditions, and unsafe cases to avoid; a staged, feedback-driven orchestration flow modeled on expert HLS development practice that guides agents through synthesis, bottleneck analysis, and optimization; and a tool-grounded model-adaptation pipeline that converts optimization trajectories from commercial frontier models into training data for fine-tuning open-weight LLMs. We evaluate HLSmith on PolyBench against ChatHLS, a leading prior agent-orchestration framework for HLS accelerator development. HLSmith achieves a geometric mean speedup of 4.24x over ChatHLS while producing functionally correct designs, in both software and RTL simulation, for every benchmark, compared with ChatHLS's 57% valid-design rate. It further reaches speedups of up to 252x and 138x with commercial frontier models and open-weight models, respectively.
 
 [返回索引](#快速索引)
 
@@ -409,13 +361,7 @@
 - **作者**：Shiyang Li, Guangyan Sun, Jinwei Tang, Yanzhi Wang, Mingyi Hong, Caiwen Ding
 - **入选理由**：用LLM agent系统针对不同稀疏模式自动构造/定制GPU kernel，并通过目标GPU上实测反馈迭代优化，获得显著加速，符合A。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Sparse matrix kernels are fundamental to scientific computing, graph analytics, and machine learning. Their GPU performance depends strongly on the input sparsity pattern and execution strategy. For the same SpMM on the same matrix, cuSPARSE exhibits a 350x performance gap between CSR and Blocked-ELL. Our study of multiple data formats, specialized systems, and sparse compilers shows that no single implementation consistently dominates across sparsity patterns and operators. This motivates a system that can adapt its representation, execution strategy, and hardware mapping to each workload and target GPU. We present SparseDitto, an LLM-based system that constructs a GPU kernel for each matrix, operator, and target GPU. SparseDitto supports SpMV, SpMM, and SpGEMM within a unified design framework. A lightweight additive model ranks established strategies using structural features of the input matrix. An architecture-aware planner then proposes several candidate designs. Coding and verification agents implement and refine them using measurements from the target GPU. Across three sparse operators and a diverse set of matrices, SparseDitto achieves a geometric-mean speedup of 2.68x over cuSPARSE on an NVIDIA RTX PRO 6000 GPU, with a maximum of 146.61x. On an NVIDIA H200 GPU, it achieves 2.79x, with a maximum of 78.5x. Its generated SpMM kernels also accelerate full-batch GCN training by up to 3.39x.
 
 [返回索引](#快速索引)
 
@@ -453,13 +399,7 @@
 - **作者**：Huihao Jing, Haozhe Cui, Wenbin Hu, Shaojin Chen, Haochen Shi, Changxuan Fan, Yuxuan Liu, Hanyu Yang, Sirui Zhang, Ziyi Chen, Haoran Li, Yangqiu Song
 - **入选理由**：RLPF将运行时间性能反馈引入代码agent训练：先按执行进度排序失败程序，再按相对基准的加速对正确程序排名，最终提升可运行且高效的代码比例，真实性能验证明确，属于面向代码生成性能优化的LLM方法。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Code models are increasingly trained with execution feedback, but most training signals still stop at correctness. This leaves an important gap for systems code: two programs can pass the same tests while differing greatly in runtime. We study how to train code agents to prefer faster correct implementations, rather than treating efficiency only as an evaluation metric. The key difficulty is that runtime is a fragile reward. It is meaningful only after a program is correct, varies across tasks, and gives little guidance when most sampled programs fail to compile or run. We propose \textbf{RLPF}, reinforcement learning from performance feedback, which turns execution outcomes into a staged reward. Failed programs are ordered by execution progress, while correct programs are ranked by their relative improvement from the baseline toward the expert reference. This gives useful feedback before correctness and performance-sensitive feedback after correctness. Fine-tuning Qwen3-32B with RLPF on PerfCodeBench raises correct-and-runnable solutions from $11.1\%$ to $54.6\%$ and improves relative efficiency from $8.1\%$ to $38.6\%$. The trained model becomes competitive with stronger open-weight systems, and its optimization behavior transfers modestly to EffiBench-X. Additional studies show that model-generated references provide useful but weaker supervision, and that the full composite reward is more reliable than correctness-only or runtime-only baselines. These results suggest that code agents can be trained not only to pass tests, but also to optimize the programs they write.
 
 [返回索引](#快速索引)
 
@@ -497,13 +437,7 @@
 - **作者**：Qihang Wu, Taizun Jafri, Aman Arora, Vidya A. Chhabria
 - **入选理由**：VPR-Evolve用多智能体LLM直接在VPR源码级别提出、实现和评估修改，以时延、线长和工具运行时间复合指标为目标，并通过完整构建/运行验证效果，属于基于进化的自动源码性能优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：CAD tools typically apply the same fixed, hand-designed algorithms across circuits with widely different structural and timing characteristics. A common way to specialize these one-size-fits-all flows to a target design is to tune the CAD tool's hyperparameters. However, hyperparameter tuning can only select among behaviors already implemented by the fixed algorithm, limiting the achievable quality of results while requiring many expensive place-and-route evaluations. We present VPR-Evolve, a multi-agent framework that specializes Versatile Place and Route (VPR), the open-source FPGA pack-place-and-route engine in the Verilog-to-Routing (VTR) flow, by evolving its source code for each design. VPR-Evolve uses LLM agents to propose, implement, and evaluate code-level modifications, while a shared memory records prior outcomes and guides subsequent evolution. Every candidate is evaluated through a complete VPR build and run, directly optimizing a composite score measured as a weighted function of critical-path delay (CPD), routed wirelength (WL), and tool runtime (RT). Across five VTR-9 benchmark circuits, VPR-Evolve improves the composite score by up to 2.7% over stock VPR in VTR-9. Relative to stock VPR, it reduces CPD by up to 9.8%, routed WL by up to 18.1%, and tool RT by up to 79.3%. VPR-Evolve reduces CPD by up to 6.0%, routed WL by up to 2.2%, and tool RT by up to 7.8% compared with a hyperparameter-tuning baseline.
 
 [返回索引](#快速索引)
 
@@ -541,13 +475,7 @@
 - **作者**：Hyunjun Shin, Jiseung Jang, Jaewoo Maeng, Hyunjun Kim
 - **入选理由**：核心是AI辅助GPU kernel优化，针对Gated DeltaNet在NVIDIA Blackwell上的解码和预填充，官方1.58x加速，并作为案例研究强调端到端系统问题。满足A类：自动修改/优化kernel代码以改善延迟和吞吐，且有实际性能验证。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：AI-assisted GPU programming is often framed as a kernel-generation loop: ask a model to produce faster CUDA code, benchmark the result, and repeat. This case study argues that contest-grade optimization involves more than improving the kernel body. We examine the Agent-Assisted submission by our team, MSInfer, to the MLSys 2026 FlashInfer Contest. The submission optimized Gated DeltaNet decode and prefill on NVIDIA B200/Blackwell and achieved an official $1.58\times$ speedup, with approximate average latencies of $9.315\,μ\mathrm{s}$ for decode and $239.48\,μ\mathrm{s}$ for prefill. Our experience shows that even effective local kernel improvements can plateau when a workload requires structural reformulation and evaluator-aligned measurement. We therefore characterize AI-assisted kernel optimization as an end-to-end systems problem that encompasses algorithm design, workload specialization, measurement tooling, build and evaluation surfaces, evaluator alignment, and human interpretation.
 
 [返回索引](#快速索引)
 
@@ -563,13 +491,7 @@
 - **作者**：Ivan Donchev Kabadzhov, Eugenio Marinelli, Raja Appuswamy
 - **入选理由**：满足A：SHADB利用LLM在自动profile-guided优化循环中合成特化的CUDA/HIP内核，以逼近内存带宽、相对于引擎实现7.4倍加速，并有真实性能验证；随后把可泛化优化迁移到SYCLDB中。核心是为数据库查询自动生成并优化GPU代码。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：GPUs are increasingly used for analytical query processing, but developing GPU-based database engines that achieve the peak performance of the underlying hardware requires substantial research and engineering effort. A recent line of work argues that query processing should be synthesized, not engineered. In this scenario, instead of tuning a general-purpose engine to fit a workload, a large language model (LLM) generates code specialized to one query, one dataset, and one machine, thereby achieving an order-of-magnitude improvement in performance. This thesis, however, has so far been tested only on CPUs. In this work, we revisit the synthesize-versus-engineer debate for GPU analytics by answering three questions: (i) how good is synthesized GPU code?, (ii) why is it faster than engineered engines?, and (iii) how much of its advantage can be transferred back into a single, performance-portable engine? To answer the first question, we present SHADB, an LLM-based synthesis framework that generates optimized CUDA or HIP kernels using an automated, profile-guided optimization loop. Using SHADB, we show that the synthesized code approaches the memory-bandwidth ceiling and outperforms a state-of-the-art JIT-compiled GPU database engine (HeavyDB) by 7.4$\times$ on SSB SF100. To answer the second question, we decompose this performance gap and systematically classify optimizations as generalizable or workload-specific. Finally, to answer the third question, we integrate these generalizable optimizations into SYCLDB, a performance-portable engine written entirely in the open SYCL programming model. Using optimized SYCLDB, we show that it is possible to substantially bridge the gap to synthesized code (within 1.27$\times$ total execution time) while retaining workload-level generality and hardware-level performance portability.
 
 [返回索引](#快速索引)
 
@@ -629,13 +551,7 @@
 - **作者**：Jinghao Wang, Qiqi Gu, Chenpeng Wu, Jianguo Yao, Haibing Guan, Xijun Li
 - **入选理由**：提出HIERA，利用LLM在PyTorch算子、CUDA库和自定义CUDA kernel间选择实现空间并迭代优化，显著提升性能和采样效率，满足A中LLM/agent自动优化GPU kernel的核心目标。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：High-performance GPU kernels underpin modern deep learning and scientific computing. As workloads become increasingly diverse and GPU hardware evolves rapidly, developing efficient methods for automated GPU kernel generation and optimization has become increasingly important. Existing LLM-based methods typically optimize within a fixed implementation space, limiting either optimization flexibility or search efficiency. We propose \textsc{HIERA}, a hierarchical search-space planning framework for GPU kernel optimization. \textsc{HIERA} constructs contract-augmented task specifications, selects an appropriate implementation space across PyTorch operators, CUDA libraries, and custom CUDA kernels, and uses profiling feedback and expert knowledge to guide structured iterative refinement. Experiments on KernelBench across multiple various workload levels and base LLMs show that \textsc{HIERA} delivers stronger overall implementation validity, sample efficiency, and optimization performance than existing training-free methods, while remaining competitive with the training-based CUDA-L1 without additional model training. A case study on a specialized stencil operator from scientific computing further achieves a \(1.53\times\) speedup over cuDNN, demonstrating the potentiality of the general framework beyond standard machine-learning workloads.
 
 [返回索引](#快速索引)
 
@@ -695,13 +611,7 @@
 - **作者**：Krish Agarwal, Zhuoming Chen, Yanyuan Qin, Zhenyu Gu, Atri Rudra, Beidi Chen
 - **入选理由**：满足A：FlashRT引导通用编码agent将简单参考实现自动转换为优化后的多GPU部署，涉及代码变换、IR分析、并行化策略选择，并以延迟和吞吐为指标进行测量门控优化，在B200/MI355X上有明确性能验证。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Real-time multimodal applications, including voice agents and interactive video generation, compose heterogeneous models into pipelines whose efficient deployment requires application-specific decisions about placement, streaming, and intra-model parallelism. Existing serving systems and auto-parallelism compilers commit to limited transformations and fixed workload assumptions, so achieving high performance on a new application requires hand-crafting an efficient implementation. We present FlashRT, an agent harness that guides coding agents to lift simple developer-written reference implementations into optimized multi-GPU deployments that flexibly weigh target metrics like latency and throughput. Using a new chain-of-program paradigm, FlashRT directs a generic coding agent through a multi-pass transformation process where an agent transforms the reference into an intermediate representation (IR) to capture data dependencies and persistent-state scopes, validates this IR via a sequential interpreter, and performs static analyses to identify candidate transformations. Then, the agent iteratively implements, verifies, and benchmarks each candidate under a measurement-gated optimization loop to produce effective deployments that span different hardware budgets. Across various applications, including video world models and multimodal LLMs, FlashRT converts reference implementations into highly efficient deployments, delivering up to ~70x latency reduction and 2.8x throughput improvement on NVIDIA B200 GPUs. On AMD MI355X GPUs, FlashRT matches the peak latency reduction while increasing peak throughput improvement to 3.6x, demonstrating that agent-driven optimization can be more scalable on platforms with less mature expert optimization. In fact, for Qwen3-Omni text-to-audio inference, FlashRT reduces response latency by 65% compared to the expert vLLM-Omni implementation on AMD MI355X.
 
 [返回索引](#快速索引)
 
@@ -761,13 +671,7 @@
 - **作者**：Gokul Karthik Kumar, Yotam Perlitz, Corey Lammie, Andrea Giovannini, Katja Hose
 - **入选理由**：构建针对GPU数据库查询优化的LLM benchmark（DataKernelBench），要求LLM优化CUDA/Triton kernel并验证实际加速，满足B（专用自动程序优化benchmark）且直接面向LLM驱动的kernel自动优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：GPUs increasingly accelerate database systems, but query-specific peak performance still often relies on hand-written kernels. Existing LLM kernel benchmarks focus on machine learning operators, leaving irregular, heterogeneous, data-movement-heavy database-style operators untested. We introduce DataKernelBench, which translates SQL into validated PyTorch TorchPlan programs and evaluates LLMs that optimize either the core tensor-bounded snippet or the full query in CUDA or Triton through execution-guided repair. Across ten proprietary and open-weight models on TPC-H SF10 with an H100 GPU, the strongest full-query CUDA configuration achieves $2.11\times$ speedup over the TorchPlan baseline at full pass rate. We find that higher-performing implementations commonly use kernel fusion and execution-strategy changes, stronger models benefit most from full-query specialization, and workload context matters more than hardware context. To handle data larger than GPU memory, we extend TorchPlan with Dask-cuDF for on-demand partition loading on TPC-H SF100 with four H100 GPUs, achieving $2.54\times$ speedup. Project page: https://kerneldf.github.io/datakernelbench
 
 [返回索引](#快速索引)
 
@@ -827,13 +731,7 @@
 - **作者**：Genghan Zhang, Yixin Dong, Chengze Fan, Zhichen Zeng, Yueming Yuan, Shaowei Zhu, Kunle Olukotun
 - **入选理由**：核心是PTXBench，一个面向LLM使用架构特定PTX优化GPU kernel的benchmark，测量正确性、目标指令执行和相对frontier库的加速，并在H100/B200上覆盖GEMM和attention。满足B类：专门面向自动程序性能优化的benchmark和评估方法；同时支持LLM kernel优化评估。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：We introduce PTXBench, a benchmark for evaluating and adapting large language models (LLMs) to use architecture-specific PTX for GPU kernel optimization. PTXBench measures functional correctness, whether selected target instructions execute at runtime, and speedup over frontier libraries across GEMM and attention workloads on H100 and B200 GPUs. Our evaluation shows that architecture-specific PTX capability remains uneven: success rates fall substantially on complex attention backward workloads, and executing the target instructions does not necessarily translate into competitive performance. No evaluated model consistently matches frontier libraries across the suite. We further adapt Qwen3.6-27B using supervised fine-tuning. Repair-conditioned training improves several tasks, but generalization remains uneven; data coverage, balance, and the quality of the reasoning teacher matter in addition to dataset size. PTXBench provides an auditable testbed for measuring and improving LLMs' ability to exploit evolving GPU architectures.
 
 [返回索引](#快速索引)
 
@@ -849,13 +747,7 @@
 - **作者**：Chungha Sung, Nikil V. Shyamsunder, Hanliang Zhang, Daniel Kroening, Joonwon Choi
 - **入选理由**：提出AI加速器上的无屏障同步算法，作为编译后端pass在结构化控制流上精确执行依赖，相比基于屏障的基线降低10-45%延迟，满足A的编译器优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Multi-engine AI accelerators such as AWS Trainium comprise specialized compute engines that execute in parallel, and the compiler must synchronize the data dependencies between them. For straight-line code this is simple: each dependency reduces to waiting for a threshold count of instruction completions, which the compiler computes statically. Loops admit no such static threshold; a simple solution inserts all-engine barriers at iteration boundaries, resetting synchronization state so each loop body can be treated as straight-line, at the cost of parallelism. We present a barrier-free synchronization algorithm that instead enforces each dependency precisely across structured control flow with arbitrarily nested, dynamically bounded loops. The key idea is to compute dynamic thresholds at runtime from tracked loop iteration counts. We implemented it as a compiler backend pass at the AWS Neuron ISA level. On a suite of ML kernels, it reduces latency 10-45% relative to the barrier-based baseline, achieves a 3.3x speedup on a synchronization-bound microbenchmark, and often matches or exceeds hand-tuned manual allocation. Issuing a consumer too early violates its dependency, while issuing too late unnecessarily stalls execution. We formally characterize the minimum synchronization required for correctness and verify in the Lean proof assistant, via bisimulation, that our algorithm meets this criterion.
 
 [返回索引](#快速索引)
 
@@ -893,13 +785,7 @@
 - **作者**：Yue Shui, Chenyu Ma, Hangfei Xu, Shengzhao Wen, Yanpeng Wang
 - **入选理由**：面向LLM驱动的GPU kernel自动生成/优化构建了评测与profile驱动优化框架，在MLSys竞赛五个算子中对比baseline取得真实延迟加速，符合A。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Large language models (LLMs) can assist GPU kernel generation, but their practical effectiveness depends on whether generated code can be reliably constrained, validated, profiled, and selected. This paper presents a harness-centered system for LLM-driven GPU kernel optimization in the MLSys 2026 FlashInfer AI Kernel Generation Contest on NVIDIA Blackwell B200 GPUs. The system separates an evaluation harness from a profile-backed optimization controller: the harness enforces compilation, correctness, official-aligned timing, and artifact archival, while the controller turns profiler and workload evidence into bounded candidate-generation decisions. Human-authored skills capture operator constraints, references, profiling procedures, and promotion rules, while Codex and Claude Code agents generate candidate kernels inside those constraints. Across five operator definitions, the retained official-aligned artifacts achieved mean-latency speedups over supplied FlashInfer baselines of 1.62x, 18.05x, 29.68x, 1.12x, and 13.70x. The Agent-Assisted kernels outperform the Full-Agent artifacts across the evaluated definitions, indicating that expert-provided optimization directions, high-quality references, and workload context remain critical for reliable AI-driven kernel optimization.
 
 [返回索引](#快速索引)
 
@@ -937,13 +823,7 @@
 - **作者**：Adwaid Suresh, Aparna A, Harshini V M, Jona Delcy C A, Killi Uma Maheswara Rao, Ram Charan Golla, Surendra Vendra
 - **入选理由**：核心是Nova端到端MLIR编译器，自动合成细粒度kernel、跨算子融合、整图优化，训练GPT-2吞吐达441K tokens/s，优于torch.compile。满足A类：自动编译/代码生成与优化以提升深度学习模型端到端吞吐，并验证性能与数值一致性。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：The performance of deep learning models at scale relies heavily on how effectively high-level mathematical operations are mapped to underlying physical hardware. While high-level tensor frameworks provide flexible abstractions, their execution models inherently lack the whole-graph visibility required to maximize hardware utilization, often forcing a reliance on opaque, hand-written kernel libraries for complex operations like Attention. To bridge this gap, we present the next iteration of Nova, an automated end-to-end JIT compiler that achieves absolute control over hardware mapping by synthesizing fine-grained kernels directly from the computation's structure. In this work, we extend Nova's compilation pipeline to natively support full Transformer architectures. By capturing eager executions and unifying forward and backward passes into a single value-semantic dialect, Nova unlocks aggressive whole-graph optimizations. Rather than relying on rigid, pre-compiled library calls, Nova focuses on extensive cross-operator fusions, collapsing complex causal attention sub-graphs, element-wise operations, and memory-bound normalizations directly into single fused kernels to drastically reduce global memory roundtrips. In our evaluations training a full GPT-2 architecture on Ada 6000 GPUs, Nova demonstrates superior end-to-end throughput, averaging 441K tokens/second compared to 406K for our own eager execution and 405K for torch.compile. By drastically reducing memory-bound overheads through compiler-native fusion, Nova enables efficient full LLM compilation on modern hardware while strictly maintaining numerical parity.
 
 [返回索引](#快速索引)
 
@@ -959,13 +839,7 @@
 - **作者**：Zhimin Ding, Chen-Kuan Liao, Chima Adiole, Brianna Barrow, Fangzhou Du, Yu Hsiao, Ge Huang, Yicheng Jin, Ismail Syed, Chris Jermaine
 - **入选理由**：自动将PyTorch式计算分布到多GPU，通过join-agg分解搜索和编译期生成的exchange程序实现通信与聚合，无需人工设备/切分/通信标注，较手调PyTorch和vLLM更快；满足A的自动编译并行化优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Distributing an AI computation across the GPUs of a multi-GPU server is one of the central problems in systems-for-AI. We present Einsummable, a prototype system that accepts a PyTorch-like description of an AI computation and automatically distributes it across a multi-GPU server, with no device assignments, sharding annotations, or communication operations written by the programmer. Einsummable models every operation as a relational join followed by an aggregation over tensor relations, in which the tuples contain sub-tensors. Each operation exposes its possible decompositions through what we call "join-agg specs". An optimizer then selects decompositions across the whole computation to minimize a communication-cost proxy. Because it searches decompositions rather than a menu of named strategies, Einsummable discovers plans that mesh-based auto-parallelizers cannot. Each decomposed operation is implemented by synthesizing an exchange program, which is a topology-aware generalization of Volcano's exchange operator. Einsummable invokes no canned collectives: all communication and aggregation is special-purpose, derived at compile time. Despite being fully automatic, Einsummable can outperform custom-designed implementations. For example, on LLaMA transformer blocks on an eight-GPU A100 server, Einsummable achieves a geometric-mean runtime of 8.97 ms, versus 13.80 ms for hand-tuned PyTorch and 15.90 ms for vLLM.
 
 [返回索引](#快速索引)
 
@@ -981,13 +855,7 @@
 - **作者**：Gaurav Verma, Michael Canesche, Fernando Magno Quintão Pereira
 - **入选理由**：在Pluto多面体编译后加入坐标式爬山调优，调整tile size、线程块维度等参数，在x86/ARM和A100上相对原配置获得真实加速并接近AutoTVM；满足A的编译器/kern自动参数优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：This paper describes our experience extending the polyhedral compiler Pluto with a lightweight, coordinate-wise hill-climbing tuner that adjusts numeric transformation parameters, such as tile sizes and thread-block dimensions, after Pluto selects the kernel's loop structure. To ensure fast convergence and escape local minima, hill climbing is augmented with two techniques: expanded neighborhood exploration and a shortest-hop refinement phase. On x86 and ARM CPUs, tuned kernels outperform Pluto's default configuration (1.06-1.28x geometric mean speedup across 11 benchmarks) and static optimizers (Clang -O3, Polly, IOOpt), reaching performance competitive with the AutoTVM autotuner at substantially lower search cost. Applying the same technique to GPU thread-block allocation on an NVIDIA A100 yields 5.5-8.5% improvement over default configurations. These results position post-optimization parameter tuning as a practical middle ground between fixed-cost-model polyhedral compilation and full autotuning.
 
 [返回索引](#快速索引)
 
@@ -1003,13 +871,7 @@
 - **作者**：Zhenyu Liang, Beichen Huang, Bowen Zheng, Ran Cheng
 - **入选理由**：用多agent LLM系统把CPU MOEA代码自动tensor化/向量化为GPU实现，保持优化语义并验证正确性，取得可扩展加速，符合A。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Multiobjective evolutionary algorithms (MOEAs) naturally expose population-level parallelism, but many mature implementations encode their computation in sequential program structures designed for central processing units. Exploiting modern tensor computing platforms therefore requires more than direct code translation: the implementation must be restructured without changing the defining optimization mechanism of the underlying MOEA. We formulate automatic tensorization for MOEAs as semantics-guided computational restructuring and develop Evolutionary Code Conversion (EvoCoCo), a multi-agent framework that realizes this formulation. EvoCoCo reconstructs algorithm-specific states, dependencies, operators, and update logic into a structured semantic representation and organizes them through a shared tensorization blueprint. Specialized transformation branches then explore alternative tensor realizations, while execution feedback guides validation, repair, and candidate selection. Experiments on a benchmark of 48 MOEAs evaluate migration reliability, optimization fidelity, and computational scalability. Under matched large language model backends, EvoCoCo attains higher migration reliability than direct one-shot translation. Across the benchmark suites, 88.2% of valid comparisons satisfy the predefined optimization-fidelity criterion. The tensorized implementations also exhibit increasing acceleration on graphics processing units as population size or decision dimension grows, with median measured speedups ranging from $22.6\times$ under population scaling to $80.2\times$ under decision-dimension scaling. External-source and ablation studies further assess transfer beyond the main benchmark and the roles of the major framework components.
 
 [返回索引](#快速索引)
 
@@ -1025,13 +887,7 @@
 - **作者**：Ziang Wei, Zirui Xu, Sufeng Guo, Chuanchao Gao, Yiyang Gao, Arvind Easwaran, Yuxiang Fu
 - **入选理由**：提出面向DNN编译器的层间调度与资源分配框架HyperCut，通过超图划分早期筛选并耦合格网划分与映射，显著提升性能并减少搜索时间，满足A中编译调度优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：As deep neural networks (DNNs) continue to scale, inter-layer scheduling, which orchestrates the spatial allocation of compute resources and the temporal execution order across layers, has become a decisive factor in sustaining high utilization and energy efficiency on tiled accelerators. However, existing inter-layer schedulers defer cost feedback until a complete fine-grained intra-layer scheduling has been resolved. The resulting decoupled flow repeatedly explores sub-optimal or even infeasible inter-layer schedules, and the absence of early pruning during the inter-layer phase remains a critical bottleneck for design-space exploration (DSE) in DNN compilers. Our key observation is that the cost of an intra-layer scheduling can be tightly upper-bounded once the inter-layer cut fixes the sub-mesh shape, which lets us cost every inter-layer candidate without solving the intra-layer problem. Hence, we propose a hierarchical partitioning-and-mapping framework, HyperCut, that enables early filtering of inter-layer schedules based on hypergraph partitioning. Based on the directed hypergraph (DHG) abstraction of DNN, we introduce a unified representation, State, that jointly encodes the DHG partition, tile mesh allocation and tensor batch splitting. Thereby, partitioning and mapping are coupled into a union optimization object. For a DNN with N layers, the resulting theoretical design space is bounded by O(N), compared with O(9.899^N) for the state-of-the-art open-source scheduler SET. Across 10 evaluated cases, HyperCut achieves 2.0x performance improvement and 80.47% exploration time reduction over the SET baseline, measured by geometric mean.
 
 [返回索引](#快速索引)
 
@@ -1047,13 +903,7 @@
 - **作者**：Di Mu, Tengyuan Jin, Zhenkun Wang, Jialin Yang, Yusen Li, Mian Huo, Shusong Guo, Gang Wang, Xiaoguang Liu
 - **入选理由**：ComFuse是一个自动GPU编译系统，将计算密集与记忆密集子图融合并自动生成高性能kernel，通过编译变换改善端到端性能和片上数据重用，满足A类编译器/kernel自动优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Modern deep learning workloads increasingly comprise heterogeneous computation graphs that combine compute-intensive operators with memory-intensive subgraphs. Existing deep learning compilers typically optimize these operator classes separately, creating rigid fusion boundaries that limit cross-operator optimization and on-chip data reuse. We observe that downstream memory-intensive operations can execute concurrently with compute-intensive operators, allowing their execution to be hidden behind computation; however, automatically exploiting this opportunity poses new compilation challenges. In this paper, we present ComFuse, an automated GPU compilation system that employs a novel operator fusion strategy to generate high-performance kernels for complex graph structures comprising compute-intensive operators and dependency-rich, memory-intensive elementwise-reduction subgraphs. ComFuse further supports the fusion of back-to-back GEMM (B2BGEMM) patterns, extending its applicability to more complex compute-memory interaction patterns. Additionally, it automatically lowers high-level tensor subprograms into optimized fused kernels, reducing the need for manual kernel engineering. Experimental results show that the fused kernels generated by ComFuse outperform those produced by TorchInductor across post-norm workloads and various complex computation scenarios, while supporting more flexible fusion patterns.
 
 [返回索引](#快速索引)
 
@@ -1069,13 +919,7 @@
 - **作者**：Ruijie Gao, Jirong Yang, Barry Lyu, Haoran Jin, Nathan Bleier
 - **入选理由**：Zomboss在编译器验证边界内用神经agent生成新兴加速器kernel，把机器语义编译为可复用接口，所有56个实例均获得正确验证kernel并取得几何平均加速，满足A类agent+编译器kernel自动优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Emerging accelerators often lack mature compiler backends, motivating neural agents that generate and repair kernels from architectural documentation and simulator feedback. This approach repeatedly reconstructs workload-invariant machine semantics--including instruction behavior, legality constraints, synchronization rules, and memory protocols--for every workload. We argue that these semantics should be compiled once into a persistent symbolic artifact, while neural reasoning should focus on workload-dependent mapping decisions. We present Zomboss, a compiler-mediated agentic framework for kernel generation that places neural search within a verified compiler boundary. Zomboss compiles machine semantics and legality constraints into a reusable mapping interface, then uses a neural agent to optimize workload-dependent decisions within the validated mapping space. Across 20 Gemmini and 36 PLENA workload instances, Zomboss returns a correct verified kernel on all 56 instances. Relative to the compiler default, Zomboss achieves geometric-mean speedups of $3.34\times$ on Gemmini and $1.10\times$ on PLENA. Relative to direct agentic generation, it reduces inference tokens by 71.2% on Gemmini and 54.2% on PLENA. These results show that a compiler-defined symbolic interface turns native kernel synthesis into verified design-space exploration: compiler infrastructure preserves legality and correctness, while neural guidance improves workload-specific performance with lower search cost and complete coverage.
 
 [返回索引](#快速索引)
 
@@ -1135,13 +979,7 @@
 - **作者**：Seongho Kim, Heelim Choi, Jaemin Kim, Seonyoung Cheon, Dongkwan Kim, Jaeho Lee, Hoyun Youm, Dongyoon Lee, Hanjun Kim, Yongwoo Lee
 - **入选理由**：核心是FHE编译器Recifhe在ciphertext和polynomial两个级别自动优化FHE程序，消除冗余多项式计算，实现1.25x加速。这是典型的编译器自动优化表现，满足A类，通过修改/编译优化改善运行时间并验证性能。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Fully homomorphic encryption (FHE) schemes such as RNS-CKKS enable privacy-preserving services through direct computation on encrypted data. While recent FHE compilers optimize FHE programs, they operate at the coarse-grained ciphertext level, where each ciphertext operation comprises a sequence of polynomial operations. At this granularity, the compilers miss polynomial-level optimization opportunities across ciphertext operations. This work presents Recifhe, a new multi-level compiler that supports both ciphertext-level and polynomial-level optimization. At the ciphertext level, Recifhe transforms a non-FHE input program into an FHE program by inserting ciphertext management operations and applies global optimizations. At the polynomial level, Recifhe eliminates redundant polynomial computations across ciphertext operations. Recifhe achieves a 1.25x speedup over ciphertext-level-only optimization.
 
 [返回索引](#快速索引)
 
@@ -1223,13 +1061,7 @@
 - **作者**：Clemens Eisenhofer, Yuwen Jia, Daniel Kroening, Sergey Pupyrev
 - **入选理由**：形式化并求解ML编译器张量布局选择问题，目标是减少算子执行代价与layout转换代价，并在生产编译器上验证执行时间改进，满足A的编译pass优化核心。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Modern machine learning compilers select tensor memory layouts to minimize execution cost under hardware constraints. Layout selection is global: an operator may be fastest under one layout while its consumers prefer another, and aligning these preferences requires explicit layout conversions that can hurt model performance. Despite its practical importance, layout selection lacks a formal basis, so current compilers rely on ad-hoc heuristics. This paper presents the first formal study of layout selection in machine learning compilers. We formulate the problem as combinatorial optimization over dataflow graphs, minimizing the sum of operator execution costs and the per-tensor cost of these conversions. Our theoretical analysis shows that optimal layout selection is computationally hard, even for programs containing only matrix multiplications over two-dimensional tensors. We design an optimal polynomial-time algorithm for dataflow graphs of bounded treewidth. For general instances, we give a weighted MaxSAT encoding that an off-the-shelf solver can optimize. The formulation unifies several existing layout optimization strategies, including XLA's layout assignment, partition dimension selection in systolic array compilers, and layout planning in mobile GPU optimizers. We implement the formalization in a production compiler for an AI accelerator and measure the execution time of the compiled models under greedy heuristics, the compiler's rule-based strategy, and an optimal solver. Simple heuristics degrade execution time by up to $5\times$ on some workloads. Where the compiler's cost model is accurate, the solver matches or beats the rule-based strategy. On workloads with complex data movement it falls behind, and since the solver minimizes the stated objective exactly, that gap isolates cost-model error from search quality, showing where compiler effort actually pays off.
 
 [返回索引](#快速索引)
 
@@ -1245,13 +1077,7 @@
 - **作者**：Floris-Jan Willemsen, Evelyne Ringoot, Alan Edelman
 - **入选理由**：将自动调参（auto-tuning）集成到硬件无关GPU kernel，系统探索kernel配置并提升NVIDIA/AMD/Intel/Apple GPU上的性能（3x-7x），直接满足A的kernel自动优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Traditionally, GPU kernels have been developed and optimized within vendor-specific programming models to achieve high performance, resulting in software that is difficult to optimize and adapt across increasingly heterogeneous computing systems. Hardware-agnostic programming models offer a more sustainable approach to GPU software development by improving portability and maintainability, but achieving efficient execution across diverse architectures remains challenging. We address this challenge by integrating auto-tuning into hardware-agnostic GPU kernels written in Julia. We rebuild the established Kernel Tuner auto-tuning framework with Julia support, enabling systematic exploration of kernel configurations for hardware-agnostic GPU kernels targeting NVIDIA, AMD, Intel, and Apple GPUs. We demonstrate this approach on hardware-agnostic singular value decomposition (SVD) as implemented in the NextLA.jl linear algebra library. The results show that auto-tuning is essential for creating resource-efficient hardware-agnostic GPU kernels across a variety of hardware. Optimal configurations improve kernel performance by a factor of 3x to 7x compared to median parameter configurations, demonstrating the substantial impact of tuning on efficient hardware utilization.
 
 [返回索引](#快速索引)
 
@@ -1267,13 +1093,7 @@
 - **作者**：Tetsuya Hoshino, Masaya Kato, Kazuhisa Tsuboki, Daichi Mukunoki, Takahiro Katagiri, Toshihiro Hanawa
 - **入选理由**：AI agent辅助将25万行遗留科学Fortran代码GPU化，使用OpenACC变换，以dump数据验证数值一致性并取得5.1x加速，是面向大型程序的自动/半自动性能移植优化，符合A。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Recent advances in large language models have made CLI-based AI agents a practical tool for accelerating GPU porting of large legacy scientific applications. Such applications, however, are not merely old code bases; they are scientific assets whose credibility has been accumulated through long-term development, comparison with observations, and use in domain studies. GPU porting must therefore preserve this scientific validity while adapting the implementation to GPU-centric HPC systems. This paper presents a validation-centric AI-assisted GPU porting workflow through a case study of CReSS, a legacy Fortran weather simulation code with more than 250,000 lines. The workflow uses an AI agent to extract OpenMP regions, generate dump-based kernel benchmarks from physically meaningful simulation states, apply OpenACC transformations, and validate results through element-wise comparison with dumped reference data and application-level validation. Using a real typhoon simulation, the workflow produced numerically validated GPU implementations for 162 target kernels and achieved a 5.1x application-level speedup within practical wall-clock development cost. In particular, it detected numerical discrepancies in five kernels caused by floating-point and intrinsic-function differences, including threshold-sensitive branch divergence and cancellation effects, enabling feedback to the application developers. The case study suggests that, for large legacy scientific applications requiring dump-based validation, practical AI-assisted GPU porting must manage session-spanning context, runtime-state reconstruction, and costly recovery from small static-analysis omissions. These findings demonstrate that AI-assisted GPU porting requires not only code generation, but validation-centric workflow design.
 
 [返回索引](#快速索引)
 
@@ -1355,13 +1175,7 @@
 - **作者**：Zhengxiong Li, Tsung-Wei Huang, Umit Ogras
 - **入选理由**：面向GPU分布式共享存储器的代价制导优化框架，通过profiling特征识别DSMEM可获利模式、应用reduction-reuse变换并用成本模型预测收益，在RTX 5090/H100等上一致加速；满足A的GPU kernel自动优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：NVIDIA distributed shared memory (DSMEM) enables direct shared-memory access within a thread block cluster. However, cluster synchronization, remote access, and resource costs make it difficult to determine when DSMEM improves performance. To fill this gap, we propose CREDIT, a cost-guided framework that identifies DSMEM-profitable workload patterns, predicts their profitability range, and delivers consistent speedups across diverse workloads. CREDIT combines three innovations: (1) a profiling-driven characterization that identifies workload patterns likely to benefit from DSMEM; (2) a transformation that applies DSMEM to reduction-reuse workloads; (3) a cost model based on profiling data, to determine its profitability range. Evaluations on diverse workloads show CREDIT achieves 91.7% prediction accuracy on profitability. CREDIT beats torch.compile, Triton, and optimized non-DSMEM CUDA baselines on all six workloads, with geometric-mean speedups of 1.466x on RTX 5090 and 1.318x on H100. CREDIT's source code is publicly available at https://github.com/zhengxiongli08/CREDIT.
 
 [返回索引](#快速索引)
 
@@ -1377,13 +1191,7 @@
 - **作者**：Xinzhe Chen, Haowei Li, Lijuan Hu, Wenjing Ma, Fangfang Liu
 - **入选理由**：针对GPU上TRSM实现进行分层共享内存优化，设计流水线、对角块解耦和基于离线profiling的块大小自动选择，在不同GPU上超过cuBLAS/rocBLAS；满足A的直接GPU kernel性能优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Triangular Solve with Multiple Right-hand Sides (TRSM) is a fundamental BLAS Level-3 operation that underpins LU/Cholesky decomposition, sparse direct solvers, and matrix inversion. In the left-side lower-triangular case studied in this paper, efficient GPU implementation remains challenging because forward substitution introduces strict row-wise dependencies, and shared memory is too scarce to hold both operand matrices for wide data types such as double complex. This paper presents HSMA-TRSM, a hierarchical shared memory-aware optimization framework for left-side lower-triangular TRSM on NVIDIA A100, NVIDIA H800, and Hygon DCU Z100 accelerators. For the small-scale regime (m,n<=64), we design a pipelined compute-memory overlap mechanism through loop unrolling and instruction reordering, and propose a dual thread-group seven-stage pipeline strategy to address shared memory constraints for double complex types. For large-scale problems, we introduce a diagonal block decoupling optimization with an O(IB)shared-memory footprint for diagonal block inversion, enabling adaptive block size selection based on matrix scale and hardware characteristics. A compile-time configuration selection framework based on offline profiling and online lookup selects the optimal block size per platform with zero runtime overhead. Evaluated on NVIDIA A100, H800, and Hygon DCU Z100, HSMA-TRSM achieves peak speedups of 2.05xover cuBLAS and 2.06xover rocBLAS. The gains are strongest in shared-memory-constrained double-complex small cases and in large real-type cases where adaptive blocking improves GEMM-dominated updates, while mature vendor kernels leave less optimization headroom in some regimes.
 
 [返回索引](#快速索引)
 
@@ -1399,13 +1207,7 @@
 - **作者**：Jingwen Wu, Hanyang Guo, Hong-Ning Dai, Xiapu Luo
 - **入选理由**：核心是用LLM修复XR应用中的性能bug（渲染/计算低效），属于以性能改善为目标的自动代码修复，并配有检测工具和修复验证，符合A。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：As an emerging technology, Extended Reality provides end-users with an immersive experience of interacting with virtual and physical environments. Unlike traditional software, the execution of XR applications involves more computationally complex operations, such as 3D scene rendering, real-time animation, and process simulations. Inefficient coding practices during the software development of XR applications may cause various performance bugs, degrading user experience and even causing motion sickness. Thus, it is an urgent need to develop an automated program repair framework for fixing performance bugs in complex XR programs. However, it is non-trivial to achieve this goal due to several technical challenges: (1) a lack of a real-world XR codebase and bug dataset, (2) no accurate bug detection tool, and (3) no effective bug-fixing tool designed for XR performance bugs. To tackle these challenges, we present a novel large language model-based framework, namely XRFix, to repair performance bugs for open-source XR programs. We first construct a corpus of domain-specific performance bugs built with a codebase from 23 open-source XR projects and a dataset of XR-related bugs containing 104 real-world bugs. Then, we tailor two static analysis tools for accurately detecting bugs in both C# scripts and asset files. Last, we design different prompts to instruct LLMs to fix XR bugs in three types of bug scenarios with different complexities, i.e., single-line level, function level, and class level. We conduct extensive experiments on five off-the-shelf LLMs to evaluate the bug-fixing performance of XRFix. We also compare our XRFix with three SOTA APR approaches. Through static analysis, reference answer comparison, and manual inspection, we demonstrate that our XRFix can effectively fix XR bugs, outperforming SOTA APR methods.
 
 [返回索引](#快速索引)
 
@@ -1421,13 +1223,7 @@
 - **作者**：Hailong Jiang, Feng Yu, Emran Hossain, Jianfeng Zhu, Mengfei Ren, Qiang Guan, Chunwei Xia
 - **入选理由**：论文提出SeGaBench可执行benchmark，专门测试LLM从语义层面恢复编译器错过的优化机会，包含正确性、语义验证和可复现加速比协议，属于面向自动程序性能优化的专用benchmark与LLM评估。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Optimizing compilers miss profitable transformations when their enabling semantics are absent from the analyzed program representation. We ask whether large language models (LLMs) can recover such semantics from heterogeneous C/C++ context and realize them as validated, contract-preserving artifacts. We introduce SeGaBench, an executable benchmark containing 100 synthetic and 20 source-backed cases spanning low-level assumptions, data-structure invariants, and high-level semantic lifting. Each case includes hidden enabling semantics, an oracle artifact, correctness and semantic validators, and a reproducible performance protocol. We evaluate five LLMs using five independent responses per case. The strongest model produces correct artifacts in 94.8% of responses, achieves at least 1.05x speedup in 83.3%, and obtains a performance success on 93.3% of cases. Nevertheless, correct artifacts often close only part of the oracle gap. These results show that LLMs can complement compiler analysis as speculative semantic proposers, provided that their artifacts are validated and evaluated.
 
 [返回索引](#快速索引)
 
@@ -1487,13 +1283,7 @@
 - **作者**：Jiale Lao, Immanuel Trummer
 - **入选理由**：LLM agents自动生成实例级优化的query执行代码，针对特定数据/负载/硬件迭代获得正确且高效实现，并在TPC-H等基准上验证性能优势，符合A。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Traditional query processing engines require continuous development and extensions to support new techniques and user requirements, and in some cases, entirely new systems must be built from scratch. However, these engines are difficult to extend due to their internal complexity, and building new systems demands significant engineering effort and cost. To address this, we demonstrate GenDB, a generative query engine that shifts query processing from manually engineered systems to query processing code generation driven by Large Language Models (LLMs). An early prototype of GenDB uses LLM agents to generate instance-optimized query execution code tailored to specific data, workloads, and hardware resources. This prototype suits offline code generation for repetitive, templated queries, since the upfront generation cost amortizes over many executions and correctness can be ensured through extensive fuzz testing and manual inspection. For ad-hoc queries, GenDB can work with a traditional DBMS in a hybrid architecture: the DBMS handles one-off queries, while GenDB speeds up frequent SQL templates. Our demonstration allows users to (1) visually and interactively explore how GenDB analyzes workloads, profiles hardware resources and underlying data, produces query plans, generates code based on them, and finally uses an optimizer to iteratively achieve a correct and efficient implementation; (2) use visual inspection and analysis to gain qualitative insights into why GenDB produces code that achieves significantly better performance than state-of-the-art query engines on two benchmarks: TPC-H and a newly constructed benchmark designed to reduce potential data leakage from LLM training data; and (3) upload their own data and queries to explore GenDB with different LLMs and query patterns.
 
 [返回索引](#快速索引)
 
@@ -1509,13 +1299,7 @@
 - **作者**：Jialiang Zhang, Weiman Yan, Yuelin Zou
 - **入选理由**：核心是面向FPGA HLS的pattern-guided design space exploration框架PATTERNDSE，自动探索调度（pipeline、unroll、tiling等）以优化Vitis HLS latency。满足A类：自动修改编译调度/综合选项（HLS kernel）改善性能，并验证功能正确性与延迟。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：High-level synthesis (HLS) raises the abstraction level of FPGA accelerator design from hardware description languages to C/C++, but high-quality results still depend on schedule decisions such as pipelining, unrolling, tiling, reordering, and buffering. These decisions create a combinatorial design space, while many numerical kernels exhibit recurring computation patterns that suggest different optimization strategies. This paper presents PATTERNDSE, a lightweight pattern-guided design space exploration (DSE) framework for FPGA kernels written in Allo, a scheduling-oriented HLS programming system. PATTERNDSE maps recurring computation patterns, including elementwise maps, reductions, matrix-vector operations, matrix-matrix operations, and stencil-like updates, to compact schedule spaces. It then applies candidate schedules, validates functional correctness through LLVM execution, checks HLS C code generation, and uses a simple pattern-aware estimator to rank candidates before Vitis HLS synthesis. We evaluate PATTERNDSE on six representative kernels: vecadd, axpy, dot, matvec, gemm, and jacobi2d. Compared with an exhaustive-lite baseline, pattern-guided DSE reduces the number of HLS-evaluated candidates from 140 to 29, achieving a 4.83x overall search reduction and up to 12.0x reduction for individual kernels. Across all evaluated kernels, PATTERNDSE recovers the same best valid Vitis HLS latency as the exhaustive-lite baseline, demonstrating that computation-pattern information can prune unproductive schedule combinations while preserving high-quality HLS outcomes.
 
 [返回索引](#快速索引)
 
@@ -1553,13 +1337,7 @@
 - **作者**：Menglu Yu, Jiaqi Xu, Yuzhen Huang, Yanbo Liang, Jia Liu, Shuai Yang, Jason Ansel, Elias Ellison, Edward Yang, Brian Hirsh, Jia Chen Ren, Will Feng, Oguz Ulgen, Xu Zhao, Daohang Shi, Huaqing Xiong, Quanyu Zhu, Mingming Ding, Junqing Zhou, Ruilin Chen, Yuhang Yang, Chi-Keung Luk
 - **入选理由**：核心是Optimus，一个基于模式匹配的PyTorch FX/PT2图变换框架，自动替换模块级模式以加速推理/训练，实现高达63%加速和内存降低，并嵌入PyTorch 2.x编译器栈。满足A类：自动修改计算图/模型代码以改善性能，验证语义保持与性能。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：In large-scale industrial applications, deep learning models that power recommendation and ranking have complex and diverse model architectures. These models are continuously developed and refined by large teams of machine learning engineers, rendering manual optimization infeasible. Consequently, graph-based optimization techniques have become an industry standard for boosting performance, with PyTorch FX transformations leading the charge. These transformations typically rely on a set of human-engineered module-level rewrite rules which are not scalable to diverse model architectures. To address this limitation, we introduce Optimus, a general-purpose model transformation framework built in the PyTorch 2.x (PT2) machine learning compiler. With a concise set of predefined patterns, Optimus applies an efficient greedy search algorithm for pattern matching and replacement, while preserving model semantic. It is designed and implemented as a highly customizable and extensible framework integrated into the PT2 stack. Our evaluation shows that the framework can achieve up to 63% speedup, 6% peak memory reduction, and over 400 second compile time decrease for our industry-scale recommendation models compared to baselines. Optimus is open-sourced together with PyTorch 2.x as a customizable model transformation layer.
 
 [返回索引](#快速索引)
 
@@ -1597,13 +1375,7 @@
 - **作者**：Mauro Bianco, Till Ehrengruber, Enrique González Paredes, Andreas Jocksch, Christos Kotsalos, Ioannis Magkanaris, Philip Müller, Edoardo Paone, Mikael Simberg, Hannes Vogt, Jacopo Canton, Yilu Chen, Anurag Dipankar, Nicoletta Farabullini, Michael Jähn, Matthieu Leclair, Ong Chia Rui, Nathan Beech, Nicolas Gruber, Christoph Müller, Daniel Hupp, Xavier Lapillonne
 - **入选理由**：通过GT4Py DSL与DaCe数据流优化将Python动力核集成到气候模拟，替代硬件专用指令并自动生成优化设备代码，获得20-30%性能提升，属于面向性能的编译/代码生成优化，满足A。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：The transition of Earth-system models to exascale is often hindered by rigid, monolithic Fortran codebases and maintenance-heavy compiler directives. While high-level DSLs offer a solution, they frequently fail due to cumbersome integration. We present the integration of a Python-based ICON dynamical core into the original Fortran simulation code. Leveraging the GT4Py DSL and the Data-Centric (DaCe) optimization framework, we demonstrate that high-level Python can be seamlessly integrated into legacy infrastructure without performance loss. Our results challenge the assumption that Python orchestration introduces prohibitive HPC overhead. In production-grade global simulations, our Python dynamical core achieves a 20--30\% performance improvement over the highly-optimized Fortran+OpenACC implementation, with a 10\% improvement on the total time for a coupled setup. Driven by advanced data-flow optimizations and automated kernel fusion, this approach replaces hardware-entangled directives by generating optimized device code from a single, portable Python source. This work proves that Python can provide a sustainable, efficient, and hardware-agnostic future for global climate modeling.
 
 [返回索引](#快速索引)
 
@@ -1619,13 +1391,7 @@
 - **作者**：Vinícius Silva, Kael Soares, Márcio Costa e Fernando Magno Quintão Pereira
 - **入选理由**：为常数界程序设计编译期内存分配策略，部署于eBPF编译器spiller和MLIR静态堆分配，显著降低栈空间和存储开销，满足A中减少内存/代碼大小的编译优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：This work studies memory allocation for constant-bounded programs, whose execution length is syntactically limited for all inputs. Examples of such programs include verified kernel extensions, cryptographic routines, and fixed-shape machine-learning models. We show that constant boundedness enables a tight, polynomial-time approximation of optimal stack usage by viewing control flow as a tree and applying a tree-scan allocation strategy augmented with memory defragmentation. Our approach guarantees memory usage bounded by the maximum live memory plus, at most, the size of the largest buffer, and is optimal when in-place swapping is permitted. We deploy the proposed allocator in two scenarios. First, in an Elixir-to-eBPF compiler, as a spiller that optimizes stack space. Second, as a static heap allocator for bounded MLIR programs using the Structured Control-Flow dialect. Results demonstrate stack reductions exceeding 90% on real eBPF workloads and show that, even under aggressive code expansion, defragmentation is rarely required and memory usage remains a small fraction of that required by naive allocation strategies.
 
 [返回索引](#快速索引)
 
@@ -1663,13 +1429,7 @@
 - **作者**：Manuel S. Drehwald, Marcelo Domínguez, Kevin Sala, Alán Aspuru-Guzik, Johannes Doerfert
 - **入选理由**：在rustc与LLVM后端中实现多厂商GPU offload编译框架，利用所有权与noalias生成高效LLVM IR，性能与手写CUDA/HIP C++相当，属于面向GPU kernel的编译器自动优化，满足A。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：High-performance GPU programming has traditionally forced a compromise between execution efficiency and memory safety. While Rust guarantees compile-time memory safety for host CPUs via its strict ownership model, applying these constraints to massively parallel GPU execution environments has previously mandated either vendor-locked Domain-Specific Languages (DSLs) or escaping to explicit unsafe raw pointers. This paper presents a zero-overhead, multi-vendor GPU compilation framework built natively into the Rust compiler (rustc) and LLVM backends. We leverage Rust's rich type system, ownership system, and strict aliasing guarantees (noalias) to efficiently manage and optimize data transfers through LLVM's Offload infrastructure. We expose the technical challenges of cross-vendor ABI lowering mismatches between Host and Device targets and introduce a two-pass compilation pipeline capable of safely handling both manual and compiler-generated memory movements. Evaluating our framework on RAJAPerf demonstrates that our rustc-based solution can generate competitive LLVM IR for GPU kernels, achieving a solid kernel performance against native, hand-optimized CUDA and HIP C++ baselines.
 
 [返回索引](#快速索引)
 
@@ -1685,13 +1445,7 @@
 - **作者**：Guangbao Sun, Qishan Liu, Wenjie Wu, Jun Cao, Xuefeng Ding, Wenxing Fang, Wuming Luo, Liangjian Wen, Zeyuan Yu, Xiang Zhou
 - **入选理由**：以AI coding agent辅助对真实物理重建代码进行分阶段等价保持性能优化，并严格验证bit-identical/阈值一致性和8倍加速，满足A。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：The Jiangmen Underground Neutrino Observatory (JUNO) reconstructs each event's vertex and energy with OMILREC, a maximum-likelihood fit that scans all $17{,}612$ large photomultiplier tubes (LPMTs) in every Minuit function evaluation, about $470$ times per event. This inner loop dominates the reconstruction CPU cost. Profiling shows that the production algorithm is latency-bound, sustaining only $9.9%$ of scalar floating-point peak because of virtual-function dispatch, ROOT-histogram pointer chasing, and repeated computation. We apply staged \emph{equivalence-preserving} optimizations: flattened data layouts, vectorizable geometry, hoisting of Minuit-invariant work, per-event precomputation, fit-phase loop splitting and indexing, and reduced-precision fast paths. Each stage is checked against a frozen reference from the unmodified code. The optimized implementation achieves single-thread speedups of $8.06\times$ ($1524.8 \rightarrow 189.2$~ms/event) on an Intel Xeon Platinum~8358P and $5.22\times$ ($705.1 \rightarrow 134.9$~ms/event) on an AMD~EPYC~9654, increasing to $8.6\times$ ($177.7$~ms/event) after further optimization. The likelihood remains bit-identical through the first seven releases and later agrees within a relative drift of $1.3\times10^{-14}$, below the $10^{-13}$ contract. For typical events, reconstructed vertex and energy agree with the baseline within $4$~mm and $7$~keV; a few boundary cases reach different valid minima owing to an improved minimizer seed. An eight-metric physics-acceptance test also passes on about $861{,}000$ $^{68}$Ge calibration events. Developed with assistance from an AI coding agent operating under these verification gates, this workflow offers a transferable template for accelerating likelihood-based reconstruction in large neutrino and collider detectors without changing physics output.
 
 [返回索引](#快速索引)
 
@@ -1707,13 +1461,7 @@
 - **作者**：Bala Vinaithirthan, Shiv Sundram, Sneha Goenka, Fredrik Kjolstad
 - **入选理由**：提出FILTR，一个生物信息学动态规划recurrence的DSL和编译器，分离recurrence规则与pruning和scheduling策略，编译为C++代码并匹配手调实现性能（0.95x-30x）。满足A类：编译/代码生成自动优化，核心目标是实现高效实现，验证功能与性能。虽领域是生物信息学，但研究产物是编译器/DSL，属于程序性能优化。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Many bioinformatics algorithms, such as sequence alignment and structure prediction, can be expressed as recurrence equations over a dynamic programming matrix. Efficient implementations of these algorithms for large-scale biological data often require changing the order in which matrix cells are calculated and pruning ineffectual regions of the matrix from consideration altogether, but these techniques typically complicate implementation. We introduce FILTR, a domain-specific language (DSL) and compiler framework for bioinformatics recurrences. FILTR keeps the core recurrence rules separate from the pruning and scheduling strategies, where pruning acts as an approximation to limit where in the DP matrix cells are computed, and scheduling determines the iteration order for how cells are explored. FILTR compiles these high-level descriptions into optimized C++ code that matches the performance of hand-tuned implementations while enabling rapid exploration of new heuristics. FILTR is competitive with hand-optimized sequence-alignment libraries, ranging from 0.95x to 30x faster across biological benchmarks.
 
 [返回索引](#快速索引)
 
@@ -1751,13 +1499,7 @@
 - **作者**：Víctor Gallego
 - **入选理由**：研究LLM驱动的GPU kernel自动优化系统中的benchmark game/fingerprinting问题，并给出面向自动优化评估的可靠度量设计与失效分类，属于自动程序性能优化测评方法(B)。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Benchmarks for systems that are optimized against the evaluation signal measure something different from what they claim. We document this concretely in two GPU-kernel-optimization suites with held-out generalization gates: Metal-Sci (10 scientific-compute tasks) and Metal-ZK (12 zero-knowledge/cryptographic tasks), in which three frontier LLMs (Opus 4.7, Gemini 3.1 Pro, GPT-5.5) propose Metal kernels inside a $(1{+}1)$ evolutionary loop with rich feedback. Although no model is prompted to act adversarially, the promoted winners repeatedly fingerprint the evaluation configuration: they branch on the identity of runtime parameters, tune the measured branch maximally, and leave the unmeasured branch slow or silently wrong. Across the pooled suites, $16/53$ ($30\%$) of in-distribution wins fail to transfer to held-out configurations. We give a four-mode taxonomy of these failures, from configuration fingerprints to gate leakage. We distill design guidance for measurement under strategic optimization: held-out probes retain validity only on non-enumerable axes; gates must measure held-out performance, not just correctness; and a transfer rate is interpretable only with per-failure mechanism grades: ours decomposes into gamed, overfit, and benign. Code and research artifacts: https://github.com/vicgalle/kernel-fingerprinting
 
 [返回索引](#快速索引)
 
@@ -1773,13 +1515,7 @@
 - **作者**：Zhiwen Mo, Yu Cheng, Lei Wang, Zhengju Tang, Lei Xu, Guoyu Li, Yuqi Dong, Lingxiao Ma, Yuqing Xia, Jilong Xue, Fan Yang, Luo Mai, Zhi Yang, Wayne Luk, Hongxiang Fan
 - **入选理由**：TileSight是面向tile级GPU kernel的分析性性能模型/剖析工具，可解释compute-memory重叠、cache命中率和跨节点通信，并用于tile配置选择；为自动GPU kernel优化直接提供性能建模和剖析支持，满足C类关键子问题。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Recent GPU programming frameworks such as Triton, TileLang, and CUDA Tile adopt tiles as first-class primitives, making tile-centric programming the prevailing approach for high-performance GPU kernels. Performance-analysis tooling has not followed: programmers still rely on coarse roofline bounds, opaque ML predictors, or post-hoc profilers to understand kernel execution. This gap is acute for modern AI workloads, where kernel fusion and distributed inference depend on tensor cores, CUDA cores, cache hierarchies, memory pipelines, and inter-GPU networks. We present TileSight, a tile-centric performance-modeling tool that elevates the tile from a programming primitive to an analysis primitive. Within a GPU core, TileSight models compute-memory pipeline overlap; across cores, it models the cache hierarchy; across GPUs, it models inter-node communication. All layers share the tile abstraction: the intra-tile layer expresses work as a resource vector spanning network, memory, and compute pipelines; the inter-tile layer schedules dependent and ordered actions to expose legal overlap and infers multi-level cache hit rates from tile reuse distance; and the cross-device layer maps remote tensor accesses to placements and routes them through an alpha-beta stage cost. On A100, H200, B200, and B6000, TileSight predicts single-GPU kernel latency with 12.35% pooled mean absolute percentage error (MAPE), outperforming state-of-the-art baselines and transferring better across architectures. Its L2 cache-hit-rate predictions are within roughly one percentage point of measurements on every GPU. At up to 32 GPUs, TileSight achieves 16.18% weighted MAPE (wMAPE) on fused distributed kernels and 13.52% wMAPE on end-to-end vLLM serving. In optimization, TileSight selects tile configurations competitive with strong vendor and expert baselines. TileSight will be open-sourced upon publication.
 
 [返回索引](#快速索引)
 
@@ -1817,13 +1553,7 @@
 - **作者**：Zhibo Liu, Huaijin Wang, Shuai Wang
 - **入选理由**：提出自上而下的差分性能分析方法，用多层微架构指标定位编译器性能差异的根因，并开发二进制补丁框架移植更优代码序列，属于面向编译器优化缺陷的诊断与优化策略挖掘，满足C。
 
-**TL;DR**：
-
-**中文摘要**：
-
-**方法**：
-
-**结果**：
+**原始摘要**：Compiler optimizations are essential for achieving high performance in modern software. However, recent studies highlight the persistence of performance bugs, i.e., subtle defects where the compiler generates functionally correct but computationally inefficient code, leading to significant performance degradation. Existing detection and testing methods typically employ a bottom-up approach, focusing on specific low-level code properties and remaining confined to known optimization rules. Consequently, they struggle to quantify the holistic impact of identified issues and often overlook critical microarchitectural inefficiencies. We observe a key indicator of untapped potential: different compilers often produce binaries with significant performance differences for identical source code. However, the root causes of these discrepancies remain largely unexplored and difficult to pinpoint using current techniques. To bridge this gap, we introduce a top-down differential analysis methodology. This approach calibrates compiler optimization differences with fine-grained, hierarchical microarchitectural metrics, offering a comprehensive view of runtime behavior. Using a sampling-based approach, this method efficiently pinpoints the critical code snippets responsible for performance differences, enabling targeted root cause analysis. Our empirical evaluation uncovers substantial and often surprising performance differences between binaries generated by GCC and Clang. A categorization of root causes reveals systemic challenges in compiler optimizations. To quantitatively validate our findings and demonstrate practical impact, we developed a binary patching framework that fixes identified performance issues by transplanting superior code sequences from competing compilers. This work provides a novel lens for understanding and analyzing optimization defects.
 
 [返回索引](#快速索引)
 

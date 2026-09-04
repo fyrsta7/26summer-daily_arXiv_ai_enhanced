@@ -42,7 +42,7 @@ This innovative tool transforms how you stay updated with arXiv papers by combin
 
 ## Personal research collections
 
-- [自动代码优化强相关论文精选](https://github.com/fyrsta7/26summer-daily_arXiv_ai_enhanced/blob/data/data/research/auto-code-optimization/README.md) — 以 SemOpt 为锚点，从已收录论文中进行严格的二次筛选。
+- [自动代码优化强相关论文精选](https://github.com/fyrsta7/26summer-daily_arXiv_ai_enhanced/blob/main/data/research/auto-code-optimization/README.md) — 以 SemOpt 为锚点，从日推送与 arXiv 全站扩展候选中进行严格的二次筛选。
 
 
 

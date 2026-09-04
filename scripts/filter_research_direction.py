@@ -308,20 +308,19 @@ def markdown_for(selected, report):
                 f"- **作者**：{authors}",
                 f"- **入选理由**：{relevance.get('reason_zh', '')}",
                 "",
-                f"**TL;DR**：{ai.get('tldr', '')}",
-                "",
-                f"**中文摘要**：{ai.get('abstract_zh', '')}",
-                "",
-                f"**方法**：{ai.get('method', '')}",
-                "",
-                f"**结果**：{ai.get('result', '')}",
-                "",
-                "[返回索引](#快速索引)",
-                "",
-                "---",
-                "",
             ]
         )
+        if ai.get("tldr"):
+            lines.extend([f"**TL;DR**：{ai['tldr']}", ""])
+        if ai.get("abstract_zh"):
+            lines.extend([f"**中文摘要**：{ai['abstract_zh']}", ""])
+        elif item.get("summary"):
+            lines.extend([f"**原始摘要**：{item['summary']}", ""])
+        if ai.get("method"):
+            lines.extend([f"**方法**：{ai['method']}", ""])
+        if ai.get("result"):
+            lines.extend([f"**结果**：{ai['result']}", ""])
+        lines.extend(["[返回索引](#快速索引)", "", "---", ""])
     return "\n".join(lines).rstrip() + "\n"
 
 
