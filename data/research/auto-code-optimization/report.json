@@ -2,29 +2,30 @@
   "model": "ds/deepseek-v4-flash",
   "policy": "semopt_strong_relevance",
   "threshold": 0.82,
-  "start_date": "2026-04-18",
-  "end_date": "2026-07-22",
-  "generated_at": "2026-07-22T17:42:17+00:00",
-  "date_files": 96,
+  "start_date": "2026-07-01",
+  "end_date": "2026-09-04",
+  "generated_at": "2026-09-04T05:42:43+00:00",
+  "date_files": 66,
   "missing_dates": [],
-  "input_records": 7330,
-  "unique_papers": 7105,
-  "heuristic_candidates": 2247,
-  "first_pass_selected": 89,
-  "selected_total": 55,
+  "input_records": 3836,
+  "supplemental_records": 2575,
+  "unique_papers": 5361,
+  "heuristic_candidates": 2151,
+  "first_pass_selected": 100,
+  "selected_total": 81,
   "first_pass_usage": {
-    "prompt_tokens": 1141085,
-    "completion_tokens": 335499,
-    "total_tokens": 1476584
+    "prompt_tokens": 931697,
+    "completion_tokens": 550807,
+    "total_tokens": 1482504
   },
   "verification_usage": {
-    "prompt_tokens": 37361,
-    "completion_tokens": 17850,
-    "total_tokens": 55211
+    "prompt_tokens": 39634,
+    "completion_tokens": 60474,
+    "total_tokens": 100108
   },
   "filter_usage": {
-    "prompt_tokens": 1178446,
-    "completion_tokens": 353349,
-    "total_tokens": 1531795
+    "prompt_tokens": 971331,
+    "completion_tokens": 611281,
+    "total_tokens": 1582612
   }
 }

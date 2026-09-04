@@ -1,277 +1,237 @@
 # 自动代码优化强相关论文精选
 
-> 数据范围：2026-04-18 至 2026-07-22；生成时间：2026-07-22T17:42:17+00:00。
+> 数据范围：2026-07-01 至 2026-09-04；生成时间：2026-09-04T05:42:43+00:00。
 > 以 SemOpt 的“程序分析/策略知识 + LLM 自动改写 + 正确性与真实性能验证”为研究锚点，只保留强相关论文。
 
-共筛选 **55** 篇（去重候选论文 7105 篇，模型评估 2247 篇）。
+共筛选 **81** 篇（去重候选论文 5361 篇，模型评估 2151 篇）。
 
 ## 快速索引
 
-1. [Hawk: Harnessing Hardware-Aware Knowledge for High-Performance NPU Kernel Generation](#1) — 0.97
-2. [EGG: An Expert-Guided Agent Framework for Kernel Generation](#2) — 0.97
-3. [Are LLM-Generated GPU Kernels Production-Ready? A Trace-Driven Benchmark and Optimization Agent](#3) — 0.96
-4. [Breaking Database Lock-in: Agentic Regeneration of High Performance Storage Readers for Database Bypass](#4) — 0.96
-5. [MOA: A Profiling-Guided LLM Framework for Memory-Optimization Automation at Codebase Scale](#5) — 0.96
-6. [AgRefactor: Self-Evolving Agentic Workflow for HLS Compatibility and Performance](#6) — 0.96
-7. [PassNet: Scaling Large Language Models for Graph Compiler Pass Generation](#7) — 0.96
-8. [CodeEvolve: LLM-Driven Evolutionary Optimization with Runtime-Enriched Target Selection for Multi-Language Code Enhancement](#8) — 0.96
-9. [Optimas: An Intelligent Analytics-Informed Generative AI Framework for Performance Optimization](#9) — 0.96
-10. [Beyond the Need for Speed: Energy-Aware Code Generation via Simulation-Guided Reinforcement Learning](#10) — 0.95
-11. [Auto: The AGI Compiler](#11) — 0.95
-12. [Copper: Unifying Correctness and Performance Specification in Code Generation](#12) — 0.95
-13. [AgentCompile: An LLM-Guided Compiler for Direct CUDA Inference](#13) — 0.95
-14. [Kernel Foundry: A Diagnosis-driven Evolutionary Kernel Optimizer with Multi-Experts](#14) — 0.95
-15. [daVinci-kernel: Co-Evolving Skill Selection, Summarization, and Utilization via RL for GPU Kernel Optimization](#15) — 0.93
-16. [AI-PROPELLER: Warehouse-Scale Interprocedural Code Layout Optimization with AlphaEvolve](#16) — 0.93
-17. [Understanding Agent-Based Patching of Compiler Missed Optimizations](#17) — 0.92
-18. [Evaluating LLMs on Real-World Software Performance Optimization](#18) — 0.92
-19. [AutoPass: Evidence-Guided LLM Agents for Compiler Performance Tuning](#19) — 0.92
-20. [AUTOGATE: Automated Clock Gating via Toggling-Aware LLM-based RTL Rewriting](#20) — 0.92
-21. [Embedded Arena: Iterative Optimization via Hardware Feedback](#21) — 0.92
-22. [An Ocean Model Ported by a Large Language Model: Experience and Lessons from FESOM2 (Fortran to C to C++/Kokkos)](#22) — 0.92
-23. [SkelDPO: A Skeleton-Guided Direct Preference Optimization Framework for Efficient Code Generation](#23) — 0.92
-24. [Chiseling Out Efficiency: Structured Skeleton Supervision for Efficient Code Generation](#24) — 0.92
-25. [From Human Guidance to Autonomy: Agent Skill System for End-to-End LLM Deployment on Spatial NPUs](#25) — 0.92
-26. [LLM-Guided Strategy Synthesis for Scalable Equality Saturation](#26) — 0.92
-27. [PERFOPT-Bench: Evaluating Coding Agents on Software Performance Optimization](#27) — 0.90
-28. [Tool-Making and Self-Evolving LLM Agents in Low-Latency Systems](#28) — 0.90
-29. [QuTuner: Feature- and Learning-Guided Optimization Pass Tuning for Quantum Compilers](#29) — 0.90
-30. [Can Coding Agents Implement Missed Compiler Optimizations? Evaluating LLM Agents on LLVM Peephole Optimizations](#30) — 0.90
-31. [JETO-Bench: A Reproducible Benchmark for Execution Time Improvement Patches in Java](#31) — 0.90
-32. [Structuring agentic AI for HPC code modernization](#32) — 0.90
-33. [SpecDB: LLM-Generated Customized Databases via Feature-Oriented Decomposition](#33) — 0.90
-34. [MileStone: A Multi-Objective Compiler Phase Ordering Framework for Graph-based IR-Level Optimization](#34) — 0.90
-35. [AgentKernelArena: Generalization-Aware Benchmarking of GPU Kernel Optimization Agents](#35) — 0.90
-36. [A3D: Agentic AI flow for autonomous Accelerator Design](#36) — 0.90
-37. [PerfCodeBench: Benchmarking LLMs for System-Level High-Performance Code Optimization](#37) — 0.90
-38. [HLS-Seek: QoR-Aware Code Generation for High-Level Synthesis via Proxy Comparative Reward Reinforcement Learning](#38) — 0.90
-39. [CppPerf: An Automated Pipeline and Dataset for Performance-Improving C++ Commits](#39) — 0.90
-40. [Metal-Sci: A Scientific Compute Benchmark for Evolutionary LLM Kernel Search on Apple Silicon](#40) — 0.90
-41. [Rethinking Code Performance Benchmarks for LLMs](#41) — 0.88
-42. [Correct but Slow: An Empirical Study of the GPU Kernel Evaluation Gap in Modern Domain-Specific Languages](#42) — 0.88
-43. [Towards Autonomous Accelerator Design: FPGA Accelerator Generation with SECDA](#43) — 0.88
-44. [CodegenBench: Can LLMs Write Efficient Code Across Architectures?](#44) — 0.88
-45. [Learning When to Optimize: Verified Optimization Skills from Expert GPU-Kernel Lineages](#45) — 0.88
-46. [Step-TP: A Grounded, Step-Level Dataset with Chain-of-Thought Reasoning for LLM-Guided Tensor Program Optimization](#46) — 0.88
-47. [FastKernels: Benchmarking GPU Kernel Generation in Production](#47) — 0.88
-48. [Distribution-Aware Algorithm Design with LLM Agents](#48) — 0.88
-49. [AutoLab: Can Frontier Models Solve Long-Horizon Auto Research and Engineering Tasks?](#49) — 0.87
-50. [JEDI: Java Evaluation of Declarative and Imperative Queries](#50) — 0.86
-51. [Portable models as a replacement for industrial heuristics in compiler optimizations](#51) — 0.85
-52. [SOLAR: AI-Powered Speed-of-Light Performance Analysis](#52) — 0.85
-53. [GPU Forecasters: Language Models as Selective Surrogates for Kernel Runtime Optimization](#53) — 0.85
-54. [SIA: Self Improving AI with Harness & Weight Updates](#54) — 0.85
-55. [Learning Reasoning World Models for Parallel Code](#55) — 0.85
+1. [LLM4LLM: Bridging Kernel Benchmarks and Real Deployment via Closed-Loop Agentic Optimization](#1) — 0.97
+2. [CUDA-Harness: Harnessing Agentic CUDA Kernel Generation and Optimization from Natural Language](#2) — 0.96
+3. [KernelArc: A Multi-Agent Framework for GPU Kernel Optimization](#3) — 0.96
+4. [RepoOMP: Repository-Aware Hotspot OpenMP Parallelization via Dependency-Aware Context Reduction](#4) — 0.96
+5. [AgenticCANN: Automated Ascend C Operator Generation via Knowledge-Augmented Agentic Evolution](#5) — 0.96
+6. [PerfAgent: Profiler-Guided Iterative Refinement for Repository-Level Code Optimization](#6) — 0.96
+7. [Beyond the Need for Speed: Energy-Aware Code Generation via Simulation-Guided Reinforcement Learning](#7) — 0.96
+8. [Beyond Scaling: Self-Evolving LLM Agents for Hardware Kernel Optimization via an Experience-Driven Workflow and Experience Graph Memory](#8) — 0.95
+9. [FABRICA: Agentic CUDA-to-CSL Translation and Optimization for Wafer-Scale Systems](#9) — 0.95
+10. [Accelerated Genetic Programming Hyper-Heuristics for Simulation-Based Scheduling via Agentic AI](#10) — 0.95
+11. [AsmEvo: Agentic Assembly-Level Optimization of AMD GPU Kernels with Functional Equivalence Verification](#11) — 0.95
+12. [CAKE: Compiler-Agent Co-Design for Frontier Kernel Evolution](#12) — 0.95
+13. [Effect of Abstractions and Prompting Strategies on LLM-Guided High-Performance Optimizations](#13) — 0.95
+14. [HLSmith: An Expert-Guided Agentic Framework for C/C++-to-HLS Translation](#14) — 0.95
+15. [SparseDitto: Customizing GPU Kernels for Different Sparsity Patterns with LLM-Based Agentic System](#15) — 0.95
+16. [Kernel Forge: An Agent Harness for LLM-based Generation and Optimization of CUDA Kernels](#16) — 0.95
+17. [RLPF: Reinforcement Learning from Performance Feedback for Code Generation](#17) — 0.95
+18. [Multi-level Code Optimization via Mixture of Prompts](#18) — 0.95
+19. [VPR-Evolve: Multi-Agent-Driven Algorithm Evolution for FPGA Place and Route](#19) — 0.95
+20. [Multi-Source and Cross-Scenario Strategy-Guided Code Optimization](#20) — 0.95
+21. [Technical Report: AI-Assisted Gated DeltaNet Optimization on NVIDIA Blackwell](#21) — 0.95
+22. [From Custom-Fit to Portable: Bridging the Gap Between Synthesized and Engineered GPU Query Execution](#22) — 0.95
+23. [Copper: Unifying Correctness and Performance Specification in Code Generation](#23) — 0.95
+24. [Hawk: Harnessing Hardware-Aware Knowledge for High-Performance NPU Kernel Generation](#24) — 0.95
+25. [HIERA: Workload-Aware Planning Across Implementation Spaces for GPU Kernel Optimization](#25) — 0.94
+26. [Compiler-Grounded Hierarchical Diagnosis for LLM-Based Triton Kernel Optimization](#26) — 0.94
+27. [MKEvolve: A Modular Multi-Agent Framework for Kernel Code Generation](#27) — 0.94
+28. [FlashRT: Agent Harness for Guiding Agents to Deploy Real-Time Multimodal Applications](#28) — 0.94
+29. [PERFOPT-Bench: Evaluating Coding Agents on Software Performance Optimization](#29) — 0.94
+30. [DSEffi-Bench: Demystifying Large Language Models' Capability in Efficient Data Science Code Generation](#30) — 0.93
+31. [DataKernelBench: Can LLMs Optimize Database Queries on GPUs?](#31) — 0.93
+32. [RAGas: Retrieval-Augmented Gas Optimization for Smart Contracts with Continuous Knowledge Integration](#32) — 0.93
+33. [T-LLM Compiler: Trusted LLM-based Code Optimization and Verification Framework](#33) — 0.93
+34. [PTXBench: Benchmark and Adapt LLMs for GPU Kernel Optimization with Architecture-specific PTX](#34) — 0.93
+35. [A Barrier-Free Synchronization Algorithm for Multi-Engine AI Accelerators](#35) — 0.93
+36. [Enhancing SLMs for Sustainable Code Optimization in Radio-Astronomy](#36) — 0.93
+37. [Harness Engineering for LLM-Driven GPU Kernel Generation](#37) — 0.93
+38. [Are LLM-Generated GPU Kernels Production-Ready? A Trace-Driven Benchmark and Optimization Agent](#38) — 0.93
+39. [Nova: An End-to-End MLIR Compiler for Deep Learning](#39) — 0.93
+40. [Every Kernel Is a Join: Automatic Multi-GPU Parallelism for AI Computations in Einsummable](#40) — 0.92
+41. [Enhancing the Power of Polyhedral-Based Optimizations with Coordinate-Based Hill Climbing](#41) — 0.92
+42. [Semantics-Guided Automatic Tensorization for Multiobjective Evolutionary Algorithms: A Multi-Agent Framework](#42) — 0.92
+43. [HyperCut: Fast Inter-Layer Scheduling via Directed Hypergraph and Early Filtering](#43) — 0.92
+44. [ComFuse: Fusing Complex Memory-Intensive Subgraphs with Compute-Intensive Kernels For Modern GPU Architectures](#44) — 0.92
+45. [Rethinking Agentic Kernel Generation for Emerging Accelerators](#45) — 0.92
+46. [CONQuER: Hardware-Aware Mixed-Precision Quantisation with Online-Calibrated Surrogates](#46) — 0.92
+47. [JAXBench: Benchmarking Autonomous TPU Kernel Optimization](#47) — 0.92
+48. [Ciphertext- and Polynomial-Level Optimization for Fully Homomorphic Encryption](#48) — 0.92
+49. [Breaking Database Lock-in: Agentic Regeneration of High Performance Storage Readers for Database Bypass](#49) — 0.92
+50. [QuTuner: Feature- and Learning-Guided Optimization Pass Tuning for Quantum Compilers](#50) — 0.92
+51. [Understanding Agent-Based Patching of Compiler Missed Optimizations](#51) — 0.92
+52. [Tensor Seeks Layout: Formalizing Layout Selection for ML Compilers](#52) — 0.91
+53. [Portable to Efficient: Auto-Tuning Hardware-Agnostic GPU Kernels in Julia](#53) — 0.91
+54. [Validation-Centric AI-Assisted GPU Porting of a 250,000+ Line Legacy Weather Simulation Code](#54) — 0.91
+55. [WarmTuner: Program-Specific Warm Starts for Compiler Autotuning via Offline-to-Online Reinforcement Learning](#55) — 0.91
+56. [CANN Bench: Benchmarking Agent Generated Kernels against Real NPU and Algorithmic Limits](#56) — 0.91
+57. [Can Coding Agents Implement Missed Compiler Optimizations? Evaluating LLM Agents on LLVM Peephole Optimizations](#57) — 0.91
+58. [CREDIT: Cost-guided Reduction-reuse with Efficient DSMEM Inter-CTA Tiling](#58) — 0.90
+59. [Hierarchical Shared Memory-Aware Optimization for TRSM on GPU Platforms](#59) — 0.90
+60. [XRFix: Exploring Performance Bug Repair of Extended Reality Applications with Large Language Models](#60) — 0.90
+61. [Can Large Language Models Recover Semantic Optimization Opportunities That Compilers Miss?](#61) — 0.90
+62. [KernelGenBench: A Multi-Source and Multi-Chip Benchmark for LLM-based Kernel Generation](#62) — 0.90
+63. [Cross-Model Cross-Language AI Coding Agent Performance: Accuracy and Speed of Parallel CLRS Algorithms](#63) — 0.90
+64. [Demonstrating GenDB: Instance-Optimized and Customized Query Processing Code Generation via LLM Agents](#64) — 0.90
+65. [Pattern-Guided Design Space Exploration for FPGA Accelerator Design](#65) — 0.90
+66. [Rethinking Code Performance Benchmarks for LLMs](#66) — 0.90
+67. [Optimus: A Generic Operator-Level PyTorch Model Transformation Framework](#67) — 0.90
+68. [Are Performance-Optimization Benchmarks Reliably Measuring Coding Agents?](#68) — 0.90
+69. [Integrating a Python Dynamical core into ICON](#69) — 0.89
+70. [Memory Allocation for Constant-Bounded Programs](#70) — 0.88
+71. [RealisticTritonBench: A Benchmark for Triton-Kernel Generation in Real-World AI Frameworks](#71) — 0.88
+72. [GPU Offload in Rust: Portable, Safe, and Fast](#72) — 0.88
+73. [An eightfold equivalence-preserving speedup of the JUNO OMILREC vertex and energy reconstruction](#73) — 0.88
+74. [Compiling Bioinformatics Recurrences](#74) — 0.88
+75. [EffiHolmes: Differential Profiling-Guided Repository Level Time Inefficiency Fix Localization](#75) — 0.87
+76. [Gaming Without an Attacker: Benchmark Fingerprinting in LLM-Driven Search Under Selection Pressure](#76) — 0.86
+77. [TileSight: A First-Principles Tile-Centric Analytical GPU Performance Model from Cores to Clusters](#77) — 0.86
+78. [Correct but Slow: An Empirical Study of the GPU Kernel Evaluation Gap in Modern Domain-Specific Languages](#78) — 0.86
+79. [The Unseen Delta: Characterizing the Compiler Optimization Landscape via Top-Down Differential Analysis](#79) — 0.85
+80. [What Do AI Agents Actually Change? An Empirical Taxonomy of Mutation Patterns in Performance-Improving Pull Requests](#80) — 0.85
+81. [EvoMem: Memory-Augmented Evolution for Code Optimization](#81) — 0.82
 
 ---
 
 <a id="1"></a>
-## 1. [Hawk: Harnessing Hardware-Aware Knowledge for High-Performance NPU Kernel Generation](http://arxiv.org/abs/2607.01590v2)
+## 1. [LLM4LLM: Bridging Kernel Benchmarks and Real Deployment via Closed-Loop Agentic Optimization](https://arxiv.org/abs/2608.21836)
 
 - **相关度**：0.97
 - **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-07-02
-- **arXiv ID**：2607.01590
-- **作者**：Junyi Wen, Ruiyan Zhuang, Yongjia Xu, Pengtu Li, Rui Zou, Hongyi Chen, Chingman Wan, Puxu Yang, Wuhui Chen, Yanlin Wang
-- **入选理由**：硬件感知知识驱动的NPU内核自动生成与优化，满足A。
+- **收录日期**：2026-08-26, 2026-08-22
+- **arXiv ID**：2608.21836
+- **作者**：Hui Zeng, Pengfei Yang, Yanxin Chen, Fusong Ju, Xinran Wei
+- **入选理由**：提出部署感知的闭环优化框架，抽取推理工作负载的优化任务并用经验引导的agent搜索、接受包含kernel补丁的优化，在A100/H100上带来几何平均3.91x/6.98x端到端延迟加速；满足A的LLM/agent直接性能优化。
 
-**TL;DR**：Hawk是一个无需训练的NPU内核生成框架，通过硬件感知知识表示和检索，将准确率从49.4%提升到80.0%，执行加速高达2.2倍。
+**TL;DR**：提出LLM4LLM，一种部署感知的闭环优化框架，直接优化语言模型推理脚本，在真实工作负载上实现端到端延迟大幅加速，并弥合了内核基准与部署行为之间的差距。
 
-**中文摘要**：为神经处理单元（NPU）开发高性能内核是一个关键的行业瓶颈，要求开发者手动处理隐式的硬件约束和严格的内存层次结构。虽然大语言模型提供了巨大的自动化潜力，但由于缺乏硬件特定的先验知识，它们在NPU上会彻底失败。天真地移植来自类似NPU内核的代码片段可能通过编译器，但会持续触发运行时崩溃和性能下降，因为盲目违反了潜在的硬件约束。为了克服这个问题，我们引入了Hawk，一个无需训练的框架，通过三个核心模块利用硬件感知知识：（1）运行时知识合成模块，采用三分可执行知识表示来将错误上下文与可执行语义固有地耦合；（2）瓶颈感知知识检索模块，实现2D检索范式将查询投影到正交的语法和硬件对齐的语义空间；（3）效果驱动知识蒸馏模块，利用LLM驱动的语义仲裁，通过基于经验执行反馈修剪错误和整合冗余来持续蒸馏知识。在真实NPU工作负载上的广泛评估表明，Hawk将生成准确率从49.4%提升到80.0%，并且相比最先进的基线实现了高达2.2倍的执行加速。
+**中文摘要**：大型语言模型已成为低层代码和内核优化的日益强大的智能体，但孤立的内核基准测试仅能代表语言模型推理中实际部署行为的近似。我们发现了一个从基准测试到部署的差距：在独立测试框架中看似正确且快速的候选内核，在集成到真实推理工作负载后，可能表现出不同的性能、安全性或阶段行为。我们引入了LLM4LLM，一个部署感知的闭环优化框架，它从目标推理脚本开始，提取阶段感知的优化任务，使用经验引导的 episodic 智能体进行搜索，并通过模型内验证接受补丁。在A100和H100 GPU上的十个语言模型推理工作负载中，LLM4LLM显著改善了每个评估模型的端到端延迟，在A100/H100上实现了3.91×/6.98×的几何平均加速；作为支持性的内核级证据，它还在KernelBench Level 2上达到了高达2.745×的几何平均加速。
 
-**方法**：提出Hawk框架，包含三个模块：运行时知识合成（三分可执行知识表示耦合错误上下文与语义）、瓶颈感知知识检索（2D检索范式投影查询到语法和硬件对齐空间）、效果驱动知识蒸馏（LLM仲裁根据执行反馈修剪冗余）。
+**方法**：从目标推理脚本出发，提取阶段感知优化任务，使用经验引导的episodic智能体进行搜索，并通过模型内验证接受补丁，形成闭环优化。
 
-**结果**：在真实NPU工作负载上，生成准确率从49.4%提升至80.0%，执行速度相比最先进基线最高提升2.2倍。
+**结果**：在A100和H100上的十个LM推理工作负载中，所有模型端到端延迟均改善，几何平均加速比分别为3.91×和6.98×；KernelBench Level 2上获得最高2.745×几何平均加速。
 
 [返回索引](#快速索引)
 
 ---
 
 <a id="2"></a>
-## 2. [EGG: An Expert-Guided Agent Framework for Kernel Generation](http://arxiv.org/abs/2606.26758v1)
+## 2. [CUDA-Harness: Harnessing Agentic CUDA Kernel Generation and Optimization from Natural Language](http://arxiv.org/abs/2609.00058v1)
 
-- **相关度**：0.97
+- **相关度**：0.96
 - **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-06-25
-- **arXiv ID**：2606.26758
-- **作者**：Yaochen Han, Ke Fan, Hongxu Jiang, Wanqi Xu, Weiyu Xie, Runhua Zhang, Chenhui Zhu, Yixiang Zhang
-- **入选理由**：LLM引导的GPU内核自动生成与优化，满足A，直接改进性能。
+- **收录日期**：2026-08-30
+- **arXiv ID**：2609.00058
+- **作者**：Qi Fan, An Zou, Yehan Ma
+- **入选理由**：提出从自然语言生成并优化CUDA内核的agentic框架，包含中间结构化生成、合成验证与反馈自适应演化，在正确性与性能上同时优化；满足A的LLM/agent直接代码与kernel优化。
 
-**TL;DR**：EGG是一个专家引导的代理框架，通过两阶段分解和阶段感知多代理协作，自动化生成高性能GPU内核，在KernelBench上实现2.13倍加速。
+**TL;DR**：
 
-**中文摘要**：高性能GPU内核对于降低大型语言模型（LLMs）指数级增长的计算成本至关重要，但其开发严重依赖领域专家的手动调优。虽然近期基于LLM的方法在自动化内核生成方面展现出潜力，但仍难以同时实现正确性和高性能。这一限制主要源于缺乏领域特定的优化指导，阻碍了优化空间的有效探索。我们提出EGG，一个专家引导的代理框架用于内核生成，该框架融入专家优化原则来指导LLM的决策。受专家工作流程启发，我们将内核生成分解为两个层次阶段：1）算法结构设计，建立高质量的计算结构基础；2）硬件特定调优，通过并行映射、张量分块和内存优化进行针对性调整。这种分阶段分解定义了明确的优化目标，结构化设计空间以实现逐步细化。为此，设计了一种阶段感知的多代理协作机制，用于阶段间和阶段内的上下文管理，确保稳定的优化轨迹。在KernelBench和实际工作负载上的实验表明，EGG相比PyTorch实现了2.13倍的平均加速，优于现有的基于代理和基于RL的方法。
+**中文摘要**：
 
-**方法**：EGG将内核生成分解为算法结构设计和硬件特定调优两个层次阶段，并设计阶段感知的多代理协作机制。
+**方法**：
 
-**结果**：在KernelBench和真实工作负载上，EGG相比PyTorch平均加速2.13倍，优于现有基于代理和基于RL的方法。
+**结果**：
 
 [返回索引](#快速索引)
 
 ---
 
 <a id="3"></a>
-## 3. [Are LLM-Generated GPU Kernels Production-Ready? A Trace-Driven Benchmark and Optimization Agent](https://arxiv.org/abs/2607.14541)
+## 3. [KernelArc: A Multi-Agent Framework for GPU Kernel Optimization](https://arxiv.org/abs/2608.17071)
 
 - **相关度**：0.96
-- **方向标签**：Kernel/自动调优、LLM/Agent 代码优化
-- **收录日期**：2026-07-18, 2026-07-19, 2026-07-20
-- **arXiv ID**：2607.14541
-- **作者**：Lingyun Yang, Yuxiao Wang, Shenghao Liang, Linfeng Yang, Daocheng Ying, Chunbo You, Rui Zhang, Luping Wang, Yinghao Yu, Guodong Yang, Liping Zhang
-- **入选理由**：提出生产轨迹驱动的GPU内核基准测试（B）并推出profile驱动的内核优化代理AKA（A），核心是自动修改GPU内核以提升性能，满足A和B。
+- **方向标签**：LLM/Agent 代码优化
+- **收录日期**：2026-08-20, 2026-08-17
+- **arXiv ID**：2608.17071
+- **作者**：Joyjit Kundu, Ben Stoffelen, Kaili Wang, Peter Vrancx, Ludovic Denoyer
+- **入选理由**：核心是多智能体GPU内核自动优化框架，通过并行策略智能体、基准守卫和只读状态协调来优化真实硬件上的kernel，并在SOL-ExecBench取得领先；满足A的LLM/agent自动内核优化。
 
-**TL;DR**：提出Atrex-Bench基准测试，从生产轨迹采样，并推出AKA代理优化内核，显著提升性能。
+**TL;DR**：提出 KernelArc，一个多智能体 GPU 内核优化框架，在 H100/B200 上通过并行策略智能体与协调机制，在 SOL-ExecBench 多个任务上取得领先。
 
-**中文摘要**：现有的GPU内核生成基准测试从合成或精选来源中提取问题，这些来源与部署的工作负载存在差异。我们提出了Atrex-Bench，这是一个基准测试，其30个算子和440种形状直接从全集群生产推理轨迹中采样，针对计算受限、内存丰富的GPU。每个问题都带有一个重要性权重，该权重源自其在观察到的GPU时间中的份额，按应用卡时加权，并根据其运行的推理阶段分别计算，同时每个问题还带有屋顶线上限，因此总体得分突出了消耗最多推理时间的内核。在Atrex-Bench上评估六种前沿编码代理显示，即使是最好的普通模型也只能达到生产算子上硬件屋顶线的大约10%；而仅靠正确性会高估能力，因为很大一部分表面通过率来自PyTorch回退而非模型编写的内核。为弥合这一差距，我们共同发布了Atrex-Kernel-Agent（AKA），这是一种基于性能分析的内核优化代理，结合了迭代测量-修订搜索、用于逃离停滞搜索上下文的优化丢弃，以及分层GPU优化知识库（298个参考内核文件和244个优化知识文档，外加用于API/ISA查找的外部上游参考项目）。在一个受控案例研究中，该代理将零FlyDSL回退转换为实际内核，这些内核达到或超过了手动调整的生产基线。
+**中文摘要**：我们提出了 KernelArc，一个用于跨异构工作负载的自主 GPU 内核优化的多智能体框架。策略专化的智能体并行运行，并通过仅结论的共享内存、确定性基准测试守卫以及带有平台触发的草稿的只读跨智能体状态进行协调。我们在 NVIDIA H100 和 B200 GPU 上使用类别代表性的 SOL-ExecBench 工作负载评估了 KernelArc。生成的实现涵盖自定义 BF16 GEMM、静态 cuBLASLt Expert-API 配置表、融合的混合专家反向传播、形状门控的解码器层融合、原生 NVFP4 分组查询注意力以及分页预填充注意力。在 2026 年 7 月 30 日记录的公开 SOL-ExecBench 排行榜快照中，这些提交在代表性的 L1、L2、量化和 FlashInfer 任务上排名第一。轨迹支持论文的核心动机：共享的多智能体搜索可以在固定的候选预算内扩大探索并达到更强的现有方案，而各个协调特性的价值取决于内核和优化阶段。
 
-**方法**：从全集群生产推理轨迹中采样30个算子和440种形状，赋予重要性权重和屋顶线上限；提出AKA代理，结合迭代测量-修订搜索、优化丢弃和分层GPU优化知识库。
+**方法**：KernelArc 使用策略专化的多个智能体并行运行，通过仅结论的共享内存、确定性基准守卫和只读跨智能体状态（带平台触发的草稿）进行协调。
 
-**结果**：最佳普通模型仅达~10%屋顶线；AKA代理将零FlyDSL回退转换为达到或超过手动调优基线的内核。
+**结果**：在 NVIDIA H100 和 B200 上针对 6 类代表性负载生成优化实现，并在 SOL-ExecBench 排行榜快照（2026-07-30）的 L1、L2、量化和 FlashInfer 任务上排名第一。
 
 [返回索引](#快速索引)
 
 ---
 
 <a id="4"></a>
-## 4. [Breaking Database Lock-in: Agentic Regeneration of High Performance Storage Readers for Database Bypass](http://arxiv.org/abs/2607.07696v1)
+## 4. [RepoOMP: Repository-Aware Hotspot OpenMP Parallelization via Dependency-Aware Context Reduction](http://arxiv.org/abs/2608.05855v1)
 
 - **相关度**：0.96
 - **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-07-08
-- **arXiv ID**：2607.07696
-- **作者**：Victor Giannakouris, Immanuel Trummer
-- **入选理由**：核心任务是利用LLM自动生成数据库存储读取器代码，绕过数据库引擎，显著提升分析吞吐量（最高27倍），并验证了正确性与性能，满足A。
+- **收录日期**：2026-08-06
+- **arXiv ID**：2608.05855
+- **作者**：Yongjie Qian, Ke Gao, Zhibin Zhang, Shaohui Peng, Ling Li
+- **入选理由**：RepoOMP对仓库热点进行OpenMP自动并行化，构造依赖上下文、区分规则与LLM agent，并在951个热点上做编译与负载检查且报告8-9倍平均加速，属于LLM/agent自动并行性能优化。
 
-**TL;DR**：Jailbreak利用LLM直接从数据库存储文件中读取数据生成列式缓冲区，绕过数据库引擎，实现高达27倍的分析吞吐量提升。
+**TL;DR**：
 
-**中文摘要**：对外部数据库系统中存储的数据进行操作的分析工作负载面临一个根本性的瓶颈：数据访问完全由数据库驱动程序（如JDBC或ODBC）保护，强制所有读取操作通过查询执行和其他非为批量列式分析设计的驱动层进行。我们提出Jailbreak，一种通过直接读取存储文件并物化数据为内存列式缓冲区来完全绕过数据库引擎的方法。Jailbreak的关键洞察在于，数据库文件格式尽管复杂，但其源代码和文档完全规定了这些格式，而大型语言模型（LLM）可以消化这些工件，无需人工设计的解析逻辑就能重新生成特定操作符的表读取组件。Jailbreak利用LLM辅助的代码合成为数据库存储解码，将传统不透明的格式转变为可直接查询的工件。我们在PostgreSQL和MySQL存储文件上评估Jailbreak，针对读取副本和离线处理管道中常见的分析快照场景。生成的读取器产生Apache Arrow缓冲区，可直接被大多数广泛使用的查询引擎使用，包括DuckDB、Apache Spark以及GPU加速框架如cuDF和Spark RAPIDS。我们使用TPC-H基准测试在所有查询结果上验证与基于JDBC/ODBC的基线的正确性，并展示了端到端分析吞吐量的显著性能提升，实现了高达27倍的加速。我们的结果表明，LLM辅助的存储读取器合成是一种可行且可泛化的方法，用于打破跨数据库系统的数据锁定，并且可应用于PostgreSQL和MySQL以外的任何系统，只要其文件格式可通过文档或源代码提供给LLM。
+**中文摘要**：
 
-**方法**：提出Jailbreak方法，利用LLM根据数据库文件格式的源代码和文档自动生成读取器，直接读取存储文件并转换为内存列式缓冲区（如Apache Arrow）。
+**方法**：
 
-**结果**：在TPC-H基准测试中，Jailbreak正确性验证通过，端到端分析吞吐量提升高达27倍，支持多种查询引擎（如DuckDB、Spark、cuDF）。
+**结果**：
 
 [返回索引](#快速索引)
 
 ---
 
 <a id="5"></a>
-## 5. [MOA: A Profiling-Guided LLM Framework for Memory-Optimization Automation at Codebase Scale](http://arxiv.org/abs/2606.31368v1)
+## 5. [AgenticCANN: Automated Ascend C Operator Generation via Knowledge-Augmented Agentic Evolution](https://arxiv.org/abs/2607.26661)
 
 - **相关度**：0.96
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-06-30
-- **arXiv ID**：2606.31368
-- **作者**：Jiaxi Liang, Yuanxiang Shi, Zezhou Yang, Chenxiong Qian
-- **入选理由**：LLM驱动自动检测与修复内存低效，满足A。
+- **方向标签**：LLM/Agent 代码优化、Kernel/自动调优
+- **收录日期**：2026-07-31, 2026-07-29
+- **arXiv ID**：2607.26661
+- **作者**：Junhao Qiu, Zidong Wang, Yansong Sun, Zhitong Ma, Ping Guo, Qingfu Zhang
+- **入选理由**：核心是知识增强的智能体进化框架自动合成Ascend C算子，在NPU上优化内核性能，并报告可行性与6.65倍加速，满足A，且为LLM/agent直接自动优化代码。
 
-**TL;DR**：MOA是一个LLM驱动的框架，自动检测和修复大规模代码库中的内存低效问题，在OpenHarmony上实现了显著的内存和二进制大小减少。
+**TL;DR**：提出了 AgenticCANN，一个知识增强的智能体进化框架，用于在低语料 NPU 环境中自动合成 Ascend C 算子，显著提升可行性并实现最高 6.65 倍加速。
 
-**中文摘要**：现代大型软件系统常常遭受普遍的内存低效问题（例如膨胀、抖动），导致过度的资源成本和性能下降。现有的优化工作流缺乏端到端的自动化，迫使开发者手动将复杂工具的输出综合为可操作且保留语义的修复方案，这阻碍了在大型代码库中的可扩展性。为了解决这个问题，本文提出了MOA，一个LLM驱动的框架，能够自动检测和修复生产规模代码库中反复出现的内存低效问题。具体来说，MOA通过三个代理运行：分析器从性能剖析数据中挖掘反模式，检查器生成器通过模板引导的细化合成静态分析器，以及修补器通过状态机驱动的工作流生成优化补丁。我们在OpenHarmony（一个拥有超过1亿行C/C++代码的开源操作系统）上的评估显示，MOA从3个剖析的服务中识别出13个反模式（其中9个是之前未知的），在更广泛的7个服务中检测到超过10,000个低效问题，并生成了769个补丁，专家接受率为92.5%，平均实现了42.2%的堆内存减少和10.6%的二进制大小减少。我们认为MOA是生产规模性能工程的一个有价值工具。
+**中文摘要**：Ascend C 算子优化对于 NPU（神经处理单元）推理性能至关重要，但需要深厚的硬件专业知识。尽管大语言模型（LLM）在自动生成 CUDA 内核方面显示出潜力，但 Ascend C 根本不同的编程模型引入了尚未探索的独特挑战。在本文中，我们提出了 AgenticCANN，一个专门为低语料 NPU 环境中自动合成 Ascend C 算子而设计的知识增强型智能体进化框架。为了克服在陌生硬件上严重的平台知识缺陷，AgenticCANN 整合了一个知识编排生成系统，该系统在开发生命周期中提供结构化的、多层次的领域洞察，以解决上游可行性瓶颈。在此基础之上，它采用了一种阶段自适应的智能体进化策略，该策略动态地将 LLM 交互模式与特定的生成和进化阶段对齐，平衡高探索性的候选发现与高收敛性的性能调优。在华为 Ascend 910B 上跨五个模式类别的六个算子进行的大量实验表明，我们的方法在逐元素和归一化算子上实现了 90% 到 100% 的可行性，在融合算子上实现了 56%，并在 1B Pangu 模型推理内核上实现了高达 6.65 倍的加速。进一步的分析表明，知识注入将逐元素算子的可行性从 57% 单调提升至 86%，证明了其通用性而非特定于算子的益处。
 
-**方法**：MOA采用三个LLM驱动的代理：分析器挖掘反模式，检查器合成静态分析器，修补器生成优化补丁。
+**方法**：设计知识编排生成系统以提供分层领域知识，解决上游可行性瓶颈；采用阶段自适应智能体进化策略，根据生成和优化阶段动态调整 LLM 交互模式，平衡探索与收敛。
 
-**结果**：在OpenHarmony上识别13个反模式，检测超1万个低效，生成769个补丁（92.5%接受率），平均堆减少42.2%，二进制大小减少10.6%。
+**结果**：在华为 Ascend 910B 上，对六种算子（覆盖五类模式）实现元素级和归一化算子 90-100% 可行性、融合算子 56% 可行性，在 1B Pangu 模型推理内核上最高获得 6.65 倍加速；知识注入使元素级算子可行性从 57% 提升至 86%。
 
 [返回索引](#快速索引)
 
 ---
 
 <a id="6"></a>
-## 6. [AgRefactor: Self-Evolving Agentic Workflow for HLS Compatibility and Performance](http://arxiv.org/abs/2606.30949v1)
+## 6. [PerfAgent: Profiler-Guided Iterative Refinement for Repository-Level Code Optimization](https://arxiv.org/abs/2607.19653)
 
 - **相关度**：0.96
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-06-29
-- **arXiv ID**：2606.30949
-- **作者**：Yang Zou, Zijian Ding, Yizhou Sun, Jason Cong
-- **入选理由**：多智能体重构代码为HLS并优化性能，满足A。
+- **方向标签**：LLM/Agent 代码优化、Profiling/程序分析
+- **收录日期**：2026-07-24, 2026-07-22
+- **arXiv ID**：2607.19653
+- **作者**：Ryan Deng, Yuanzhe Liu, Bastian Lipka, Yao Ma, Xuhao Chen, Tim Kaler, Jatin Ganhotra
+- **入选理由**：PerfAgent通过profiler引导与验证器循环，驱动LLM代理对仓库级代码进行迭代性能优化，相比baseline显著提升专家级补丁率，满足条件A。
 
-**TL;DR**：AgRefactor是一个基于LLM的多智能体工作流，用于将软件重构为HLS兼容程序，通过自进化记忆系统和自动化工具集成，在多个基准测试上优于现有方法。
+**TL;DR**：PerfAgent通过性能分析引导和验证器循环，显著提升了LLM代理在仓库级代码优化上的表现，匹配专家速度的补丁率翻倍以上。
 
-**中文摘要**：高层次综合（HLS）提供了从概念到硅片的快速路径，但由于受限的语言支持以及软件与硬件编程实践之间的差距，将现实世界的软件转换为可综合的HLS代码仍然具有挑战性。现有的自动化和基于LLM的重构方法部分解决了这个问题，但它们往往缺乏灵活性，难以扩展，并且计算成本高昂。我们引入了AgRefactor，一种基于LLM的多智能体工作流，用于将软件重构为HLS兼容程序。AgRefactor包含一个自进化记忆系统，该系统跨任务积累和检索事实性和策略性知识，提高了对未见程序的鲁棒性和效率。为了降低成本并增强可扩展性，它集成了自动化重构工具，使智能体能够平衡LLM驱动的重写与高效的基于工具的转换。在11个具有挑战性的现实世界基准测试中的9个上，这些基准测试比先前工作中研究的最复杂案例长5-10倍，AgRefactor优于或匹配了最先进的自动化重构工具和基于相同框架构建的强LLM基线。进一步的智能体性能优化在SoTA pragma调优工具上实现了6.51倍的几何平均加速，并且在额外资源少于20%的情况下，相比优化的开源设计实现了1.20倍的加速。AgRefactor是完全自动化的并且是开源的。
+**中文摘要**：大型语言模型（LLM）代理现在在面向正确性的仓库级任务中表现良好，包括SWE-Bench问题解决和真实代码库中的功能实现。然而，它们在仓库级代码优化方面仍然存在困难，这需要在提高运行时性能的同时保持行为。在此场景中，仅通过测试是不够的；补丁必须保持行为、实现代码优化，并接近专家级加速。当前的代理常常忽略隐藏在抽象层和本地扩展背后的瓶颈，在实现浅层加速后就停止，或者未能充分测试代码补丁，从而可能静默破坏边缘情况。我们提出了PerfAgent，一个性能分析器引导、验证器在环的工作流程，为现成的编码代理提供所需的反馈，以发现真正的热点，超越第一个通过的补丁进行改进，并使用性能分析器证据（而非仅靠时间）来决定下一步优化什么。在两个具有挑战性的优化基准测试GSO和SWE-fficiency-Lite上，PerfAgent使匹配专家级补丁的比率比使用GPT-5.1的OpenHands提高了一倍以上，在GSO上从19.6%提升到39.2%，在SWE-fficiency-Lite上从26%提升到74%。它还以显著更低的成本超越了最优的五个采样基线，表明性能提升来自更好的反馈，而非额外的测试时采样。
 
-**方法**：提出AgRefactor，包含多智能体协作、自进化记忆系统（积累事实和策略知识）以及集成自动化重构工具，平衡LLM驱动和工具化转换。
+**方法**：提出PerfAgent，一个包含性能分析器引导和验证器在环的工作流程，为代理提供热点发现、迭代优化和基于证据的决策反馈。
 
-**结果**：在11个基准测试中9个优于或匹配现有方法；性能优化带来6.51倍加速（vs SoTA pragma调优）和1.20倍加速（vs优化开源设计），资源开销<20%。
+**结果**：在GSO和SWE-fficiency-Lite基准上，PerfAgent将匹配专家级补丁的比率分别从19.6%提升至39.2%和从26%提升至74%，并以更低成本超越最优采样基线。
 
 [返回索引](#快速索引)
 
 ---
 
 <a id="7"></a>
-## 7. [PassNet: Scaling Large Language Models for Graph Compiler Pass Generation](http://arxiv.org/abs/2605.29357v1)
+## 7. [Beyond the Need for Speed: Energy-Aware Code Generation via Simulation-Guided Reinforcement Learning](http://arxiv.org/abs/2607.04577v1)
 
 - **相关度**：0.96
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-05-28
-- **arXiv ID**：2605.29357
-- **作者**：Yiqun Liu, Yingsheng Wu, Ruqi Yang, Enrong Zheng, Honglei Qiu, Sijun He, Tai Liang, Jingjing Wu, Yuhan Zhou, Yiwei Zhang, Dongyan Chen, Weihan Yi, Xinqi Li, Siqi Bao
-- **入选理由**：满足A：基于LLM生成编译器pass（图变换），直接集成到编译管道优化性能，包含数据集和基准测试。
-
-**TL;DR**：PassNet是一个基于LLM的编译器通证生成生态系统，通过数据集和基准测试展示了LLM在编译器优化中的潜力，并验证了微调小模型可接近前沿性能。
-
-**中文摘要**：现代张量编译器（如TorchInductor）在主流模型上实现了显著的加速，但在长尾工作负载上面临系统性的性能瓶颈——我们的分析显示，43%的真实世界子图在默认编译下会出现端到端性能下降。虽然LLM为实现自动化优化提供了一条路径，但现有工作主要集中在独立的核生成上。我们认为，通证生成——即LLM编写可直接集成到编译器流水线中的结构化图变换——是更合适的抽象。为此，我们提出PassNet，这是首个用于基于LLM的编译器通证生成的大规模生态系统，包括：(1) PassNet-Dataset，包含来自10万个真实世界模型的超过1.8万个独特计算图；(2) PassBench，包含200个精心挑选的长尾可融合任务（共计2060个子图），在错误感知加速分数（ES_t）——一个统一了正确性、稳定性和性能的指标——下进行评估，并配备分层完整性防御以防止LLM的系统性滥用。实验表明，PassBench既具有高度的区分性，又真正未达到饱和：最佳前沿模型在聚合性能上落后TorchInductor 37%，但在单个子图上，LLM可实现对同一编译器的高达3倍加速——这表明瓶颈在于一致性，而非能力。在仅约4000个PassNet轨迹上微调一个小模型即可获得2.67倍的改进，接近前沿模型性能，证明了巨大的提升空间，并验证了PassNet作为推进LLM驱动编译器优化的实时训练基础设施的有效性。所有数据、基准和工具均已公开。
-
-**方法**：提出PassNet，包含大规模计算图数据集PassNet-Dataset和基准测试PassBench，采用错误感知加速分数ES_t作为评估指标，并设计了分层完整性防御。
-
-**结果**：最佳LLM在PassBench上聚合性能落后TorchInductor 37%，但单个子图上可高达3倍加速；微调小模型在约4000个轨迹上获得2.67倍改进，接近前沿模型。
-
-[返回索引](#快速索引)
-
----
-
-<a id="8"></a>
-## 8. [CodeEvolve: LLM-Driven Evolutionary Optimization with Runtime-Enriched Target Selection for Multi-Language Code Enhancement](http://arxiv.org/abs/2605.04677v1)
-
-- **相关度**：0.96
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-05-06
-- **arXiv ID**：2605.04677
-- **作者**：Ajay Krishna Borra, Wenzhuo Yang, Samarth Arora, Akhilesh Deepak Gotmare, Gokulakrishnan Gopalakrishnan, Tharun Gali, Madhav Rathi, Doyen Sahoo, Manpreet Singh, Mayuresh Verma, Laksh Venka, Shuchita Singh
-- **入选理由**：CodeEvolve利用LLM和进化搜索自动优化程序性能，通过运行时分析选择热点并验证，满足条件A。
-
-**TL;DR**：CodeEvolve是一个利用LLM和进化搜索自动提升程序性能的框架，通过运行时分析和MCTS生成并筛选优化候选，在Java和Apex任务上实现了显著加速，并保持了正确性。
-
-**中文摘要**：我们提出了CodeEvolve，一个利用大型语言模型（LLM）改进程序性能和代码质量的进化框架。CodeEvolve扩展了OpenEvolve，加入了运行时引导的目标选择、蒙特卡洛树搜索（MCTS）、自动代码精炼以及针对Java和Salesforce Apex的特定语言评估流水线。该系统使用Java Flight Recorder（JFR）配置文件构建加权组件图，并选择占大多数执行成本的优化目标，减少了对人工瓶颈识别的依赖。对于每个目标，CodeEvolve生成候选编辑，通过构建验证、单元测试、性能检查、静态分析和基于LLM的评审进行评估，并只保留保持功能正确性的变体。在真实世界的优化任务中，CodeEvolve在保持正确性的同时提升了性能和代码指标。在一个大型企业Java代码库上，它在七个热点函数上实现了平均15.22倍的加速，并在其中五个函数上优于单次LLM优化。在Apex优化上的消融研究表明，完整的MCTS增强配置平均产生19.5个有效程序（满分20），表明搜索、过滤和精炼每一点都有助于更可靠的优化。
-
-**方法**：扩展OpenEvolve，使用JFR配置文件构建加权组件图选择优化目标，通过MCTS生成候选编辑，经过构建验证、单元测试、性能检查、静态分析和LLM评审的多阶段流水线过滤，仅保留保持功能正确性的变体。
-
-**结果**：在企业Java代码库上，七个热点函数平均加速15.22倍，其中五个优于单次LLM优化；在Apex优化消融实验中，完整MCTS配置平均产生19.5个有效程序（满分20）。
-
-[返回索引](#快速索引)
-
----
-
-<a id="9"></a>
-## 9. [Optimas: An Intelligent Analytics-Informed Generative AI Framework for Performance Optimization](http://arxiv.org/abs/2604.23892v1)
-
-- **相关度**：0.96
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-04-26
-- **arXiv ID**：2604.23892
-- **作者**：Mohammad Zaeed, Tanzima Z. Islam, Vladimir Indic
-- **入选理由**：Optimas是一个LLM驱动的全自动代码优化框架，将性能诊断映射为代码变换并验证，满足条件A。
-
-**TL;DR**：Optimas是一个基于多智能体工作流的全自动代码优化框架，利用LLM将性能诊断映射到代码转换，在实验中生成100%正确代码，98.82%实验提升性能，平均加速8%-79%。
-
-**中文摘要**：大型语言模型（LLM）在自动化代码优化方面显示出潜力。然而，在没有性能上下文的情况下，它们难以产生正确且有效的代码转换。现有的性能工具可以识别瓶颈，但止步于生成可操作的代码更改。因此，性能优化仍然是耗时且需要手动进行的工作，通常只有具备详细架构理解的专业人员才能承担。为了弥合这一差距，我们引入了Optimas，这是一个基于多智能体工作流的模块化、全自动、端到端的生成式AI框架。Optimas利用LLM将来自多个报告的性能诊断映射到已建立的、有文献支持的代码转换，同时将洞察提取、代码生成、执行和验证统一到单个流水线中。在10个基准测试和两个HPC小型应用上的3,410次真实世界实验中，Optimas生成了100%正确的代码，并在超过98.82%的实验中提升了性能，在NVIDIA GPU上实现了平均8.02%-79.09%的加速。
-
-**方法**：提出Optimas框架，采用多智能体工作流，利用LLM将多个性能报告中的诊断映射到有文献支持的代码转换，并统一洞察提取、代码生成、执行和验证。
-
-**结果**：在3410次实验（10个基准和2个HPC应用）中，生成100%正确代码，98.82%实验性能提升，NVIDIA GPU上平均加速8.02%-79.09%。
-
-[返回索引](#快速索引)
-
----
-
-<a id="10"></a>
-## 10. [Beyond the Need for Speed: Energy-Aware Code Generation via Simulation-Guided Reinforcement Learning](http://arxiv.org/abs/2607.04577v1)
-
-- **相关度**：0.95
-- **方向标签**：LLM/Agent 代码优化
+- **方向标签**：LLM/Agent 代码优化、Benchmark/评测
 - **收录日期**：2026-07-06
 - **arXiv ID**：2607.04577
 - **作者**：Saurabhsingh Rajput, Tushar Sharma
-- **入选理由**：满足A：通过仿真和强化学习训练模型生成节能C++代码，以CARET指标验证性能提升。
+- **入选理由**：用确定性架构仿真构建大规模语料并训练/RL能量感知代码生成模型，CARET显示真实能耗降低，直接面向自动节能代码生成，满足A且含B性质的数据与评估。
 
 **TL;DR**：提出用确定性仿真代替硬件测量来训练节能代码模型，构建Green Tea数据集，通过监督微调和强化学习训练能量感知模型，并引入CARET指标评估，在保留问题上取得显著能效提升，同时揭示IPC作为能效代理的不可靠性。
 
@@ -285,37 +245,345 @@
 
 ---
 
-<a id="11"></a>
-## 11. [Auto: The AGI Compiler](http://arxiv.org/abs/2607.04542v1)
+<a id="8"></a>
+## 8. [Beyond Scaling: Self-Evolving LLM Agents for Hardware Kernel Optimization via an Experience-Driven Workflow and Experience Graph Memory](http://arxiv.org/abs/2608.25570v1)
+
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化、Kernel/自动调优
+- **收录日期**：2026-08-26
+- **arXiv ID**：2608.25570
+- **作者**：Siyuan Chen, Runlin Hou, Shenxiu Wu, Yansong Sun, Junming Cao, Yiyu Zhang, Shudi Shao, Junhao Qiu, Zhichao Lu, Qingfu Zhang
+- **入选理由**：LLM agents系统化地对硬件kernel进行编译、正确性测试、profile和修正确认，结合经验记忆持续优化并报告显著speedup，符合A。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="9"></a>
+## 9. [FABRICA: Agentic CUDA-to-CSL Translation and Optimization for Wafer-Scale Systems](http://arxiv.org/abs/2608.25124v1)
+
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化、Kernel/自动调优、Benchmark/评测
+- **收录日期**：2026-08-25
+- **arXiv ID**：2608.25124
+- **作者**：Yuebo Luo, Eliu Huerta, Venkatram Vishwanath, Caiwen Ding, Rajeev Thakur, Le Chen
+- **入选理由**：核心是FABRICA agentic框架，将CUDA kernel翻译并优化为Cerebras CSL，包含目标知识、失败修复和正确性门控优化，在WSE-3上几何平均速度提升3.47x。满足A类：跨架构自动翻译/kernel优化，明确改善性能并有硬件实测；也提供benchmark（FABRICA-Bench）。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="10"></a>
+## 10. [Accelerated Genetic Programming Hyper-Heuristics for Simulation-Based Scheduling via Agentic AI](https://arxiv.org/abs/2608.19487)
 
 - **相关度**：0.95
 - **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-07-05
-- **arXiv ID**：2607.04542
-- **作者**：Jaber Jaber, Osama Jaber
-- **入选理由**：满足A：Auto编译器将LLM agent行为编译为高效WebAssembly二进制，显著降低推理成本，改善运行时间和能耗。
+- **收录日期**：2026-08-22, 2026-08-19
+- **arXiv ID**：2608.19487
+- **作者**：Heyang Thomas Li, Alexander Pletzer, Yuan Tian, Yi Mei, Mengjie Zhang
+- **入选理由**：使用Claude agentic AI对Python项目调度仿真代码做系统性性能重构，以基准与正确性检查引导优化，运行时间从1298秒降至200秒以下并节省大量核心小时；满足A的LLM/agent直接代码性能优化。
 
-**TL;DR**：Auto通过记录LLM智能体行为、提取确定性部分为已验证程序并生成WebAssembly认知二进制，利用分层运行时和守卫机制实现低成本推理。在AUTO-BENCH上87.1%的跨度是确定性的，成本降低6.4倍，准确率96.9%，但校准和参考保真度是关键。
+**TL;DR**：使用 Claude 智能体 AI 对 Python 项目调度模拟进行系统重构，将测试运行时间从 1298 秒降至 200 秒以下，每年节省 400 万核心小时。
 
-**中文摘要**：每一轮LLM智能体的运行都会在前沿模型上逐个令牌地重新推导其行为：聪明、昂贵、缓慢且无边界。我们提出Auto，一个编译器，它记录实时智能体行为，测量哪些部分实际上是确定性的，将其提取为经过验证的程序或蒸馏后的专家，并生成认知二进制：WebAssembly工件，其清单携带测量保证，其声明的能力由沙箱物理强制执行。分层运行时在符合校准的守卫后面执行编译后的行为；守卫触发则回退到参考智能体，捕获的轨迹重新编译下来，因此没有东西被重复计算。我们使用“AGI编译器”在一个狭窄、可测试的意义上：一个系统，它能自主地将新经验转化为永久的、经过验证的、近乎免费的技能，同时衡量它不知道的东西。在AUTO-BENCH（我们引入并预注册的基准测试）上，560个记录的边缘智能体跨度中有87.1%是经见证确定性的（四个被普查的任务族中有三个达到100.0%）。在包含300个项目和三次预定分布转移的流上，闭环编译了三代工件，并将每项边际成本从59微美元降至2微美元（端到端6.4倍），在见证输入上达到96.9%的等价性，且零错误。同一流还量化了失败模式：一个松散的守卫错误地标记了48.9%的编译答案，一个不忠实的回退参考导致验证门拒绝重新编译。校准和参考保真度，而不是模型能力，决定了低成本是否保持正确。代码：https://github.com/RightNow-AI/auto
+**中文摘要**：Python 因能够快速开发并提供丰富的数据分析、人工智能（AI）和机器学习生态系统，被广泛用于科学研究。然而，随着实验规模的扩大，定制化的研究代码可能会变得异常缓慢。这一挑战在离散事件项目调度模拟中尤为严峻，因为顺序状态更新、嵌套循环、条件评估和面向对象结构限制了编译型数值库和 GPU 加速库的优势。解决这些瓶颈通常需要迭代式性能分析、重构、测试和验证，但研究人员可能缺乏时间或专门的软件工程专业知识来进行底层优化。本文提出了一种在高级计算（HPC）环境中，使用 Claude 智能体 AI 对真实项目调度工作负载进行系统性重构的方法。在代表性基准测试和正确性检查的指导下，智能体识别瓶颈、实施有针对性的优化并评估其效果，而研究人员保留最终控制权。测试运行时间从 1,298 秒减少到 200 秒以下，且输出不变，每年节省 400 万核心小时（新西兰元 320,000）。
 
-**方法**：记录实时智能体行为，测量确定性部分，将其提取为经过验证的程序或蒸馏专家，生成WebAssembly认知二进制；采用分层运行时，通过校准守卫执行编译行为，守卫触发时回退到参考智能体并重编译。
+**方法**：提出一种使用 Claude 智能体 AI 的系统性重构方法，在 HPC 环境中，以代表性基准和正确性检查为指导，自动识别瓶颈、实施优化并评估效果，研究人员保留最终控制。
 
-**结果**：在AUTO-BENCH上560个跨度中87.1%为确定性；300项流测试中边际成本从59降至2微美元（6.4倍），准确率96.9%且零错误；松散守卫导致48.9%错误标记，不忠实参考导致重编译拒绝。
+**结果**：测试运行时间从 1,298 秒降至 200 秒以下，输出不变，每年节省 400 万核心小时（NZ$320,000）。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="11"></a>
+## 11. [AsmEvo: Agentic Assembly-Level Optimization of AMD GPU Kernels with Functional Equivalence Verification](http://arxiv.org/abs/2608.20711v1)
+
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化、Kernel/自动调优
+- **收录日期**：2026-08-21
+- **arXiv ID**：2608.20711
+- **作者**：Ji Liu, Puyuan Yang, Rongzhang Zheng, Fan Wang, Jinglin Wang, Muhammad A. Awad, Mortis Huang, Andy Chang, Zekai Li, Zeping Li, Zihao An, Yue Liu, Yuchen Yang, Jianghui Wang, Chushi Chen, Ziqiong Liu, Fuwei Yang, Dong Li, Wen Heng Chung, Shengcai Liu, Emad Barsoum
+- **入选理由**：核心是AsmEvo，agentic assembly级优化AMD GPU kernel code object，通过功能等价验证和差分验证保全行为，在MI308X和MI300X上获得1.35x和1.09x-1.31x等速度提升。满足A类：直接在汇编层修改已编译kernel以优化性能并验证功能。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
 
 [返回索引](#快速索引)
 
 ---
 
 <a id="12"></a>
-## 12. [Copper: Unifying Correctness and Performance Specification in Code Generation](http://arxiv.org/abs/2607.03130v1)
+## 12. [CAKE: Compiler-Agent Co-Design for Frontier Kernel Evolution](http://arxiv.org/abs/2608.12629v1)
+
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化、编译器优化、Kernel/自动调优
+- **收录日期**：2026-08-12
+- **arXiv ID**：2608.12629
+- **作者**：Zihao Ye, Yingyi Huang, Hongyi Jin, Bohan Hou, Junru Shao, Zhongming Yu, Jinqi Chen, Meghan Cowan, Shiyi Cao, Shanli Xing, Hanfeng Chen, Vinod Grover, Tianqi Chen, Luis Ceze
+- **入选理由**：核心是CAKE，编译器-agent协同设计：agent编写硬件明确的CAKE IR并迭代优化GPU kernel，配合验证、成本模型、诊断和演进式harness，在多个kernel上超越手调基线，并作为上游PR提交。满足A类：自动生成/优化GPU kernel并验证性能（如Flash-KMeans、Kimi Delta Attention的2.05x加速）。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="13"></a>
+## 13. [Effect of Abstractions and Prompting Strategies on LLM-Guided High-Performance Optimizations](http://arxiv.org/abs/2608.08085v2)
+
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化
+- **收录日期**：2026-08-08
+- **arXiv ID**：2608.08085
+- **作者**：Jiří Klepl, Matyáš Brabec, Martin Kruliš
+- **入选理由**：论文明确研究LLM指导的并行HPC代码自动优化，在PolyBench上生成优化C代码并报告正确率与实际测量性能提升，属于A类LLM直接代码性能优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="14"></a>
+## 14. [HLSmith: An Expert-Guided Agentic Framework for C/C++-to-HLS Translation](http://arxiv.org/abs/2608.06791v1)
+
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化
+- **收录日期**：2026-08-07
+- **arXiv ID**：2608.06791
+- **作者**：Yuebo Luo, Ahmad Sedigh Baroughi, Philip Stachura, Le Chen, Venkatram Vishwanath, Zhenman Fang, Caiwen Ding
+- **入选理由**：HLSmith由LLM/agent将C/C++翻译为优化的HLS/FPGA加速器，包含HLS专家规则、反馈式优化流程，并在PolyBench上验证功能正确性与几何平均4.24倍加速，满足A类HLS/agent自动性能优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="15"></a>
+## 15. [SparseDitto: Customizing GPU Kernels for Different Sparsity Patterns with LLM-Based Agentic System](http://arxiv.org/abs/2608.05033v2)
+
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化、Kernel/自动调优
+- **收录日期**：2026-08-05
+- **arXiv ID**：2608.05033
+- **作者**：Shiyang Li, Guangyan Sun, Jinwei Tang, Yanzhi Wang, Mingyi Hong, Caiwen Ding
+- **入选理由**：用LLM agent系统针对不同稀疏模式自动构造/定制GPU kernel，并通过目标GPU上实测反馈迭代优化，获得显著加速，符合A。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="16"></a>
+## 16. [Kernel Forge: An Agent Harness for LLM-based Generation and Optimization of CUDA Kernels](https://arxiv.org/abs/2607.24762)
+
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化、Kernel/自动调优
+- **收录日期**：2026-07-30
+- **arXiv ID**：2607.24762
+- **作者**：Joshua Brodsky, Dhravid Kumar, Savini Kashmira, Jayanaka Danatanarayana, Jason Mars, Krisztian Flautner, Lingjia Tang
+- **入选理由**：核心任务是构建LLM智能体自动生成并优化CUDA kernel，以提升多个PyTorch模型的推理性能，并在真实GPU上给出加速比，满足A。
+
+**TL;DR**：Kernel Forge是一个开源的端到端智能体框架，使用蒙特卡洛树搜索（MCTS）自动优化PyTorch模型的内核，在视觉、扩散和LLM模型上以少量迭代取得显著加速。
+
+**中文摘要**：机器学习模型日益嵌入日常软件，其大部分运行时间消耗在一小组计算内核上，如矩阵乘法、卷积和归一化。优化这些内核是减少延迟和成本最直接的方式之一，但传统上需要专家工程师手工编写底层GPU代码。基于大型语言模型（LLM）的智能体系统现在可以以更少的人力生成和优化内核，然而现有工具大多在随机生成的张量和孤立内核上评估，生成独立的CUDA代码，开发者必须手动重新集成，主要仅针对LLM PyTorch模型，并且对检查和调试结果的支持有限。我们提出Kernel Forge，一个开源的端到端智能体框架，可以原地接受任何未经修改的PyTorch模型。Kernel Forge支持视觉、扩散和LLM工作负载，使用蒙特卡洛树搜索（MCTS）探索多个优化路径，而非单一线性优化链，并附带图形用户界面用于监控进度、检查候选内核和调试失败。我们在NVIDIA DGX Spark（配备GB10 GPU）上对涵盖视觉、扩散和LLM工作负载的四个PyTorch模型评估Kernel Forge。每个内核仅经过50次优化迭代，它优化了14个内核，使其性能优于PyTorch eager模式，在ResNet-50的adaptive_avgpool2d上达到1.52倍加速，在Stable Diffusion 3.5 Medium的group_norm上达到1.70倍，在Gemma 4 E2B的softmax上达到2.83倍，在Qwen 3.5 35B-A3B的softmax上达到1.54倍。
+
+**方法**：提出Kernel Forge，一个开源的端到端智能体框架，接受任何未修改的PyTorch模型，使用蒙特卡洛树搜索（MCTS）并行探索多个优化路径，并提供图形用户界面进行监控和调试。
+
+**结果**：在四个PyTorch模型上，每个内核仅50次优化迭代，优化了14个内核，相比PyTorch eager模式取得1.52×至2.83×的加速。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="17"></a>
+## 17. [RLPF: Reinforcement Learning from Performance Feedback for Code Generation](http://arxiv.org/abs/2607.27271v1)
+
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化
+- **收录日期**：2026-07-29
+- **arXiv ID**：2607.27271
+- **作者**：Huihao Jing, Haozhe Cui, Wenbin Hu, Shaojin Chen, Haochen Shi, Changxuan Fan, Yuxuan Liu, Hanyu Yang, Sirui Zhang, Ziyi Chen, Haoran Li, Yangqiu Song
+- **入选理由**：RLPF将运行时间性能反馈引入代码agent训练：先按执行进度排序失败程序，再按相对基准的加速对正确程序排名，最终提升可运行且高效的代码比例，真实性能验证明确，属于面向代码生成性能优化的LLM方法。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="18"></a>
+## 18. [Multi-level Code Optimization via Mixture of Prompts](https://arxiv.org/abs/2607.23665)
+
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化、Profiling/程序分析
+- **收录日期**：2026-07-29, 2026-07-26
+- **arXiv ID**：2607.23665
+- **作者**：Yun Peng, Jun Wan, Jiakun Liu, Shuzheng Gao, David Lo, Xiaoxue Ren
+- **入选理由**：Optimo基于差异profiling和多级提示混合架构，由LLM自动识别瓶颈并施加从算法到API的四级代码优化，在COFFE/Effibench上验证正确性与加速，满足A。
+
+**TL;DR**：Optimo是一种基于LLM和混合提示架构的多级代码优化方法，通过差异分析识别瓶颈并应用多级优化，在两种基准上显著提升代码效率。
+
+**中文摘要**：运行时效率是影响软件质量和用户满意度的关键因素。有许多方法被提出来优化代码以提高运行时效率。传统的代码优化方法在编译期间对静态语言的中级表示（IR）进行操作。它们是有效的，但难以处理不需要编译的动态语言。最近，大型语言模型（LLM）已被用于直接优化动态语言的源代码。然而，这些方法无法识别合适的优化目标，并且通常进行不全面的单级优化。为了解决这些挑战，我们提出了Optimo，一种基于新型混合提示（MoP）架构的多级LLM代码优化方法。在MoP架构中，Optimo通过差异分析识别时间关键的代码结构作为性能瓶颈。然后，这些结构被路由到一些优化策略，类似于MoE中的专家模型，每个策略针对特定代码模式进行优化。与传统方法仅关注语句级优化不同，Optimo在四个抽象级别上操作，从粗粒度的算法改进到细粒度的API使用优化。我们在两个代码效率基准测试COFFE和Effibench上评估了Optimo。我们的结果表明，Optimo实现了高达57.48%的opt%（即优化后程序正确且比原始程序快至少10%的百分比），在优化人类编写代码时实现了高达3.97倍的加速，并且在opt%上始终优于最佳基线，最高达96.51%。此外，Optimo在优化LLM生成的代码时实现了高达42.42%的opt%和高达13.51倍的加速。
+
+**方法**：提出Optimo，基于Mixture-of-Prompts架构，通过差异分析识别时间关键代码结构，路由到不同优化策略，在四个抽象级别（算法改进到API优化）进行优化。
+
+**结果**：在COFFE和Effibench上，对人类编写代码达到57.48% opt%和3.97倍加速，对LLM生成代码达到42.42% opt%和13.51倍加速，opt%优于基线最高96.51%。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="19"></a>
+## 19. [VPR-Evolve: Multi-Agent-Driven Algorithm Evolution for FPGA Place and Route](http://arxiv.org/abs/2607.24998v1)
+
+- **相关度**：0.95
+- **方向标签**：搜索与进化优化
+- **收录日期**：2026-07-27
+- **arXiv ID**：2607.24998
+- **作者**：Qihang Wu, Taizun Jafri, Aman Arora, Vidya A. Chhabria
+- **入选理由**：VPR-Evolve用多智能体LLM直接在VPR源码级别提出、实现和评估修改，以时延、线长和工具运行时间复合指标为目标，并通过完整构建/运行验证效果，属于基于进化的自动源码性能优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="20"></a>
+## 20. [Multi-Source and Cross-Scenario Strategy-Guided Code Optimization](https://arxiv.org/abs/2607.20353)
+
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化、优化策略检索
+- **收录日期**：2026-07-24, 2026-07-22
+- **arXiv ID**：2607.20353
+- **作者**：Yuwei Zhao, Qianyu Xiao, Ye Cui, Yijun Yu, Yingfei Xiong
+- **入选理由**：MoST跨场景整合多知识源，从历史优化提交提取优化策略并生成规则指导LLM进行代码优化，在真实项目上获得显著性能提升，满足A与C。
+
+**TL;DR**：提出MoST框架，跨场景整合多知识源，通过聚类和示例转移生成静态分析规则，显著提升代码优化效果。
+
+**中文摘要**：自动代码优化通过重构源代码来提升程序性能，近期研究使用大语言模型（LLM）生成优化补丁。最新的方法是策略引导型：它们从历史优化提交中提炼策略作为静态分析规则，并利用这些规则匹配代码位置供LLM优化。然而，这些方法存在两个局限性：（1）策略可能来自其他知识源，如教科书和网页，但现有方法无法利用它们；（2）某个策略可能适用于不同场景，例如不同编程语言，但现有方法只能将策略形式化为其源提交所属的场景。为解决这些局限性，我们提出了MoST，一个基于LLM的代码优化框架，它跨场景整合多个知识源。MoST将不同知识源中的项目统一表示为证据对象，以跨源和跨场景的方式聚类以识别策略，并在必要时将其转移到目标场景以生成静态分析规则。为实现这一过程，MoST采用了一种新颖的自平衡加权聚类算法来平衡来自不同知识源的证据对象，以及一种新颖的示例转移过程来确保跨场景转移时生成规则的质量。在一个包含151个C/C++、150个Python和50个Rust历史优化任务的基准测试中，与SemOpt相比，MoST产生的与开发者补丁完全相同或语义等价的补丁分别多出24.44%-180.00%和21.88%-37.50%。在优化15个真实世界项目时，MoST在项目性能测试中实现了19.72%-717.42%的最大改进和4.44%-258.17%的平均改进，显著优于SemOpt和Codex。
+
+**方法**：MoST将不同知识源中的项目统一表示为证据对象，采用自平衡加权聚类算法跨源跨场景聚类以识别策略，并通过示例转移过程将策略迁移到目标场景生成静态分析规则。
+
+**结果**：在151个C/C++、150个Python和50个Rust任务上，MoST比SemOpt多产生24.44%-180.00%的完全匹配补丁和21.88%-37.50%的语义等价补丁；在15个真实项目中，性能最大提升19.72%-717.42%，平均提升4.44%-258.17%。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="21"></a>
+## 21. [Technical Report: AI-Assisted Gated DeltaNet Optimization on NVIDIA Blackwell](http://arxiv.org/abs/2607.16831v1)
+
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化、Kernel/自动调优
+- **收录日期**：2026-07-18
+- **arXiv ID**：2607.16831
+- **作者**：Hyunjun Shin, Jiseung Jang, Jaewoo Maeng, Hyunjun Kim
+- **入选理由**：核心是AI辅助GPU kernel优化，针对Gated DeltaNet在NVIDIA Blackwell上的解码和预填充，官方1.58x加速，并作为案例研究强调端到端系统问题。满足A类：自动修改/优化kernel代码以改善延迟和吞吐，且有实际性能验证。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="22"></a>
+## 22. [From Custom-Fit to Portable: Bridging the Gap Between Synthesized and Engineered GPU Query Execution](http://arxiv.org/abs/2607.07632v1)
+
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化、Kernel/自动调优
+- **收录日期**：2026-07-08
+- **arXiv ID**：2607.07632
+- **作者**：Ivan Donchev Kabadzhov, Eugenio Marinelli, Raja Appuswamy
+- **入选理由**：满足A：SHADB利用LLM在自动profile-guided优化循环中合成特化的CUDA/HIP内核，以逼近内存带宽、相对于引擎实现7.4倍加速，并有真实性能验证；随后把可泛化优化迁移到SYCLDB中。核心是为数据库查询自动生成并优化GPU代码。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="23"></a>
+## 23. [Copper: Unifying Correctness and Performance Specification in Code Generation](http://arxiv.org/abs/2607.03130v1)
 
 - **相关度**：0.95
 - **方向标签**：LLM/Agent 代码优化
 - **收录日期**：2026-07-03
 - **arXiv ID**：2607.03130
 - **作者**：André Lizardo, Raul Barbosa
-- **入选理由**：满足A：Copper结合形式验证与性能规范自动生成正确且高效的代码，有显著性能提升验证。
+- **入选理由**：Copper将性能规格与形式验证结合进AI代码生成，自动生成经真实运行时间/内存验证的高效正确代码，性能优化是核心目标，满足A。
 
 **TL;DR**：Copper框架通过结合形式化验证与性能感知规范，生成了可证明正确且高效的代码，在多样任务上显著优于基线AI生成代码。
 
@@ -329,323 +597,125 @@
 
 ---
 
-<a id="13"></a>
-## 13. [AgentCompile: An LLM-Guided Compiler for Direct CUDA Inference](http://arxiv.org/abs/2606.07665v1)
-
-- **相关度**：0.95
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-06-04
-- **arXiv ID**：2606.07665
-- **作者**：Xuanzhe Li, Ziyan Weng, Zhiyu Zhu, Junhui Hou
-- **入选理由**：满足A：LLM引导编译器生成CUDA实现，通过模板和验证提升Transformer推理速度4-5倍，直接优化代码性能。
-
-**TL;DR**：AgentCompile利用LLM提供搜索元数据，编译器通过模板生成、验证和选择CUDA实现，在多个Transformer模型上实现4-5倍推理加速。
-
-**中文摘要**：Transformer推理越来越依赖专门的编译器和运行时支持，但实际模型图仍然需要语义决策，即哪些区域值得专门优化以及哪些CUDA实现系列是可行的。我们提出了AgentCompile，一个LLM引导的CUDA推理编译器，它仅将LLM输出作为咨询性搜索元数据。给定编译器派生的区域摘要和有界候选空间，LLM提出语义标签、候选优先级、参数提示和风险注释；编译器通过模板实例化CUDA候选，检查接口和硬件约束，经验验证候选，根据测量延迟选择实现，并在不支持或无利可图的专门化时回退。在端到端自回归生成中，AgentCompile在五个代表性工作负载上，相对于PyTorch eager，在Qwen3-1.7B、Qwen3-4B和Llama-3.2-1B-Instruct上分别实现了平均5.66倍、4.05倍和4.26倍的加速。我们将开源该项目。
-
-**方法**：LLM基于编译器区域摘要提出语义标签和候选优先级等元数据；编译器通过模板实例化CUDA候选，检查接口和硬件约束，通过经验验证选择延迟最优的实现，并支持回退。
-
-**结果**：在Qwen3-1.7B、Qwen3-4B和Llama-3.2-1B-Instruct上，端到端自回归生成平均加速比分别达到5.66x、4.05x和4.26x。
-
-[返回索引](#快速索引)
-
----
-
-<a id="14"></a>
-## 14. [Kernel Foundry: A Diagnosis-driven Evolutionary Kernel Optimizer with Multi-Experts](http://arxiv.org/abs/2605.30359v1)
-
-- **相关度**：0.95
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-05-08
-- **arXiv ID**：2605.30359
-- **作者**：Zixuan Huang, Da Chen, Kecheng Huang, Lihao Yin, Xing Li, Huiling Zhen, Mingxuan Yuan, Zili Shao
-- **入选理由**：Kernel Foundry是诊断驱动的GPU内核自动优化框架，通过LLM和进化搜索生成高性能内核，满足条件A。
-
-**TL;DR**：Kernel Foundry是一个诊断驱动的进化框架，通过专家引导初始化、多岛进化搜索和结构化诊断反馈，自动优化GPU内核，在KernelBench上显著提升正确性和性能。
-
-**中文摘要**：生成高性能GPU内核仍然具有挑战性，因为需要兼顾正确性和硬件感知优化。虽然大语言模型（LLM）在代码生成方面显示出潜力，但它们通常无法生成既正确又高效的内核。我们提出Kernel Foundry，一种诊断驱动的进化框架，用于自动GPU内核优化。我们的方法结合了专家引导、检索增强初始化与多岛进化搜索，其中候选内核通过结构化诊断反馈进行迭代细化。一个集中的经验库积累可重用的优化知识以指导后续进化，同时显式机制防止作弊行为绕过内核级计算。在KernelBench上的实验表明，我们的方法在正确性和性能上均持续优于强基线，在Level 2上实现了高达100%的正确性。
-
-**方法**：结合专家引导检索增强初始化、多岛进化搜索、结构化诊断反馈迭代优化，并利用集中经验库积累知识，同时防止作弊行为。
-
-**结果**：在KernelBench上，方法持续优于强基线，Level 2上正确率达到100%。
-
-[返回索引](#快速索引)
-
----
-
-<a id="15"></a>
-## 15. [daVinci-kernel: Co-Evolving Skill Selection, Summarization, and Utilization via RL for GPU Kernel Optimization](http://arxiv.org/abs/2606.16497v2)
-
-- **相关度**：0.93
-- **方向标签**：Kernel/自动调优
-- **收录日期**：2026-06-15
-- **arXiv ID**：2606.16497
-- **作者**：Dayuan Fu, Mohan Jiang, Tongyu Wang, Dian Yang, Jiarui Hu, Liming Liu, Jinlong Hou, Pengfei Liu
-- **入选理由**：专门针对CUDA/Triton GPU kernel的自动优化，通过RL和技能库提升执行效率。
-
-**TL;DR**：提出一个强化学习框架daVinci-kernel，通过技能发现和利用动态演化技能库，联合训练三个共享LLM骨干的智能体，在KernelBench上显著优于现有方法。
-
-**中文摘要**：GPU内核优化代表了一种范式，其中功能正确性被假定，执行效率是目标。我们提出了daVinci-kernel，这是一个强化学习框架，通过动态演化的技能库将技能发现与技能利用相结合。daVinci-kernel联合训练三个共享一个LLM骨干的智能体：一个技能选择智能体，通过BM25和LLM重排序检索相关技术；一个策略智能体，根据所选技能生成多轮CUDA/Triton内核；以及一个技能总结智能体，将成功的轨迹提炼为可重复使用的技能。候选技能仅在执行验证证实可重复加速后才被添加。所有三个智能体共享单个LLM骨干，通过在多样性过滤数据上进行结构化SFT冷启动初始化，然后使用多轮REINFORCE和每个智能体的优势估计进行端到端联合优化。在KernelBench上，daVinci-kernel-14B在Fast_1阈值下，Level 1、Level 2和Level 3上分别达到37.2%、70.6%和32.2%，优于之前最强的RL训练模型Dr. Kernel-14B。
-
-**方法**：构建由技能选择、策略生成和技能总结三个智能体组成的框架，共享一个LLM骨干。技能选择使用BM25和LLM重排序检索相关技术；策略生成条件于技能产生多轮内核；技能总结从成功轨迹中提取新技能。所有智能体通过SFT冷启动后，采用多轮REINFORCE和优势估计联合训练，技能需经执行验证后才加入库。
-
-**结果**：在KernelBench上，daVinci-kernel-14B在Fast_1阈值下，Level 1、Level 2和Level 3分别达到37.2%、70.6%和32.2%，全面超越之前最强的RL模型Dr. Kernel-14B。
-
-[返回索引](#快速索引)
-
----
-
-<a id="16"></a>
-## 16. [AI-PROPELLER: Warehouse-Scale Interprocedural Code Layout Optimization with AlphaEvolve](http://arxiv.org/abs/2606.00131v1)
-
-- **相关度**：0.93
-- **方向标签**：编译器优化
-- **收录日期**：2026-05-28
-- **arXiv ID**：2606.00131
-- **作者**：Chaitanya Mamatha Ananda, Rajiv Gupta, Mircea Trofin, Aiden Grossman, Sriraman Tallam, Xinliang David Li, Amir Yazdanbakhsh
-- **入选理由**：满足A：使用进化工作流优化过程间代码布局，实际硬件测量验证性能提升，直接优化二进制布局。
-
-**TL;DR**：AI-PROPELLER通过代理工作流将Propeller扩展为细粒度过程间代码布局优化器，在实际硬件上测量性能，实现显著性能提升。
-
-**中文摘要**：后链接优化器（PLO），如Propeller和BOLT，已经证明精确的、基于profile的代码布局可以从高度优化的二进制文件中提取显著的性能提升。然而，这些系统目前仅限于过程内技术，留下了过程间布局的全局潜力尚未被充分挖掘。由于组合爆炸的搜索空间和复杂的调用返回语义难以建模，过程间代码布局历来困难。因此，细粒度过程间布局的性能潜力在实践中尚未得到证明。AI-PROPELLER使用Magellan，一个代理工作流，它将Propeller中的编译器启发式演变为细粒度的过程间优化器，并微调生成的策略超参数。为了确保高保真度，我们放弃了近似的静态成本模型，代理工作流生成多个布局变体，并在实际硬件上执行以测量真实性能计数器，为进化循环提供精确的奖励信号。AI-PROPELLER在多个基准测试上进行了评估，包括大型仓库规模应用，实验显示在已经使用最先进的FDO和PLO优化的情况下，性能提升为0.23%到1.6%，这对于实际二进制文件是显著的。这是首次在工业环境中对大型仓库规模应用进行细粒度过程间代码布局优化。
-
-**方法**：使用Magellan代理工作流，将编译器启发式演变为细粒度过程间优化器，并通过在实际硬件上执行布局变体测量性能计数器来提供精确奖励信号，进行进化调优。
-
-**结果**：在多个基准测试（包括大型仓库规模应用）上，相比最先进的FDO和PLO，实现0.23%到1.6%的性能提升。
-
-[返回索引](#快速索引)
-
----
-
-<a id="17"></a>
-## 17. [Understanding Agent-Based Patching of Compiler Missed Optimizations](http://arxiv.org/abs/2607.02370v2)
-
-- **相关度**：0.92
-- **方向标签**：编译器优化
-- **收录日期**：2026-07-02
-- **arXiv ID**：2607.02370
-- **作者**：Batu Guan, Zirui Wang, Shaohua Li
-- **入选理由**：满足A：系统研究并构建代理修补编译器错过优化的基准，自动修改编译器源码以改善性能。
-
-**TL;DR**：本文系统研究了代理修补编译器错过优化的能力，发现代理生成的补丁在优化范围上与开发者补丁存在差异，并提出了历史知识增强技术以改善泛化。
-
-**中文摘要**：编译器错过的优化是指编译器未能优化某些代码的情况。实现或修补这些错过的优化需要许多编译器开发人员的努力。在本文中，我们系统性地研究了代理(agent)修补编译器错过的优化的能力。我们识别了一个重大挑战：修补错过的优化不仅仅需要修复报告的具体案例，还需要泛化到类似案例。我们构建了一个真实世界LLVM错过优化问题的基准，并从优化范围的角度比较了代理生成的补丁与开发人员生成的补丁。我们的结果表明，编码代理经常优化给定的示例，但许多生成的补丁要么只覆盖了开发人员预期范围的一部分，要么与之部分重叠；在某些情况下，它们甚至进一步泛化到参考补丁之外。我们进一步引入了历史知识增强技术，通过检索和蒸馏利用先前的LLVM优化拉取请求，表明这些技术改善了与开发人员对齐的泛化，并在应用于真实世界IR时产生了实际效益。
-
-**方法**：构建了真实世界LLVM错过优化问题的基准，比较代理与开发者补丁的优化范围，并引入基于检索和蒸馏的历史知识增强技术。
-
-**结果**：代理常优化给定示例，但补丁多只部分覆盖开发者意图范围，甚至过度泛化；历史知识增强技术提升了与开发者对齐的泛化能力。
-
-[返回索引](#快速索引)
-
----
-
-<a id="18"></a>
-## 18. [Evaluating LLMs on Real-World Software Performance Optimization](http://arxiv.org/abs/2606.25530v1)
-
-- **相关度**：0.92
-- **方向标签**：Benchmark/评测
-- **收录日期**：2026-06-24
-- **arXiv ID**：2606.25530
-- **作者**：Ezgi Sarıkayak, Wenchao Gu, Hesham Ghonim, Chunyang Chen
-- **入选理由**：提出仓库级性能优化基准SWE-Pro，满足B。
-
-**TL;DR**：SWE-Pro是一个仓库级性能优化基准测试，基于102个专家优化，评估LLM在运行时和内存上的表现，发现LLM远不如专家。
-
-**中文摘要**：软件性能优化是一项众所周知的复杂且人工密集的任务。尽管大型语言模型（LLMs）在代码优化方面的应用日益增长，但我们仍然缺乏能够捕捉真实代码库中优化实际发生方式的基准测试。现有的框架通常通过关注孤立的函数或单一的性能指标来过度简化问题，忽略了执行时间和内存占用之间的关键权衡、测量环境的固有噪声以及不同输入数据和执行条件引入的变异性。我们通过引入SWE-Pro来解决这个问题，这是一个从开源项目中102个专家编写的优化中得出的仓库级基准测试。与之前的基准测试不同，SWE-Pro为每个任务配对了参数化测试，以评估运行时、峰值内存和时间加权内存使用（TWMU），在不同的输入数据和执行条件下，并在考虑噪声的测量条件下进行。我们的评估表明，当前的LLMs表现不佳：运行时间提升微乎其微，内存优化几乎不存在。这与专家实现形成鲜明对比，专家实现在基准测试任务上实现了15.5倍的总体加速和171.3倍的峰值内存减少。在91.2%的任务中观察到专家编写的运行时间改进，在65.7%的任务中观察到峰值内存改进。我们的发现暴露了当前LLM能力与专家级工程需求之间的巨大差距。
-
-**方法**：从开源项目中收集102个专家编写的优化，构建仓库级基准SWE-Pro，每个任务包含参数化测试，在噪声感知条件下评估运行时、峰值内存和时间加权内存使用（TWMU）。
-
-**结果**：当前LLM的运行时增益可忽略，内存优化几乎为零；而专家实现平均加速15.5倍，峰值内存减少171.3倍，91.2%任务有运行时改进，65.7%有内存改进。
-
-[返回索引](#快速索引)
-
----
-
-<a id="19"></a>
-## 19. [AutoPass: Evidence-Guided LLM Agents for Compiler Performance Tuning](http://arxiv.org/abs/2606.20373v1)
-
-- **相关度**：0.92
-- **方向标签**：编译器优化
-- **收录日期**：2026-06-18
-- **arXiv ID**：2606.20373
-- **作者**：Zepeng Li, Jie Ren, Zhanyong Tang, Jie Zheng, Zheng Wang
-- **入选理由**：LLM agent自动调优编译器选项和中间表示，实现运行时间加速，满足A类条件。
-
-**TL;DR**：AutoPass是一个多智能体框架，通过开放编译器内部信息给LLM并利用运行时反馈，实现了无需训练的编译器性能自动调优，在x86-64和ARM64上分别取得1.043x和1.117x的加速。
-
-**中文摘要**：大型语言模型（LLM）在代码编译任务中展现出潜力，但由于复杂的微架构效应和嘈杂的运行时测量，将其应用于运行时性能调优十分困难。我们提出了AutoPass，一个用于编译器性能调优的多智能体框架，它利用编译器和运行时证据来指导LLM生成的优化决策。与先前的自动调优方案将编译器视为黑盒不同，AutoPass向LLM开放编译器，使其能够查询编译器内部的优化状态并分析中间表示，以编排编译器选项。搜索过程使用测量的运行时反馈迭代优化配置，以诊断性能回退并指导延迟改进的修改。AutoPass在仅推理、无需训练的设置下运行，不需要离线训练或任务特定的微调，使其能够直接应用于新的基准测试和平台。我们在LLVM编译器上实现了AutoPass，并在服务器级x86-64和嵌入式ARM64系统上进行了评估。AutoPass优于专家调整的启发式方法和经典自动调优方法，在x86-64和ARM64上相较于LLVM -O3分别实现了1.043倍和1.117倍的几何平均加速。
-
-**方法**：提出AutoPass多智能体框架，允许LLM查询编译器内部优化状态和中间表示，基于运行时反馈迭代优化编译选项。
-
-**结果**：在LLVM编译器上，AutoPass在x86-64和ARM64上相对于-O3分别实现1.043x和1.117x的几何平均加速，优于专家启发式和经典自动调优。
-
-[返回索引](#快速索引)
-
----
-
-<a id="20"></a>
-## 20. [AUTOGATE: Automated Clock Gating via Toggling-Aware LLM-based RTL Rewriting](http://arxiv.org/abs/2606.17461v1)
-
-- **相关度**：0.92
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-06-16
-- **arXiv ID**：2606.17461
-- **作者**：Yiting Wang, Chenhui Deng, Chia-Tung Ho, Yanqing Zhang, Zhuo Feng, Cunxi Yu, Ang Li, Gang Qu, Brucek Khailany
-- **入选理由**：自动改写RTL代码实现时钟门控优化以降低动态功耗，属于源代码级性能优化。
-
-**TL;DR**：提出AUTOGATE，首个基于ML-LLM协同的智能体框架，通过层次化多智能体架构和聚类算法实现工业级RTL时钟门控优化，显著降低动态功耗。
-
-**中文摘要**：细粒度时钟门控（FGCG）是降低动态功耗最有效的技术之一，然而当前的FGCG优化流程仍然很大程度上依赖手动操作。近期基于LLM的RTL优化方法仍然存在两个主要缺点：(1)无法处理跨越数百万个周期的长波形轨迹，(2)难以在保持正确性的同时将优化扩展到大型层次化代码库。在这项工作中，我们提出了AUTOGATE，首个面向工业级RTL功耗优化的智能体框架，能够在大型层次化代码库中实现工作负载感知的时钟门控优化。AUTOGATE引入了一种机器学习（ML）-LLM协同设计，桥接了波形级分析和RTL重写。具体来说，我们设计了一种基于ML的聚类算法，将原始翻转轨迹提炼为紧凑、结构化的表示，指导基于LLM的RTL重写。这使得能够准确识别和应用时钟门控机会，而无需LLM直接处理原始波形数据。为增强可扩展性，AUTOGATE采用层次化多智能体架构，将大型设计分解为可独立优化的模块，从而在深层设计层次中实现协调优化。我们在从小型RTL设计到大型工业级代码库的多样化设计上评估了AUTOGATE。实验结果表明，AUTOGATE相对于基线持续降低动态功耗。在小型设计套件上，AUTOGATE平均降低动态功耗49.31%。在工业级设计上，AUTOGATE在NVDLA和BlackParrot上分别实现了19.34%和7.96%的动态功耗降低，在高度优化的专有生产设计上最高降低6.86%。
-
-**方法**：ML-LLM协同设计：ML聚类算法将原始波形轨迹提炼为紧凑结构化表示引导LLM重写；层次化多智能体架构将大型设计分解为独立优化模块。
-
-**结果**：小型设计平均动态功耗降低49.31%；工业级设计NVDLA降低19.34%，BlackParrot降低7.96%，专有生产设计最高降低6.86%。
-
-[返回索引](#快速索引)
-
----
-
-<a id="21"></a>
-## 21. [Embedded Arena: Iterative Optimization via Hardware Feedback](http://arxiv.org/abs/2606.16190v1)
-
-- **相关度**：0.92
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-06-15
-- **arXiv ID**：2606.16190
-- **作者**：Zhihan Zhang, Alexander Le Metzger, Jiuyang Lyu, Chun-Cheng Chang, Jiayi Shao, Yujia Liu, Emmanuel Azuh Mensah, Edward Wang, Kurtis Heimerl, Gregory D. Abowd, Shwetak Patel, Natasha Jaques, Vikram Iyer
-- **入选理由**：硬件在环的LLM代理自动迭代优化嵌入式模型和固件，改善内存、功耗和精度，满足A类条件。
-
-**TL;DR**：提出硬件在环的LLM代理框架，通过迭代优化自动实现嵌入式AI模型的高效部署，在压缩和精度上均超越人类专家。
-
-**中文摘要**：嵌入式设备，从野生动物监测站到临床可穿戴设备，由于延迟、通信或隐私限制，需要本地AI推理。为异构微控制器（MCU）优化模型需要同时满足内存、功耗和温度的严格物理约束，同时保持准确性，这是一种多维优化，目前由专家手动执行。我们探讨LLM代理是否能在真实硬件反馈的引导下自主导航这个复杂、多轮的流程，并引入一个硬件在环代理竞技场，其中代理迭代优化模型和固件——编译、烧录并在真实硬件上测量——以实现闭环优化。前沿模型，包括Claude Opus 4.7和Gemini 3.1 Pro，在没有硬件反馈的情况下完全失败（0%部署成功率），而我们的硬件在环公式在三次迭代内实现了首次成功部署，并在七次内超越人类专家结果。这种代理协同优化实现了视觉模型250倍压缩，精度损失<3.3%，音频模型400倍压缩，特征错误率损失<6%，通过太阳能收集实现了在商业MCU上的无电池运行。我们在两个实际系统中展示了实际影响：一个麋鹿检测相机陷阱（96.7%准确率）和一个用于儿童发展研究的语音转录可穿戴设备（8.44% FER）。
-
-**方法**：构建硬件在环代理竞技场，LLM代理通过编译、烧录、测量真实硬件反馈，闭环迭代优化模型和固件。
-
-**结果**：在三次迭代内成功部署，七次内超越人类；视觉模型250倍压缩（损失<3.3%），音频400倍压缩（损失<6%）；实现无电池太阳能量收集运行；实际系统准确率96.7%（目标检测）和8.44% FER（语音转录）。
-
-[返回索引](#快速索引)
-
----
-
-<a id="22"></a>
-## 22. [An Ocean Model Ported by a Large Language Model: Experience and Lessons from FESOM2 (Fortran to C to C++/Kokkos)](http://arxiv.org/abs/2606.11356v1)
-
-- **相关度**：0.92
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-06-09
-- **arXiv ID**：2606.11356
-- **作者**：Nikolay V. Koldunov, Suvarchal K. Cheedela, Sergey Danilov, Dmitry Sidorenko, Sebastian Beyer, Thomas Jung
-- **入选理由**：LLM自动将Fortran海洋模型移植到C/C++/Kokkos，实现GPU加速，验证物理准确性和性能提升。
-
-**TL;DR**：LLM成功将完整海洋模型FESOM2从Fortran移植到C和C++/Kokkos，保持物理准确性，GPU性能优于CPU。
-
-**中文摘要**：大型语言模型（LLM）可以翻译和修改源代码，并且已被证明可以对不同复杂度的代码进行此类操作。但它们是否能够在不降低物理准确性的情况下，将一个完整的生产地球物理模型移植到不同的语言，这一点尚未得到证实。我们证明，LLM辅助的代码翻译可以在将完整生产海洋模型移植到现代性能可移植形式的同时，保持其物理特性。我们报告了使用一个由领域专家指导的代理式LLM编码助手，将FESOM2非结构化网格海洋-海冰模型（约74000行核心Fortran代码）首先移植到C，然后移植到C++/Kokkos以实现跨CPU和GPU的性能可移植性的经验。我们描述了被证明必要的实践、哪些方法有效、哪些无效，以及我们遇到的失败模式。有三个实践最为重要：分两阶段进行翻译，将重现数值计算（从Fortran到干净的C参考）与引入并行性（从C到Kokkos）分开；要求严格逐字翻译，不允许助手“改进”源代码；以及针对每个阶段使用适合该阶段的验收标准进行验证。C移植在五年长期模拟统计量水平上重现了原始Fortran。Kokkos移植在CPU上与C参考逐位相同，在GPU上多年运行统计接近。在涡旋丰富的网格上，最高740万个表面顶点，单个A100 GPU节点运行速度比CPU节点快1.6-3.7倍，达到了生产集成所需的每天1-2模拟年。结果不仅仅是单个GPU移植：通过遵循明确的验证程序，LLM在几周内将一个完整的Fortran海洋模型移植到了另一种语言和加速器上，同时保持了其物理特性。
-
-**方法**：使用代理式LLM编码助手，分两阶段翻译：先Fortran到C（保留数值计算），再C到C++/Kokkos（引入并行）；要求严格字面翻译，每阶段用不同验收标准验证。
-
-**结果**：C移植在五年统计量上匹配Fortran；Kokkos在CPU上逐位一致，GPU上统计接近；单个GPU比CPU快1.6-3.7倍，达到生产运行速度。
-
-[返回索引](#快速索引)
-
----
-
-<a id="23"></a>
-## 23. [SkelDPO: A Skeleton-Guided Direct Preference Optimization Framework for Efficient Code Generation](http://arxiv.org/abs/2606.06826v1)
-
-- **相关度**：0.92
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-06-05
-- **arXiv ID**：2606.06826
-- **作者**：Yu Yu, Chen Lyu
-- **入选理由**：通过骨架引导的偏好优化提升LLM生成代码的效率，满足对源代码的性能优化核心目标。
-
-**TL;DR**：提出SkelDPO框架，通过骨架引导的偏好优化提升代码生成效率，在多项指标上超越现有方法。
-
-**中文摘要**：随着代码大型语言模型（Code LLMs）在语义正确性方面取得显著进展，执行效率已成为评估其实用性的越来越重要的维度。然而，现有方法通常将完整程序作为训练期间的单一优化目标，而没有显式建模影响效率的结构因素。因此，尽管这些模型能够生成语义正确的代码，但它们无法在细粒度层面上学习导致高效实现的底层骨架特征。为了解决这一局限性，我们提出了SkelDPO（骨架引导的直接偏好优化），一种骨架引导的偏好优化框架，系统地提升代码生成的效率。SkelDPO首先从代码数据集中识别高效和低效的实现，并通过比较分析定位它们的效率倾向点和低效倾向点，形成高效骨架与低效骨架之间的对齐信号。在训练过程中，引入了联合代码和骨架偏好损失，使模型在学习语义正确性的同时，强化其对代码中效率关键组件的理解。结果表明，SkelDPO持续超越现有方法：与仅依赖高效和低效代码偏好优化的SOTA方法相比，它在Pass@1、Beyond@1和Effi@1上分别提升了3-6%、3-7%和2-5%，在复杂任务上提升更为显著。总体而言，SkelDPO为骨架级效率对齐提供了新视角，突破了传统偏好优化仅依赖正确性或效率对的限制。所有数据集和源代码已在https://github.com/icpcSkelDPO/SkelDPO公开提供。
-
-**方法**：SkelDPO：从数据集中识别高效/低效实现，通过比较定位效率关键点；引入联合代码和骨架偏好损失进行训练，同时学习语义正确性和效率结构。
-
-**结果**：在Pass@1、Beyond@1、Effi@1上分别比SOTA提升3-6%、3-7%、2-5%，复杂任务提升更显著。
-
-[返回索引](#快速索引)
-
----
-
 <a id="24"></a>
-## 24. [Chiseling Out Efficiency: Structured Skeleton Supervision for Efficient Code Generation](http://arxiv.org/abs/2606.06821v1)
+## 24. [Hawk: Harnessing Hardware-Aware Knowledge for High-Performance NPU Kernel Generation](http://arxiv.org/abs/2607.01590v2)
 
-- **相关度**：0.92
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-06-05
-- **arXiv ID**：2606.06821
-- **作者**：Yu Yu, Zhihong Sun, Jia Li, Yao Wan, Chuanyi Li, Hongyu Zhang, Ruyun Wang, Tao Huang, Zhi Jin, Ge Li, Chen Lyu
-- **入选理由**：核心任务是自动修改源代码以生成高效代码，通过效率骨架提升运行性能，验证了功能正确性与加速比。
+- **相关度**：0.95
+- **方向标签**：LLM/Agent 代码优化、Kernel/自动调优
+- **收录日期**：2026-07-02
+- **arXiv ID**：2607.01590
+- **作者**：Junyi Wen, Ruiyan Zhuang, Yongjia Xu, Pengtu Li, Rui Zou, Hongyi Chen, Chingman Wan, Puxu Yang, Wuhui Chen, Yanlin Wang
+- **入选理由**：Hawk面向NPU内核生成，利用硬件感知知识表示、检索与蒸馏迭代生成可执行高性能内核，在真实负载上取得相较基线2.2x加速，满足A。
 
-**TL;DR**：提出EffiSkel框架，通过显式提取和学习效率骨架（抽象结构模式），在多任务学习中联合优化代码生成和骨架预测，显著提升LLM生成代码的效率和功能正确性。
+**TL;DR**：Hawk是一个无需训练的NPU内核生成框架，通过硬件感知知识表示和检索，将准确率从49.4%提升到80.0%，执行加速高达2.2倍。
 
-**中文摘要**：大型语言模型（LLM）能够生成语法正确且功能完整的程序，极大地简化了软件开发。然而，近期研究表明，这些程序通常比人类优化的对应版本运行得慢得多。现有弥补这一效率差距的方法通常涉及在生成后迭代优化代码或在高效代码语料库上微调模型。然而，这些方法仅通过模仿完整的优化解决方案将效率信号暴露给模型，而没有明确编码实现高运行时性能所必需的结构性代码模式。解决这一差距存在两个核心挑战：（1）提取和表示嵌入在复杂语法和控制流中的潜在效率导向的结构模式，（2）在不破坏LLM语义训练稳定性的情况下有效学习这些模式。为应对这些挑战，我们提出EffiSkel，一种效率骨架引导框架，通过利用三种互补策略明确提取和学习效率骨架——支撑高效代码的抽象、可重用的结构模式。这些骨架被集成到一个多任务学习框架中，该框架联合优化代码生成和骨架预测。跨多种编程语言和基准的实验表明，EffiSkel显著增强了功能正确性和效率，在Mercury上使用DeepSeek-Coder（7B）时，效率比（ER）相比EffiCoder提高了+11.11%，相比CodeDPO提高了+3.71%，平均加速比（AS）相比EffiCoder提高了+0.36，相比CodeDPO提高了+0.22。这些结果凸显了显式建模效率骨架在提高LLM生成代码运行时性能方面的有效性。
+**中文摘要**：为神经处理单元（NPU）开发高性能内核是一个关键的行业瓶颈，要求开发者手动处理隐式的硬件约束和严格的内存层次结构。虽然大语言模型提供了巨大的自动化潜力，但由于缺乏硬件特定的先验知识，它们在NPU上会彻底失败。天真地移植来自类似NPU内核的代码片段可能通过编译器，但会持续触发运行时崩溃和性能下降，因为盲目违反了潜在的硬件约束。为了克服这个问题，我们引入了Hawk，一个无需训练的框架，通过三个核心模块利用硬件感知知识：（1）运行时知识合成模块，采用三分可执行知识表示来将错误上下文与可执行语义固有地耦合；（2）瓶颈感知知识检索模块，实现2D检索范式将查询投影到正交的语法和硬件对齐的语义空间；（3）效果驱动知识蒸馏模块，利用LLM驱动的语义仲裁，通过基于经验执行反馈修剪错误和整合冗余来持续蒸馏知识。在真实NPU工作负载上的广泛评估表明，Hawk将生成准确率从49.4%提升到80.0%，并且相比最先进的基线实现了高达2.2倍的执行加速。
 
-**方法**：提出EffiSkel，利用三种互补策略提取效率骨架，并集成到多任务学习框架中联合优化代码生成和骨架预测。
+**方法**：提出Hawk框架，包含三个模块：运行时知识合成（三分可执行知识表示耦合错误上下文与语义）、瓶颈感知知识检索（2D检索范式投影查询到语法和硬件对齐空间）、效果驱动知识蒸馏（LLM仲裁根据执行反馈修剪冗余）。
 
-**结果**：在Mercury上，使用DeepSeek-Coder (7B)时，ER比EffiCoder高11.11%，比CodeDPO高3.71%；AS分别高0.36和0.22。
+**结果**：在真实NPU工作负载上，生成准确率从49.4%提升至80.0%，执行速度相比最先进基线最高提升2.2倍。
 
 [返回索引](#快速索引)
 
 ---
 
 <a id="25"></a>
-## 25. [From Human Guidance to Autonomy: Agent Skill System for End-to-End LLM Deployment on Spatial NPUs](http://arxiv.org/abs/2606.07586v2)
+## 25. [HIERA: Workload-Aware Planning Across Implementation Spaces for GPU Kernel Optimization](http://arxiv.org/abs/2608.21157v1)
 
-- **相关度**：0.92
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-05-27
-- **arXiv ID**：2606.07586
-- **作者**：Jiajie Li, Erwei Wang, Zhiru Zhang, Samuel Bayliss
-- **入选理由**：满足A：利用智能体自动部署LLM到NPU，优化部署代码实现2-4倍加速，核心是自动代码性能优化。
+- **相关度**：0.94
+- **方向标签**：LLM/Agent 代码优化、Kernel/自动调优
+- **收录日期**：2026-08-21
+- **arXiv ID**：2608.21157
+- **作者**：Jinghao Wang, Qiqi Gu, Chenpeng Wu, Jianguo Yao, Haibing Guan, Xijun Li
+- **入选理由**：提出HIERA，利用LLM在PyTorch算子、CUDA库和自定义CUDA kernel间选择实现空间并迭代优化，显著提升性能和采样效率，满足A中LLM/agent自动优化GPU kernel的核心目标。
 
-**TL;DR**：一种两阶段基于代理的方法，用于在空间NPU上端到端部署LLM，实现了多个模型的自主部署，且性能具有竞争力。
+**TL;DR**：
 
-**中文摘要**：空间神经处理单元（NPU）为边缘大语言模型推理提供了能效平台，但在此类硬件上高效端到端部署大语言模型仍需要大量人力。尽管AI编码代理已开始降低这一成本，现有研究主要关注单核优化，而非在资源受限的空间NPU上端到端部署大语言模型。我们提出了一种两阶段方法论，在AMD XDNA 2 NPU上实现，从人类引导的开发过渡到代理自主。在第一阶段，我们通过人类引导的代理辅助开发了Llama-3.2-1B的参考部署。与手工优化基线相比，该实现实现了2.2倍的预填充加速和4.0倍的解码加速，优化轨迹及其经验教训在整个过程中记录为结构化文档。在第二阶段，我们将这些文档提炼为一个由八个阶段组成的代理技能系统，编排优化和调试技能集，并在每个阶段严格强制执行数值正确性。利用我们的代理技能系统，我们使用开源编译器栈在AMD XDNA 2 NPU上自主端到端部署了另外八个仅解码器的大语言模型（Llama-3.2-3B、SmolLM2-1.7B、Qwen2.5-{0.5B, 1.5B, 3B}、Qwen3-{0.6B, 1.7B, 4B}）。据我们所知，这些模型此前未通过任何开源软件栈部署在AMD NPU上。每次部署在0.5-4小时的代理墙钟时间内完成，几乎无需人工指导，并通过了数值正确性门控，展示了对先前未遇到的大语言模型的功能泛化能力。其中三个模型的持续性能达到或超过了我们的Llama-3.2-1B参考部署，表明生成的实现可以在无需额外模型特定人工工程的情况下具有竞争力。
+**中文摘要**：
 
-**方法**：两阶段方法：第一阶段通过人类引导的代理辅助开发参考部署并记录优化经验；第二阶段将文档提炼为包含八个阶段的代理技能系统，实现自主优化和调试，并严格保证数值正确性。
+**方法**：
 
-**结果**：在AMD XDNA 2 NPU上自主部署了九个LLM，其中三个模型的持续性能达到或超过手工优化基线，部署时间为0.5-4小时，且首次通过开源栈部署了多个新模型。
+**结果**：
 
 [返回索引](#快速索引)
 
 ---
 
 <a id="26"></a>
-## 26. [LLM-Guided Strategy Synthesis for Scalable Equality Saturation](http://arxiv.org/abs/2604.17364v1)
+## 26. [Compiler-Grounded Hierarchical Diagnosis for LLM-Based Triton Kernel Optimization](https://arxiv.org/abs/2607.23089)
 
-- **相关度**：0.92
-- **方向标签**：编译器优化
-- **收录日期**：2026-04-19
-- **arXiv ID**：2604.17364
-- **作者**：Chenyun Yin, Youwei Xiao, Yuze Luo, Yuyang Zou, Yun Liang
-- **入选理由**：核心任务是自动合成EqSat策略以优化编译器，直接改善编译后代码的性能（减少成本和内存），满足条件A。
+- **相关度**：0.94
+- **方向标签**：Kernel/自动调优、编译器优化、LLM/Agent 代码优化
+- **收录日期**：2026-07-29, 2026-07-25
+- **arXiv ID**：2607.23089
+- **作者**：Dongjie Chen, Ping Zhao, Bohua Zhan, Yulong Wang, Shushu Chen, Liangjun Feng, Hao Zhou, Min Shen, Linmu Wang, Weijia Sheng, Xiangyu Wei, Weijie Ding, Jianhui Huang, Yaoqing Gao
+- **入选理由**：系统针对Triton kernel采用编译器grounded的分层诊断，将运行时症状与IR结构和编译器行为关联后提出证据支持的源码重写，在Ascend NPU上获得平均4.35倍加速，满足A。
 
-**TL;DR**：EggMind是一个LLM引导的框架，通过引入领域特定语言EqSatL和智能体工作流，自动合成可重用的等式饱和策略，显著降低了成本与内存使用。
+**TL;DR**：提出一个基于编译器的层次化优化框架，通过渐进式跨层诊断实现Triton内核自动优化，在Ascend NPU上获得平均4.35倍加速。
 
-**中文摘要**：等式饱和（EqSat）是一种强大的优化范式，它通过e-graph紧凑地表示许多等价程序，并延迟提交直到提取选择最低成本的程序。因此，使EqSat有效不仅需要特定领域的重写规则，还需要特定领域的策略。如今，大部分策略设计仍然是手动的，这成为自动化基于e-graph的编译器的主要障碍。最近的规则合成框架可以从语义规范中自动推断出大量的重写词汇，但它们也扩大了重写空间并进一步加剧了e-graph爆炸。尽管大语言模型（LLM）使得自动化策略合成成为可能，但直接演化后端代码在实践中仍然无效。这种搜索缺乏可重用的策略抽象和可操作的反馈，并且很容易触发e-graph爆炸或收敛到糟糕的设计。我们提出了EggMind，一个LLM引导的、端到端的框架，用于合成可重用的EqSat策略。其核心是，EggMind引入了一种领域特定语言EqSatL，将EqSat策略表示为显式且可检查的工件。然后，它提出了一种LLM引导的智能体工作流，配备了新颖的技术，包括从证明派生的重写模式缓存和可处理性引导，以高效搜索高质量策略，同时在e-graph增长下保持合成稳定。评估表明，EggMind在向量化基准测试上显著改善了资源-质量权衡，相对于完整的EqSat，最终成本降低了45.1%，峰值RAM降低了69.1%。我们进一步展示了相同的方法论有效迁移到了基于XLA的张量编译器，并在一项具有增强重写空间的逻辑综合案例研究中展示了其实用潜力。
+**中文摘要**：近期大语言模型（LLM）的进展使得自动内核生成和优化成为可能，但现有大多数方法依赖于编译反馈和性能分析度量等表面信号。这些信号表明内核运行缓慢，但并未揭示后端编译器为何未能实现有利的优化，尤其是在新兴加速器（如NPU）上。因此，我们将内核优化表述为一个渐进式跨层诊断问题，该问题将运行时症状与IR结构和编译器行为联系起来，然后再重写源代码。基于这一洞察，我们提出了我们的系统，一个针对Triton内核的、基于编译器的层次化优化框架。该系统从轻量级模式分诊和性能分析诊断升级到IR归因和基于编译器的分析，仅在需要更深层证据时进行，然后提出基于证据的源代码级重写。我们在面向Ascend NPU的Triton上实现了该系统，并在来自标准化NPUKernelBench的Ascend 950基准测试中的37个成功转换条目上进行了评估。在这些条目中，系统从初始Triton内核到优化后的内核实现了4.35倍的几何平均加速和2.73倍的中位数加速；22/37个条目加速超过2倍，13/37个条目加速超过5倍。完整的分布范围从接近基线的条目到大幅收益，这激励了我们透明地报告当前系统的范围和局限性。
 
-**方法**：提出EggMind框架，包含领域特定语言EqSatL表示策略，以及LLM引导的智能体工作流，利用证明派生的重写模式缓存和可处理性引导进行高效搜索。
+**方法**：将内核优化视为渐进式跨层诊断问题，从轻量级模式分诊到编译器接地分析，再提出证据驱动的源代码重写。
 
-**结果**：在向量化基准测试上，最终成本降低45.1%，峰值RAM降低69.1%；方法有效迁移到XLA张量编译器，并在逻辑综合案例中展示潜力。
+**结果**：在37个NPU基准测试中，几何平均加速4.35倍，中位数加速2.73倍，其中22个超过2倍，13个超过5倍。
 
 [返回索引](#快速索引)
 
 ---
 
 <a id="27"></a>
-## 27. [PERFOPT-Bench: Evaluating Coding Agents on Software Performance Optimization](https://arxiv.org/abs/2607.07744)
+## 27. [MKEvolve: A Modular Multi-Agent Framework for Kernel Code Generation](https://arxiv.org/abs/2607.20501)
 
-- **相关度**：0.90
+- **相关度**：0.94
+- **方向标签**：Kernel/自动调优、LLM/Agent 代码优化
+- **收录日期**：2026-07-25, 2026-07-26
+- **arXiv ID**：2607.20501
+- **作者**：Jason Yoo, Rajarshi Saha, Shaowei Zhu, Tao Yu, Wei Tang, Youngsuk Park
+- **入选理由**：MKEvolve用模块化多智能体框架对PyTorch模块进行分解，并为每子模块用LLM beam search迭代生成/优化Triton kernel，同时在正确性和加速比上超越baseline，满足A。
+
+**TL;DR**：MKEvolve通过迭代分解和LLM驱动的子内核优化，提高了硬件内核生成的正确性和性能，并减少了LLM令牌消耗。
+
+**中文摘要**：尽管基于LLM的代码生成取得了快速进展，但为硬件加速器编写正确且高性能的内核仍然是扩展现代机器学习工作负载的关键瓶颈。我们提出了MKEvolve（模块化内核进化），一个迭代地共同进化复杂PyTorch模块的模块化分解和每个子模块的LLM生成内核的框架，通过跨迭代的分裂和融合来细化分解，同时通过LLM驱动的束搜索独立改进每个子内核。生成的内核是独立验证的子内核的程序化组合，使其可配置（子内核实现可互换）、可解释（错误和加速可追溯到特定子内核），并且易于适应相关模型架构。在KernelBench L2和L3上使用Triton进行的实验，涵盖了多算子序列和完整模型架构，表明与端到端直接合成基线相比，MKEvolve提高了正确性和加速，同时将LLM令牌使用量减少了高达35%。
+
+**方法**：提出MKEvolve框架，迭代共进化模块分解和子内核，通过分裂和融合调整分解，并使用LLM驱动的束搜索独立优化每个子内核。
+
+**结果**：在KernelBench L2和L3上，MKEvolve相比端到端直接合成基线提高了正确性和加速，同时减少了高达35%的LLM令牌使用量。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="28"></a>
+## 28. [FlashRT: Agent Harness for Guiding Agents to Deploy Real-Time Multimodal Applications](http://arxiv.org/abs/2607.18171v2)
+
+- **相关度**：0.94
+- **方向标签**：LLM/Agent 代码优化
+- **收录日期**：2026-07-20
+- **arXiv ID**：2607.18171
+- **作者**：Krish Agarwal, Zhuoming Chen, Yanyuan Qin, Zhenyu Gu, Atri Rudra, Beidi Chen
+- **入选理由**：满足A：FlashRT引导通用编码agent将简单参考实现自动转换为优化后的多GPU部署，涉及代码变换、IR分析、并行化策略选择，并以延迟和吞吐为指标进行测量门控优化，在B200/MI355X上有明确性能验证。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="29"></a>
+## 29. [PERFOPT-Bench: Evaluating Coding Agents on Software Performance Optimization](https://arxiv.org/abs/2607.07744)
+
+- **相关度**：0.94
 - **方向标签**：Benchmark/评测
 - **收录日期**：2026-07-08, 2026-07-12
 - **arXiv ID**：2607.07744
 - **作者**：Yingyun Cui, Yi Xie, Piaohong Wang, Jiawei Ma, Bo Liu, Liangliang Cao
-- **入选理由**：满足B：提出PERFOPT-Bench基准，全面评估编码智能体在软件性能优化任务上的能力。
+- **入选理由**：PERFOPT-Bench提供完整性能工程循环评测：隐藏正确性测试、验证speedup、轨迹审计，是专门面向coding agent软件性能优化的基准，满足B。
 
 **TL;DR**：提出 PERFOPT-Bench 基准，评估代码智能体在性能优化任务上的能力，发现优化性能取决于工作负载，且原始速度提升可能不安全。
 
@@ -659,37 +729,455 @@
 
 ---
 
-<a id="28"></a>
-## 28. [Tool-Making and Self-Evolving LLM Agents in Low-Latency Systems](http://arxiv.org/abs/2607.08010v1)
+<a id="30"></a>
+## 30. [DSEffi-Bench: Demystifying Large Language Models' Capability in Efficient Data Science Code Generation](https://arxiv.org/abs/2608.30248)
 
-- **相关度**：0.90
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-07-09
-- **arXiv ID**：2607.08010
-- **作者**：Kalle Kujanpää, Ning Liu, Shahnawaz Alam, Yeshwanth Reddy Sura, Tianyu Yang, Kristina Klinkner, Shervin Malmasi
-- **入选理由**：核心任务是自动将重复的SOP步骤编译成工具代码，替代LLM代理的推理时代码生成循环，以降低延迟（p50降低42%），属于自动修改源代码以改善运行时间，满足A。
+- **相关度**：0.93
+- **方向标签**：Benchmark/评测
+- **收录日期**：2026-09-02, 2026-08-31
+- **arXiv ID**：2608.30248
+- **作者**：Zhihao Gong, Junzhe Yu, Dong Huang, Zeyu Sun, Jie M. Zhang, Dan Hao
+- **入选理由**：首个专门针对LLM生成数据科学代码执行效率构建的基准，含1000个实例、压力测试和人工验证参考，并用效率分数与税类诊断刻画效率问题；满足B的专用性能benchmark。
 
-**TL;DR**：通过将重复的SOP步骤编译成工具，替代LLM代理推理时的代码生成循环，显著降低延迟和错误率，并提升可审计性。
+**TL;DR**：提出 DSEffi-Bench 基准，发现正确性不能反映 DS 代码生成效率，并验证了效率诊断可用于优化。
 
-**中文摘要**：生产级LLM代理常常因为对每个请求重复生成相同程序步骤的代码而浪费延迟和可靠性。我们用一个代理工具制作流水线来替代这种推理时的编码循环，该流水线在部署前将重复的SOP步骤编译成经过验证、版本化的工具。工具制造者通过收集执行轨迹、观察后端模式和值、生成候选工具并根据标记案例修复它们，将综合过程扎根于实时环境中。在运行时，生产代理直接调用这些工具，仅在需要时回退到代码生成。我们在一个履约中心警报分类系统中部署了该方法，其中代理针对一个44节点的SOP在异构指标后端上诊断警报。在生产中，工具调用将p50延迟降低了42%。在1500个历史警报上，通过抑制重复步骤的逐次运行差异，端到端错误率降低了高达53%。由于工具返回紧凑的结构化判定，它们还支持更简单的直接调用架构，在控制消融中进一步将p50延迟降低了62%。版本化的工具还提高了可审计性，并暴露了规范差距和上游数据漂移。我们的结果表明，自进化代理可以使工业LLM系统更快、更可靠、更易于操作。
+**中文摘要**：当前数据科学（DS）代码生成基准将正确性等同于质量，忽略了正确解决方案之间可能相差数量级的执行时间差异。我们引入了 DSEffi-Bench，这是首个专门针对 LLM 生成的 DS 代码执行效率的基准，包含 10 多个 DS 库的 1,000 个实例，并配有压力测试框架和人工验证的参考实现。评估了 3 个层级共 16 个模型后，我们发现仅凭正确性无法表征效率：GPT-5.4 在正确性（Pass，66.9%）上领先，但其效率得分（B|P，71.7%）几乎与 GPT-5.4-mini（71.6%）持平，后者解决的任務少了 47 个；Kimi-K2.5 在前沿模型中正确性排名最低（40.2%），却在全部 16 个模型中取得了最高的效率得分（73.6%）。一个由人工标注的五类分类法显示，79.1% 的效率缺陷超出了算法复杂性范畴，根因与特定领域相关，且不同模型层级和库之间存在不同的失败模式。两项探索性实验提供了初步证据，表明这些诊断可以指导改进：通过分类法引导的优化实现了高达 +14.7% 的效率提升，并通过基于库的条件路由，以 13.0 倍更低的成本在效率上接近 Claude-Opus-4.6 的 Best@3。
 
-**方法**：构建一个代理工具制作流水线，在部署前将重复的SOP步骤编译成经过验证、版本化的工具；工具制造者通过收集执行轨迹、观察后端模式和值、生成候选工具并修复它们，运行时代理直接调用工具，仅当需要时回退到代码生成。
+**方法**：构建包含 1,000 个实例、覆盖 10+ DS 库的 DSEffi-Bench 基准，使用压力测试和人工验证参考，评估 16 个模型，并进行人工标注分类和探索性优化实验。
 
-**结果**：在履约中心警报分类系统中，p50延迟降低42%，错误率降低53%；消融实验进一步降低62%延迟。版本化工具提升可审计性并暴露规范差距。
+**结果**：正确性与效率不一致：效率最佳模型并非正确性最高；79.1% 的效率缺陷源于领域特定因素；分类引导优化可提升 +14.7% 效率，路由方法以 13.0 倍低成本接近顶尖模型。
 
 [返回索引](#快速索引)
 
 ---
 
-<a id="29"></a>
-## 29. [QuTuner: Feature- and Learning-Guided Optimization Pass Tuning for Quantum Compilers](http://arxiv.org/abs/2607.04586v1)
+<a id="31"></a>
+## 31. [DataKernelBench: Can LLMs Optimize Database Queries on GPUs?](http://arxiv.org/abs/2608.25061v2)
 
-- **相关度**：0.90
+- **相关度**：0.93
+- **方向标签**：Benchmark/评测、LLM/Agent 代码优化
+- **收录日期**：2026-08-25
+- **arXiv ID**：2608.25061
+- **作者**：Gokul Karthik Kumar, Yotam Perlitz, Corey Lammie, Andrea Giovannini, Katja Hose
+- **入选理由**：构建针对GPU数据库查询优化的LLM benchmark（DataKernelBench），要求LLM优化CUDA/Triton kernel并验证实际加速，满足B（专用自动程序优化benchmark）且直接面向LLM驱动的kernel自动优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="32"></a>
+## 32. [RAGas: Retrieval-Augmented Gas Optimization for Smart Contracts with Continuous Knowledge Integration](https://arxiv.org/abs/2608.15857)
+
+- **相关度**：0.93
+- **方向标签**：LLM/Agent 代码优化、优化策略检索
+- **收录日期**：2026-08-19
+- **arXiv ID**：2608.15857
+- **作者**：Yishun Wang, Wenjin Yi, Wenkai Li, Zongwei Li, Xiaoqi Li
+- **入选理由**：核心是面向智能合约Gas消耗的自动识别与修复，即针对代码执行成本（Gas/能耗）的自动优化，并有实际合约的Gas降低验证，满足A。
+
+**TL;DR**：提出RAGas，一个基于检索增强生成的三阶段框架，利用大型语言模型自动检测并修复以太坊智能合约中的Gas低效问题，在实际合约上最高减少11%的Gas消耗。
+
+**中文摘要**：以太坊现已深度融入关键任务领域，包括金融、医疗保健和供应链管理。执行费用（通常称为Gas）随函数计算复杂度的增加而增长。以太坊上的智能合约会产生执行费用（称为Gas），其随计算复杂度增加而增加。因此，在保持功能等价的前提下优化Gas密集型代码可显著降低部署成本。现有系统尚未能持续利用不断演变的Gas消耗模式。我们系统性地分析了导致过度Gas消耗的语法和语义结构。这产生了六个高层次类别，涵盖十二个细粒度反模式，支撑了一个精选知识库。我们通过RAGas将这些见解付诸实践，这是一个三阶段检索增强生成框架，利用大型语言模型来定位并自动修复Gas低效问题。在已部署合约上的实验表明，RAGas可将Gas消耗最多降低11%，并在检测表现出Gas浪费的代码片段方面实现了高精确率和召回率。
+
+**方法**：系统分析导致过度Gas消耗的语法和语义结构，归纳出6个高层次类别、12个细粒度反模式，构建知识库，并设计RAGas三阶段检索增强生成框架，用大模型定位和自动修复Gas低效。
+
+**结果**：在已部署合约上，RAGas将Gas消耗最多降低11%，并在检测Gas浪费代码片段上实现高精确率和召回率。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="33"></a>
+## 33. [T-LLM Compiler: Trusted LLM-based Code Optimization and Verification Framework](https://arxiv.org/abs/2608.14953)
+
+- **相关度**：0.93
+- **方向标签**：LLM/Agent 代码优化、编译器优化
+- **收录日期**：2026-08-19, 2026-08-15
+- **arXiv ID**：2608.14953
+- **作者**：Zahra Fazel, Sunanda Gamage, Shayan Shirahmad Gale Bagi, Amir H. Ashouri, Tomasz S. Czajkowski, Bryan Chan, Reza Azimi, Yaoqing Gao
+- **入选理由**：T-LLM Compiler利用LLM做高层代码变换，并结合传统编译器与验证工具迭代优化代码，在PolyBench/C上报告正确性与加速比，核心是自动代码优化，满足A。
+
+**TL;DR**：T-LLM编译器结合LLM高级变换、传统编译器和验证工具，在PolyBench/C上实现高正确性和加速，最高准确率83.3%，最高加速16.1%，平均加速26.7%。
+
+**中文摘要**：大型语言模型（LLM）的最新进展为将高级代码变换应用于代码优化领域带来了机遇，并且它已成为LLM执行的最基本任务之一；然而，目前LLM在广泛的代码优化任务中面临困难，这既源于代码的复杂性，也源于无法独立验证变换的正确性。在本文中，我们提出了可信LLM（T-LLM）编译器，它通过高级LLM代码变换、传统编译器和验证工具的协作，推动了编译器技术的进步。实验结果表明，在一组PolyBench/C基准测试上，它能够显著提高代码正确性。我们的方法通过验证策略促进迭代式代码优化工作，使纠正措施得以实施。通过这种方法，T-LLM编译器在PolyBench/C基准测试上实现了高达83.3%的代码优化准确率和高达16.1%的加速比，变换后的代码相对于标准基线平均达到26.7%的加速比。此外，我们将项目的源代码发布给开源社区。
+
+**方法**：提出T-LLM编译器，将LLM高级代码变换与传统编译器及验证工具协同工作，通过验证策略支持迭代优化和纠正措施，确保变换的正确性并持续改进。
+
+**结果**：在PolyBench/C基准上，代码优化准确率高达83.3%，最高加速比16.1%，变换后代码相对标准基线平均加速26.7%，并开源源代码。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="34"></a>
+## 34. [PTXBench: Benchmark and Adapt LLMs for GPU Kernel Optimization with Architecture-specific PTX](http://arxiv.org/abs/2608.17379v2)
+
+- **相关度**：0.93
+- **方向标签**：Benchmark/评测、Kernel/自动调优、LLM/Agent 代码优化
+- **收录日期**：2026-08-18
+- **arXiv ID**：2608.17379
+- **作者**：Genghan Zhang, Yixin Dong, Chengze Fan, Zhichen Zeng, Yueming Yuan, Shaowei Zhu, Kunle Olukotun
+- **入选理由**：核心是PTXBench，一个面向LLM使用架构特定PTX优化GPU kernel的benchmark，测量正确性、目标指令执行和相对frontier库的加速，并在H100/B200上覆盖GEMM和attention。满足B类：专门面向自动程序性能优化的benchmark和评估方法；同时支持LLM kernel优化评估。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="35"></a>
+## 35. [A Barrier-Free Synchronization Algorithm for Multi-Engine AI Accelerators](http://arxiv.org/abs/2608.13757v1)
+
+- **相关度**：0.93
 - **方向标签**：编译器优化
+- **收录日期**：2026-08-13
+- **arXiv ID**：2608.13757
+- **作者**：Chungha Sung, Nikil V. Shyamsunder, Hanliang Zhang, Daniel Kroening, Joonwon Choi
+- **入选理由**：提出AI加速器上的无屏障同步算法，作为编译后端pass在结构化控制流上精确执行依赖，相比基于屏障的基线降低10-45%延迟，满足A的编译器优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="36"></a>
+## 36. [Enhancing SLMs for Sustainable Code Optimization in Radio-Astronomy](https://arxiv.org/abs/2607.21677)
+
+- **相关度**：0.93
+- **方向标签**：LLM/Agent 代码优化
+- **收录日期**：2026-07-27, 2026-07-28, 2026-07-23
+- **arXiv ID**：2607.21677
+- **作者**：Elisa Chiarotto, Jingbo Li, P. Chris Broekema, Rob V. van Nieuwpoort
+- **入选理由**：本文用增强SLM结合多采样生成和编译器反馈，对射电天文软件进行自动代码优化与加速器移植，目标是计算效率提升并验证性能，满足A。
+
+**TL;DR**：本工作针对LOFAR望远镜升级带来的计算需求激增问题，提出使用增强的小型语言模型（SLM）通过多采样生成和编译器反馈来优化代码，在降低能源消耗的同时实现高性能优化，且该方法可扩展至其他大规模科学代码。
+
+**中文摘要**：最近的大型语言模型（LLM）能够生成和优化复杂代码。我们研究了使用LLM为大规模科学（特别是射电天文学和可持续性）生成和优化代码。LOFAR望远镜目前正在进行升级，显著增加了观测的天空区域，同时更快地处理更多数据。然而，这预计将使计算需求增加40倍。因此，这一升级关键取决于现有软件的严格性能优化和加速器的广泛采用。代码库非常庞大，使得这项任务艰巨。因此，我们研究并展示了一种人工智能驱动的方法，旨在帮助开发人员评估和优化他们的代码，包括移植到硬件加速器。LOFAR社区致力于可持续解决方案，需要在不超过能源预算的情况下实现这些改进。因此，我们需要优化现有代码或将其移植到加速器，同时确保优化过程本身也是节能的。这带来了挑战，因为LLM是能源密集型的。因此，我们建议使用小型语言模型（SLM）来限制环境影响。在本文中，我们展示了如何通过使用智能体AI来增强SLM。我们通过两种方式扩展SLM以改善代码生成质量和性能：首先采用多采样生成策略，其次结合编译器反馈。我们证明，多采样SLM可以用更少的计算资源匹配或超越较大的单次生成模型，并且将编译器输出反馈回SLM会导致所有测试模型的一致改进。我们的方法是通用的，还可以在代码生成流程中使用检索增强生成（RAG）以及静态和动态分析工具。
+
+**方法**：采用智能体AI增强SLM，通过两种方式提升代码生成质量：一是多采样生成策略，二是将编译器输出反馈给SLM以迭代改进；同时该方法支持集成检索增强生成（RAG）及静态/动态分析工具。
+
+**结果**：多采样SLM在消耗更少计算资源的情况下，能匹配或超越较大单次生成模型的性能；将编译器输出反馈给SLM可一致性地提升所有测试模型的代码优化效果。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="37"></a>
+## 37. [Harness Engineering for LLM-Driven GPU Kernel Generation](http://arxiv.org/abs/2607.17979v1)
+
+- **相关度**：0.93
+- **方向标签**：LLM/Agent 代码优化、Kernel/自动调优
+- **收录日期**：2026-07-20
+- **arXiv ID**：2607.17979
+- **作者**：Yue Shui, Chenyu Ma, Hangfei Xu, Shengzhao Wen, Yanpeng Wang
+- **入选理由**：面向LLM驱动的GPU kernel自动生成/优化构建了评测与profile驱动优化框架，在MLSys竞赛五个算子中对比baseline取得真实延迟加速，符合A。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="38"></a>
+## 38. [Are LLM-Generated GPU Kernels Production-Ready? A Trace-Driven Benchmark and Optimization Agent](https://arxiv.org/abs/2607.14541)
+
+- **相关度**：0.93
+- **方向标签**：Benchmark/评测、Kernel/自动调优、LLM/Agent 代码优化
+- **收录日期**：2026-07-18, 2026-07-19, 2026-07-20, 2026-07-16
+- **arXiv ID**：2607.14541
+- **作者**：Lingyun Yang, Yuxiao Wang, Shenghao Liang, Linfeng Yang, Daocheng Ying, Chunbo You, Rui Zhang, Luping Wang, Yinghao Yu, Guodong Yang, Liping Zhang
+- **入选理由**：提出面向生产推理轨迹的GPU kernel基准Atrex-Bench，并发布profile-driven kernel优化智能体AKA，有真实kernel性能验证，满足A与B。
+
+**TL;DR**：提出Atrex-Bench基准测试，从生产轨迹采样，并推出AKA代理优化内核，显著提升性能。
+
+**中文摘要**：现有的GPU内核生成基准测试从合成或精选来源中提取问题，这些来源与部署的工作负载存在差异。我们提出了Atrex-Bench，这是一个基准测试，其30个算子和440种形状直接从全集群生产推理轨迹中采样，针对计算受限、内存丰富的GPU。每个问题都带有一个重要性权重，该权重源自其在观察到的GPU时间中的份额，按应用卡时加权，并根据其运行的推理阶段分别计算，同时每个问题还带有屋顶线上限，因此总体得分突出了消耗最多推理时间的内核。在Atrex-Bench上评估六种前沿编码代理显示，即使是最好的普通模型也只能达到生产算子上硬件屋顶线的大约10%；而仅靠正确性会高估能力，因为很大一部分表面通过率来自PyTorch回退而非模型编写的内核。为弥合这一差距，我们共同发布了Atrex-Kernel-Agent（AKA），这是一种基于性能分析的内核优化代理，结合了迭代测量-修订搜索、用于逃离停滞搜索上下文的优化丢弃，以及分层GPU优化知识库（298个参考内核文件和244个优化知识文档，外加用于API/ISA查找的外部上游参考项目）。在一个受控案例研究中，该代理将零FlyDSL回退转换为实际内核，这些内核达到或超过了手动调整的生产基线。
+
+**方法**：从全集群生产推理轨迹中采样30个算子和440种形状，赋予重要性权重和屋顶线上限；提出AKA代理，结合迭代测量-修订搜索、优化丢弃和分层GPU优化知识库。
+
+**结果**：最佳普通模型仅达~10%屋顶线；AKA代理将零FlyDSL回退转换为达到或超过手动调优基线的内核。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="39"></a>
+## 39. [Nova: An End-to-End MLIR Compiler for Deep Learning](http://arxiv.org/abs/2608.00029v3)
+
+- **相关度**：0.93
+- **方向标签**：编译器优化
+- **收录日期**：2026-07-15
+- **arXiv ID**：2608.00029
+- **作者**：Adwaid Suresh, Aparna A, Harshini V M, Jona Delcy C A, Killi Uma Maheswara Rao, Ram Charan Golla, Surendra Vendra
+- **入选理由**：核心是Nova端到端MLIR编译器，自动合成细粒度kernel、跨算子融合、整图优化，训练GPT-2吞吐达441K tokens/s，优于torch.compile。满足A类：自动编译/代码生成与优化以提升深度学习模型端到端吞吐，并验证性能与数值一致性。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="40"></a>
+## 40. [Every Kernel Is a Join: Automatic Multi-GPU Parallelism for AI Computations in Einsummable](http://arxiv.org/abs/2609.03905v1)
+
+- **相关度**：0.92
+- **方向标签**：编译器优化
+- **收录日期**：2026-09-03
+- **arXiv ID**：2609.03905
+- **作者**：Zhimin Ding, Chen-Kuan Liao, Chima Adiole, Brianna Barrow, Fangzhou Du, Yu Hsiao, Ge Huang, Yicheng Jin, Ismail Syed, Chris Jermaine
+- **入选理由**：自动将PyTorch式计算分布到多GPU，通过join-agg分解搜索和编译期生成的exchange程序实现通信与聚合，无需人工设备/切分/通信标注，较手调PyTorch和vLLM更快；满足A的自动编译并行化优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="41"></a>
+## 41. [Enhancing the Power of Polyhedral-Based Optimizations with Coordinate-Based Hill Climbing](http://arxiv.org/abs/2609.03114v1)
+
+- **相关度**：0.92
+- **方向标签**：编译器优化
+- **收录日期**：2026-09-02
+- **arXiv ID**：2609.03114
+- **作者**：Gaurav Verma, Michael Canesche, Fernando Magno Quintão Pereira
+- **入选理由**：在Pluto多面体编译后加入坐标式爬山调优，调整tile size、线程块维度等参数，在x86/ARM和A100上相对原配置获得真实加速并接近AutoTVM；满足A的编译器/kern自动参数优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="42"></a>
+## 42. [Semantics-Guided Automatic Tensorization for Multiobjective Evolutionary Algorithms: A Multi-Agent Framework](http://arxiv.org/abs/2609.02387v1)
+
+- **相关度**：0.92
+- **方向标签**：LLM/Agent 代码优化
+- **收录日期**：2026-09-02
+- **arXiv ID**：2609.02387
+- **作者**：Zhenyu Liang, Beichen Huang, Bowen Zheng, Ran Cheng
+- **入选理由**：用多agent LLM系统把CPU MOEA代码自动tensor化/向量化为GPU实现，保持优化语义并验证正确性，取得可扩展加速，符合A。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="43"></a>
+## 43. [HyperCut: Fast Inter-Layer Scheduling via Directed Hypergraph and Early Filtering](http://arxiv.org/abs/2608.19296v1)
+
+- **相关度**：0.92
+- **方向标签**：编译器优化
+- **收录日期**：2026-08-19
+- **arXiv ID**：2608.19296
+- **作者**：Ziang Wei, Zirui Xu, Sufeng Guo, Chuanchao Gao, Yiyang Gao, Arvind Easwaran, Yuxiang Fu
+- **入选理由**：提出面向DNN编译器的层间调度与资源分配框架HyperCut，通过超图划分早期筛选并耦合格网划分与映射，显著提升性能并减少搜索时间，满足A中编译调度优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="44"></a>
+## 44. [ComFuse: Fusing Complex Memory-Intensive Subgraphs with Compute-Intensive Kernels For Modern GPU Architectures](http://arxiv.org/abs/2608.03537v1)
+
+- **相关度**：0.92
+- **方向标签**：编译器优化
+- **收录日期**：2026-08-04
+- **arXiv ID**：2608.03537
+- **作者**：Di Mu, Tengyuan Jin, Zhenkun Wang, Jialin Yang, Yusen Li, Mian Huo, Shusong Guo, Gang Wang, Xiaoguang Liu
+- **入选理由**：ComFuse是一个自动GPU编译系统，将计算密集与记忆密集子图融合并自动生成高性能kernel，通过编译变换改善端到端性能和片上数据重用，满足A类编译器/kernel自动优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="45"></a>
+## 45. [Rethinking Agentic Kernel Generation for Emerging Accelerators](http://arxiv.org/abs/2608.00894v2)
+
+- **相关度**：0.92
+- **方向标签**：编译器优化
+- **收录日期**：2026-08-01
+- **arXiv ID**：2608.00894
+- **作者**：Ruijie Gao, Jirong Yang, Barry Lyu, Haoran Jin, Nathan Bleier
+- **入选理由**：Zomboss在编译器验证边界内用神经agent生成新兴加速器kernel，把机器语义编译为可复用接口，所有56个实例均获得正确验证kernel并取得几何平均加速，满足A类agent+编译器kernel自动优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="46"></a>
+## 46. [CONQuER: Hardware-Aware Mixed-Precision Quantisation with Online-Calibrated Surrogates](https://arxiv.org/abs/2607.25884)
+
+- **相关度**：0.92
+- **方向标签**：编译器优化
+- **收录日期**：2026-07-30, 2026-07-28
+- **arXiv ID**：2607.25884
+- **作者**：Aidan Dakhama, Ajitha Rajan
+- **入选理由**：将混合精度量化集成到编译器流水线，利用进化搜索自动寻找硬件感知的量化配置，目标是最大推理速度并验证精度，属于通过编译/后端配置自动优化程序执行性能，满足A。
+
+**TL;DR**：CONQuER将混合精度量化集成到编译器流水线中，利用带代理预筛选的进化搜索找到硬件感知的Pareto最优配置，实现高达12.19倍的推理加速且准确率损失极小。
+
+**中文摘要**：在资源受限硬件上部署深度神经网络依赖于混合精度量化（MPQ）。当前的部署工具链严重碎片化了这一过程。量化通常作为前端框架中的硬件无关预处理步骤发生，与生成物理机器代码的下游编译器脱节。这种分离导致配置次优，分配的位宽与目标硬件的异构执行块（如张量核心和可变宽度向量单元）映射不佳，从而产生严重的运行时执行惩罚。此外，通过穷举的硬件在环（HIL）测试评估这些配置由于指数级大的搜索空间而变得不可行。我们提出了CONQuER，一个统一的编译器集成的硬件感知MPQ基础设施。CONQuER将量化转移到编译器流水线中的TOSA级别，从而基于编译器支持实现智能配置处理。为了在实用的编译预算内评估模型不同层的组合搜索空间，CONQuER将NSGA-II进化算法与双代理预筛选引擎相结合。该引擎评估理论缓存内存界限和特征空间各向同性，以丢弃不可行的配置。然后，CONQuER仅通过IREE在硬件上执行最强的候选策略，并将执行指标反馈到在线校准器中。该校准器在NSGA-II进化搜索过程中将代理模型与真实硬件行为对齐。在移动和笔记本电脑CPU以及服务器GPU上的评估表明，最优量化策略是硬件相关的。通过将量化与编译器低化和物理执行耦合，CONQuER发现了Pareto最优配置，推理速度提升高达12.19倍，top-1准确率在未量化基线的1.44%以内。
+
+**方法**：CONQuER将量化移至TOSA级别的编译器流水线，结合NSGA-II进化算法与双代理预筛选引擎（评估缓存界限和特征各向同性），剔除不可行配置，通过IREE在硬件上执行最强候选，并使用在线校准器使代理模型对齐硬件行为。
+
+**结果**：在移动和笔记本电脑CPU及服务器GPU上，CONQuER发现的Pareto最优配置实现推理速度提升高达12.19倍，top-1准确率在未量化基线的1.44%以内。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="47"></a>
+## 47. [JAXBench: Benchmarking Autonomous TPU Kernel Optimization](https://arxiv.org/abs/2607.20466)
+
+- **相关度**：0.92
+- **方向标签**：Benchmark/评测、Kernel/自动调优
+- **收录日期**：2026-07-25, 2026-07-26
+- **arXiv ID**：2607.20466
+- **作者**：Arya Tschand, Charles Hong, Julian Walker, Nina Cai, Shangkun Wang, Suvinay Subramanian, Sundar Dev, Vijay Janapa Reddi, Amir Yazdanbakhsh, Sethu Sankaran
+- **入选理由**：JAXBench提供面向TPU的AI生成内核优化基准与评测工具，包含生产算子与手调Pallas作为专家上界，并评测多种优化方法，满足B。
+
+**TL;DR**：JAXBench是首个TPU原生AI内核优化基准测试套件，包含50个JAX工作负载，实验表明目标特定上下文比模型规模更重要，结合搜索结构可实现显著加速。
+
+**中文摘要**：严格的基准测试通过建立共同的目标来推动自主GPU内核性能优化的进步，但TPU没有类似的基准测试。我们提出JAXBench，一个用于Google Cloud TPU上AI生成内核优化的TPU原生基准测试套件。JAXBench包含50个既相关又具有优化空间的JAX工作负载。我们从公开的MaxText库（如Llama-3.1、DeepSeek-V3、Mixtral、Mamba-2和AlphaFold2）的架构中提取了17个生产级ML算子，并从KernelBench翻译了33个算子，这些算子经过正确性验证，并设置了新的问题大小以实现高TPU v6e MXU利用率。17个生产算子中有8个附带了来自公开Tokamax库的手工优化Pallas内核，并调整了块大小以建立专家上限基线。我们评估了四种反馈驱动方法在JAXBench上生成候选Pallas内核的效果。在整个套件中使用Gemini 3 Flash，我们发现目标特定上下文比模型规模在像Pallas这样文档稀疏的DSL上更重要。基于精选的TPU文档进行条件设置，将每个样本的正确率从5.8%提升到37.3%，并解决了50个基准测试中的48个，几何平均加速比为1.28倍。一旦实现正确性，搜索结构会带来显著收益，Autocomp的波束搜索管道相对于XLA实现了1.36倍的几何平均加速比。在8个手工调优的内核上，Autocomp相对于XLA达到1.60倍的几何平均加速比，恢复了Tokamax上限2.08倍的大部分，但在专门的页面和 ragged 注意力算子方面落后。高质量的TPU内核优化仍然是一项具有挑战性的任务，我们发布JAXBench基准测试、评估工具和基线结果以支持开源贡献。
+
+**方法**：构建JAXBench基准套件，包含50个JAX工作负载（17个来自生产模型，33个来自KernelBench）；评估四种反馈驱动方法（如Autocomp的波束搜索）生成Pallas内核，并对比使用TPU文档条件化的效果。
+
+**结果**：TPU文档条件化将正确率从5.8%提升至37.3%，解决48/50基准，几何平均加速1.28倍；Autocomp达到1.36倍（整体）和1.60倍（手调内核）的几何平均加速比。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="48"></a>
+## 48. [Ciphertext- and Polynomial-Level Optimization for Fully Homomorphic Encryption](http://arxiv.org/abs/2607.15750v2)
+
+- **相关度**：0.92
+- **方向标签**：编译器优化
+- **收录日期**：2026-07-17
+- **arXiv ID**：2607.15750
+- **作者**：Seongho Kim, Heelim Choi, Jaemin Kim, Seonyoung Cheon, Dongkwan Kim, Jaeho Lee, Hoyun Youm, Dongyoon Lee, Hanjun Kim, Yongwoo Lee
+- **入选理由**：核心是FHE编译器Recifhe在ciphertext和polynomial两个级别自动优化FHE程序，消除冗余多项式计算，实现1.25x加速。这是典型的编译器自动优化表现，满足A类，通过修改/编译优化改善运行时间并验证性能。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="49"></a>
+## 49. [Breaking Database Lock-in: Agentic Regeneration of High Performance Storage Readers for Database Bypass](http://arxiv.org/abs/2607.07696v1)
+
+- **相关度**：0.92
+- **方向标签**：LLM/Agent 代码优化
+- **收录日期**：2026-07-08
+- **arXiv ID**：2607.07696
+- **作者**：Victor Giannakouris, Immanuel Trummer
+- **入选理由**：核心任务是用LLM/智能体自动生成绕过数据库驱动的高性能存储读取代码，目标是提升端到端分析吞吐量，并用TPC-H验证正确性和最高27x加速，满足条件A。
+
+**TL;DR**：Jailbreak利用LLM直接从数据库存储文件中读取数据生成列式缓冲区，绕过数据库引擎，实现高达27倍的分析吞吐量提升。
+
+**中文摘要**：对外部数据库系统中存储的数据进行操作的分析工作负载面临一个根本性的瓶颈：数据访问完全由数据库驱动程序（如JDBC或ODBC）保护，强制所有读取操作通过查询执行和其他非为批量列式分析设计的驱动层进行。我们提出Jailbreak，一种通过直接读取存储文件并物化数据为内存列式缓冲区来完全绕过数据库引擎的方法。Jailbreak的关键洞察在于，数据库文件格式尽管复杂，但其源代码和文档完全规定了这些格式，而大型语言模型（LLM）可以消化这些工件，无需人工设计的解析逻辑就能重新生成特定操作符的表读取组件。Jailbreak利用LLM辅助的代码合成为数据库存储解码，将传统不透明的格式转变为可直接查询的工件。我们在PostgreSQL和MySQL存储文件上评估Jailbreak，针对读取副本和离线处理管道中常见的分析快照场景。生成的读取器产生Apache Arrow缓冲区，可直接被大多数广泛使用的查询引擎使用，包括DuckDB、Apache Spark以及GPU加速框架如cuDF和Spark RAPIDS。我们使用TPC-H基准测试在所有查询结果上验证与基于JDBC/ODBC的基线的正确性，并展示了端到端分析吞吐量的显著性能提升，实现了高达27倍的加速。我们的结果表明，LLM辅助的存储读取器合成是一种可行且可泛化的方法，用于打破跨数据库系统的数据锁定，并且可应用于PostgreSQL和MySQL以外的任何系统，只要其文件格式可通过文档或源代码提供给LLM。
+
+**方法**：提出Jailbreak方法，利用LLM根据数据库文件格式的源代码和文档自动生成读取器，直接读取存储文件并转换为内存列式缓冲区（如Apache Arrow）。
+
+**结果**：在TPC-H基准测试中，Jailbreak正确性验证通过，端到端分析吞吐量提升高达27倍，支持多种查询引擎（如DuckDB、Spark、cuDF）。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="50"></a>
+## 50. [QuTuner: Feature- and Learning-Guided Optimization Pass Tuning for Quantum Compilers](http://arxiv.org/abs/2607.04586v1)
+
+- **相关度**：0.92
+- **方向标签**：编译器优化、优化策略检索
 - **收录日期**：2026-07-06
 - **arXiv ID**：2607.04586
 - **作者**：Ming Zhong, Xiangyu Ren, Jinglei Cheng, Shaohua Li, Zhiding Liang
-- **入选理由**：满足A：QuTuner自动调优量子编译器优化pass序列以降低电路代价，属于编译器优化。
+- **入选理由**：QuTuner用静态电路特征与优化感知pass嵌入离线检索/排序并精调量子编译器优化pass序列，自动调优编译选项并验证电路指标下降，满足A/优化策略检索，是编译器性能优化。
 
 **TL;DR**：QuTuner通过结合静态电路特征和优化感知嵌入来引导量子编译器优化序列调优，显著提升指标降幅并减少调优时间。
 
@@ -703,15 +1191,147 @@
 
 ---
 
-<a id="30"></a>
-## 30. [Can Coding Agents Implement Missed Compiler Optimizations? Evaluating LLM Agents on LLVM Peephole Optimizations](http://arxiv.org/abs/2607.02684v1)
+<a id="51"></a>
+## 51. [Understanding Agent-Based Patching of Compiler Missed Optimizations](http://arxiv.org/abs/2607.02370v2)
 
-- **相关度**：0.90
-- **方向标签**：Benchmark/评测
+- **相关度**：0.92
+- **方向标签**：编译器优化、Benchmark/评测
+- **收录日期**：2026-07-02
+- **arXiv ID**：2607.02370
+- **作者**：Batu Guan, Zirui Wang, Shaohua Li
+- **入选理由**：构造真实LLVM missed optimization基准，研究并利用历史PR检索/蒸馏改进agent生成的编译器优化补丁的泛化范围，属于编译器自动优化与专属评估，满足B/A。
+
+**TL;DR**：本文系统研究了代理修补编译器错过优化的能力，发现代理生成的补丁在优化范围上与开发者补丁存在差异，并提出了历史知识增强技术以改善泛化。
+
+**中文摘要**：编译器错过的优化是指编译器未能优化某些代码的情况。实现或修补这些错过的优化需要许多编译器开发人员的努力。在本文中，我们系统性地研究了代理(agent)修补编译器错过的优化的能力。我们识别了一个重大挑战：修补错过的优化不仅仅需要修复报告的具体案例，还需要泛化到类似案例。我们构建了一个真实世界LLVM错过优化问题的基准，并从优化范围的角度比较了代理生成的补丁与开发人员生成的补丁。我们的结果表明，编码代理经常优化给定的示例，但许多生成的补丁要么只覆盖了开发人员预期范围的一部分，要么与之部分重叠；在某些情况下，它们甚至进一步泛化到参考补丁之外。我们进一步引入了历史知识增强技术，通过检索和蒸馏利用先前的LLVM优化拉取请求，表明这些技术改善了与开发人员对齐的泛化，并在应用于真实世界IR时产生了实际效益。
+
+**方法**：构建了真实世界LLVM错过优化问题的基准，比较代理与开发者补丁的优化范围，并引入基于检索和蒸馏的历史知识增强技术。
+
+**结果**：代理常优化给定示例，但补丁多只部分覆盖开发者意图范围，甚至过度泛化；历史知识增强技术提升了与开发者对齐的泛化能力。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="52"></a>
+## 52. [Tensor Seeks Layout: Formalizing Layout Selection for ML Compilers](http://arxiv.org/abs/2608.21555v1)
+
+- **相关度**：0.91
+- **方向标签**：编译器优化
+- **收录日期**：2026-08-21
+- **arXiv ID**：2608.21555
+- **作者**：Clemens Eisenhofer, Yuwen Jia, Daniel Kroening, Sergey Pupyrev
+- **入选理由**：形式化并求解ML编译器张量布局选择问题，目标是减少算子执行代价与layout转换代价，并在生产编译器上验证执行时间改进，满足A的编译pass优化核心。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="53"></a>
+## 53. [Portable to Efficient: Auto-Tuning Hardware-Agnostic GPU Kernels in Julia](http://arxiv.org/abs/2608.21227v1)
+
+- **相关度**：0.91
+- **方向标签**：Kernel/自动调优
+- **收录日期**：2026-08-21
+- **arXiv ID**：2608.21227
+- **作者**：Floris-Jan Willemsen, Evelyne Ringoot, Alan Edelman
+- **入选理由**：将自动调参（auto-tuning）集成到硬件无关GPU kernel，系统探索kernel配置并提升NVIDIA/AMD/Intel/Apple GPU上的性能（3x-7x），直接满足A的kernel自动优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="54"></a>
+## 54. [Validation-Centric AI-Assisted GPU Porting of a 250,000+ Line Legacy Weather Simulation Code](http://arxiv.org/abs/2608.13122v1)
+
+- **相关度**：0.91
+- **方向标签**：LLM/Agent 代码优化
+- **收录日期**：2026-08-13
+- **arXiv ID**：2608.13122
+- **作者**：Tetsuya Hoshino, Masaya Kato, Kazuhisa Tsuboki, Daichi Mukunoki, Takahiro Katagiri, Toshihiro Hanawa
+- **入选理由**：AI agent辅助将25万行遗留科学Fortran代码GPU化，使用OpenACC变换，以dump数据验证数值一致性并取得5.1x加速，是面向大型程序的自动/半自动性能移植优化，符合A。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="55"></a>
+## 55. [WarmTuner: Program-Specific Warm Starts for Compiler Autotuning via Offline-to-Online Reinforcement Learning](https://arxiv.org/abs/2607.25831)
+
+- **相关度**：0.91
+- **方向标签**：编译器优化
+- **收录日期**：2026-07-30, 2026-07-28
+- **arXiv ID**：2607.25831
+- **作者**：Tianlu Qiao, Mingxuan Zhu, Zeyu Sun, Dan Hao
+- **入选理由**：核心是自动搜索编译器优化flag组合以最大化目标程序运行性能，属于编译选项自动优化，有实测速度提升，满足A。
+
+**TL;DR**：WarmTuner是一个离线到在线的强化学习框架，通过程序条件化策略和GRPO优化，在编译器自动调优中平均加速1.732倍，显著优于现有方法。
+
+**中文摘要**：编译器是将高级程序转换为机器代码的基础软件工具。现代编译器提供了数百种优化，每种优化通过优化标志开启或关闭，以提高生成代码的性能。然而，可能的标志组合数量呈指数级增长，使得为给定目标程序找到合适的标志配置变得困难。现有的编译器自动调优技术通过剪枝搜索空间、注入搜索偏差或预测配置性能来降低调优成本。尽管有些技术利用了程序特征，但它们从历史数据中提取的知识在搜索开始后就固定不变；运行时反馈仅指导搜索本身，而从未指导先验知识。因此，当这种先验知识与目标程序不匹配时，这些方法在搜索到达良好配置之前会浪费大量有限的在线预算。我们提出了WarmTuner，一个离线到在线的强化学习框架，它将历史记录转化为程序条件化的策略，该策略预测完整标志空间中每个标志的设置，并在目标程序上保持可适应性。离线阶段，WarmTuner从历史良好配置中学习这个完整标志空间上的程序条件化策略。在线阶段，它使用真实的编译-运行反馈在目标程序上优化同一策略，使得策略由测量的加速比驱动，而不是局限于历史数据。我们使用组相对策略优化（GRPO）来实例化在线更新，该方法比较同一轮中的候选者，并避免单独的价值模型。我们在GCC 15.2.0上使用cBench和PolyBench评估了WarmTuner。结果表明，WarmTuner相比于GCC -O3实现了平均1.732倍的加速比，并在14/30个程序上获得了最佳结果，显著优于对比技术。
+
+**方法**：提出WarmTuner，离线阶段从历史配置学习程序条件化策略，在线阶段使用GRPO根据实际编译-运行反馈优化策略。
+
+**结果**：在GCC 15.2.0上，平均加速比1.732x，在14/30个程序上获得最佳结果。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="56"></a>
+## 56. [CANN Bench: Benchmarking Agent Generated Kernels against Real NPU and Algorithmic Limits](https://arxiv.org/abs/2607.20518)
+
+- **相关度**：0.91
+- **方向标签**：Benchmark/评测、Kernel/自动调优
+- **收录日期**：2026-07-25, 2026-07-26
+- **arXiv ID**：2607.20518
+- **作者**：Xue-Jian Gao, Deng Pan, Yueming Su, Jiasheng Li, Bin Du, Fengming Zhu, Chengdi Ma, Junyi Fan, Qichen Liao, Chengqiu Hu, Xinxian Chen, Lingchao Zheng, Jun Li, Jiwei Yang, Yuwei Fan
+- **入选理由**：CANN Bench是面向华为Ascend NPU的AI算子代码生成基准，提供编译/正确性/性能三维评分与硬件锚定性能上限，满足B。
+
+**TL;DR**：提出了CANN Bench，一个针对华为昇腾NPU的AI生成算子代码的开放基准测试，包含53个算子、1060个测试用例和三维加权复合评分。
+
+**中文摘要**：AI代理现在能够在不同硬件平台上编写、编译和迭代优化底层算子内核。然而，现有的基准测试几乎完全专注于CUDA和Triton，使得编程模型不那么开放的硬件生态系统缺乏共同的评估基准。我们提出了CANN Bench，这是一个针对华为昇腾NPU上AI生成算子代码的开放基准测试。当前版本涵盖53个算子和1060个测试用例，分为四个难度等级——从简单的逐元素原语到MoE分发和FlashAttention内核——涵盖FP16、BF16、FP32和INT8精度格式。评估采用三维加权复合得分，将编译、功能正确性和性能视为独立维度，为内核生成代理提供原则性的奖励信号。性能根据开箱即用的PyTorch-on-Ascend基线和真实NPU硬件上每个案例的分析性硬件锚定性能（HAP）极限进行评分，确保分数反映真正的优化空间而非测量伪影。评估框架从设计上抵制奖励黑客行为。CANN Bench在官方CANN仓库中进行版本管理，并旨在长期社区共建，为昇腾生态系统提供一个定量、可重复且可持续维护的AI算子编写能力衡量标准。
+
+**方法**：设计了一个包含53个算子和1060个测试用例的基准测试，分四个难度等级，覆盖多种精度；采用三维加权复合得分（编译、正确性、性能）进行评估，性能对照PyTorch基线和硬件锚定性能极限。
+
+**结果**：当前版本提供了全面的基准测试，能够有效评估AI代理生成算子代码的能力，并抵抗奖励黑客行为。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="57"></a>
+## 57. [Can Coding Agents Implement Missed Compiler Optimizations? Evaluating LLM Agents on LLVM Peephole Optimizations](http://arxiv.org/abs/2607.02684v1)
+
+- **相关度**：0.91
+- **方向标签**：Benchmark/评测、编译器优化
 - **收录日期**：2026-07-02
 - **arXiv ID**：2607.02684
 - **作者**：Hongxu Xu, Chunhao Liao, Xintong Zhou, Chengnian Sun
-- **入选理由**：满足B：提出PeepholeBench基准，专门评估编码代理修复LLVM编译器遗漏窥孔优化的性能。
+- **入选理由**：PeepholeBench从真实LLVM InstCombine漏优化issue/PR构造任务，衡量agent补丁的正确性与收益性，是专门针对自动编译器优化开发的性能优化基准，满足B。
 
 **TL;DR**：PeepholeBench是一个评估编码智能体修复LLVM编译器遗漏窥孔优化的基准，发现当前智能体在正确性和收益性上均无法匹敌人类开发者，主要失败模式为转换过窄和LLVM机制误用。
 
@@ -725,235 +1345,191 @@
 
 ---
 
-<a id="31"></a>
-## 31. [JETO-Bench: A Reproducible Benchmark for Execution Time Improvement Patches in Java](http://arxiv.org/abs/2606.31767v1)
+<a id="58"></a>
+## 58. [CREDIT: Cost-guided Reduction-reuse with Efficient DSMEM Inter-CTA Tiling](http://arxiv.org/abs/2609.01864v1)
 
 - **相关度**：0.90
-- **方向标签**：Benchmark/评测
-- **收录日期**：2026-06-30
-- **arXiv ID**：2606.31767
-- **作者**：Khashayar Etemadi, Zhendong Su
-- **入选理由**：可配置的Java性能改进补丁基准，满足B。
+- **方向标签**：Kernel/自动调优
+- **收录日期**：2026-09-01
+- **arXiv ID**：2609.01864
+- **作者**：Zhengxiong Li, Tsung-Wei Huang, Umit Ogras
+- **入选理由**：面向GPU分布式共享存储器的代价制导优化框架，通过profiling特征识别DSMEM可获利模式、应用reduction-reuse变换并用成本模型预测收益，在RTX 5090/H100等上一致加速；满足A的GPU kernel自动优化。
 
-**TL;DR**：本文提出JETO-Mine，一个可配置可重用的工具，用于自动创建Java执行时间改进补丁的可重现基准，并基于此构建了JETO-Bench（660个ETIP，91个可执行），评估发现OpenHands修复率为14.3%，同时揭示了开源Java项目缺乏性能测试的问题。
+**TL;DR**：
 
-**中文摘要**：自动修复性能问题正受到越来越多的关注。然而，现有的执行时间改进补丁基准是固定的数据集，针对Python、C++或.NET，并且无法根据用户定义的配置扩展到新补丁。在本文中，我们提出了JETO-Mine，这是第一个可配置且可重用的工具，用于自动创建真实世界Java项目中执行时间改进补丁（ETIP）的可重现基准。JETO-Mine采用三阶段流水线：静态分析阶段，爬取GitHub仓库并使用用户定义的过滤器和基于LLM的问题分类器识别ETIP；动态分析阶段，将识别出的ETIP封装在Docker镜像中以实现完全可重现的执行，并进行统计测试以寻找执行时间改进的客观证据；以及评估工具，能够对生成的补丁和生成的测试进行定量评估。与现有基准不同，JETO-Mine被设计为一个可重用的工具，允许研究人员持续收集符合自身所需过滤器和统计严谨级别的新基准。我们使用JETO-Mine构建了JETO-Bench，这是一个包含660个已识别ETIP和91个手动验证的可执行ETIP的基准，这些ETIP来自174个开源Java仓库。为了构建JETO-Bench，JETO-Mine扫描了11年的开源开发历史和近180万次提交。我们在JETO-Bench中的91个手动验证的可执行ETIP上运行了OpenHands（一个领先的开源编码智能体），发现它正确修复了14.3%（13/91）的问题，这与类似研究在其他编程语言上报告的结果一致。我们的结果还揭示了开源Java项目在很大程度上缺乏展示执行时间改进的测试，这为未来在测试生成方面的研究提供了机会。
+**中文摘要**：
 
-**方法**：JETO-Mine采用三阶段流水线：1) 静态分析：爬取GitHub仓库，使用用户定义过滤器和LLM问题分类器识别ETIP；2) 动态分析：将ETIP封装在Docker镜像中实现可重现执行，并进行统计测试验证执行时间改进；3) 评估工具：对生成的补丁和测试进行定量评估。
+**方法**：
 
-**结果**：使用JETO-Mine构建了JETO-Bench，包含660个ETIP（其中91个手动验证可执行），来自174个开源Java仓库，扫描了11年历史和近180万次提交。在91个可执行ETIP上运行OpenHands，正确修复14.3%（13/91），与类似研究结果一致。此外，发现开源Java项目普遍缺乏展示执行时间改进的测试。
+**结果**：
 
 [返回索引](#快速索引)
 
 ---
 
-<a id="32"></a>
-## 32. [Structuring agentic AI for HPC code modernization](http://arxiv.org/abs/2606.08710v1)
+<a id="59"></a>
+## 59. [Hierarchical Shared Memory-Aware Optimization for TRSM on GPU Platforms](http://arxiv.org/abs/2608.25469v1)
+
+- **相关度**：0.90
+- **方向标签**：Kernel/自动调优
+- **收录日期**：2026-08-26
+- **arXiv ID**：2608.25469
+- **作者**：Xinzhe Chen, Haowei Li, Lijuan Hu, Wenjing Ma, Fangfang Liu
+- **入选理由**：针对GPU上TRSM实现进行分层共享内存优化，设计流水线、对角块解耦和基于离线profiling的块大小自动选择，在不同GPU上超过cuBLAS/rocBLAS；满足A的直接GPU kernel性能优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="60"></a>
+## 60. [XRFix: Exploring Performance Bug Repair of Extended Reality Applications with Large Language Models](http://arxiv.org/abs/2608.21718v1)
+
+- **相关度**：0.90
+- **方向标签**：LLM/Agent 代码优化、Profiling/程序分析
+- **收录日期**：2026-08-22
+- **arXiv ID**：2608.21718
+- **作者**：Jingwen Wu, Hanyang Guo, Hong-Ning Dai, Xiapu Luo
+- **入选理由**：核心是用LLM修复XR应用中的性能bug（渲染/计算低效），属于以性能改善为目标的自动代码修复，并配有检测工具和修复验证，符合A。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="61"></a>
+## 61. [Can Large Language Models Recover Semantic Optimization Opportunities That Compilers Miss?](http://arxiv.org/abs/2608.03983v1)
+
+- **相关度**：0.90
+- **方向标签**：Benchmark/评测
+- **收录日期**：2026-08-04
+- **arXiv ID**：2608.03983
+- **作者**：Hailong Jiang, Feng Yu, Emran Hossain, Jianfeng Zhu, Mengfei Ren, Qiang Guan, Chunwei Xia
+- **入选理由**：论文提出SeGaBench可执行benchmark，专门测试LLM从语义层面恢复编译器错过的优化机会，包含正确性、语义验证和可复现加速比协议，属于面向自动程序性能优化的专用benchmark与LLM评估。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="62"></a>
+## 62. [KernelGenBench: A Multi-Source and Multi-Chip Benchmark for LLM-based Kernel Generation](https://arxiv.org/abs/2607.27231)
+
+- **相关度**：0.90
+- **方向标签**：Benchmark/评测、Kernel/自动调优
+- **收录日期**：2026-08-01, 2026-08-02, 2026-08-03, 2026-07-22
+- **arXiv ID**：2607.27231
+- **作者**：Peiyu Zang, Jian Tao, Jialing Zhang, Yichen Yuan, Wentao Zhang, Guang Liu, Yonghua Lin
+- **入选理由**：提出专门评估LLM/智能体生成Triton内核性能的统一基准，支持多算子来源与多硬件平台，属于针对自动程序优化的benchmark，满足B。
+
+**TL;DR**：提出了KernelGenBench基准，用于评估LLM和智能体生成的Triton内核在多来源算子与多硬件平台上的表现，发现基于智能体的方法更优但存在跨平台性能下降和高token消耗问题。
+
+**中文摘要**：大语言模型（LLM）显著提升了对高效加速器内核的需求，但内核开发仍然是一项高度专业化和劳动密集型的任务。近年来LLM和智能体框架的兴起为自动内核生成提供了一条有前景的路径。然而，尽管进展迅速，目前仍缺乏一个全面的基准来严格评估LLM生成的内核在不同算子来源或异构硬件平台上的表现。我们提出KernelGenBench，一个统一的基准，用于系统评估LLM和智能体生成的Triton内核在不同算子来源和异构硬件平台上的表现。它包含两个互补的子基准：KernelGenBench-MS（多源），评估来自三个来源的210个算子，超越了标准的以PyTorch为中心的任务；以及KernelGenBench-MC（多芯片），使用110个算子的子集衡量跨六个异构硬件平台的性能可移植性。我们的大规模评估消耗了超过150亿个token，结果表明：（1）基于智能体的方法始终优于纯LLM采样方法，而cuBLAS算子在所有方法中都是最具挑战性的；（2）生成性能在不同硬件平台之间差异显著，即使是最近的内核专用智能体也经历了严重的跨平台性能下降（例如，AutoKernel从NVIDIA上的87%降至平台E上的25%）；（3）自主内核生成仍然成本高昂，专用智能体方法每个成功算子平均消耗511万个token（AKO4all达到519万个），比简单的LLM采样方法高出数个数量级。
+
+**方法**：构建KernelGenBench，包含多源（210算子）和多芯片（110算子、6平台）两个子基准，并大规模评估多种LLM和智能体方法。
+
+**结果**：基于智能体的方法优于纯LLM采样；cuBLAS算子最难；跨平台性能下降严重（AutoKernel从87%降至25%）；生成成本高，每算子平均需511万token。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="63"></a>
+## 63. [Cross-Model Cross-Language AI Coding Agent Performance: Accuracy and Speed of Parallel CLRS Algorithms](https://arxiv.org/abs/2607.26083)
 
 - **相关度**：0.90
 - **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-06-07
-- **arXiv ID**：2606.08710
-- **作者**：Anthony Marinov, Igor Sfiligoi
-- **入选理由**：利用agentic AI将Fortran单线程MPI代码自动转换为OpenMP并行C++代码，改善运行性能，验证正确性。
+- **收录日期**：2026-07-31, 2026-07-26
+- **arXiv ID**：2607.26083
+- **作者**：Shiqi Cheng, Evelyne Ringoot, Rabab Alomairy, Alan Edelman
+- **入选理由**：核心评估AI编码智能体将串行代码自动改写为并行实现以取得加速的能力，将性能作为主要指标并有实测加速比较，属于LLM代码性能优化的直接研究，满足A相关。
 
-**TL;DR**：本文介绍了一种高度结构化的“手把手”代理AI方法，成功将6万行Fortran单线程MPI代码在几个月内转换为OpenMP并行C++ MPI代码，而单纯LLM工具不足。
+**TL;DR**：本文评估了AI编码智能体在并行代码生成上的能力，发现它们能生成正确代码但加速效果高度依赖算法和语言，Sonnet 4.6表现最佳，C++在图算法上并行化最一致，Python和Julia在搜索算法上加速最大。
 
-**中文摘要**：传统科学代码的现代化通常是为了跟上计算资源生态系统中不断变化的更新。并行化和从支持不良的软件生态系统迁移是研究软件工程领域中最耗时的两项活动。本文介绍了我们在两阶段AI辅助下对NMAP-RKPM进行现代化改造的经验，NMAP-RKPM是一个基于再生核粒子方法（RKPM）的约6万行、3D显式固体力学物理引擎。我们在几个月内将这款基于Fortran的单线程MPI应用程序转换为OpenMP并行C++ MPI工具。虽然基于大语言模型（LLM）的工具本身被证明是不足的，但我们开发了一种高度结构化的“手把手”代理AI方法，比如提供手动创建的示例、确保持续可构建性以及限制会话范围，这种方法反而非常有效。本文提供了成功的AI辅助步骤以及我们必须克服的问题，同时阐述了所选路径背后的推理。
+**中文摘要**：AI编码智能体已迅速成为软件工程中无处不在的工具。它们的串行性能，无论是在准确性还是速度方面，都已被广泛覆盖。然而，最近初步结果表明它们的并行编程能力落后于串行编程能力。本文对三种编码智能体——Cursor的Composer 2.0、GPT 5.4和Claude Sonnet 4.6——在三种算法类别——排序、图遍历和搜索——中使用C++、Python和Julia进行并行代码生成进行了跨语言评估。对于每种算法和语言对，我们提示编码智能体从串行基线生成并行实现，追踪实现功能正确性和性能改进所需的提示努力，并测量相对于自定义串行基线和第三方库实现的加速比。我们发现编码智能体能够以适度的提示努力生成正确的并行实现，但实现有意义的加速比高度依赖算法和语言。Sonnet 4.6在整体性能提升方面表现最强，而GPT 5.4尽管始终保持正确性，但未产生可测量的加速比。C++在图算法方面的并行化最一致，而Python和Julia在搜索算法上实现了最大的加速比：没有一种语言在所有类别中占主导地位。Python和Julia在某些图算法上实现了加速，但在其他算法上出现了退化。这些发现强调了将运行时性能效率作为LLM主要性能指标（除了准确性之外）的影响，特别是对于并行实现。
 
-**方法**：开发了高度结构化的“手把手”代理AI方法，包括提供手动创建的示例、确保持续可构建性和限制会话范围。
+**方法**：跨语言评估三种编码智能体（Composer 2.0、GPT 5.4、Sonnet 4.6）在C++、Python、Julia上生成排序、图遍历、搜索三类算法的并行实现，从串行基线出发，记录提示次数，测量功能正确性和加速比。
 
-**结果**：在几个月内成功将NMAP-RKPM（约6万行Fortran单线程MPI代码）转换为OpenMP并行C++ MPI工具。
+**结果**：编码智能体能以较少提示生成正确并行代码，但只有Sonnet 4.6显著提升性能，GPT 5.4无提速；C++在图算法上并行化最一致，Python和Julia在搜索算法上提速最大，但不同语言各有优劣。
 
 [返回索引](#快速索引)
 
 ---
 
-<a id="33"></a>
-## 33. [SpecDB: LLM-Generated Customized Databases via Feature-Oriented Decomposition](http://arxiv.org/abs/2605.31097v1)
+<a id="64"></a>
+## 64. [Demonstrating GenDB: Instance-Optimized and Customized Query Processing Code Generation via LLM Agents](http://arxiv.org/abs/2607.20630v1)
 
 - **相关度**：0.90
 - **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-05-29
-- **arXiv ID**：2605.31097
-- **作者**：Yunkai Lou, Longbin Lai, Shunyang Li, Zhengping Qian, Ying Zhang
-- **入选理由**：满足A：利用LLM生成定制关系数据库代码，以TPC-C性能为优化目标，代码量仅为传统数据库的3%但性能相当。
+- **收录日期**：2026-07-22
+- **arXiv ID**：2607.20630
+- **作者**：Jiale Lao, Immanuel Trummer
+- **入选理由**：LLM agents自动生成实例级优化的query执行代码，针对特定数据/负载/硬件迭代获得正确且高效实现，并在TPC-H等基准上验证性能优势，符合A。
 
-**TL;DR**：SpecDB利用LLM根据工作负载描述自动合成定制关系型数据库，生成的数据库在TPC-C上性能与PostgreSQL和MySQL相当，但代码量仅为它们的3%。
+**TL;DR**：
 
-**中文摘要**：主流关系型数据库在部署中提供统一的功能集，尽管单个工作负载仅使用可用子系统的一小部分。我们研究是否可以根据需求生成一个数据库，其功能集与目标工作负载匹配。我们提出SpecDB，一个使用大型语言模型（LLM）来合成定制关系型数据库的系统。我们调查了9个生产系统，并将它们分解为10个功能模块，每个模块进一步分为实现变体。为了捕获跨模块依赖性，包括在不相交子树中的实现必须协同设计的情况，我们采用FODA特征模型并扩展了合作边，得到依赖图DBGraph。SpecDB通过一个分层模块构建管道来操作化DBGraph，其中每个模块由专门的子代理（由三个内部代理驱动：主代理、测试代理、架构代理）生成、验证和集成，还有一个精炼代理，它针对用户提供的精炼工具有迭代地修复和调整组装好的数据库，该工具对现有数据库源代码具有只读访问权限。一个配套的选择组件将自然语言工作负载描述翻译成一组实现变体，提供了从工作负载描述到可部署数据库的端到端管道。我们在TPC-C上使用BenchmarkSQL评估SpecDB。生成的数据库（23,779行Rust代码）在1个和10个仓库上完成了60分钟的TPC-C，零错误。在10个仓库时，它达到了tpmC=130，而PostgreSQL为128，MySQL为127，延迟相当，代码大小约为它们的3%。由于代理在模块规范级别而非产品源代码级别操作，它原则上可以跨系统边界组合技术。随着LLM成本下降，为目标工作负载生成专用数据库正变得简单。
+**中文摘要**：
 
-**方法**：提出SpecDB，用FODA模型扩展合作边形成依赖图DBGraph，分层模块构建管道，子代理（主、测试、架构）生成和验证模块，精炼代理迭代修复，选择组件将自然语言描述转为实现变体。
+**方法**：
 
-**结果**：生成的Rust数据库（23,779行）在TPC-C 10仓库下tpmC=130（PostgreSQL 128，MySQL 127），零错误，延迟相当，代码大小约3%。
+**结果**：
 
 [返回索引](#快速索引)
 
 ---
 
-<a id="34"></a>
-## 34. [MileStone: A Multi-Objective Compiler Phase Ordering Framework for Graph-based IR-Level Optimization](http://arxiv.org/abs/2605.23435v1)
+<a id="65"></a>
+## 65. [Pattern-Guided Design Space Exploration for FPGA Accelerator Design](http://arxiv.org/abs/2607.15068v1)
 
 - **相关度**：0.90
-- **方向标签**：编译器优化
-- **收录日期**：2026-05-22
-- **arXiv ID**：2605.23435
-- **作者**：Amirhosein Sadr, Mehran Alidoost Nia
-- **入选理由**：MileStone框架自动优化编译阶段排序以改善执行时间、能耗等，满足A。
+- **方向标签**：编译器优化、Kernel/自动调优、搜索与进化优化
+- **收录日期**：2026-07-16
+- **arXiv ID**：2607.15068
+- **作者**：Jialiang Zhang, Weiman Yan, Yuelin Zou
+- **入选理由**：核心是面向FPGA HLS的pattern-guided design space exploration框架PATTERNDSE，自动探索调度（pipeline、unroll、tiling等）以优化Vitis HLS latency。满足A类：自动修改编译调度/综合选项（HLS kernel）改善性能，并验证功能正确性与延迟。
 
-**TL;DR**：MileStone是一个模块化框架，通过图神经网络和强化学习将编译器阶段排序建模为多目标优化问题，实现帕累托最优解，在相同能量预算下减少执行时间高达45%。
+**TL;DR**：
 
-**中文摘要**：编译器的阶段排序对程序性能有强烈影响。找到有效的优化序列仍然是一项困难的任务，因为搜索空间很大，而执行时间、代码大小和能耗通常相互冲突。现有方法通常依赖于固定的优化级别或有限的启发式方法，并且很少同时处理多个目标。本文提出了MileStone，一个模块化框架，将编译器阶段排序建模为多目标优化问题。MileStone将程序表示为图，使用图神经网络预测性能指标，并通过遵循用户约束的强化学习代理探索优化序列。该框架还构建了一个自进化数据库，收集编译器转换并提高预测质量。在标准基准测试上的实验表明，MileStone找到了强大的帕累托最优解，比LLVM优化级别和其他相关技术更准确地满足能量限制。在相同能量预算下，MileStone使用多目标方法将执行时间减少了高达45%。结果表明，MileStone为多目标编译器阶段排序提供了一种有效且可扩展的解决方案。
+**中文摘要**：
 
-**方法**：提出MileStone框架，用图神经网络预测性能，用强化学习探索优化序列，并构建自进化数据库收集转换以改善预测。
+**方法**：
 
-**结果**：在标准基准上，MileStone找到强帕累托最优解，比LLVM优化级别更准确满足能量限制，相同能量下执行时间减少45%。
+**结果**：
 
 [返回索引](#快速索引)
 
 ---
 
-<a id="35"></a>
-## 35. [AgentKernelArena: Generalization-Aware Benchmarking of GPU Kernel Optimization Agents](http://arxiv.org/abs/2605.16819v1)
+<a id="66"></a>
+## 66. [Rethinking Code Performance Benchmarks for LLMs](http://arxiv.org/abs/2607.07619v1)
 
 - **相关度**：0.90
-- **方向标签**：Kernel/自动调优、Benchmark/评测
-- **收录日期**：2026-05-16
-- **arXiv ID**：2605.16819
-- **作者**：Sharareh Younesian, Wenwen Ouyang, Sina Rafati, Mehdi Rezagholizadeh, Sharon Zhou, Ji Liu, Yue Liu, Yuchen Yang, Hao Li, Ziqiong Liu, Dong Li, Vikram Appia, Zhenyu Gu, Emad Barsoum
-- **入选理由**：提出AgentKernelArena基准，评估AI代理在GPU内核优化上的表现，属于B（专门面向自动程序性能优化的benchmark）。
-
-**TL;DR**：提出了AgentKernelArena，一个用于评估AI代理在GPU内核优化上的开源基准，包含196个任务，发现最强代理在PyTorch到HIP任务上平均加速6.89倍，但泛化测试显示PyTorch到HIP正确率显著下降。
-
-**中文摘要**：GPU内核优化对于高效深度学习系统越来越关键，但编写高性能内核仍然需要大量的低级专业知识。最近的AI编码代理可以迭代读取代码、调用编译器和性能分析器并改进实现，然而现有的内核基准测试评估的是单个LLM调用而非完整的代理工作流，并且没有一个同时包含内核到内核优化和未见配置泛化测试。我们提出了AgentKernelArena，一个用于衡量AI编码代理在GPU内核优化上的开源基准测试。该基准测试包含196个任务，涵盖HIP到HIP优化、Triton到Triton优化以及PyTorch到HIP翻译，并在隔离工作区中使用门控编译、正确性和性能检查来评估完整的代理工作流，集中评分以及一个未见配置泛化协议，测试优化是否转移到代理从未观察到的输入配置。在包括Cursor Agent、Claude Code和Codex Agent在内的生产代理中，我们发现大多数任务类别具有近乎完美的编译和高正确率，最强配置在PyTorch到HIP任务上平均加速达6.89倍，HIP到HIP任务上6.69倍，Triton到Triton任务上2.13倍。我们的未见配置评估显示，HIP到HIP和Triton到Triton优化很大程度上转移到未见输入形状，而PyTorch到HIP表现出显著的正确率下降，表明从头生成内核的代理经常硬编码形状相关的假设。AgentKernelArena被设计为一个模块化、可扩展的框架，用于跨代理、任务和硬件目标进行严格的代理型GPU内核优化评估。
-
-**方法**：构建包含196个任务的基准测试，涵盖HIP-to-HIP、Triton-to-Triton优化和PyTorch-to-HIP翻译，采用门控编译、正确性和性能检查，以及未见配置泛化协议。
-
-**结果**：最强配置在PyTorch-to-HIP上平均加速6.89x，HIP-to-HIP上6.69x，Triton-to-Triton上2.13x；泛化测试中HIP-to-HIP和Triton-to-Triton转移良好，但PyTorch-to-HIP正确率大幅下降。
-
-[返回索引](#快速索引)
-
----
-
-<a id="36"></a>
-## 36. [A3D: Agentic AI flow for autonomous Accelerator Design](http://arxiv.org/abs/2605.15237v1)
-
-- **相关度**：0.90
-- **方向标签**：编译器优化
-- **收录日期**：2026-05-14
-- **arXiv ID**：2605.15237
-- **作者**：Abinand Nallathambi, Christopher Knight, Shantanu Ganguly, Wilfried Haensch, Anand Raghunathan
-- **入选理由**：A3D流程自动完成硬件加速器设计，包括HLS代码生成和微架构优化，属于A（自动修改HLS代码改善性能）。
-
-**TL;DR**：A3D是一个利用智能体AI自动完成硬件加速器设计的流程，从工作负载分析到微架构生成，无需人工干预，并在LAMMPS和QMCPACK上验证了有效性。
-
-**中文摘要**：通过设计硬件加速器来加速应用程序可以显著提升系统性能和能效。尽管高级综合（HLS）等技术取得了进展，但为复杂应用程序设计加速器仍然高度劳动密集，需要深厚的专业知识，包括理解待加速的工作负载、硬件设计、微架构和EDA工具使用，这对应用领域专家构成了挑战。因此，大多数加速器解决方案局限于具有规则可预测数据流的应用程序。人工智能的进步使得智能体能够执行自主规划、推理、执行和反思，从而通过智能体AI实现前所未有的自动化潜力。我们提出了A3D，一种用于硬件加速器设计端到端自动化的智能体AI流程。A3D自动化了工作负载分析、性能瓶颈识别、针对HLS兼容性的代码重构以及微架构生成。A3D还通过自动探索速度-面积权衡空间来生成多样化的加速器设计。近期工作探索了将AI用于特定任务（如HLS中的设计空间探索），但仍有多个任务需要手动完成。A3D通过以下方式解决了将现代LLM应用于加速器设计中的挑战：在专家智能体之间明智地划分任务，使用专家和验证智能体编排流程循环，利用预先存在的和自定义工具，以及采用智能体RAG进行代码库和专有EDA工具文档探索。我们使用Claude Sonnet 4.5和Catapult HLS工具等商业组件实现的A3D，通过从LAMMPS（分子动力学模拟）和QMCPACK（量子化学）等复杂科学应用中无需人工干预生成加速器设计，展示了其有效性。
-
-**方法**：A3D采用智能体AI架构，通过专家智能体分工、流程循环编排、预定义和自定义工具利用以及智能体RAG，自动化工作负载分析、性能瓶颈识别、代码重构和微架构生成，并探索速度-面积权衡。
-
-**结果**：使用Claude Sonnet 4.5和Catapult HLS工具，A3D成功从LAMMPS和QMCPACK等复杂科学应用自动生成加速器设计，无需任何人工干预。
-
-[返回索引](#快速索引)
-
----
-
-<a id="37"></a>
-## 37. [PerfCodeBench: Benchmarking LLMs for System-Level High-Performance Code Optimization](http://arxiv.org/abs/2605.15222v2)
-
-- **相关度**：0.90
-- **方向标签**：Benchmark/评测
-- **收录日期**：2026-05-13
-- **arXiv ID**：2605.15222
-- **作者**：Huihao Jing, Wenbin Hu, Shaojin Chen, Haochen Shi, Hanyu Yang, Sirui Zhang, Haoran Li, Yangqiu Song
-- **入选理由**：提出PerfCodeBench基准，评估LLMs在高性能代码优化上的表现，属于B（专门面向自动程序性能优化的benchmark）。
-
-**TL;DR**：提出了PerfCodeBench基准，评估LLMs在高性能代码优化方面的不足，发现与专家优化代码存在显著差距。
-
-**中文摘要**：大型语言模型（LLMs）通常能够生成功能正确的代码，但它们在为性能关键的系统任务生成高效实现方面的能力仍然有限。现有的代码基准主要强调正确性或算法问题解决，而现实中的系统级优化仍未得到充分探索。为了填补这一空白，我们提出了PerfCodeBench，这是一个可执行的基准测试，用于评估LLMs在高性能代码优化方面的表现。这些任务需要系统级的实现选择、硬件感知优化以及对性能瓶颈的谨慎处理。每个任务都包含可执行正确性检查、基线实现和参考优化方案。这使我们能够评估正确性和面向运行时的效率。我们对一系列最先进的LLMs进行的评估显示，模型生成的代码与专家优化的实现之间存在明显差距。这种差距在涉及并行性和GPU操作的任务中尤为显著。当前的模型在跨语言鲁棒性和持续达到专家级效率方面也显示出弱点。这些结果表明，仍然需要进行性能感知评估。LLMs应该超越生成仅仅正确的代码，转向生成高效的系统软件。我们将基准数据、评估基础设施以及所有LLMs生成代码的完整日志提交到https://anonymous.4open.science/r/perfcodebench-7CDE。
-
-**方法**：构建PerfCodeBench可执行基准，每个任务包含正确性检查、基线实现和参考优化方案，从正确性和运行时效率两方面评估LLMs生成的代码。
-
-**结果**：在多个最先进LLMs上的评估显示，模型生成的代码与专家优化代码存在明显差距，尤其在并行和GPU任务上；同时模型在跨语言鲁棒性和达到专家级效率方面表现不佳。
-
-[返回索引](#快速索引)
-
----
-
-<a id="38"></a>
-## 38. [HLS-Seek: QoR-Aware Code Generation for High-Level Synthesis via Proxy Comparative Reward Reinforcement Learning](http://arxiv.org/abs/2605.13536v1)
-
-- **相关度**：0.90
-- **方向标签**：LLM/Agent 代码优化、编译器优化
-- **收录日期**：2026-05-13
-- **arXiv ID**：2605.13536
-- **作者**：Qingyun Zou, Feng Yu, Hongshi Tan, Yao Chen, Bingsheng He, WengFai Wong
-- **入选理由**：HLS-Seek框架通过强化学习自动优化HLS代码的QoR（延迟和资源），属于A（自动修改HLS代码改善性能）。
-
-**TL;DR**：HLS-Seek是一个QoR感知的NL-to-HLS框架，通过比较代理奖励模型和不确定性感知的MC dropout切换，在保持语法正确性的同时显著提升QoR，训练速度比传统方法快8.5倍。
-
-**中文摘要**：高级综合（HLS）将算法性的C/C++描述编译为硬件，其结果质量（QoR）——延迟和资源利用率——关键地由pragma配置和代码结构决定。现有的基于LLM的HLS方法训练以实现功能正确性，但完全忽略QoR。我们观察到，用于HLS的强化学习（RL）不需要绝对综合结果——只需要候选之间的相对比较。基于这一见解，我们提出	extbf{HLS-Seek}，一个QoR感知的自然语言到HLS框架，用比较代理奖励模型取代昂贵的综合在环强化学习，实现了99.53%的帕累托支配准确率。为了防止奖励破解，我们引入了	extit{不确定性感知的蒙特卡洛（MC）dropout切换}，该切换对低置信度候选选择性调用真实的Vitis HLS综合并在线更新代理，形成一个自我改进的奖励系统。HLS-Seek在HLS-eval上以仅7B参数实现了81.5%的语法正确率pass@1和81.4%的Func@5，超越了GPT-5.1和其他前沿模型，同时训练速度比真实奖励RL快8.5倍。在QoR评估上，HLS-Seek在16/30个核上实现了最低延迟，并在9个核上帕累托支配了HLS特定基线。
-
-**方法**：使用比较代理奖励模型替代昂贵的综合在环RL，并引入不确定性感知的MC dropout切换来选择性调用真实综合以更新代理，形成自改进的奖励系统。
-
-**结果**：在HLS-eval上达到81.5%语法正确率pass@1和81.4% Func@5，训练速度比真实奖励RL快8.5倍；QoR上在16/30个核上取得最低延迟，并在9个核上帕累托支配HLS基线。
-
-[返回索引](#快速索引)
-
----
-
-<a id="39"></a>
-## 39. [CppPerf: An Automated Pipeline and Dataset for Performance-Improving C++ Commits](http://arxiv.org/abs/2605.10890v1)
-
-- **相关度**：0.90
-- **方向标签**：Benchmark/评测
-- **收录日期**：2026-05-11
-- **arXiv ID**：2605.10890
-- **作者**：Tommy Ho, Khashayar Etemadi, Zhendong Su
-- **入选理由**：提出CppPerf-Mine流水线用于自动挖掘C++性能补丁，并构建CppPerf-DB基准，属于B（专门面向自动程序性能优化的benchmark/数据集）。
-
-**TL;DR**：提出CppPerf-Mine流水线从GitHub挖掘C++性能补丁，构建了包含347个手动验证补丁的CppPerf-DB基准测试，发现现有工具修复率仅13.5%。
-
-**中文摘要**：自动修复性能错误的最新进展需要现实、可执行的基准测试。然而，现有的C++性能基准测试主要来自竞争性编程提交，而近期的现实世界基准测试主要针对Python和.NET。为填补这一空白，我们提出了CppPerf-Mine，一个可配置的流水线，它结合了结构性提交过滤、基于LLM的提交分类器以及容器化构建与测试阶段，从GitHub上的开源C++仓库中挖掘执行时间改进的补丁，并为每个补丁生成完全可重现的Docker镜像。利用CppPerf-Mine，我们构建了CppPerf-DB，一个包含来自42个成熟C++仓库的347个手动验证补丁的基准测试，其中39%为多文件补丁，从而支持仓库级别的修复工具评估。在我们初步研究中，OpenHands仅正确修复了CppPerf-DB中13.5%的补丁，证实了现实世界C++性能修复仍然是一个开放的挑战。CppPerf-Mine和CppPerf-DB是开源且公开可用的，网址为：https://doi.org/10.5281/zenodo.20097425。此外，演示视频可在https://www.youtube.com/watch?v=nixlupIgSdM获取。
-
-**方法**：通过组合结构性提交过滤、基于LLM的提交分类器和容器化构建与测试阶段，从GitHub开源C++仓库中挖掘可重现的性能改进补丁。
-
-**结果**：构建了包含347个来自42个成熟C++仓库的手动验证补丁的基准测试CppPerf-DB，其中39%为多文件；OpenHands仅正确修复13.5%。
-
-[返回索引](#快速索引)
-
----
-
-<a id="40"></a>
-## 40. [Metal-Sci: A Scientific Compute Benchmark for Evolutionary LLM Kernel Search on Apple Silicon](http://arxiv.org/abs/2605.09708v2)
-
-- **相关度**：0.90
-- **方向标签**：Kernel/自动调优、搜索与进化优化
-- **收录日期**：2026-05-10
-- **arXiv ID**：2605.09708
-- **作者**：Víctor Gallego
-- **入选理由**：提出Metal-Sci基准和自动化内核搜索框架，专注于自动优化Apple Silicon Metal计算内核性能，属于A（自动修改GPU kernel改善运行时间）和B（专用benchmark）。
-
-**TL;DR**：提出了Metal-Sci基准测试和自动化内核搜索框架，通过保留的评分函数实现廉价机械监督，捕获了LLM生成内核的静默回归问题。
-
-**中文摘要**：我们提出了Metal-Sci，一个包含10个任务的科学Apple Silicon Metal计算内核基准测试，涵盖六种优化场景（模板、n体问题中的全对、多场玻尔兹曼、邻居列表分子动力学、多核偏微分方程、FFT）。每个任务配备了一个CPU参考、一个基于roofline的适应度函数和一个保留的泛化规模。我们将该基准测试与一个轻量级自动化内核搜索工具配对，该工具对每个候选进行运行时编译，针对多个规模根据roofline进行评分，并将结构化的编译和每个规模的正确性诊断反馈给一个冻结的LLM，该LLM驱动一个(1+1)进化循环。我们报告了在M1 Pro上对Claude Opus 4.7、Gemini 3.1 Pro和GPT 5.5进行的单模型扫描结果：分布内自加速比在1.00倍到10.7倍之间。除了原始加速之外，我们的核心方法论主张是结构性的：保留的评分函数Φ_T（在运行结束时对代理在搜索过程中从未见过的配置评估一次）在此自动搜索循环中作为一个廉价的机械监督原语，能够捕获例如一个返回错误样本的Opus模板<uint D> HMC win在未见维度上的错误，以及一个GPT FFT3D最佳配置在分布内以2.95倍加速胜出，但在256^3的保留立方体上性能骤降至0.23倍，这是一个仅凭分布内分数无法看到的静默回归。代码见https://github.com/vicgalle/metal-sci-kernels。
-
-**方法**：构建10任务基准测试，每个任务包含CPU参考、roofline适应度函数和保留规模；设计轻量级工具，使用冻结LLM驱动的(1+1)进化循环搜索内核，并通过保留评分函数Φ_T在搜索结束时进行一次性验证。
-
-**结果**：在M1 Pro上对三个LLM进行单模型扫描，分布内加速比达1.00x-10.7x；保留评分函数有效捕获了Opus和GPT的回归案例。
-
-[返回索引](#快速索引)
-
----
-
-<a id="41"></a>
-## 41. [Rethinking Code Performance Benchmarks for LLMs](http://arxiv.org/abs/2607.07619v1)
-
-- **相关度**：0.88
 - **方向标签**：Benchmark/评测
 - **收录日期**：2026-07-08
 - **arXiv ID**：2607.07619
 - **作者**：Nhat Minh Le, Yisen Xu, Zhijie Wang, Tse-Hsun, Chen
-- **入选理由**：满足C：提出多智能体框架生成性能测试，有效暴露LLM生成代码的性能差异，为自动优化提供关键测试基础设施。
+- **入选理由**：指出函数级性能基准测试充分性不足，并提出多智能体生成/诊断/修复更能暴露运行时差异的性能测试，改进自动程序优化benchmark的可靠speedup测量方法，满足B。
 
 **TL;DR**：当前函数级性能基准测试因测试充分性不足而无法有效暴露LLM生成代码的性能差异，本文提出多智能体框架生成的性能测试能显著提升检测效果。
 
@@ -967,15 +1543,257 @@
 
 ---
 
-<a id="42"></a>
-## 42. [Correct but Slow: An Empirical Study of the GPU Kernel Evaluation Gap in Modern Domain-Specific Languages](http://arxiv.org/abs/2607.04454v3)
+<a id="67"></a>
+## 67. [Optimus: A Generic Operator-Level PyTorch Model Transformation Framework](http://arxiv.org/abs/2607.02945v1)
+
+- **相关度**：0.90
+- **方向标签**：编译器优化、优化策略检索
+- **收录日期**：2026-07-03
+- **arXiv ID**：2607.02945
+- **作者**：Menglu Yu, Jiaqi Xu, Yuzhen Huang, Yanbo Liang, Jia Liu, Shuai Yang, Jason Ansel, Elias Ellison, Edward Yang, Brian Hirsh, Jia Chen Ren, Will Feng, Oguz Ulgen, Xu Zhao, Daohang Shi, Huaqing Xiong, Quanyu Zhu, Mingming Ding, Junqing Zhou, Ruilin Chen, Yuhang Yang, Chi-Keung Luk
+- **入选理由**：核心是Optimus，一个基于模式匹配的PyTorch FX/PT2图变换框架，自动替换模块级模式以加速推理/训练，实现高达63%加速和内存降低，并嵌入PyTorch 2.x编译器栈。满足A类：自动修改计算图/模型代码以改善性能，验证语义保持与性能。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="68"></a>
+## 68. [Are Performance-Optimization Benchmarks Reliably Measuring Coding Agents?](http://arxiv.org/abs/2607.01211v2)
+
+- **相关度**：0.90
+- **方向标签**：Benchmark/评测
+- **收录日期**：2026-07-01
+- **arXiv ID**：2607.01211
+- **作者**：Zhi Chen, Zhensu Sun, Yuling Shi, David Lo, Lingxiao Jiang
+- **入选理由**：审计三个仓储级性能优化基准的跨机器可重复性、评分规则与覆盖度，直接研究可靠 speedup/排行榜测量方法，满足B。
+
+**TL;DR**：对GSO、SWE-Perf和SWE-fficiency三个仓库级性能优化基准的审计表明，大多数参考补丁存在跨机器可重复性问题，评分规则导致排名不一致，且大量任务已被公开提交解决，揭示了排行榜分数的局限性。
+
+**中文摘要**：仓库级性能优化基准测试（如GSO、SWE-Perf和SWE-fficiency）通过将补丁应用于真实仓库并对比运行时间与未优化基线和官方参考补丁来评估编码代理。其排行榜分数越来越多地被用作编码代理进展的证据，但这些分数可能混淆运行时不稳定、基准特定评分规则以及有多少任务已被至少一个公开提交解决。我们对这三个基准的这些问题进行了审计。首先，我们在四种常见的Google Cloud机器类型上重放了740个代码优化任务的官方参考补丁。大多数基准任务可以重放，但它们的参考补丁在所有跨机器重放中满足原始基准有效性规则的只有39/102的GSO任务、11/140的SWE-Perf任务和411/498的SWE-fficiency任务；SWE-Perf尤其脆弱，因为许多参考补丁产生的运行时变化几乎为零。其次，我们显示公开提交排名在很大程度上取决于基准评分规则。在GSO和SWE-fficiency共享的八个公开提交中，官方排名在28对提交比较中有9对不一致，而SWE-fficiency的排行榜评分规则将最差的十个任务的分数权重分配过高，达到58.5%-82.8%。第三，观察每个任务的10个公开提交，我们发现至少有1个提交在85.3%（384/450）的可重放GSO和SWE-fficiency任务中达到或超过了参考补丁，在99.8%（449/450）的任务中击败了未优化的基础代码。我们的研究通过识别具有更可靠性能信号的任务、量化每个任务的分数贡献以及揭示被聚合排名隐藏的剩余性能差距，补充了排行榜分数。
+
+**方法**：重放740个任务的官方参考补丁于四种Google Cloud机器上验证有效性；对比八个公开提交的评分规则一致性；分析每个任务多个提交的表现。
+
+**结果**：仅少数参考补丁跨机器有效（GSO 38%，SWE-Perf 8%，SWE-fficiency 83%）；评分规则导致排名分歧；大部分任务已有至少一个提交达到或超过参考补丁（85.3%）。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="69"></a>
+## 69. [Integrating a Python Dynamical core into ICON](http://arxiv.org/abs/2608.21150v1)
+
+- **相关度**：0.89
+- **方向标签**：编译器优化
+- **收录日期**：2026-08-21
+- **arXiv ID**：2608.21150
+- **作者**：Mauro Bianco, Till Ehrengruber, Enrique González Paredes, Andreas Jocksch, Christos Kotsalos, Ioannis Magkanaris, Philip Müller, Edoardo Paone, Mikael Simberg, Hannes Vogt, Jacopo Canton, Yilu Chen, Anurag Dipankar, Nicoletta Farabullini, Michael Jähn, Matthieu Leclair, Ong Chia Rui, Nathan Beech, Nicolas Gruber, Christoph Müller, Daniel Hupp, Xavier Lapillonne
+- **入选理由**：通过GT4Py DSL与DaCe数据流优化将Python动力核集成到气候模拟，替代硬件专用指令并自动生成优化设备代码，获得20-30%性能提升，属于面向性能的编译/代码生成优化，满足A。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="70"></a>
+## 70. [Memory Allocation for Constant-Bounded Programs](http://arxiv.org/abs/2608.14471v1)
 
 - **相关度**：0.88
+- **方向标签**：编译器优化
+- **收录日期**：2026-08-14
+- **arXiv ID**：2608.14471
+- **作者**：Vinícius Silva, Kael Soares, Márcio Costa e Fernando Magno Quintão Pereira
+- **入选理由**：为常数界程序设计编译期内存分配策略，部署于eBPF编译器spiller和MLIR静态堆分配，显著降低栈空间和存储开销，满足A中减少内存/代碼大小的编译优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="71"></a>
+## 71. [RealisticTritonBench: A Benchmark for Triton-Kernel Generation in Real-World AI Frameworks](https://arxiv.org/abs/2608.12004)
+
+- **相关度**：0.88
+- **方向标签**：Benchmark/评测
+- **收录日期**：2026-08-14, 2026-08-12
+- **arXiv ID**：2608.12004
+- **作者**：Jinjun Huang, Zhongzhen Wen, Tongtong Xu, Meng Yan, Xin Xia, Zhongxin Liu
+- **入选理由**：提出RealisticTritonBench，从真实PR中提取Triton内核生成任务并集成到框架进行端到端评估，直接服务LLM内核生成/优化的benchmark，满足B。
+
+**TL;DR**：提出RealisticTritonBench，一个从真实AI框架PR中提取Triton内核生成任务的基准，用于评估LLM在实际生产场景中的内核生成能力。
+
+**中文摘要**：在现代AI框架中，GPU内核是整体系统性能的关键。结合可用性、可移植性和接近手写CUDA的性能，Triton被广泛用于实现GPU内核。最近的进展表明，大型语言模型（LLM）能够自动生成Triton内核，从而减少对专家内核开发人员的手动工作需求。有几个基准测试评估了LLM生成的Triton内核。然而，它们存在三个关键局限性：（1）它们将任务限制为PyTorch到Triton的转换，未能反映现实世界Triton任务的多样性和复杂性；（2）它们仅评估单个内核的性能，而非端到端性能，而端到端性能是AI框架中实际部署的核心标准；（3）它们依赖手动编写的单个内核评估脚本，这些脚本可能存在缺陷，模型可利用这些缺陷绕过正确性检查并获得虚高的分数。为了解决这些局限性，我们引入了RealisticTritonBench，这是第一个从流行AI框架中的真实拉取请求（PR）派生Triton内核生成任务的基准测试，从而实现逼真的、类似生产的评估。RealisticTritonBench系统地提取修改Triton内核的PR，并将其转化为具有具体工程上下文的生成任务。每个任务以自然语言需求作为输入，要求实现相应的Triton内核，并提供完整且可复现的评估环境。与先前专注于孤立内核性能的基准不同，RealisticTritonBench将生成的内核集成到其原始框架中，并使用端到端测试进行评估，从而实现更真实的评估。我们在RealisticTritonBench上评估了领先的LLM，发现它们仍然难以处理现实世界的Triton内核生成任务。
+
+**方法**：从流行开源AI框架中系统提取修改Triton内核的PR，转化为带自然语言需求和工程上下文的生成任务，并提供完整可复现的评估环境；将生成的内核集成到原框架，用端到端测试评估。
+
+**结果**：在RealisticTritonBench上评估领先LLM，发现它们仍难以处理现实世界的Triton内核生成任务。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="72"></a>
+## 72. [GPU Offload in Rust: Portable, Safe, and Fast](http://arxiv.org/abs/2608.13759v1)
+
+- **相关度**：0.88
+- **方向标签**：编译器优化、Kernel/自动调优
+- **收录日期**：2026-08-13
+- **arXiv ID**：2608.13759
+- **作者**：Manuel S. Drehwald, Marcelo Domínguez, Kevin Sala, Alán Aspuru-Guzik, Johannes Doerfert
+- **入选理由**：在rustc与LLVM后端中实现多厂商GPU offload编译框架，利用所有权与noalias生成高效LLVM IR，性能与手写CUDA/HIP C++相当，属于面向GPU kernel的编译器自动优化，满足A。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="73"></a>
+## 73. [An eightfold equivalence-preserving speedup of the JUNO OMILREC vertex and energy reconstruction](http://arxiv.org/abs/2608.00461v1)
+
+- **相关度**：0.88
+- **方向标签**：LLM/Agent 代码优化、Profiling/程序分析
+- **收录日期**：2026-08-01
+- **arXiv ID**：2608.00461
+- **作者**：Guangbao Sun, Qishan Liu, Wenjie Wu, Jun Cao, Xuefeng Ding, Wenxing Fang, Wuming Luo, Liangjian Wen, Zeyuan Yu, Xiang Zhou
+- **入选理由**：以AI coding agent辅助对真实物理重建代码进行分阶段等价保持性能优化，并严格验证bit-identical/阈值一致性和8倍加速，满足A。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="74"></a>
+## 74. [Compiling Bioinformatics Recurrences](http://arxiv.org/abs/2607.06225v1)
+
+- **相关度**：0.88
+- **方向标签**：编译器优化
+- **收录日期**：2026-07-07
+- **arXiv ID**：2607.06225
+- **作者**：Bala Vinaithirthan, Shiv Sundram, Sneha Goenka, Fredrik Kjolstad
+- **入选理由**：提出FILTR，一个生物信息学动态规划recurrence的DSL和编译器，分离recurrence规则与pruning和scheduling策略，编译为C++代码并匹配手调实现性能（0.95x-30x）。满足A类：编译/代码生成自动优化，核心目标是实现高效实现，验证功能与性能。虽领域是生物信息学，但研究产物是编译器/DSL，属于程序性能优化。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="75"></a>
+## 75. [EffiHolmes: Differential Profiling-Guided Repository Level Time Inefficiency Fix Localization](https://arxiv.org/abs/2608.03558)
+
+- **相关度**：0.87
 - **方向标签**：Profiling/程序分析
+- **收录日期**：2026-08-06
+- **arXiv ID**：2608.03558
+- **作者**：Haowen Yang, Yun Peng, Zishuo Ding
+- **入选理由**：核心是针对仓库级时间低效修复定位，使用差异剖析与领域引导LLM推理找出低效热点及修复位置，并构建首个定位基准，属于为自动性能优化提供热点定位与profiling分析的关键子问题，满足C。
+
+**TL;DR**：EffiHolmes是一个基于LLM的仓库级时间低效修复定位框架，通过差异剖析、紧凑执行路径提取和领域引导推理，有效定位性能热点；引入RepoEffi-Bench基准，在140个问题上显著超越现有基线。
+
+**中文摘要**：大型软件系统常常遭受时间低效问题，导致尽管功能正确但执行时间过长。定位其修复位置很困难，因为与功能缺陷不同，它们既不产生测试失败，也不产生堆栈跟踪线索，使得传统和近期基于LLM的故障定位方法不适用。运行时剖析提供了替代证据，但在仓库级设置中面临三个挑战：单次运行剖析无法可靠地区分低效热点与执行噪声；现有剖析器难以从大量后台执行中提取相关执行路径；观察到的热点与实际修复位置之间仍存在语义鸿沟。我们提出EffiHolmes，一个基于LLM的仓库级时间低效修复定位框架。EffiHolmes在默认和缩放工作负载下使用差异剖析来识别低效热点，提取连接这些热点到所报告低效函数的紧凑执行路径，并采用领域引导的LLM推理来定位底层低效逻辑。我们还引入了RepoEffi-Bench，这是第一个仓库级低效定位基准，包含从流行Python仓库收集的140个高质量问题。实验表明，EffiHolmes始终优于最先进的基于检索、基于代理和基于剖析的基线，使用GPT-5.1将文件级Acc@3提高了4.29个百分点，使用qwen3-4b将函数级Acc@5提高了15.00个百分点。它在不同模型容量下也保持稳健。
+
+**方法**：EffiHolmes采用默认与缩放工作负载下的差异剖析识别低效热点，提取连接热点与所报告低效函数的紧凑执行路径，再利用领域引导的LLM推理定位底层低效逻辑；同时构建了包含140个高质量Python仓库问题的RepoEffi-Bench基准。
+
+**结果**：实验显示EffiHolmes一致优于最先进的检索、代理和剖析基线：使用GPT-5.1使文件级Acc@3提升4.29个百分点，使用qwen3-4b使函数级Acc@5提升15.00个百分点，且在不同模型容量下保持稳健。
+
+[返回索引](#快速索引)
+
+---
+
+<a id="76"></a>
+## 76. [Gaming Without an Attacker: Benchmark Fingerprinting in LLM-Driven Search Under Selection Pressure](http://arxiv.org/abs/2608.08722v1)
+
+- **相关度**：0.86
+- **方向标签**：Benchmark/评测
+- **收录日期**：2026-08-09
+- **arXiv ID**：2608.08722
+- **作者**：Víctor Gallego
+- **入选理由**：研究LLM驱动的GPU kernel自动优化系统中的benchmark game/fingerprinting问题，并给出面向自动优化评估的可靠度量设计与失效分类，属于自动程序性能优化测评方法(B)。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="77"></a>
+## 77. [TileSight: A First-Principles Tile-Centric Analytical GPU Performance Model from Cores to Clusters](http://arxiv.org/abs/2607.22432v1)
+
+- **相关度**：0.86
+- **方向标签**：Profiling/程序分析
+- **收录日期**：2026-07-24
+- **arXiv ID**：2607.22432
+- **作者**：Zhiwen Mo, Yu Cheng, Lei Wang, Zhengju Tang, Lei Xu, Guoyu Li, Yuqi Dong, Lingxiao Ma, Yuqing Xia, Jilong Xue, Fan Yang, Luo Mai, Zhi Yang, Wayne Luk, Hongxiang Fan
+- **入选理由**：TileSight是面向tile级GPU kernel的分析性性能模型/剖析工具，可解释compute-memory重叠、cache命中率和跨节点通信，并用于tile配置选择；为自动GPU kernel优化直接提供性能建模和剖析支持，满足C类关键子问题。
+
+**TL;DR**：
+
+**中文摘要**：
+
+**方法**：
+
+**结果**：
+
+[返回索引](#快速索引)
+
+---
+
+<a id="78"></a>
+## 78. [Correct but Slow: An Empirical Study of the GPU Kernel Evaluation Gap in Modern Domain-Specific Languages](http://arxiv.org/abs/2607.04454v3)
+
+- **相关度**：0.86
+- **方向标签**：Profiling/程序分析、Kernel/自动调优
 - **收录日期**：2026-07-05
 - **arXiv ID**：2607.04454
 - **作者**：Tingxi Li, Ravishka Rathnasuriya, Wei Yang
-- **入选理由**：满足C：研究GPU DSL内核正确性与性能差距，提出轻量级检查方法直接服务于自动内核生成系统的性能评估。
+- **入选理由**：研究GPU DSL/Triton/TileLang内核的correctness-performance gap，提出库相对效率与roofline利用率两个轻量筛选/诊断准则，直接服务内核代码生成与调优的性能分析，属C。
 
 **TL;DR**：基于正确性的评估可能遗漏性能极差的内核，两种轻量级检查（库相对效率与屋顶线利用率）能有效筛选出功能正确但低效的内核。
 
@@ -989,287 +1807,67 @@
 
 ---
 
-<a id="43"></a>
-## 43. [Towards Autonomous Accelerator Design: FPGA Accelerator Generation with SECDA](http://arxiv.org/abs/2606.11117v1)
-
-- **相关度**：0.88
-- **方向标签**：搜索与进化优化
-- **收录日期**：2026-06-09
-- **arXiv ID**：2606.11117
-- **作者**：Vinamra Sharma, Xingjian Fu, Jude Haris, José Cano
-- **入选理由**：LLM引导设计空间探索自动生成FPGA加速器（RTL代码），改善硬件性能，减少探索时间。
-
-**TL;DR**：本文扩展了SECDA-DSE框架的评估，通过生成三种FPGA加速器设计（逐元素向量乘法、二维卷积和矩阵转置）并实际执行，证明LLM引导的设计空间探索能有效减少探索时间和人类专业知识需求。
-
-**中文摘要**：为现代人工智能工作负载设计基于FPGA的加速器需要探索一个庞大而复杂的硬件设计空间，涉及架构参数、数据流策略和存储层次，使得该过程非常耗时。虽然现有的方法（如SECDA）通过SystemC仿真和FPGA执行实现了快速的硬件-软件协同设计，但识别高效的加速器配置仍然主要是一个需要大量领域知识的手动过程。SECDA-DSE是一个将大型语言模型（LLM）集成到SECDA生态系统中的框架，用于指导基于FPGA的加速器的设计空间探索（DSE）。它结合了一个用于生成候选架构的结构化DSE探索器和一个LLM堆栈，该堆栈使用检索增强生成和思维链提示执行推理引导的探索，并与反馈循环相结合进行迭代强化改进。基于我们之前介绍SECDA-DSE的工作，本文通过生成三个加速器设计（包括逐元素向量乘法、二维卷积和矩阵转置）并在FPGA硬件上执行端到端执行来扩展其评估。结果表明，SECDA-DSE可以生成符合SECDA规范的加速器设计，这些设计成功地在FPGA硬件上合成和执行。此外，生成的设计捕获了内核特定的计算并行性和数据移动之间的权衡，突显了LLM引导的探索在不同工作负载中适应架构配置的潜力，同时减少了探索时间和大量人类专业知识的需求。
-
-**方法**：提出SECDA-DSE框架，将LLM集成到SECDA生态中，结合结构化DSE探索器生成候选架构，以及LLM堆栈（使用检索增强生成和思维链提示）进行推理引导探索，并通过反馈循环迭代优化。
-
-**结果**：生成了三个符合SECDA规范的加速器设计（逐元素向量乘法、2D卷积、矩阵转置），成功在FPGA上合成和执行，并捕获了计算并行性与数据移动之间的内核特定权衡。
-
-[返回索引](#快速索引)
-
----
-
-<a id="44"></a>
-## 44. [CodegenBench: Can LLMs Write Efficient Code Across Architectures?](http://arxiv.org/abs/2606.04023v1)
-
-- **相关度**：0.88
-- **方向标签**：Benchmark/评测
-- **收录日期**：2026-06-01
-- **arXiv ID**：2606.04023
-- **作者**：Jie Li, Wenzhao Wu, Junqi Hu, Qinrui Zheng, Bowen Wu, Juepeng Zheng, Yutong Lu, Haohuan Fu
-- **入选理由**：满足B：专门评估LLM生成高效并行代码能力的基准（含x86_64、Sunway、Kunpeng架构），核心关注代码效率。
-
-**TL;DR**：提出CodegenBench基准测试，评估LLMs在三种CPU架构上的并行代码生成能力，发现其在跨平台泛化上存在局限，对中等难度问题效果较好。
-
-**中文摘要**：尽管大型语言模型（LLMs）在通用编程和GPU加速环境（如PyTorch、CUDA）的代码生成任务上已被广泛评估，但它们在面向CPU的高性能计算（HPC）中跨多种架构的能力仍未得到充分探索。为填补这一空白，我们引入了CodegenBench，一个全面的基准测试套件，旨在评估跨三个不同硬件平台（x86_64、申威和鲲鹏）的高效并行代码生成。我们的基准测试包含106个标准基本线性代数子程序（BLAS）例程作为基本基线，以及20个针对每种独特超级计算架构（LeetSunway和LeetKunpeng）适配的专业计算核心。我们的广泛评估表明，尽管最先进的LLMs能够为像x86_64这样普遍存在的架构生成优化代码，但在公共文档和训练数据有限的特定领域架构上，它们表现出显著的性能下降，凸显了跨平台泛化的关键局限性。此外，我们对影响代码质量的因素（如实现长度和任务复杂度）的分析表明，当前LLMs在需要简洁代码片段的中等难度问题上最为有效。我们开源了我们的数据集和自动评估基础设施，以促进LLM驱动的高性能代码生成的未来研究。资源可在https://anonymous.4open.science/r/CodegenBench-EDE1/ 和 https://anonymous.4open.science/r/CodegenBenchDataset-2551 获取。
-
-**方法**：构建CodegenBench基准测试，包含106个标准BLAS例程和20个针对申威与鲲鹏架构的专业计算核心，在x86_64、申威和鲲鹏三个平台上评估LLMs的并行代码生成性能。
-
-**结果**：LLMs在x86_64上能生成优化代码，但在申威和鲲鹏等特定领域架构上性能显著下降；且对实现长度短、复杂度中等的任务最有效。
-
-[返回索引](#快速索引)
-
----
-
-<a id="45"></a>
-## 45. [Learning When to Optimize: Verified Optimization Skills from Expert GPU-Kernel Lineages](http://arxiv.org/abs/2605.28213v1)
-
-- **相关度**：0.88
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-05-27
-- **arXiv ID**：2605.28213
-- **作者**：Shuoming Zhang, Qiuchu Yu, Yangyu Zhang, Ruiyuan Xu, Xiyu Shi, Guangli Li, Xiaobing Feng, Huimin Cui, Jiacheng Zhao
-- **入选理由**：KLineage从专家内核学习优化技能，直接用于GPU内核生成和优化，满足A。
-
-**TL;DR**：KLineage通过从专家内核反向推导优化技能，教会LLM何时应用优化，从而提升GPU内核生成质量和效率。
-
-**中文摘要**：基于LLM的智能体越来越多地用于生成GPU内核，但它们通常知道尝试哪些优化，却不知道这些优化何时是合理的。我们引入了KLineage，它从专家内核中学习这种缺失的“何时”知识：KLineage不是依赖前向展开，而是通过验证门控的简化反向遍历专家实现，并将每个被接受的步骤逆转成一个可重用的优化技能。每个技能不仅记录了优化意图，还记录了它在代码中的应用位置、使其有效的条件、产生的影响以及其假设避免了哪些失败。下游的LLM在相同的编译/正确性/性能分析门控下将这些技能具体化到新的代码表面上。在两个NVIDIA架构上的五个专家工作负载中，这些从谱系中衍生出的技能作为有效的优化课程，在相同的固定预算下，在最终内核质量和优化效率方面均超过了最近基于记忆的LLM内核基线。我们还使用一个单独的22实例保留检查作为对源案例记忆化的健全性测试。
-
-**方法**：通过验证门控的简化反向遍历专家实现，将每个被接受的步骤逆转成可重用的优化技能，记录意图、位置、条件、效果和避免的失败。
-
-**结果**：在两个NVIDIA架构的五个专家工作负载上，KLineage在相同预算下，最终内核质量和优化效率超越基于记忆的LLM内核基线。
-
-[返回索引](#快速索引)
-
----
-
-<a id="46"></a>
-## 46. [Step-TP: A Grounded, Step-Level Dataset with Chain-of-Thought Reasoning for LLM-Guided Tensor Program Optimization](http://arxiv.org/abs/2605.25954v1)
-
-- **相关度**：0.88
-- **方向标签**：Benchmark/评测
-- **收录日期**：2026-05-25
-- **arXiv ID**：2605.25954
-- **作者**：Mengfan Liu, Da Zheng, Junwei Su, Chuan Wu
-- **入选理由**：Step-TP提供步骤级监督数据集，专门用于LLM引导的张量程序优化，满足B。
-
-**TL;DR**：提出了Step-TP数据集，通过原子步骤监督和结构化CoT实现张量程序的多步优化。
-
-**中文摘要**：尽管大语言模型（LLMs）具有强大的推理能力，但由于需要精确、可组合的变换决策，优化张量程序的执行效率仍然具有挑战性。最近的LLM引导方法将张量程序优化视为一个迭代决策过程，但现有数据集仅提供使用令牌效率低下的表示的端到端优化程序对，缺乏可验证的步骤级监督和可解释性。因此，LLM难以在大型组合优化空间中做出可靠的单步决策。我们提出了Step-TP，一个用于张量程序优化的后训练数据集，它提供基于事实的、原子级的步骤级监督，并带有结构化思维链（CoT）推理。Step-TP在中间程序状态上形成一个封闭的推理循环，实现可靠的多步优化，而不是结果模仿。其设计遵循四个原则：（i）令牌高效、可验证的中间表示（IR），可确定性地降低到TVM TIR；（ii）原子且可组合的优化策略，将复杂轨迹分解为可解释的单步决策；（iii）结构化CoT监督与显式的IR到IR状态转换相结合；（iv）策略筛选以平衡覆盖率同时防止捷径利用。数据集和实现可在GitHub链接https://github.com/LIUMENGFAN-gif/StepTP获取。
-
-**方法**：设计了一个后训练数据集Step-TP，包含令牌高效可验证的IR、原子可组合优化策略、结构化CoT监督和策略筛选。
-
-**结果**：发布了Step-TP数据集和实现，可在GitHub上获取。
-
-[返回索引](#快速索引)
-
----
-
-<a id="47"></a>
-## 47. [FastKernels: Benchmarking GPU Kernel Generation in Production](http://arxiv.org/abs/2605.23215v1)
-
-- **相关度**：0.88
-- **方向标签**：Benchmark/评测
-- **收录日期**：2026-05-22
-- **arXiv ID**：2605.23215
-- **作者**：Gabriele Oliaro, Yichao Fu, May Jiang, Owen Lu, Junli Wang, Zhihao Jia, Hao Zhang, Samyam Rajbhandari
-- **入选理由**：提出FastKernels基准，专门面向GPU内核自动优化，解决基准-生产对齐问题，满足B。
-
-**TL;DR**：现有GPU内核基准与生产环境脱节，导致代理优化效果虚假；FastKernels通过46个代表性架构和集成推理框架解决此问题，揭示最强代理仅达0.94倍加速。
-
-**中文摘要**：基于LLM的GPU内核生成代理正在快速发展，但其进展从根本上受到其优化所依赖的基准测试的制约。现有基准测试与生产推理框架严重脱节：它们在单个GPU上使用合成输入评估内核，忽略周围的编译栈，并且奖励的是复制已知优化而非发现新优化。由此产生的奖励信号具有误导性：代理学会生成在沙盒中得分高但在集成到实际系统时会引入接口不兼容、编译栈冲突和静默正确性降级的内核。我们提出FastKernels，这是一个基于跨越8个类别的46个代表性架构的最小集合构建的内核基准测试，其内核共同涵盖了96.2%（409/425）的HuggingFace Transformers架构。FastKernels同时作为一个最小化的、生产级推理框架，在主流的LLM服务上与vLLM和SGLang等成熟系统运行效率相当，并在服务不足的架构上显著超越上游参考；每个任务的接口反映了其架构系列中最先进库的对应模块，支持将优化后的内核直接部署到生产代码库中。在FastKernels上评估最先进的内核代理时，我们发现即使最强的代理也只能在生产基线上实现0.94倍的累计加速，较弱的代理仅为0.78倍和0.53倍——这证实了基准测试与生产之间的不一致是该领域的关键瓶颈。我们发布FastKernels，作为通往基准测试收益直接转化为生产吞吐量改进的内核代理的垫脚石。代码可在https://github.com/Snowflake-AI-Research/fastkernels获取。
-
-**方法**：构建包含46个代表性架构（覆盖96.2% HuggingFace模型）的基准FastKernels，同时作为生产级推理框架，其接口与各架构类的最优库对齐，支持直接部署。
-
-**结果**：最强代理仅实现0.94倍累计加速，弱代理为0.78倍和0.53倍，确认基准-生产不一致是瓶颈。
-
-[返回索引](#快速索引)
-
----
-
-<a id="48"></a>
-## 48. [Distribution-Aware Algorithm Design with LLM Agents](http://arxiv.org/abs/2605.14141v2)
-
-- **相关度**：0.88
-- **方向标签**：LLM/Agent 代码优化、搜索与进化优化
-- **收录日期**：2026-05-13
-- **arXiv ID**：2605.14141
-- **作者**：Saharsh Koganti, Priyadarsi Mishra, Pierfrancesco Beneventano, Tomer Galanti
-- **入选理由**：利用LLM代理从样本中学习分布特定求解器提示，自动合成更快的求解器代码，属于A（自动修改代码改善运行时间）。
-
-**TL;DR**：通过从样本实例中学习分布特定的求解器提示，LLM代理可以编译出更快的求解器代码，在多个优化问题上取得高效率和高质量。
-
-**中文摘要**：许多优化问题反复出现，但分布固定且未知。即使最坏情况下的问题很难，这种分布也可能携带可重用的结构，例如重复的几何结构、分解或资源模式。我们研究如何从样本实例中推断这种结构，并将其编译成求解器代码，该代码在未来的实例上运行更快，同时保持解决方案质量。我们的核心抽象是一个“求解器提示”：从样本中推断出的特定于分布的结构，用于专门化求解器。我们证明了经验上最快的样本一致求解器在正确性和运行时间上都优于固定求解器库，并且可识别的提示可以从多项式数量的样本中恢复。我们使用LLM代码代理在7个问题类别的21个组合优化分布上实例化了该框架。合成的求解器达到了平均归一化质量0.971，同时运行速度比经典启发式算法、Gurobi和有限时间的精确后端快几个数量级，尽管它们并不在每个族上都优于每个基线。与LLM合成基线相比，它们比一次性Codex、一次性Claude Code和最佳5选1的开源模型变体更快；它们提高了Claude Code和最佳5选1的质量，同时几乎匹配了Codex的质量并运行速度更快。这隔离了迭代合成循环的贡献，并没有声称在所有LLM基线上均匀支配。在PACE 2025支配集私有实例上，合成的求解器在所有100个图上都有效，并且运行速度比已发布的竞赛求解器快约75倍到125倍，解决方案大小在几个百分点之内。这些结果表明，LLM代理可以发现特定于分布的计算捷径，并将其编译成高效的求解器代码。
-
-**方法**：提出“求解器提示”抽象，从样本中推断分布特定结构并编译成求解器代码；使用LLM代码代理在21个分布上迭代合成求解器。
-
-**结果**：合成的求解器平均归一化质量0.971，速度比经典启发式、Gurobi等快多个数量级；在PACE 2025支配集上比竞赛求解器快75-125倍，质量接近。
-
-[返回索引](#快速索引)
-
----
-
-<a id="49"></a>
-## 49. [AutoLab: Can Frontier Models Solve Long-Horizon Auto Research and Engineering Tasks?](http://arxiv.org/abs/2606.05080v1)
-
-- **相关度**：0.87
-- **方向标签**：Benchmark/评测
-- **收录日期**：2026-06-03
-- **arXiv ID**：2606.05080
-- **作者**：Zhangchen Xu, Junda Chen, Yue Huang, Dongfu Jiang, Jiefeng Chen, Hang Hua, Zijian Wu, Zheyuan Liu, Zexue He, Lichi Li, Shizhe Diao, Jiaxin Pei, Jinsung Yoon, Hao Zhang, Mengdi Wang, Radha Poovendran, Misha Sra, Alex Pentland, Zichen Chen
-- **入选理由**：满足B：包含CUDA内核优化等任务的超长时域基准，评估智能体持续迭代优化能力，直接关注性能改进。
-
-**TL;DR**：提出了AutoLab基准，用于评估超长时域闭环优化，发现持续迭代能力比初始尝试质量更关键。
-
-**中文摘要**：科学和工程进步本质上是一个长期迭代过程：提出变化、进行实验、测量结果，并不断改进产物。然而，现有的前沿模型基准主要评估单轮响应或短时间跨度的智能体轨迹，未能捕捉到在长时间范围内持续迭代改进的挑战。为了弥补这一空白，我们引入了AutoLab，这是一个用于超长时域闭环优化的新基准。AutoLab包含36个由专家策划的现实任务，涵盖四个不同领域：系统优化、谜题与挑战、模型开发和CUDA内核优化。每个任务从一个正确但故意次优的基线开始，挑战智能体在严格的墙钟时间预算内改进它。对17个最先进模型的评估显示，成功的主要预测因素不是智能体初始尝试的质量，而是它持续地进行基准测试、编辑和整合经验反馈的毅力。虽然claude-opus-4.6展示了强大的长时域优化能力，但大多数前沿模型，包括几个专有模型，要么过早终止，要么在预算耗尽时进展甚微。这些结果强调了自主智能体中时间意识和持续迭代的重要性。我们开源了完整的基准、评估工具和任务工件，以加速对真正有能力的长期智能体的研究。
-
-**方法**：构建了包含36个专家策划任务的AutoLab基准，覆盖四个领域，并在严格时间预算下评估17个前沿模型。
-
-**结果**：claude-opus-4.6表现最佳，多数模型过早终止或进展甚微。
-
-[返回索引](#快速索引)
-
----
-
-<a id="50"></a>
-## 50. [JEDI: Java Evaluation of Declarative and Imperative Queries](http://arxiv.org/abs/2605.23543v1)
-
-- **相关度**：0.86
-- **方向标签**：Benchmark/评测
-- **收录日期**：2026-05-22
-- **arXiv ID**：2605.23543
-- **作者**：Filippo Schiavio, Walter Binder
-- **入选理由**：JEDI基准套件专门用于分析Java Stream API性能并指导优化，满足B。
-
-**TL;DR**：提出了JEDI基准测试套件，自动从SQL转换生成Java流和命令式实现，用于分析Stream API性能并指导优化。
-
-**中文摘要**：Java Stream API旨在通过易于阅读的声明式语法表达计算来提高开发人员生产力。它还简化了并行计算，在常见并行化方面提供了高层抽象。不幸的是，缺乏专门针对基于流的应用程序的基准测试。这种基准测试的缺乏使得Java类库的研究人员和开发人员难以优化Stream API。此外，在没有专门基准测试的情况下，难以分析流的性能以向开发人员建议如何使用API编写高效代码。在这项工作中，我们提出了JEDI，一个针对Stream API的基准测试套件。JEDI是通过将SQL基准测试转换为Java基准测试自动生成的。我们的代码生成器支持为同一查询生成不同实现（包括基于流的和命令式的）。我们基准测试套件的最终目标——以及这项工作的主要贡献——是分析不同实现的性能，以发现低效的代码结构和更好的替代方案，向Java开发人员建议最佳实践。在我们生成的多种实现中，我们关注不同的并行化策略，并根据处理数据的特征解释最有效的并行化策略。最后，生成命令式代码的代码生成定义了一个基线，可以指导研究人员和Java实现者优化Stream API。
-
-**方法**：通过自动转换SQL基准测试生成Java基准测试，支持多种实现（流式和命令式），分析不同并行化策略的性能。
-
-**结果**：生成了JEDI套件，能够识别低效代码结构，解释高效的并行化策略，并提供命令式基线。
-
-[返回索引](#快速索引)
-
----
-
-<a id="51"></a>
-## 51. [Portable models as a replacement for industrial heuristics in compiler optimizations](https://arxiv.org/abs/2607.17389)
+<a id="79"></a>
+## 79. [The Unseen Delta: Characterizing the Compiler Optimization Landscape via Top-Down Differential Analysis](http://arxiv.org/abs/2608.09530v1)
 
 - **相关度**：0.85
-- **方向标签**：编译器优化
-- **收录日期**：2026-07-22
-- **arXiv ID**：2607.17389
-- **作者**：Fot Nikolai, Vinarsky Alexander
-- **入选理由**：核心贡献是为编译器优化提供可移植的内联决策预测模型，属于优化策略挖掘，直接服务于自动程序优化，满足C。
+- **方向标签**：Profiling/程序分析、优化策略检索
+- **收录日期**：2026-08-10
+- **arXiv ID**：2608.09530
+- **作者**：Zhibo Liu, Huaijin Wang, Shuai Wang
+- **入选理由**：提出自上而下的差分性能分析方法，用多层微架构指标定位编译器性能差异的根因，并开发二进制补丁框架移植更优代码序列，属于面向编译器优化缺陷的诊断与优化策略挖掘，满足C。
 
-**TL;DR**：提出一个可移植的内联预测框架，利用生产编译器诊断作为监督，通过特征提取和模型训练，在轻量级系统中预测函数内联决策。在十五个开源C项目的评估中，CatBoost模型达到ROC-AUC 0.928和PR-AUC 0.713。
+**TL;DR**：
 
-**中文摘要**：本文研究了在无法重用GCC或LLVM优化基础设施的紧凑编译器、源到源工具和解释器中预测函数内联决策的可能性。这项工作的相关性取决于需要将成熟的内联启发式方法转移到具有有限编译器基础设施、受限运行时依赖性和减少对目标特定分析访问的系统。现有的生产编译器已经包含强大的内联器，但它们的决策依赖于内部中间表示（IR）、遍序、目标模型和分析栈，这些在轻量级系统中难以复现。为了克服这些限制，我们提出了一个可移植的内联预测框架。生产编译器诊断作为监督；一个单独提取器重建调用者-被调用者调用点，准备无菌源代码片段，将它们规范化为通用AST，可选地降级为轻量级结构IR，并导出标量特征用于模型训练。因此，训练好的预测器可以作为普通C代码发出，无需编译器运行时依赖。为了评估所提出的框架，我们构建了一个数据集，包含来自十五个开源C项目的336,938个调用点，包括79,287个编译器报告的内联事件。使用项目感知验证对几个表格模型进行了比较。在留一项目验证下，CatBoost达到了ROC-AUC 0.928和PR-AUC 0.713；阈值调整后，F1从0.670提高到0.729，假阳性率从0.192下降到0.084。特征分析表明，大多数信号集中在源代码位置、显式内联意图、被调用者大小、副作用、分支和调用结构、签名形状以及调用点参数形状上。
+**中文摘要**：
 
-**方法**：提出可移植的内联预测框架：使用生产编译器诊断作为监督，通过提取器重建调用点，准备无菌代码片段，规范化为通用AST，可选降级为轻量级结构IR，导出标量特征用于训练，并将预测器作为C代码输出。
+**方法**：
 
-**结果**：在十五个C项目的336,938个调用点数据集上，CatBoost在留一项目验证下达到ROC-AUC 0.928和PR-AUC 0.713；阈值调整后F1从0.670提升至0.729，假阳性率从0.192降至0.084。
-
-[返回索引](#快速索引)
-
----
-
-<a id="52"></a>
-## 52. [SOLAR: AI-Powered Speed-of-Light Performance Analysis](http://arxiv.org/abs/2606.26383v1)
-
-- **相关度**：0.85
-- **方向标签**：Profiling/程序分析
-- **收录日期**：2026-06-24
-- **arXiv ID**：2606.26383
-- **作者**：Qijing Huang, Sana Damani, Zhifan Ye, Athinagoras Skiadopoulos, Siva Kumar Sastry Hari, Jason Clemons, Sahil Modi, Jingquan Wang, Aditya Kane, Edward C Lin, Humphrey Shi, Christos Kozyrakis
-- **入选理由**：自动推导Speed-of-Light性能界限，属于为优化提供分析工具，满足C。
-
-**TL;DR**：提出SOLAR框架，自动从PyTorch/JAX代码推导经过验证的Speed-of-Light界限，支持多保真度分析和优化洞察。
-
-**中文摘要**：深度学习模型在目标硬件上能跑多快？当前的实现距离该极限还有多远？这些问题对软件、硬件和算法优化至关重要。光速（Speed-of-Light, SOL）分析通过计算工作负载在给定架构上的理论最小执行时间来回答它们。然而，推导SOL界限仍然是手动的、易出错的，并且与快速的模型开发脱节。为了填补这一空白，我们引入了SOLAR，这是一个从PyTorch和JAX源代码自动推导出经过验证的SOL界限的框架。SOLAR在其流程中利用了生成式和确定性组件：一个LLM前端将任何源程序转换为可执行的仿射循环IR（Affine Loop IR），并通过输出比较进行验证；一个确定性流程将IR提升为einsum图；以及一个分析后端计算未融合、融合和缓存感知的SOL界限。SOLAR提供了全面的算子和语言覆盖，产生了零观察到SOL违规的验证界限，并提供了多保真度分析，以收紧界限并揭示优化见解。我们在KernelBench、JAX/Flax模型和机器人工作负载上评估了SOLAR。这些实验展示了四个用例：多保真度级别的余量分析、识别优化机会、跨平台探索以及反向屋顶线硬件配置。
-
-**方法**：使用LLM前端将源码转为仿射循环IR，经确定性流程提升为einsum图，再由分析后端计算未融合、融合和缓存感知的SOL界限。
-
-**结果**：零SOL违规的验证界限，多保真度分析，在KernelBench、JAX/Flax模型和机器人工作负载上展示四个用例。
+**结果**：
 
 [返回索引](#快速索引)
 
 ---
 
-<a id="53"></a>
-## 53. [GPU Forecasters: Language Models as Selective Surrogates for Kernel Runtime Optimization](http://arxiv.org/abs/2605.31464v1)
+<a id="80"></a>
+## 80. [What Do AI Agents Actually Change? An Empirical Taxonomy of Mutation Patterns in Performance-Improving Pull Requests](http://arxiv.org/abs/2607.05666v1)
 
 - **相关度**：0.85
-- **方向标签**：Profiling/程序分析
-- **收录日期**：2026-05-29
-- **arXiv ID**：2605.31464
-- **作者**：Zaid Khan, Justin Chih-Yao Chen, Jaemin Cho, Elias Stengel-Eskin, Mohit Bansal
-- **入选理由**：满足C：LLM作为GPU内核性能预测器，用于选择性替代实际测量，直接支持自动内核优化中的评估环节。
+- **方向标签**：搜索与进化优化、优化策略检索
+- **收录日期**：2026-07-06
+- **arXiv ID**：2607.05666
+- **作者**：Illia Dovhoshliubnyi, Nima Soroush, Ashkan Sami, Alexander Brownlee
+- **入选理由**：对216个AI代理性能改进PR的1254个diff hunks建立突变分类学，量化代理身份与优化策略对应的算子空间，为遗传改进等自动代码性能优化挖掘可复用突变模式，属C。
 
-**TL;DR**：研究LLM作为GPU内核性能预测的替代品，通过强化学习提高准确性，在有限评估预算下找到更快内核。
+**TL;DR**：本文分析AI编码代理的性能优化PR，发现其突变操作符分布与传统遗传改进语料库显著不同，且代理身份和目标策略可缩小SBSE算子空间。
 
-**中文摘要**：GPU内核是现代深度学习的主力，优化它们（通过进化搜索或编码代理）通常需要在目标硬件上重复测量。虽然这些测量提供了内核搜索所需的地面真实信号，但它们是昂贵的，因为每次评估一个内核都需要在GPU上编译和重复执行。随着LLM推理的进步降低了编写新颖内核的成本，并且LLM驱动的搜索扩展到较大的搜索预算，设备端评估成为了一个瓶颈。为了解决这个问题，我们研究LLM如何通过预测提议内核的性能来作为选择性的GPU替代品。一个有用的替代品应该是准确的，并且它应该是选择性的，即知道何时可能出错，并推迟到GPU。为了评估替代品，我们测量其预测是否准确、校准良好，并且在有限的GPU测量预算下对于恢复快速内核是否实用。接下来，我们研究强化学习是否能提高预测准确性和置信度校准。我们的实验表明，LLM可以准确预测相对内核性能，并且它们的实用性可以通过强化学习得到改进。在内核搜索中使用时，该替代品使得搜索在相同的GPU评估预算下可以考虑更多候选者，从而找到比同等预算基线更快的内核。这些结果表明，LLM可以在内核优化中发挥更广泛的作用，即作为GPU的虚拟模型，而不仅仅是内核生成的搜索器。
+**中文摘要**：AI编码代理是黑盒：我们无法检查它们如何生成代码，但可以检查它们更改了什么。这一区别对于基于搜索的软件工程（SBSE）非常重要，其中诸如遗传改进（在我们研究的性能优化应用中）等技术依赖于反映代码实际转换方式的突变算子。在AIDev-pop中，33,596个代理PR中不到1%针对性能，使得每个案例成为进入原本不透明的代理行为的罕见窗口。我们使用双LLM交集管道，将来自216个这些PR的1,254个与性能相关的差异块（跨越五个代理系统）与Even-Mendoza等人（2025）的18类语法突变分类法进行分类。三个类别占主导地位：名称修改（37.0%）、对象创建（26.4%）和类型更改（22.7%），这一分布与之前的遗传改进语料库显著不同，后者中无变化占84%。每个代理部署的系统承诺一种独特的突变词汇，每个性能策略激活一个大多不相交的类别子集。因此，代理身份和目标策略是有信息量的先验，缩小了有效的SBSE算子空间。复制包：https://github.com/5uper6rain/ssbse-challenge-2026
 
-**方法**：使用LLM预测内核性能，结合选择性机制（不确定时推迟到GPU），并通过强化学习提高预测准确性和置信度校准。
+**方法**：从AIDev-pop数据集中的33,596个PR中筛选出216个性能相关PR，提取1,254个差异块，使用Even-Mendoza等人（2025）的18类语法突变分类法，通过双LLM交集管道进行分类。
 
-**结果**：LLM能准确预测相对性能，强化学习进一步改进；在相同GPU评估预算下，替代品允许搜索更多候选者，找到更快内核。
+**结果**：三个类别占主导：名称修改（37.0%）、对象创建（26.4%）、类型更改（22.7%），与之前GI语料库（无变化占84%）显著不同；每个代理有独特突变词汇，性能策略激活几乎不相交的类别子集。
 
 [返回索引](#快速索引)
 
 ---
 
-<a id="54"></a>
-## 54. [SIA: Self Improving AI with Harness & Weight Updates](http://arxiv.org/abs/2605.27276v2)
+<a id="81"></a>
+## 81. [EvoMem: Memory-Augmented Evolution for Code Optimization](https://arxiv.org/abs/2608.10795)
 
-- **相关度**：0.85
-- **方向标签**：LLM/Agent 代码优化
-- **收录日期**：2026-05-26
-- **arXiv ID**：2605.27276
-- **作者**：Prannay Hebbar, Yogendra Manawat, Samuel Verboomen, Alesia Ivanova, Selvam Palanimalai, Kunal Bhatia, Vignesh Baskaran
-- **入选理由**：SIA在GPU内核优化任务上取得显著加速，自动修改代码改善性能，满足A。
+- **相关度**：0.82
+- **方向标签**：优化策略检索、搜索与进化优化
+- **收录日期**：2026-08-13, 2026-08-11
+- **arXiv ID**：2608.10795
+- **作者**：Viktor Volkov, Valentin Khrulkov, Andrey V. Galichin, Danil Sivtsov, Nikita Glazkov, Olga Volkova, Konstantin Pchelin, Iaroslav Bespalov, Dmitry V. Dylov, Petr Anokhin, Ivan Oseledets
+- **入选理由**：核心是LLM驱动的进化搜索中加入持久记忆以复用变异知识，覆盖GPU内核优化等任务，可作为自动程序优化策略挖掘/检索的基础设施，满足C的直接关键子问题。
 
-**TL;DR**：提出SIA，一种同时更新任务智能体框架和权重的自我改进循环，在三个领域显著超越先前最优方法。
+**TL;DR**：EvoMem为LLM驱动的进化程序搜索引入持久记忆架构，通过捕获和复用成功变异策略，在多个基准上带来平均性能或搜索速度的提升。
 
-**中文摘要**：人类是构建和改进AI的瓶颈。模型及其包装的智能体都是由人编写、调整和纠正的。AI能够自行改进的长期目标仍未实现。两个大致独立的研究方向试图突破这一瓶颈。框架更新学派让元智能体重写任务特定智能体的脚手架（其工具、提示、重试逻辑和搜索过程），而模型权重保持不变。测试时训练学派则使用手工编写的强化学习流水线，基于任务反馈更新模型自身的权重，而框架保持不变。这两个领域各自孤立运作。我们提出SIA，一个自我改进循环，其中语言模型智能体（反馈智能体）同时更新任务特定智能体的框架和权重。我们在三个对比鲜明的领域进行评估：中文法律罪名分类、底层GPU内核优化和单细胞RNA去噪。结合两种杠杆在所有三个基准上都优于仅迭代脚手架。SIA-W+H在LawBench上比先前SOTA高25.1%，GPU内核比先前SOTA快12.4%（1017微秒对比1161微秒），去噪效果比先前SOTA高20.4%。框架更新使模型具有智能体性，塑造其搜索和行动方式，而权重更新建立了任何提示或脚手架都无法灌输的领域直觉。
+**中文摘要**：成功的变异策略在进化代码搜索中可能包含超越单次运行的可复用知识，并且在某些情况下可以跨相关任务和领域迁移。然而，现有的基于LLM的进化框架大多丢弃此类知识，反复重新发现相似的想法，限制了跨运行和跨任务学习的机会。我们引入了EvoMem，一种用于基于LLM的进化程序搜索的持久记忆架构，用于捕获和复用候选变异知识。EvoMem将成功的变异事件转换为结构化的、任务感知的建议，供未来运行使用。它分两个阶段运作：每次运行后，提取并存储具有来源的有前景的想法；在后续进化过程中，基于当前任务和程序上下文检索一小部分相关指令以指导变异。在几何优化、多跳问答、GPU内核优化及相关基准测试中，我们的实验表明，在大多数评估设置下，目标指标或搜索速度均有正向平均改进，同时也揭示了任务间的差异性。总体而言，EvoMem提供了证据表明，持久记忆可以减少部分冗余探索，并改善LLM驱动的进化搜索中成功策略的复用与适应。
 
-**方法**：设计一个语言模型反馈智能体（Feedback-Agent），在每次任务执行后同时调整任务特定智能体的框架（工具、提示、搜索策略等）和模型权重，形成闭环自我改进。
+**方法**：EvoMem包含两个阶段：运行后提取成功变异事件并存储为带来源的结构化建议；后续进化中根据当前任务和程序上下文检索少量相关指令来引导变异。
 
-**结果**：在中文法律分类、GPU内核优化和单细胞RNA去噪三个任务上，结合框架和权重更新（SIA-W+H）分别比先前最优方法提升25.1%、12.4%和20.4%。
-
-[返回索引](#快速索引)
-
----
-
-<a id="55"></a>
-## 55. [Learning Reasoning World Models for Parallel Code](http://arxiv.org/abs/2604.20926v3)
-
-- **相关度**：0.85
-- **方向标签**：Profiling/程序分析
-- **收录日期**：2026-04-22
-- **arXiv ID**：2604.20926
-- **作者**：Gautam Singh, Arjun Guha, Bhavya Kailkhura, Harshitha Menon
-- **入选理由**：核心贡献是预测并行代码性能的模型（PCWMs），直接提供性能分析，为自动优化提供反馈，满足条件C。
-
-**TL;DR**：提出并行代码世界模型（PCWMs），通过从源代码预测工具结果来增强LLM的并行代码能力，减少对外部工具调用的依赖。
-
-**中文摘要**：大型语言模型在串行代码生成方面表现出了惊人的能力，但它们仍然难以处理训练数据相对稀缺的并行代码。一种常见的补救措施是使用与外部工具交互的编码代理，但工具调用可能代价高昂，有时甚至不切实际，例如对于部分编写的代码。我们提出了并行代码世界模型（PCWMs），这是一种推理型大型语言模型，旨在直接从并行源代码预测工具结果。为了训练PCWMs，我们设计了一种新颖的探索和数据生成流水线，该流水线跨多个领域采样多样化的并行编码问题和候选实现，然后通过工具执行它们以记录数据竞争和性能概况。从中，我们合成将源代码与观察到的工具结果因果连接的推理轨迹。对所得数据的微调产生了显著收益，一个7B参数的世界模型在竞争结果预测上从64.3%提高到72.8%的准确率，而一个8B参数模型在性能分析任务上从49.3%提高到58.6%的准确率。此外，当开放权重模型被任务修复数据竞争时，与自我反馈相比，世界模型反馈使用我们的7B参数世界模型提高了2.7%-9.1%的竞争修复率，使用我们的14B参数世界模型提高了6.1%-11.1%。我们的结果表明，推理世界模型有可能与并行编码代理中的外部工具调用一起服务。
-
-**方法**：设计探索和数据生成流水线，采样多样化的并行编码问题和实现，执行以记录数据竞争和性能，合成推理轨迹，并微调LLM。
-
-**结果**：7B模型在竞争预测上从64.3%提升至72.8%，8B模型在性能分析上从49.3%提升至58.6%；世界模型反馈提高了开放权重模型的竞争修复率2.7%-11.1%。
+**结果**：在几何优化、多跳问答、GPU内核优化及相关基准上，大部分设置的目标指标或搜索速度获得正平均改进，但不同任务间存在差异。
 
 [返回索引](#快速索引)
 
