@@ -95,6 +95,7 @@ def parse_args():
     parser.add_argument("--threshold", type=float, default=0.82)
     parser.add_argument("--batch-size", type=int, default=16)
     parser.add_argument("--max-workers", type=int, default=8)
+    parser.add_argument("--supplemental-jsonl", action="append", default=[])
     parser.add_argument("--dry-run", action="store_true")
     return parser.parse_args()
 
@@ -111,7 +112,7 @@ def is_candidate(item):
     return bool(DIRECT_TERMS.search(text) or (CODE_TERMS.search(text) and PERFORMANCE_TERMS.search(text)))
 
 
-def load_unique_papers(data_dir, start, end):
+def load_unique_papers(data_dir, start, end, supplemental_paths=()):
     by_id = {}
     input_records = 0
     date_files = 0
@@ -140,7 +141,29 @@ def load_unique_papers(data_dir, start, end):
                 latest = item
                 latest["source_dates"] = dates
                 by_id[paper_id] = latest
-    return list(by_id.values()), input_records, date_files, missing_dates
+    supplemental_records = 0
+    for supplemental_path in supplemental_paths:
+        path = Path(supplemental_path)
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            supplemental_records += 1
+            item = json.loads(line)
+            paper_id = str(item["id"])
+            if paper_id not in by_id:
+                by_id[paper_id] = item
+                continue
+            existing = by_id[paper_id]
+            existing["source_dates"] = list(
+                dict.fromkeys(existing.get("source_dates", []) + item.get("source_dates", []))
+            )
+            if item.get("candidate_queries"):
+                existing["candidate_queries"] = list(
+                    dict.fromkeys(
+                        existing.get("candidate_queries", []) + item["candidate_queries"]
+                    )
+                )
+    return list(by_id.values()), input_records, date_files, missing_dates, supplemental_records
 
 
 def request_decisions(batch, model, base_url, api_key, system_prompt=SYSTEM_PROMPT):
@@ -309,7 +332,9 @@ def main():
     if end < start:
         raise ValueError("end-date must not precede start-date")
     data_dir = Path(args.data_dir)
-    papers, input_records, date_files, missing_dates = load_unique_papers(data_dir, start, end)
+    papers, input_records, date_files, missing_dates, supplemental_records = load_unique_papers(
+        data_dir, start, end, args.supplemental_jsonl
+    )
     candidates = [item for item in papers if is_candidate(item)]
     print(
         json.dumps(
@@ -317,6 +342,7 @@ def main():
                 "date_files": date_files,
                 "missing_dates": missing_dates,
                 "input_records": input_records,
+                "supplemental_records": supplemental_records,
                 "unique_papers": len(papers),
                 "heuristic_candidates": len(candidates),
             },
@@ -393,6 +419,7 @@ def main():
         "date_files": date_files,
         "missing_dates": missing_dates,
         "input_records": input_records,
+        "supplemental_records": supplemental_records,
         "unique_papers": len(papers),
         "heuristic_candidates": len(candidates),
         "first_pass_selected": len(preliminary),
