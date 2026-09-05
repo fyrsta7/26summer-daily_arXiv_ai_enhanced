@@ -19,6 +19,73 @@ let textSearchQuery = ''; // 实时文本搜索查询
 let previousActiveKeywords = null; // 文本搜索激活时，暂存之前的关键词激活集合
 let previousActiveAuthors = null; // 文本搜索激活时，暂存之前的作者激活集合
 
+// 保存完整快照，关注列表不依赖当前日期的数据。
+const SAVED_PAPERS_KEY = 'arxiv_saved_papers_v1';
+let savedPapers = new Map();
+let showingSavedPapers = false;
+
+function getSavedPaperId(paper) {
+  return String(paper.id || paper.url || '').trim()
+    .replace(/^https?:\/\/(?:www\.)?arxiv\.org\/(?:abs|pdf|html)\//i, '')
+    .replace(/[?#].*$/, '').replace(/\.pdf$/i, '').replace(/v\d+$/i, '');
+}
+
+function readSavedPapers() {
+  const entries = JSON.parse(localStorage.getItem(SAVED_PAPERS_KEY) || '[]');
+  if (!Array.isArray(entries)) throw new Error('Invalid saved papers');
+  return new Map(entries.filter(entry => entry && entry.paper &&
+    typeof entry.paper.title === 'string' && typeof entry.paper.url === 'string' &&
+    getSavedPaperId(entry.paper)).map(entry => [getSavedPaperId(entry.paper), entry]));
+}
+
+function loadSavedPapers() {
+  try {
+    savedPapers = readSavedPapers();
+  } catch (error) {
+    console.error('读取关注列表失败:', error);
+    document.getElementById('savedPapersStatus').textContent = '无法读取关注列表，请检查浏览器存储设置。';
+  }
+  updateSavedPapersControls();
+}
+
+function updateSavedPapersControls() {
+  document.getElementById('savedPapersCount').textContent = savedPapers.size;
+  document.getElementById('savedPapersButton').setAttribute('aria-pressed', String(showingSavedPapers));
+  document.getElementById('dailyPapersButton').setAttribute('aria-pressed', String(!showingSavedPapers));
+  document.getElementById('savedPapersHint').hidden = !showingSavedPapers;
+  document.querySelector('.category-label-container').hidden = showingSavedPapers;
+  document.querySelector('.date-selector').hidden = showingSavedPapers;
+}
+
+function setSavedPapersView(showSaved) {
+  showingSavedPapers = showSaved;
+  updateSavedPapersControls();
+  renderPapers();
+}
+
+function toggleSavedPaper(paper) {
+  try {
+    // 写入前读取最新数据，保留其他标签页的标记。
+    const next = readSavedPapers();
+    const id = getSavedPaperId(paper);
+    if (!id) throw new Error('Missing paper ID');
+    const removing = next.has(id);
+    if (removing) next.delete(id);
+    else {
+      const { isMatched, matchReason, ...snapshot } = paper;
+      next.set(id, { paper: snapshot, savedAt: Date.now() });
+    }
+    localStorage.setItem(SAVED_PAPERS_KEY, JSON.stringify([...next.values()]));
+    savedPapers = next;
+    document.getElementById('savedPapersStatus').textContent = removing ? '已取消关注。' : '已加入我的关注。';
+    updateSavedPapersControls();
+    renderPapers();
+  } catch (error) {
+    console.error('保存关注列表失败:', error);
+    document.getElementById('savedPapersStatus').textContent = '保存失败，标记未更改。请检查浏览器存储权限或剩余空间。';
+  }
+}
+
 // 加载用户的关键词设置
 function loadUserKeywords() {
   const savedKeywords = localStorage.getItem('preferredKeywords');
@@ -369,6 +436,15 @@ function matchPapersByKeywordsOrAuthor(papers, keywords, author) {
 
 document.addEventListener('DOMContentLoaded', () => {
   initEventListeners();
+  loadSavedPapers();
+  document.getElementById('savedPapersButton').addEventListener('click', () => setSavedPapersView(true));
+  document.getElementById('dailyPapersButton').addEventListener('click', () => setSavedPapersView(false));
+  window.addEventListener('storage', event => {
+    if ((event.key === SAVED_PAPERS_KEY || event.key === null) && !isJsonMode()) {
+      loadSavedPapers();
+      if (!isJsonMode()) renderPapers();
+    }
+  });
 
   fetchGitHubStats();
 
@@ -497,7 +573,7 @@ function initEventListeners() {
       
       // 只有在没有输入框焦点且日期选择器没有打开时才触发
       // 现在允许在论文模态框打开时也能使用R键切换到随机论文
-      if (!isInputFocused && !datePickerModal.classList.contains('active')) {
+      if (!isInputFocused && activeElement?.tagName !== 'BUTTON' && activeElement?.tagName !== 'A' && !datePickerModal.classList.contains('active')) {
         event.preventDefault(); // 防止页面刷新
         event.stopPropagation(); // 阻止事件冒泡
         showRandomPaper();
@@ -818,7 +894,7 @@ async function loadPapersByDate(date) {
   // 而是保持当前选择状态
   
   const container = document.getElementById('paperContainer');
-  container.innerHTML = `
+  if (!showingSavedPapers) container.innerHTML = `
     <div class="loading-container">
       <div class="loading-spinner"></div>
       <p>Loading paper...</p>
@@ -840,6 +916,7 @@ async function loadPapersByDate(date) {
         `;
         paperData = {};
         renderCategoryFilter({ sortedCategories: [], categoryCounts: {} });
+        if (showingSavedPapers) renderPapers();
         return;
       }
       throw new Error(`HTTP ${response.status}`);
@@ -854,6 +931,7 @@ async function loadPapersByDate(date) {
       `;
       paperData = {};
       renderCategoryFilter({ sortedCategories: [], categoryCounts: {} });
+      if (showingSavedPapers) renderPapers();
       return;
     }
     
@@ -885,6 +963,7 @@ async function loadPapersByDate(date) {
     renderPapers();
   } catch (error) {
     console.error('加载论文数据失败:', error);
+    if (showingSavedPapers) { renderPapers(); return; }
     container.innerHTML = `
       <div class="loading-container">
         <p>Loading data fails. Please retry.</p>
@@ -1100,7 +1179,11 @@ function renderPapers() {
   container.className = `paper-container ${currentView === 'list' ? 'list-view' : ''}`;
   
   let papers = [];
-  if (currentCategory === 'all') {
+  if (showingSavedPapers) {
+    papers = [...savedPapers.values()]
+      .sort((a, b) => b.savedAt - a.savedAt)
+      .map(entry => ({ ...entry.paper }));
+  } else if (currentCategory === 'all') {
     const { sortedCategories } = getAllCategories(paperData);
     sortedCategories.forEach(category => {
       if (paperData[category]) {
@@ -1336,7 +1419,7 @@ function renderPapers() {
   if (filteredPapers.length === 0) {
     container.innerHTML = `
       <div class="loading-container">
-        <p>No paper found.</p>
+        <p>${showingSavedPapers ? '还没有关注的论文。点击论文卡片上的「稍后精读」即可加入这里。' : 'No paper found.'}</p>
       </div>
     `;
     return;
@@ -1420,6 +1503,21 @@ function renderPapers() {
       </div>
     `;
     
+    const saveButton = document.createElement('button');
+    const isSaved = savedPapers.has(getSavedPaperId(paper));
+    saveButton.type = 'button';
+    saveButton.className = 'save-paper-button';
+    saveButton.setAttribute('aria-pressed', String(isSaved));
+    saveButton.textContent = isSaved ? '★ 已关注' : '☆ 稍后精读';
+    saveButton.title = isSaved ? '取消关注这篇论文' : '加入我的关注，稍后精读';
+    saveButton.addEventListener('click', event => {
+      event.stopPropagation();
+      toggleSavedPaper(paper);
+      const buttons = container.querySelectorAll('.save-paper-button');
+      (buttons[Math.min(index, buttons.length - 1)] || document.getElementById('savedPapersButton')).focus({ preventScroll: true });
+    });
+    paperCard.querySelector('.paper-card-footer').insertBefore(saveButton, paperCard.querySelector('.paper-card-link'));
+
     paperCard.addEventListener('click', () => {
       currentPaperIndex = index; // 记录当前点击的论文索引
       showPaperDetails(paper, index + 1);
@@ -1694,7 +1792,7 @@ async function loadPapersByDateRange(startDate, endDate) {
   // 而是保持当前选择状态
   
   const container = document.getElementById('paperContainer');
-  container.innerHTML = `
+  if (!showingSavedPapers) container.innerHTML = `
     <div class="loading-container">
       <div class="loading-spinner"></div>
       <p>Loading papers from ${formatDate(startDate)} to ${formatDate(endDate)}...</p>
@@ -1750,6 +1848,7 @@ async function loadPapersByDateRange(startDate, endDate) {
     renderPapers();
   } catch (error) {
     console.error('加载论文数据失败:', error);
+    if (showingSavedPapers) { renderPapers(); return; }
     container.innerHTML = `
       <div class="loading-container">
         <p>Loading data fails. Please retry.</p>

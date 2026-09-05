@@ -30,6 +30,7 @@ This innovative tool transforms how you stay updated with arXiv papers by combin
 - Cross-device compatibility (desktop & mobile)
 - Local preference storage for privacy
 - Flexible date range filtering
+- 点击论文卡片上的「稍后精读」标记关注，在「我的关注」中跨日期汇总查看，点击「已关注」可取消。标记保存在当前浏览器，刷新后保留；不跨设备同步，清除网站数据会删除标记。
 
 🧩 **SKILL System**
 - Plug-and-play skill modules for customizing paper filtering
