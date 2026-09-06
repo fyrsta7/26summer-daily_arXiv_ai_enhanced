@@ -21,7 +21,9 @@ let previousActiveAuthors = null; // 文本搜索激活时，暂存之前的作�
 
 // 保存完整快照，关注列表不依赖当前日期的数据。
 const SAVED_PAPERS_KEY = 'arxiv_saved_papers_v1';
+const READ_PAPERS_KEY = 'arxiv_read_papers_v1';
 let savedPapers = new Map();
+let readPapers = new Map();
 let showingSavedPapers = false;
 
 function getSavedPaperId(paper) {
@@ -48,6 +50,55 @@ function loadSavedPapers() {
   updateSavedPapersControls();
 }
 
+function readReadPapers() {
+  const entries = JSON.parse(localStorage.getItem(READ_PAPERS_KEY) || '[]');
+  if (!Array.isArray(entries)) throw new Error('Invalid read papers');
+  return new Map(entries.filter(entry => entry && typeof entry.id === 'string' && entry.id)
+    .map(entry => [entry.id, entry]));
+}
+
+function loadReadPapers() {
+  try {
+    readPapers = readReadPapers();
+  } catch (error) {
+    console.error('读取已看过列表失败:', error);
+    document.getElementById('savedPapersStatus').textContent = '无法读取阅读进度，请检查浏览器存储设置。';
+  }
+  updateReadProgressControls();
+}
+
+function getLoadedDailyPapers() {
+  const uniquePapers = new Map();
+  Object.values(paperData).flat().forEach(paper => {
+    const id = getSavedPaperId(paper);
+    if (id && !uniquePapers.has(id)) uniquePapers.set(id, paper);
+  });
+  return [...uniquePapers.values()];
+}
+
+function updateReadProgressControls() {
+  const controls = document.getElementById('dailyReadControls');
+  if (!controls) return;
+
+  controls.hidden = showingSavedPapers;
+  const papers = getLoadedDailyPapers();
+  const readCount = papers.filter(paper => readPapers.has(getSavedPaperId(paper))).length;
+  const total = papers.length;
+  const percent = total > 0 ? Math.round((readCount / total) * 100) : 0;
+  const allRead = total > 0 && readCount === total;
+
+  document.getElementById('dailyReadProgressText').textContent = `已看过 ${readCount} / ${total}`;
+  document.getElementById('dailyReadProgressPercent').textContent = `${percent}%`;
+  document.getElementById('dailyReadProgressFill').style.width = `${percent}%`;
+  const progressBar = document.getElementById('dailyReadProgressBar');
+  progressBar.setAttribute('aria-valuemax', String(total));
+  progressBar.setAttribute('aria-valuenow', String(readCount));
+  const markAllButton = document.getElementById('markAllReadButton');
+  markAllButton.disabled = total === 0;
+  markAllButton.setAttribute('aria-pressed', String(allRead));
+  markAllButton.textContent = allRead ? '取消全部看过' : '全部标为看过';
+}
+
 function updateSavedPapersControls() {
   document.getElementById('savedPapersCount').textContent = savedPapers.size;
   document.getElementById('savedPapersButton').setAttribute('aria-pressed', String(showingSavedPapers));
@@ -55,6 +106,7 @@ function updateSavedPapersControls() {
   document.getElementById('savedPapersHint').hidden = !showingSavedPapers;
   document.querySelector('.category-label-container').hidden = showingSavedPapers;
   document.querySelector('.date-selector').hidden = showingSavedPapers;
+  updateReadProgressControls();
 }
 
 function setSavedPapersView(showSaved) {
@@ -83,6 +135,46 @@ function toggleSavedPaper(paper) {
   } catch (error) {
     console.error('保存关注列表失败:', error);
     document.getElementById('savedPapersStatus').textContent = '保存失败，标记未更改。请检查浏览器存储权限或剩余空间。';
+  }
+}
+
+function toggleReadPaper(paper) {
+  try {
+    const next = readReadPapers();
+    const id = getSavedPaperId(paper);
+    if (!id) throw new Error('Missing paper ID');
+    const removing = next.has(id);
+    if (removing) next.delete(id);
+    else next.set(id, { id, readAt: Date.now() });
+    localStorage.setItem(READ_PAPERS_KEY, JSON.stringify([...next.values()]));
+    readPapers = next;
+    document.getElementById('savedPapersStatus').textContent = removing ? '已取消“看过”标记。' : '已标记为看过。';
+    renderPapers();
+  } catch (error) {
+    console.error('保存阅读进度失败:', error);
+    document.getElementById('savedPapersStatus').textContent = '保存失败，阅读进度未更改。请检查浏览器存储权限或剩余空间。';
+  }
+}
+
+function toggleAllLoadedPapersRead() {
+  try {
+    const papers = getLoadedDailyPapers();
+    if (papers.length === 0) return;
+    const next = readReadPapers();
+    const allRead = papers.every(paper => next.has(getSavedPaperId(paper)));
+    papers.forEach(paper => {
+      const id = getSavedPaperId(paper);
+      if (allRead) next.delete(id);
+      else if (!next.has(id)) next.set(id, { id, readAt: Date.now() });
+    });
+    localStorage.setItem(READ_PAPERS_KEY, JSON.stringify([...next.values()]));
+    readPapers = next;
+    document.getElementById('savedPapersStatus').textContent = allRead ? '已取消当前页面全部论文的“看过”标记。' : '已将当前页面全部论文标记为看过。';
+    renderPapers();
+    document.getElementById('markAllReadButton').focus({ preventScroll: true });
+  } catch (error) {
+    console.error('批量保存阅读进度失败:', error);
+    document.getElementById('savedPapersStatus').textContent = '批量保存失败，阅读进度未更改。请检查浏览器存储权限或剩余空间。';
   }
 }
 
@@ -437,13 +529,15 @@ function matchPapersByKeywordsOrAuthor(papers, keywords, author) {
 document.addEventListener('DOMContentLoaded', () => {
   initEventListeners();
   loadSavedPapers();
+  loadReadPapers();
   document.getElementById('savedPapersButton').addEventListener('click', () => setSavedPapersView(true));
   document.getElementById('dailyPapersButton').addEventListener('click', () => setSavedPapersView(false));
+  document.getElementById('markAllReadButton').addEventListener('click', toggleAllLoadedPapersRead);
   window.addEventListener('storage', event => {
-    if ((event.key === SAVED_PAPERS_KEY || event.key === null) && !isJsonMode()) {
-      loadSavedPapers();
-      if (!isJsonMode()) renderPapers();
-    }
+    if (isJsonMode()) return;
+    if (event.key === SAVED_PAPERS_KEY || event.key === null) loadSavedPapers();
+    if (event.key === READ_PAPERS_KEY || event.key === null) loadReadPapers();
+    if (event.key === SAVED_PAPERS_KEY || event.key === READ_PAPERS_KEY || event.key === null) renderPapers();
   });
 
   fetchGitHubStats();
@@ -1415,11 +1509,12 @@ function renderPapers() {
   
   // 存储当前过滤后的论文列表，用于箭头键导航
   currentFilteredPapers = [...filteredPapers];
+  updateReadProgressControls();
   
   if (filteredPapers.length === 0) {
     container.innerHTML = `
       <div class="loading-container">
-        <p>${showingSavedPapers ? '还没有关注的论文。点击论文卡片上的「稍后精读」即可加入这里。' : 'No paper found.'}</p>
+        <p>${showingSavedPapers ? '还没有关注的论文。点击论文卡片上的「关注」即可加入这里。' : 'No paper found.'}</p>
       </div>
     `;
     return;
@@ -1428,7 +1523,9 @@ function renderPapers() {
   filteredPapers.forEach((paper, index) => {
     const paperCard = document.createElement('div');
     // 添加匹配高亮类
-    paperCard.className = `paper-card ${paper.isMatched ? 'matched-paper' : ''}`;
+    const paperId = getSavedPaperId(paper);
+    const isRead = readPapers.has(paperId);
+    paperCard.className = `paper-card ${paper.isMatched ? 'matched-paper' : ''} ${isRead ? 'is-read' : ''}`;
     paperCard.dataset.id = paper.id || paper.url;
     
     if (paper.isMatched) {
@@ -1504,12 +1601,12 @@ function renderPapers() {
     `;
     
     const saveButton = document.createElement('button');
-    const isSaved = savedPapers.has(getSavedPaperId(paper));
+    const isSaved = savedPapers.has(paperId);
     saveButton.type = 'button';
     saveButton.className = 'save-paper-button';
     saveButton.setAttribute('aria-pressed', String(isSaved));
-    saveButton.textContent = isSaved ? '★ 已关注' : '☆ 稍后精读';
-    saveButton.title = isSaved ? '取消关注这篇论文' : '加入我的关注，稍后精读';
+    saveButton.textContent = isSaved ? '★ 已关注' : '☆ 关注';
+    saveButton.title = isSaved ? '取消关注这篇论文' : '关注这篇论文';
     saveButton.addEventListener('click', event => {
       event.stopPropagation();
       toggleSavedPaper(paper);
@@ -1517,6 +1614,20 @@ function renderPapers() {
       (buttons[Math.min(index, buttons.length - 1)] || document.getElementById('savedPapersButton')).focus({ preventScroll: true });
     });
     paperCard.querySelector('.paper-card-footer').insertBefore(saveButton, paperCard.querySelector('.paper-card-link'));
+
+    const readButton = document.createElement('button');
+    readButton.type = 'button';
+    readButton.className = 'read-paper-button';
+    readButton.setAttribute('aria-pressed', String(isRead));
+    readButton.textContent = isRead ? '✓ 已看过' : '○ 标为看过';
+    readButton.title = isRead ? '取消这篇论文的“看过”标记' : '标记为已扫过一眼';
+    readButton.addEventListener('click', event => {
+      event.stopPropagation();
+      toggleReadPaper(paper);
+      const buttons = container.querySelectorAll('.read-paper-button');
+      (buttons[Math.min(index, buttons.length - 1)] || document.getElementById('dailyPapersButton')).focus({ preventScroll: true });
+    });
+    paperCard.querySelector('.paper-card-footer').insertBefore(readButton, paperCard.querySelector('.paper-card-link'));
 
     paperCard.addEventListener('click', () => {
       currentPaperIndex = index; // 记录当前点击的论文索引

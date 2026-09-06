@@ -158,7 +158,19 @@
                 <button type="button" id="dailyPapersButton" class="reading-list-button" aria-pressed="true">每日论文</button>
                 <button type="button" id="savedPapersButton" class="reading-list-button" aria-pressed="false">我的关注 <span id="savedPapersCount">0</span></button>
             </nav>
-            <p id="savedPapersHint" class="reading-list-hint" hidden>所有日期中标记为稍后精读的论文。保存在当前浏览器中，不会跨设备同步；清除网站数据会删除这些标记。</p>
+            <section id="dailyReadControls" class="daily-read-controls" aria-label="阅读进度">
+                <div class="daily-read-progress">
+                    <div class="daily-read-progress-label">
+                        <span id="dailyReadProgressText">已看过 0 / 0</span>
+                        <span id="dailyReadProgressPercent">0%</span>
+                    </div>
+                    <div id="dailyReadProgressBar" class="daily-read-progress-bar" role="progressbar" aria-label="已看过论文进度" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0">
+                        <span id="dailyReadProgressFill"></span>
+                    </div>
+                </div>
+                <button type="button" id="markAllReadButton" class="bulk-read-button" disabled>全部标为看过</button>
+            </section>
+            <p id="savedPapersHint" class="reading-list-hint" hidden>所有日期中标记为关注的论文。保存在当前浏览器中，不会跨设备同步；清除网站数据会删除这些标记。</p>
             <p id="savedPapersStatus" class="reading-list-status" role="status" aria-live="polite"></p>
             <div class="date-picker-modal" id="datePickerModal">
                 <div class="date-picker-content">

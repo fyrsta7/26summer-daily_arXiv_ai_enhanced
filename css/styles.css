@@ -2327,10 +2327,10 @@ footer {
   align-items: center;
 }
 
-/* 跨日期的稍后精读列表 */
+/* 跨日期关注列表与每日阅读进度 */
 [hidden] { display: none !important; }
 .reading-list-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
-.reading-list-button, .save-paper-button {
+.reading-list-button, .save-paper-button, .read-paper-button, .bulk-read-button {
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   background: #fff;
@@ -2344,9 +2344,35 @@ footer {
   background: #eff6ff;
   border-color: #93c5fd;
 }
-.reading-list-button:hover, .save-paper-button:hover { border-color: #2563eb; }
-.reading-list-button:focus-visible, .save-paper-button:focus-visible { outline: 2px solid #2563eb; outline-offset: 3px; }
-.save-paper-button { font-size: 13px; white-space: nowrap; }
+.reading-list-button:hover, .save-paper-button:hover, .read-paper-button:hover, .bulk-read-button:hover { border-color: #2563eb; }
+.reading-list-button:focus-visible, .save-paper-button:focus-visible, .read-paper-button:focus-visible, .bulk-read-button:focus-visible { outline: 2px solid #2563eb; outline-offset: 3px; }
+.save-paper-button, .read-paper-button { font-size: 13px; white-space: nowrap; }
+.read-paper-button[aria-pressed="true"], .bulk-read-button[aria-pressed="true"] {
+  color: #047857;
+  background: #ecfdf5;
+  border-color: #6ee7b7;
+}
+.bulk-read-button:disabled { cursor: not-allowed; opacity: 0.55; }
+.paper-card.is-read { border-color: #a7f3d0; }
+.daily-read-controls {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+.daily-read-progress { flex: 1; min-width: 180px; }
+.daily-read-progress-label { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 7px; color: #475569; font-size: 14px; }
+.daily-read-progress-bar { height: 7px; overflow: hidden; border-radius: 999px; background: #e2e8f0; }
+.daily-read-progress-bar span { display: block; width: 0; height: 100%; border-radius: inherit; background: #10b981; transition: width 180ms ease; }
 .paper-card-footer { gap: 8px; flex-wrap: wrap; }
 .reading-list-hint, .reading-list-status { color: #64748b; font-size: 14px; margin-bottom: 12px; }
 .reading-list-status:empty { display: none; }
+
+@media (max-width: 640px) {
+  .daily-read-controls { align-items: stretch; flex-direction: column; }
+  .bulk-read-button { width: 100%; }
+}
