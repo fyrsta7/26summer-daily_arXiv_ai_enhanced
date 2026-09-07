@@ -51,6 +51,7 @@
         };
     </script>
     <link rel="stylesheet" href="css/theme.css?v=20260908">
+    <link rel="stylesheet" href="css/reading-dashboard.css?v=20260908">
     <script src="js/theme.js?v=20260908"></script>
 </head>
 <body>
@@ -160,7 +161,25 @@
             <nav class="reading-list-nav" aria-label="论文列表">
                 <button type="button" id="dailyPapersButton" class="reading-list-button" aria-pressed="true">每日论文</button>
                 <button type="button" id="savedPapersButton" class="reading-list-button" aria-pressed="false">我的关注 <span id="savedPapersCount">0</span></button>
+                <button type="button" id="readingDashboardToggle" class="reading-list-button" aria-expanded="false" aria-controls="readingDashboard">▥ 阅读统计</button>
             </nav>
+            <section id="readingDashboard" class="reading-dashboard" aria-labelledby="readingDashboardTitle" hidden>
+                <div class="reading-dashboard-header">
+                    <div><h2 id="readingDashboardTitle">每日阅读进展</h2><p>按论文推送日期查看完成情况，点击日期继续阅读。</p></div>
+                    <div class="reading-month-controls">
+                        <label for="readingMonth">月份</label>
+                        <select id="readingMonth" aria-label="统计月份"></select>
+                        <button id="refreshReadingDashboard" type="button" class="reading-list-button">刷新</button>
+                    </div>
+                </div>
+                <p class="reading-dashboard-status" id="readingDashboardStatus" role="status" aria-live="polite"></p>
+                <div id="readingMetrics" class="reading-metrics"></div>
+                <div class="reading-month-progress"><span id="readingMonthProgressLabel">当月阅读完成率</span><strong id="readingMonthPercent">—</strong></div>
+                <div id="readingMonthProgress" class="reading-overall-track" role="progressbar" aria-label="当月阅读完成率" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+                <div class="reading-weekdays" aria-hidden="true"><span>周一</span><span>周二</span><span>周三</span><span>周四</span><span>周五</span><span>周六</span><span>周日</span></div>
+                <div id="readingCalendar" class="reading-calendar" aria-label="每日阅读进展日历"></div>
+                <p class="reading-dashboard-note">每天显示「已看过 / 总数」。统计全部分类；跨日重复论文在各自日期计入。阅读标记保存在当前浏览器。</p>
+            </section>
             <section id="dailyReadControls" class="daily-read-controls" aria-label="阅读进度">
                 <div class="daily-read-progress">
                     <div class="daily-read-progress-label">
@@ -263,6 +282,7 @@
         </svg>
     </button>
 
-    <script src="js/app.js?v=1.0.1"></script>
+    <script src="js/app.js?v=20260908-dashboard"></script>
+    <script src="js/reading-dashboard.js?v=20260908"></script>
 </body>
-</html> 
+</html>

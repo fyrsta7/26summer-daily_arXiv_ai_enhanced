@@ -30,6 +30,7 @@ This innovative tool transforms how you stay updated with arXiv papers by combin
 - Cross-device compatibility (desktop & mobile)
 - Local preference storage for privacy
 - Flexible date range filtering
+- 首页「阅读统计」提供月历面板，展示每天已看过 / 总数、进度和当月汇总；可切换月份、点击日期继续阅读，标记变化会同步更新统计。
 - 网页右上角支持深色 / 浅色模式切换，默认跟随系统；手动选择后在当前浏览器中保存，并应用于首页、关注列表、设置、统计和登录页。PDF 原文由浏览器或 arXiv 提供，其页面配色不受本站主题控制。
 - 点击论文卡片上的「稍后精读」标记关注，在「我的关注」中跨日期汇总查看，点击「已关注」可取消。标记保存在当前浏览器，刷新后保留；不跨设备同步，清除网站数据会删除标记。
 

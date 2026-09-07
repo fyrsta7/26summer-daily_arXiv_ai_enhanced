@@ -1,0 +1,53 @@
+.reading-dashboard {
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background: var(--card-bg-color);
+  color: var(--text-color);
+}
+.reading-dashboard-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.reading-dashboard h2 { font-size: 21px; margin-bottom: 4px; }
+.reading-dashboard-header p, .reading-dashboard-note, .reading-dashboard-status { color: var(--text-secondary); font-size: 13px; }
+.reading-month-controls { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.reading-month-controls select { padding: 8px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--card-bg-color); color: var(--text-color); font: inherit; }
+.reading-dashboard-status { margin: 16px 0; min-height: 20px; }
+.reading-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.reading-metrics > div { background: var(--background-color); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px; }
+.reading-metrics strong { font-size: 28px; font-variant-numeric: tabular-nums; }
+.reading-metrics span { font-size: 13px; color: var(--text-secondary); }
+.reading-month-progress { display: flex; justify-content: space-between; margin: 18px 0 8px; font-size: 14px; }
+.reading-overall-track, .reading-day-track { display: block; overflow: hidden; border-radius: 8px; background: var(--border-color); height: 7px; }
+.reading-overall-track > span, .reading-day-track > span { display: block; height: 100%; background: #128467; border-radius: inherit; }
+.reading-weekdays, .reading-calendar { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+.reading-weekdays { margin: 20px 0 10px; text-align: center; font-size: 13px; color: var(--text-secondary); }
+.reading-day { display: flex; flex-direction: column; gap: 7px; padding: 12px; min-width: 0; min-height: 114px; border: 1px solid var(--border-color); border-radius: 10px; text-align: left; background: var(--background-color); color: var(--text-color); }
+.reading-day strong { font-size: 15px; font-variant-numeric: tabular-nums; }
+.reading-day-number { font-size: 13px; color: var(--text-secondary); }
+.reading-day small { color: var(--text-secondary); font-size: 12px; min-height: 18px; }
+.reading-day-track { width: 100%; height: 5px; }
+.reading-day-complete { background: #e6f6ee; border-color: #6ab69b; }
+.reading-day-started { background: #edf1fe; border-color: #a7b7e6; }
+.reading-day:disabled { cursor: default; }
+.reading-day-absent, .reading-day-empty { background: transparent; border-style: dashed; }
+.reading-day-absent strong, .reading-day-empty strong { color: var(--text-tertiary); font-size: 12px; font-weight: 400; }
+.reading-day-error strong { color: #b42335; }
+.reading-day:not(:disabled):hover, .reading-day[aria-current="date"] { border-color: var(--primary-color); box-shadow: inset 0 0 0 1px var(--primary-color); }
+.reading-day:focus-visible, .reading-month-controls select:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 3px; }
+.reading-dashboard-note { margin-top: 16px; }
+#readingDashboardToggle[aria-expanded="true"] { border-color: var(--primary-color); color: var(--primary-color); }
+#paperContainer { scroll-margin-top: 240px; }
+[data-theme="dark"] .reading-day-complete { background: #193b33; border-color: #368b70; }
+[data-theme="dark"] .reading-day-started { background: #243352; border-color: #526da3; }
+[data-theme="dark"] .reading-day-error strong { color: #fca5a5; }
+[data-theme="dark"] :is(.reading-overall-track, .reading-day-track) > span { background: #6ee7b7; }
+@media (max-width: 600px) {
+  .reading-dashboard { padding: 12px; }
+  .reading-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .reading-metrics > div { padding: 12px; }
+  .reading-weekdays, .reading-calendar { gap: 3px; }
+  .reading-day { padding: 6px 3px; min-height: 95px; gap: 6px; border-radius: 6px; }
+  .reading-day strong { font-size: 11px; }
+  .reading-day small, .reading-day-absent strong, .reading-day-empty strong { font-size: 10px; }
+  .reading-month-controls { flex-wrap: wrap; }
+}

@@ -97,6 +97,7 @@ function updateReadProgressControls() {
   markAllButton.disabled = total === 0;
   markAllButton.setAttribute('aria-pressed', String(allRead));
   markAllButton.textContent = allRead ? '取消全部看过' : '全部标为看过';
+  window.dispatchEvent(new Event('arxiv:reading-progress'));
 }
 
 function updateSavedPapersControls() {
@@ -1009,6 +1010,7 @@ async function loadPapersByDate(date) {
           </div>
         `;
         paperData = {};
+        updateReadProgressControls();
         renderCategoryFilter({ sortedCategories: [], categoryCounts: {} });
         if (showingSavedPapers) renderPapers();
         return;
@@ -1024,6 +1026,7 @@ async function loadPapersByDate(date) {
         </div>
       `;
       paperData = {};
+      updateReadProgressControls();
       renderCategoryFilter({ sortedCategories: [], categoryCounts: {} });
       if (showingSavedPapers) renderPapers();
       return;
