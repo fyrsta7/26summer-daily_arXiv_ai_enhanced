@@ -1,0 +1,191 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 32,
+  "input_total": 31,
+  "cs.SE_kept": 2,
+  "cs.AI_candidates": 29,
+  "cs.AI_kept": 0,
+  "output_total": 2,
+  "filter_usage": {
+    "prompt_tokens": 9398,
+    "completion_tokens": 4102,
+    "total_tokens": 13500
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2609.02981",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI英语教材自适应学习系统，属于教育应用，没有agent或代码优化上的通用方法贡献。"
+    },
+    {
+      "id": "2609.03402",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "面向教学助手的prompt个性化框架，垂直教育领域，不涉及代码优化或通用agent机制。"
+    },
+    {
+      "id": "2609.03460",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "研究生成内容来源可视化与用户信任问题，与software engineering agent及SemOpt无关。"
+    },
+    {
+      "id": "2609.03494",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "LLM推理服务中的KV缓存管理，属系统内存优化，不涉及agent决策循环或代码优化。"
+    },
+    {
+      "id": "2609.03503",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "PPO和时空图神经网络用于云边端DAG任务调度，不属于LLM/coding agent或可迁移的通用agent方法。"
+    },
+    {
+      "id": "2609.03515",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "解码期KV cache驱逐策略，面向推理效率而非agent工作流或自动代码优化。"
+    },
+    {
+      "id": "2609.03526",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态烹饪推理benchmark，关注文化知识与视觉理解，与编码agent无关。"
+    },
+    {
+      "id": "2609.03527",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "新生儿呼吸系统疾病诊断的医疗多模态模型，垂直医学应用，无通用agent方法创新。"
+    },
+    {
+      "id": "2609.03535",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "医学图像分割中的特征重建方法，纯视觉任务，与agent无关。"
+    },
+    {
+      "id": "2609.03586",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "音视频扩散模型交叉注意力分析，研究多模态语义泄漏，与代码优化agent无关。"
+    },
+    {
+      "id": "2609.03635",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "药物毒性预测中的prompt灵敏度分析，垂直生物信息学，未提出通用agent架构或训练机制。"
+    },
+    {
+      "id": "2609.03702",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "用合成语义监督做代码表示学习，是代码embedding预训练而非agent或程序优化研究。"
+    },
+    {
+      "id": "2609.03707",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "最短路径反事实解释的整数规划求解，与LLM/coding agent无关。"
+    },
+    {
+      "id": "2609.03716",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "数据中心能耗优化文献综述和报告框架，属于系统节能管理而非agent设计方法。"
+    },
+    {
+      "id": "2609.03800",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "生成式AI数据与模型治理的哲学和制度讨论，无agent技术方法贡献。"
+    },
+    {
+      "id": "2609.03806",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "Text-to-SVG生成质量的评估框架，面向视觉生成模型而非代码生成agent。"
+    },
+    {
+      "id": "2609.03818",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "异构协同感知网络用于自动驾驶，非LLM agent且与软件工程agent不相关。"
+    },
+    {
+      "id": "2609.03880",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "表格数据基础模型TabLDM，属于监督/上下文学习模型研究，无agent交互或代码优化。"
+    },
+    {
+      "id": "2609.03883",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "人工agent情感意识与自由意志讨论，属认知建模，对代码优化agent没有启发。"
+    },
+    {
+      "id": "2609.03912",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "HTN计划去序优化是经典符号规划任务，未结合LLM，也难直接迁移到编码agent。"
+    },
+    {
+      "id": "2609.03938",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "经典HTN规划与SMT编码研究，不涉及LLM或可迁移的agent方法。"
+    },
+    {
+      "id": "2609.03973",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "反事实图像审计的因果/几何理论，与代码优化或agent设计无关。"
+    },
+    {
+      "id": "2609.04005",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "强化学习的对偶平坦几何理论，纯RL理论，对LLM agent无可迁移贡献。"
+    },
+    {
+      "id": "2609.04013",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "将现成LLM用于肾病筛查的垂直医疗应用，无通用agent方法贡献。"
+    },
+    {
+      "id": "2609.04014",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "多模态LLM工业仪表读数评测，属垂直能力benchmark，与agent设计/代码优化无关联。"
+    },
+    {
+      "id": "2609.04030",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "工业机器人对话数据集与DST，领域特定数据工作，无可迁移agent方法。"
+    },
+    {
+      "id": "2609.04098",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "混合LLM的低比特量化机制分析，纯模型压缩，不含agent内容。"
+    },
+    {
+      "id": "2609.04172",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "只讨论LLM on-policy蒸馏的数据/状态覆盖，虽与自我改进训练有类比但非agent方法，启发有限。"
+    },
+    {
+      "id": "2609.04177",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "因果概率解释框架，面向归因理论，没有软件工程或通用agent方法贡献。"
+    }
+  ]
+}
