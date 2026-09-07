@@ -41,12 +41,29 @@ def keep_for_delivery(record: dict[str, Any]) -> bool:
     return decision["relevant"] is True
 
 
+def sync_enhanced_records(
+    enhanced_records: list[dict[str, Any]], retained: list[dict[str, Any]]
+) -> list[dict[str, Any]]:
+    """Retain the selected IDs and copy their decisions without losing AI text."""
+    by_id = {str(record["id"]): record for record in retained}
+    result = []
+    for record in enhanced_records:
+        source = by_id.get(str(record.get("id")))
+        if source is None:
+            continue
+        updated = dict(record)
+        for field in ("selection", "se_selection"):
+            if field in source:
+                updated[field] = source[field]
+        result.append(updated)
+    return result
+
+
 def main() -> None:
     args = parse_args()
     data_path = Path(args.data)
     records = read_jsonl(data_path)
     retained = [record for record in records if keep_for_delivery(record)]
-    retained_ids = {str(record["id"]) for record in retained}
     removed_se = sum("cs.SE" in set(record.get("categories") or []) for record in records) - sum(
         "cs.SE" in set(record.get("categories") or []) for record in retained
     )
@@ -56,7 +73,7 @@ def main() -> None:
     if args.enhanced:
         enhanced_path = Path(args.enhanced)
         enhanced_records = read_jsonl(enhanced_path)
-        enhanced_retained = [record for record in enhanced_records if str(record.get("id")) in retained_ids]
+        enhanced_retained = sync_enhanced_records(enhanced_records, retained)
         write_jsonl(enhanced_path, enhanced_retained)
 
     print(

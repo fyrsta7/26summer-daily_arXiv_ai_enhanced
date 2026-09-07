@@ -88,7 +88,7 @@ if __name__ == "__main__":
                         authors=",".join(item["authors"]),
                         summary=item["summary"],
                         abstract_zh=ai_data.get('abstract_zh', ''),
-                        selection_reason=item.get('selection', {}).get('reason_zh', ''),
+                        selection_reason=(item.get('se_selection') or item.get('selection') or {}).get('reason_zh', ''),
                         url=item['abs'],
                         tldr=ai_data.get('tldr', ''),
                         motivation=ai_data.get('motivation', ''),
@@ -102,4 +102,4 @@ if __name__ == "__main__":
                 )
         markdown += "\n\n".join(papers)
     with open(args.data.split('_')[0] + '.md', "w") as f:
-        f.write(markdown)
+        f.write(markdown.rstrip() + '\n')

@@ -62,7 +62,7 @@ jobs:
         TARGET_DATE: ${{ matrix.date }}
         LANGUAGE: ${{ vars.LANGUAGE }}
       run: |
-        git fetch origin data
+        git fetch origin main
         complete=true
         for path in \
           "data/${TARGET_DATE}.jsonl" \
@@ -103,6 +103,21 @@ jobs:
         python3 ai/filter_relevance.py \
           --data "data/${{ matrix.date }}.jsonl" \
           --report "data/${{ matrix.date }}_filter_report.json"
+
+    - name: Apply cs.SE relevance selection before enhancement
+      if: steps.existing.outputs.complete != 'true'
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+        MODEL_NAME: ${{ vars.MODEL_NAME }}
+      run: |
+        source .venv/bin/activate
+        python3 scripts/backfill_se_selection.py \
+          --data-dir data \
+          --start-date "${{ matrix.date }}" \
+          --end-date "${{ matrix.date }}" \
+          --workers 1 --no-render
+        python3 scripts/prune_se_delivery_papers.py --data "data/${{ matrix.date }}.jsonl"
 
     - name: Generate Chinese AI enhancement
       if: steps.existing.outputs.complete != 'true'

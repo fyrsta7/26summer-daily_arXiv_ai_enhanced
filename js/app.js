@@ -933,8 +933,8 @@ function initDatePicker() {
         const dateStr = date.getFullYear() + "-" +
                         String(date.getMonth() + 1).padStart(2, '0') + "-" +
                         String(date.getDate()).padStart(2, '0');
-        // 在 availableDates[0] 之后的日期全部返回 false，否则返回 true
-        return dateStr <= availableDates[0];
+        // Only indexed dates are available, including after history cleanup.
+        return !!enabledDatesMap[dateStr];
       }
     ],
     onChange: function(selectedDates, dateStr) {

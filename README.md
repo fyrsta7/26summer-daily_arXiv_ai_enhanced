@@ -45,6 +45,10 @@ This innovative tool transforms how you stay updated with arXiv papers by combin
 
 ## Personal research collections
 
+网页论文历史从 **2026-04-18** 起保留：`cs.AI` 使用 SemOpt / Agent 相关性筛选，`cs.SE` 使用已有的 SemOpt / Coding Agent 补筛结果。更早的未筛选数据已从当前分支移除，可从 Git 历史恢复。历史同步记录见 `data/history_selection_sync_report.json`。
+
+网页的「看过／关注」保存在当前浏览器的 `localStorage`：看过记录包含论文 ID 和标记时间，关注记录包含论文内容快照和标记时间。它们不会写入此代码仓库，也不会自动上传到 GitHub；不同设备、浏览器或本地预览网址之间不自动共享。清除网站数据会删除这些标记。
+
 - [自动代码优化强相关论文精选](https://github.com/fyrsta7/26summer-daily_arXiv_ai_enhanced/blob/main/data/research/auto-code-optimization/README.md) — 以 SemOpt 为锚点，从日推送与 arXiv 全站扩展候选中进行严格的二次筛选。
 
 
