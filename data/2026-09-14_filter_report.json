@@ -1,0 +1,47 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 5,
+  "input_total": 5,
+  "cs.SE_kept": 0,
+  "cs.AI_candidates": 5,
+  "cs.AI_kept": 1,
+  "output_total": 1,
+  "filter_usage": {
+    "prompt_tokens": 1828,
+    "completion_tokens": 1142,
+    "total_tokens": 2970
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2609.11190",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "多 agent 系统（查询 agent + ReAct 诊断 agent）用于竞争决策，领域为电商，但包含 agent 协作编排与 100 次消融式可诊断性评估，方法设计对 agent 可靠性评测有轻度迁移价值。"
+    },
+    {
+      "id": "2609.11262",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "轻量视觉-语言编码器加 MLP 做火炬燃烧效率回归的垂直工业部署，不涉及 agent 架构或代码优化方法。"
+    },
+    {
+      "id": "2609.11277",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "用 XGBoost 和气象特征预测列车延误的领域建模工作，与 LLM agent 及代码优化无关。"
+    },
+    {
+      "id": "2609.11393",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "TASCO 是通过前缀扰动优化置信稳定性的测试时推理增强，模型冻结、无 agent 规划/工具/验证环节，属被排除的普通推理增强范畴。"
+    },
+    {
+      "id": "2609.11674",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "构建 Dataverse 地理元数据知识图谱的科研数据基础设施研究，提出的是元数据富化与实体消解需求，非 LLM agent 方法。"
+    }
+  ]
+}
