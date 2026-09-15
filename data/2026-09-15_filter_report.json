@@ -1,0 +1,173 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 38,
+  "input_total": 33,
+  "cs.SE_kept": 7,
+  "cs.AI_candidates": 26,
+  "cs.AI_kept": 11,
+  "output_total": 18,
+  "filter_usage": {
+    "prompt_tokens": 8499,
+    "completion_tokens": 5492,
+    "total_tokens": 13991
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2609.12101",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "混合预测中的选择性模型使用与abstention，不涉及LLM agent架构或代码优化，迁移价值有限。"
+    },
+    {
+      "id": "2609.12115",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "面向波浪建模的参数高效神经算子，与agent或自动代码优化无关。"
+    },
+    {
+      "id": "2609.12116",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "知识图谱嵌入编辑中的排序位移审计，不属于agent或程序优化研究。"
+    },
+    {
+      "id": "2609.12139",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "材料科学ALD/ALE工艺schema抽取，与LLM agent或代码优化无关。"
+    },
+    {
+      "id": "2609.12162",
+      "relevant": true,
+      "score": 0.68,
+      "reason_zh": "研究draft-verify-revise式LLM编排中的指代漂移与验证失效，对agent workflow可靠性有直接启发。"
+    },
+    {
+      "id": "2609.12171",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出企业级长程QA agent评测数据自动生成管线，可作为agent评测与长上下文任务设计参考。"
+    },
+    {
+      "id": "2609.12247",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "神经符号概念接地方法，与LLM agent或自动代码优化无关。"
+    },
+    {
+      "id": "2609.12313",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "机器遗忘中影响函数扰动审计，不属于agent或代码优化方向。"
+    },
+    {
+      "id": "2609.12320",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "面向多智能体多用户LLM的隐私感知记忆框架与MUMBench，直接涉及agent记忆与多用户协作。"
+    },
+    {
+      "id": "2609.12327",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "储备池计算的低秩在线适应，虽含自适应但非LLM agent方法。"
+    },
+    {
+      "id": "2609.12373",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "多轮对话中人格状态的选择性信念修正，可迁移到agent长期记忆的更新与抗漂移设计。"
+    },
+    {
+      "id": "2609.12395",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "3D高斯泼溅的参数化综述，与agent或代码优化无关。"
+    },
+    {
+      "id": "2609.12398",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "进化算法中的niching agent，属于非LLM游戏控制进化研究。"
+    },
+    {
+      "id": "2609.12399",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "生成式推荐的大束线性注意力解码优化，与agent或代码优化无关。"
+    },
+    {
+      "id": "2609.12404",
+      "relevant": true,
+      "score": 0.88,
+      "reason_zh": "提出有限试错预算下的agent评测harness与VEX²经验利用调度，直接对应agent自我改进与轨迹复用。"
+    },
+    {
+      "id": "2609.12413",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "系统化梳理agentic AI全执行链路的越狱攻防与评估框架，对agent可靠性和安全控制有参考价值。"
+    },
+    {
+      "id": "2609.12422",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "面向部分可观测多智能体导航的RL分层信念建模，非LLM agent且迁移性较弱。"
+    },
+    {
+      "id": "2609.12436",
+      "relevant": true,
+      "score": 0.76,
+      "reason_zh": "针对长期运行LLM agent的生命周期感知记忆融合，直接缓解临时信息覆盖持久知识的问题。"
+    },
+    {
+      "id": "2609.12446",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "狼人杀中LLM agent信念偏移评测，涉及多智能体通信中的来源可信度整合，可作agent评测参考。"
+    },
+    {
+      "id": "2609.12459",
+      "relevant": true,
+      "score": 0.67,
+      "reason_zh": "提出自进化奖励系统EvoRS与Reward-DAG，对agent自我改进和奖励可靠性设计有迁移意义。"
+    },
+    {
+      "id": "2609.12464",
+      "relevant": true,
+      "score": 0.82,
+      "reason_zh": "面向代码迁移的图解耦RAG（AST+属性图+上下文缓存），并给出编译/依赖/幻觉等多维评测框架，对coding agent的检索与验证机制有直接参考价值。"
+    },
+    {
+      "id": "2609.12472",
+      "relevant": false,
+      "score": 0.12,
+      "reason_zh": "LLM文本水印方法，与agent、代码优化或软件工程均无关。"
+    },
+    {
+      "id": "2609.12495",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "四agent（双专家+critic+meta）预测系统实证研究，结论是角色分工后综合阶段未必带来互补信息，对多agent协作与反思/综合机制设计有可迁移启发。"
+    },
+    {
+      "id": "2609.12694",
+      "relevant": false,
+      "score": 0.38,
+      "reason_zh": "多agent广告图像生成流水线，属垂直任务应用，除通用LLM-judge质检外无agent架构层面贡献。"
+    },
+    {
+      "id": "2609.12747",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "面向视障用户的VLM+数字孪生导航系统，与代码/软件agent及通用agent方法无关。"
+    },
+    {
+      "id": "2609.12949",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "教育场景LLM导师公平性benchmark，属垂直任务评测，未提出可迁移的agent架构或机制。"
+    }
+  ]
+}
