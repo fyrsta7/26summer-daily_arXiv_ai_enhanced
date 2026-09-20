@@ -2,12 +2,12 @@
   "policy": "cs.SE_semopt_relevance",
   "model": "ds/deepseek-v4-flash",
   "documents": 1,
-  "cs.SE_occurrences": 18,
-  "unique_arxiv_ids": 18,
-  "selected_unique": 15,
+  "cs.SE_occurrences": 3,
+  "unique_arxiv_ids": 3,
+  "selected_unique": 3,
   "usage": {
-    "prompt_tokens": 6221,
-    "completion_tokens": 2223,
-    "total_tokens": 8444
+    "prompt_tokens": 1170,
+    "completion_tokens": 1082,
+    "total_tokens": 2252
   }
 }
