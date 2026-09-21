@@ -1,0 +1,251 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 39,
+  "input_total": 39,
+  "cs.SE_kept": 0,
+  "cs.AI_candidates": 39,
+  "cs.AI_kept": 3,
+  "output_total": 3,
+  "filter_usage": {
+    "prompt_tokens": 12860,
+    "completion_tokens": 5875,
+    "total_tokens": 18735
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2609.19170",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "属于强化学习TD方法的收敛性理论分析（常数步长稳定性），不涉及LLM agent或代码优化，无可迁移的agent机制。"
+    },
+    {
+      "id": "2609.19180",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "生物物理文献证据检索的垂直领域QA/RAG benchmark，未提出通用agent架构或训练/推理机制。"
+    },
+    {
+      "id": "2609.19212",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "研究Transformer系统性泛化的推理测试床TranSGrid，虽涉及演绎/归纳/溯因推理，但并非agent方法或coding agent相关。"
+    },
+    {
+      "id": "2609.19448",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "认知科学视角下goal表示的语法语义概念性论述，与LLM agent工程或代码优化无直接关联。"
+    },
+    {
+      "id": "2609.19513",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "纯STEM预训练合成语料的构建与验证，属于模型预训练数据工作，无agent方法贡献。"
+    },
+    {
+      "id": "2609.19538",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出LLM编排外循环+MARL内循环的分层多agent架构，用LLM重配置目标与资源优先级，其分层编排思想对agent设计有一般性启发。"
+    },
+    {
+      "id": "2609.19671",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "面向推理模型的难度感知自适应计算分配与验证器奖励塑形，可迁移到agent的预算/深度控制与反馈式自我改进。"
+    },
+    {
+      "id": "2609.19770",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "蛋白质binder设计的结构预测器反演方法，纯生物分子设计，与agent或代码优化无关。"
+    },
+    {
+      "id": "2609.19775",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "医学病例报告的多模态本体信息系统，属医疗垂直应用，无通用agent方法贡献。"
+    },
+    {
+      "id": "2609.19820",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "研究正则化自博弈中参考策略对均衡选择的作用，把RLHF式KL锚点重新理解为选择旋钮，对RL训练agent的机制设计有潜在启发。"
+    },
+    {
+      "id": "2609.19832",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "关系表学习的元路径注意力框架，属结构化数据建模，与agent或代码优化无关。"
+    },
+    {
+      "id": "2609.19848",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "地图点要素标签布局的约束优化工程原型，属制图垂直任务，无agent方法价值。"
+    },
+    {
+      "id": "2609.19866",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "讨论LLM标注可复现性与构念效度的测量学方法论文，与agent架构、工具使用或代码任务无直接关联。"
+    },
+    {
+      "id": "2609.19871",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "物理知情RNN的地下水预测，属时间序列物理建模，与agent研究无关。"
+    },
+    {
+      "id": "2609.19928",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "银行场景的语义用户画像多阶段LLM流水线，主要贡献是降低推理成本的垂直部署，未提出通用agent方法。"
+    },
+    {
+      "id": "2609.19934",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "针对深度递归语言模型深度利用率的诊断协议，属模型结构评测方法，对agent评测仅有很弱的方法论类比。"
+    },
+    {
+      "id": "2609.19996",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "可微最短路径搜索的定制化路线规划，属路径规划优化而非程序/代码优化或agent。"
+    },
+    {
+      "id": "2609.20001",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "自动视频面试评估的证据溯源框架，属招聘垂直应用，无通用agent方法贡献。"
+    },
+    {
+      "id": "2609.20005",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "研究LLM跨语言地缘政治偏见，属模型社会属性分析，与agent研究无关。"
+    },
+    {
+      "id": "2609.20026",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "联邦交通流预测框架，属时空预测垂直任务，与agent或代码优化无关。"
+    },
+    {
+      "id": "2609.20027",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "研究训练数据归因方法过滤潜意识学习的可靠性，属于模型安全/数据归因，与 agent 架构或代码优化无迁移关联。"
+    },
+    {
+      "id": "2609.20051",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "面向少步视频扩散模型的免训练 LoRA 复用方法，属生成模型适配，与 agent 或代码优化无关。"
+    },
+    {
+      "id": "2609.20057",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "用语言模型辅助清理 Wikidata 类型体系，属知识图谱数据治理流水线，非 agent 方法或代码优化。"
+    },
+    {
+      "id": "2609.20067",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "FCA 引导的反事实解释用于乳腺癌诊断，属医疗垂直应用，无可迁移的通用 agent 方法贡献。"
+    },
+    {
+      "id": "2609.20068",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "边际效用与 KV 缓存/矩阵分解的理论统一及地质文档抽取，属推理效率与领域应用，与 agent 无直接关联。"
+    },
+    {
+      "id": "2609.20077",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "个性化语言模型的纵向人机交互用户研究，虽涉及记忆式个性化，但结论偏 HCI 影响评估，未提出可迁移的 agent 机制。"
+    },
+    {
+      "id": "2609.20091",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "用 SAT 求解最小跨度反带宽图标注问题，属纯数学组合优化，与程序优化 agent 无关。"
+    },
+    {
+      "id": "2609.20177",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "面向企业避税代理指标的 GBDT-神经网络混合预测，属金融表格建模，与 agent 研究无关。"
+    },
+    {
+      "id": "2609.20179",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "顺序上下文拟合度量用于解释人类行为与神经动态，属认知计算，与 agent 方法无关。"
+    },
+    {
+      "id": "2609.20200",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "异构 GNN 求解拼车匹配，属运筹/图学习应用，未涉及 agent 规划或代码优化。"
+    },
+    {
+      "id": "2609.20271",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "基于学习优化的 GNN 做车联网中继选择，属网络优化垂直应用，无通用 agent 贡献。"
+    },
+    {
+      "id": "2609.20277",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "JEPA 潜表示连接视觉指令与世界动作模型，属机器人操作，与 coding agent 无关。"
+    },
+    {
+      "id": "2609.20323",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "神经符号 3D 几何重建框架，属视觉/CAD 领域，与 agent 研究无关。"
+    },
+    {
+      "id": "2609.20349",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "面向积木拼图游戏的定性推理模型，虽含博弈 agent，但领域为空间技能训练，无可迁移方法。"
+    },
+    {
+      "id": "2609.20358",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "扩散-对抗模型从 2D 图像生成 3D 地质微结构，属材料/地球科学生成建模，与 agent 无关。"
+    },
+    {
+      "id": "2609.20535",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "频率条件归一化的 Transformer 基础模型用于跨域预测性维护，属工业时序应用，与 agent 无关。"
+    },
+    {
+      "id": "2609.20581",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "分析离散扩散中置信度排序的生成分布偏差，属生成模型理论，与 agent 无关。"
+    },
+    {
+      "id": "2609.20634",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "Allen 区间关系的概率化扩展，属时序定性推理理论，与 agent 或代码优化无关。"
+    },
+    {
+      "id": "2609.20658",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "关于 AI 辅助任务中归属感的定性调研，属人机交互研究，无可迁移的 agent 技术贡献。"
+    }
+  ]
+}
