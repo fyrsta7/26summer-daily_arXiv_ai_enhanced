@@ -1,0 +1,65 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 10,
+  "input_total": 9,
+  "cs.SE_kept": 1,
+  "cs.AI_candidates": 8,
+  "cs.AI_kept": 4,
+  "output_total": 5,
+  "filter_usage": {
+    "prompt_tokens": 2880,
+    "completion_tokens": 868,
+    "total_tokens": 3748
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2609.25443",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "面向受治理 AI agent 运行时的授权/再验证契约与持久化准入边界，涉及 agent 动作可靠性与安全控制，对 agent 执行框架设计有迁移价值。"
+    },
+    {
+      "id": "2609.25712",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "面向中医药多源知识图谱的查询与物理设计，属垂直领域应用，未提出可迁移的通用 agent 方法。"
+    },
+    {
+      "id": "2609.25848",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "系统分析权重更新、候选选择、提示改写三种优化基质下的 reward hacking，强调独立于评分的验证证据，对 agent 自我改进与评估可靠性研究有直接启发。"
+    },
+    {
+      "id": "2609.25873",
+      "relevant": true,
+      "score": 0.58,
+      "reason_zh": "LLM 多 agent 框架用于模拟电路尺寸优化，包含拓扑理解、设计知识复用与规划者协调专家 agent 的迭代优化循环，思路可迁移到代码/参数自动优化 agent。"
+    },
+    {
+      "id": "2609.26046",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "关于部分-整体层级表征的几何原语与神经网络场，与 agent、代码优化或工具使用无关。"
+    },
+    {
+      "id": "2609.26087",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出生成-对抗攻击的闭环流水线与规则知识字典，并揭示评判者一致性差的问题，其对抗式自我审查与验证机制可迁移到 agent 自验证设计。"
+    },
+    {
+      "id": "2609.26279",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "基于标签增强的机器人账号检测，属社交网络安全应用，与 agent 方法无关。"
+    },
+    {
+      "id": "2609.26556",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "中性原子量子计算求解 NOMA 资源分配的组合优化问题，与程序优化及 LLM agent 无关。"
+    }
+  ]
+}
