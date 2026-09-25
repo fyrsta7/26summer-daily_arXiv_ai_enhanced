@@ -1,0 +1,29 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 4,
+  "input_total": 3,
+  "cs.SE_kept": 1,
+  "cs.AI_candidates": 2,
+  "cs.AI_kept": 1,
+  "output_total": 2,
+  "filter_usage": {
+    "prompt_tokens": 1048,
+    "completion_tokens": 264,
+    "total_tokens": 1312
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2609.27336",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "闭环自适应红队测试框架，含Challenger/Target/Judge角色分离与工具型agent测试，属agent可靠性与安全控制的一般方法，可迁移到coding agent的失败发现与验证机制。"
+    },
+    {
+      "id": "2609.27903",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "交通网络韧性恢复与LSTM趋势预测，与LLM agent、代码优化无关，仅摘要涉及优化/网络字样，无可迁移的agent方法贡献。"
+    }
+  ]
+}
