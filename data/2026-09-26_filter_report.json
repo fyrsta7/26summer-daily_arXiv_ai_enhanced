@@ -1,0 +1,77 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 20,
+  "input_total": 18,
+  "cs.SE_kept": 8,
+  "cs.AI_candidates": 10,
+  "cs.AI_kept": 6,
+  "output_total": 14,
+  "filter_usage": {
+    "prompt_tokens": 3728,
+    "completion_tokens": 2337,
+    "total_tokens": 6065
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2609.28771",
+      "relevant": true,
+      "score": 0.67,
+      "reason_zh": "提出 episodic memory 增强的多 agent 决策框架，包含经验检索、反思与信号重加权，虽用于金融但记忆机制可迁移至 agent 研究。"
+    },
+    {
+      "id": "2609.29075",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "面向肿瘤登记领域的 RAG 问答应用，主要贡献是领域知识库与评估，没有可迁移的通用 agent 方法。"
+    },
+    {
+      "id": "2609.29191",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出推理时检索领域定义并可切换多/单 agent 架构的 agentic 框架，检索+多 agent 流程设计对 agent 工作流有参考价值。"
+    },
+    {
+      "id": "2609.29381",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "面向肺癌临床决策的策略表示与评估，属于垂直医疗应用，未提出通用 LLM agent 架构或可迁移方法。"
+    },
+    {
+      "id": "2609.29403",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "反应扩散方程代理模型的 JEPA 预训练，与 LLM agent、代码优化或 agent 方法无关。"
+    },
+    {
+      "id": "2609.29429",
+      "relevant": true,
+      "score": 0.52,
+      "reason_zh": "研究对齐失败检测与校准决策，覆盖多种 agent 安全/可靠性失效类型，可作为 agent 安全控制与评测的相关工作跟踪。"
+    },
+    {
+      "id": "2609.29508",
+      "relevant": true,
+      "score": 0.86,
+      "reason_zh": "直接研究多轮 LLM agent 的一致性与失败模式，使用生存分析和失败理由分类，对 agent 长程可靠性评测有高度参考价值。"
+    },
+    {
+      "id": "2609.29556",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "对话情感识别的 Transformer-GAT 多模态融合，与 LLM agent 或自动代码优化无关。"
+    },
+    {
+      "id": "2609.29837",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "提出实时具身语言模型队友，结合工具调用、记忆压缩、安全护栏与人机交互迭代评测，其 agent harness 与部署经验可迁移。"
+    },
+    {
+      "id": "2609.30199",
+      "relevant": true,
+      "score": 0.78,
+      "reason_zh": "提出可验证未知世界中的探索 benchmark，要求假设、实验与迭代，对 agent 探索能力和长程工具使用评测有直接价值。"
+    }
+  ]
+}
