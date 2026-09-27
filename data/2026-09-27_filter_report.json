@@ -1,0 +1,71 @@
+{
+  "model": "ds/deepseek-v4-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 9,
+  "input_total": 9,
+  "cs.SE_kept": 0,
+  "cs.AI_candidates": 9,
+  "cs.AI_kept": 4,
+  "output_total": 4,
+  "filter_usage": {
+    "prompt_tokens": 3601,
+    "completion_tokens": 1357,
+    "total_tokens": 4958
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2609.28859",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出成本感知的选择性AI评分与顺序人工升级验证机制，其可靠性/验证-预算权衡思路可迁移到agent的自动验证与speedup核验环节。"
+    },
+    {
+      "id": "2609.29189",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "AI辩论与战略交互式监督框架，研究多agent论证中验证者如何获取信息，对agent可靠性、监督与安全控制设计有启发。"
+    },
+    {
+      "id": "2609.29341",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "面向护肤咨询的垂直多模态agent应用，仅做了常规安全/工具编排，无通用agent方法贡献。"
+    },
+    {
+      "id": "2609.29730",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "关于AI生命周期偏见分类与验证治理的概念性框架，与LLM agent架构或代码优化无关。"
+    },
+    {
+      "id": "2609.29802",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "科研想法生成的奖励模型与RL对齐，属开放式生成训练，未涉及agent规划/工具/执行机制。"
+    },
+    {
+      "id": "2609.29952",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "构建人物画像模拟与决策备忘录的多阶段流水线，并给出“评测提示设定即可主导结论”的方法学负面发现，对agent评测设计有可迁移警示价值。"
+    },
+    {
+      "id": "2609.30001",
+      "relevant": true,
+      "score": 0.88,
+      "reason_zh": "Research Agent与Model Agent双agent长程自主框架，自动提出假设、跑实验、读指标并迭代诊断，与自动代码/模型优化agent高度同构。"
+    },
+    {
+      "id": "2609.30063",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "自博弈无数据预训练方法，属训练数据生成机制，与agent规划、工具使用或代码优化无直接关联。"
+    },
+    {
+      "id": "2609.30205",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "面向电子病历检索的临床基准构建，属垂直医疗评测，无通用agent方法或基准方法贡献。"
+    }
+  ]
+}
