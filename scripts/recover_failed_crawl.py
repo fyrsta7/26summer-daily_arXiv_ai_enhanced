@@ -45,7 +45,12 @@ def main():
     repo = os.environ["GITHUB_REPOSITORY"]
 
     def api(path):
-        return subprocess.check_output(["gh", "api", f"repos/{repo}/{path}"], text=True)
+        command = ["gh", "api", f"repos/{repo}/{path}"]
+        if path.endswith("/logs"):
+            # Runner gh versions reject ANSI escapes even when stdout is captured.
+            # Parse the captured log as data; never write it to a terminal.
+            command.append("--allow-escape-sequences")
+        return subprocess.check_output(command, text=True)
 
     run = json.loads(api(f"actions/runs/{args.run_id}"))
     original_day = datetime.fromisoformat(run["created_at"].replace("Z", "+00:00")).astimezone(
