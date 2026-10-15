@@ -19,7 +19,25 @@ def probe(name, path, payload=None):
     )
     try:
         with urllib.request.urlopen(request, timeout=45) as response:
-            data = json.load(response)
+            if payload and payload.get('stream'):
+                first_content = None
+                for line in response:
+                    if not line.startswith(b'data: '):
+                        continue
+                    fragment = line[6:].strip()
+                    if fragment == b'[DONE]':
+                        break
+                    chunk = json.loads(fragment)
+                    for choice in chunk.get('choices', []):
+                        content = choice.get('delta', {}).get('content')
+                        if content:
+                            first_content = content
+                            break
+                    if first_content:
+                        break
+                data = {'choices':[{'first_content':first_content}]}
+            else:
+                data = json.load(response)
             if path == '/models':
                 result = {'matching_models': [m['id'] for m in data.get('data', []) if 'deepseek' in m.get('id', '').lower()]}
             else:
@@ -36,9 +54,11 @@ def probe(name, path, payload=None):
 plain = {'model':model, 'messages':[{'role':'user','content':'Reply with the word OK.'}], 'max_tokens':64}
 structured = {'model':model, 'messages':[{'role':'user','content':'Return JSON: {"ok": true}'}], 'max_tokens':64,
               'response_format':{'type':'json_object'}, 'temperature':0}
+plain['thinking'] = {'type':'disabled'}
+structured['thinking'] = {'type':'disabled'}
 with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
-    futures = [executor.submit(probe, 'model_list', '/models'),
-               executor.submit(probe, 'plain_completion', '/chat/completions', plain),
-               executor.submit(probe, 'json_completion', '/chat/completions', structured)]
+    futures = [executor.submit(probe, 'plain_no_thinking', '/chat/completions', plain),
+               executor.submit(probe, 'json_no_thinking', '/chat/completions', structured),
+               executor.submit(probe, 'stream_no_thinking', '/chat/completions', {**plain, 'stream':True})]
     for future in futures:
         future.result()
