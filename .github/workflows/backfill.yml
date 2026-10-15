@@ -11,9 +11,23 @@ on:
         description: Last date to process (YYYY-MM-DD)
         required: true
         type: string
+      source_run_id:
+        description: Recover one failed daily run from its original crawl log
+        required: false
+        type: string
+      send_email:
+        description: Email newly recovered digests
+        required: false
+        type: boolean
+        default: false
 
 permissions:
+  actions: read
   contents: write
+
+concurrency:
+  group: daily-arxiv-delivery
+  cancel-in-progress: false
 
 jobs:
   prepare:
@@ -83,7 +97,7 @@ jobs:
         uv sync
 
     - name: Fetch historical arXiv submissions
-      if: steps.existing.outputs.complete != 'true'
+      if: steps.existing.outputs.complete != 'true' && inputs.source_run_id == ''
       env:
         CATEGORIES: ${{ vars.CATEGORIES }}
       run: |
@@ -91,6 +105,20 @@ jobs:
         python3 scripts/fetch_arxiv_date.py \
           --date "${{ matrix.date }}" \
           --output "data/${{ matrix.date }}.jsonl"
+
+    - name: Recover original crawl and deduplicate against published history
+      if: steps.existing.outputs.complete != 'true' && inputs.source_run_id != ''
+      env:
+        GH_TOKEN: ${{ github.token }}
+        SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+        TARGET_DATE: ${{ matrix.date }}
+        START_DATE: ${{ inputs.start_date }}
+        END_DATE: ${{ inputs.end_date }}
+      run: |
+        test "$START_DATE" = "$END_DATE"
+        python3 scripts/recover_failed_crawl.py \
+          --run-id "$SOURCE_RUN_ID" --date "$TARGET_DATE" \
+          --data-dir data --history-ref FETCH_HEAD
 
     - name: Filter cs.AI papers
       if: steps.existing.outputs.complete != 'true'
@@ -149,6 +177,29 @@ jobs:
         python convert.py \
           --data "../data/${{ matrix.date }}_AI_enhanced_${LANGUAGE}.jsonl"
 
+    - name: Validate recovered AI analysis before publishing
+      if: steps.existing.outputs.complete != 'true'
+      env:
+        TARGET_DATE: ${{ matrix.date }}
+        LANGUAGE: ${{ vars.LANGUAGE }}
+      run: |
+        python3 - <<'PY'
+        import json
+        import os
+        from pathlib import Path
+        data = Path('data')
+        day = os.environ['TARGET_DATE']
+        raw = [json.loads(line) for line in (data / f'{day}.jsonl').read_text().splitlines() if line.strip()]
+        enhanced = [json.loads(line) for line in (data / f'{day}_AI_enhanced_{os.environ["LANGUAGE"]}.jsonl').read_text().splitlines() if line.strip()]
+        assert {item['id'] for item in raw} == {item['id'] for item in enhanced}, 'Missing enhanced papers'
+        placeholders = {'Abstract translation failed', 'Summary generation failed', 'Motivation analysis unavailable', 'Method extraction failed', 'Result analysis unavailable', 'Conclusion extraction failed', 'Processing failed'}
+        for item in enhanced:
+            for field in ('abstract_zh', 'tldr', 'motivation', 'method', 'result', 'conclusion'):
+                value = str(item.get('AI', {}).get(field, '')).strip()
+                assert value and value not in placeholders, f'Incomplete AI analysis: {item["id"]} {field}'
+        print(f'Validated {len(enhanced)} complete paper analyses for {day}')
+        PY
+
     - name: Upload processed date
       if: steps.existing.outputs.complete != 'true'
       uses: actions/upload-artifact@v4
@@ -201,3 +252,27 @@ jobs:
           git commit -m "backfill: ${START_DATE} through ${END_DATE} arXiv papers"
           git push origin main
         fi
+
+    - name: Email newly recovered digests
+      if: inputs.send_email == true
+      env:
+        SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+        EMAIL_FROM: ${{ vars.EMAIL }}
+        EMAIL_TO: zhaoyuweiteddy@163.com
+        CATEGORIES: ${{ vars.CATEGORIES }}
+        LANGUAGE: ${{ vars.LANGUAGE }}
+      run: |
+        shopt -s nullglob
+        for report in incoming/*_filter_report.json; do
+          target_date=$(basename "$report" _filter_report.json)
+          if [ ! -s "data/${target_date}_AI_enhanced_${LANGUAGE}.jsonl" ]; then
+            python3 send_email.py --date "$target_date" --no-new-content
+            continue
+          fi
+          python3 send_email.py \
+            --date "$target_date" \
+            --markdown "data/${target_date}.md" \
+            --raw-jsonl "data/${target_date}.jsonl" \
+            --enhanced-jsonl "data/${target_date}_AI_enhanced_${LANGUAGE}.jsonl" \
+            --filter-report "data/${target_date}_filter_report.json"
+        done
