@@ -1,0 +1,275 @@
+{
+  "model": "ds/deepseek-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 51,
+  "input_total": 49,
+  "cs.SE_kept": 6,
+  "cs.AI_candidates": 43,
+  "cs.AI_kept": 3,
+  "output_total": 9,
+  "filter_usage": {
+    "prompt_tokens": 14732,
+    "completion_tokens": 5359,
+    "total_tokens": 20091
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2610.30170",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "用 AI 代理模型替代野火 Monte Carlo 仿真，属于科学计算加速，不涉及程序性能优化或 agent 方法。"
+    },
+    {
+      "id": "2610.30173",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "可微信任函数层与梯度稳定性分析，属不确定性建模的网络结构工作，与 agent 无关。"
+    },
+    {
+      "id": "2610.30176",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "抽象论证语义的图论/路径条件理论研究，与 LLM agent 或代码优化无关联。"
+    },
+    {
+      "id": "2610.30391",
+      "relevant": false,
+      "score": 0.12,
+      "reason_zh": "神经符号学习中的软本体先验与概率电路编译，属可识别性/概率推理，非 agent 方法。"
+    },
+    {
+      "id": "2610.30631",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "医学指南更新在 LLM 中的“识别-采纳差距”实证，属垂直领域可靠性，无通用 agent 机制贡献。"
+    },
+    {
+      "id": "2610.30644",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "推测解码接受率的位置诊断，属推理加速与长 CoT 分析，未提出 agent 架构或规划方法。"
+    },
+    {
+      "id": "2610.30660",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出确定性控制器+LLM 仅在记录决策点介入、并用同一证据自检推荐的 agent 架构，其可追溯证据与人在回路模式可迁移到代码优化 agent 的验证环节。"
+    },
+    {
+      "id": "2610.30663",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "GRPO 用于低资源语言 ASR 训练，属语音模型训练，与 agent 或代码无关。"
+    },
+    {
+      "id": "2610.30678",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "安全探针性能随模型规模与标注量的缩放律，可作监控参考但非 agent 方法论文。"
+    },
+    {
+      "id": "2610.30696",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "多语言 LLM 谄媚与能力解耦分析，属模型行为评测，未涉及 agent 设计。"
+    },
+    {
+      "id": "2610.30727",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "潜空间有害性监控在分布偏移下的有效性评估，属安全监控分析，与 agent 架构无关。"
+    },
+    {
+      "id": "2610.30751",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "通过措辞变化测试模型是否会发出编辑调用，属伦理边界与越狱式行为观察，无方法贡献。"
+    },
+    {
+      "id": "2610.30765",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "生成式奖励模型缩放律与在线 DPO，属偏好优化训练研究，非 agent 或代码优化。"
+    },
+    {
+      "id": "2610.30779",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "MoE 模型超低比特量化与路由一致性微调，属模型压缩，明确在排除范围。"
+    },
+    {
+      "id": "2610.30822",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "面向 EU AI Act 合规的定制 GPT 应用与评估，属垂直治理应用，无通用 agent 方法。"
+    },
+    {
+      "id": "2610.30838",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "半线性高斯贝叶斯网络的结构学习与拟合，属概率图模型方法，与 agent 无关。"
+    },
+    {
+      "id": "2610.30899",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "主动推理下的变分消息传递与参数学习规划，属 POMDP 推断方法，未涉及 LLM agent。"
+    },
+    {
+      "id": "2610.30902",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "脑疾病诊断的群体图关系精炼方法，属医学影像垂直任务。"
+    },
+    {
+      "id": "2610.30909",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "零售数字孪生仿真平台，虽含多工具助手，但核心是垂直商业模拟，无通用 agent 贡献。"
+    },
+    {
+      "id": "2610.30920",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "把 schema 编译为上下文参数化转移程序以做精确约束解码，提升函数调用 schema 合法率与解码效率，对 agent 工具调用/结构化输出的可靠性有可迁移价值。"
+    },
+    {
+      "id": "2610.30938",
+      "relevant": false,
+      "score": 0.22,
+      "reason_zh": "研究神经网络表示对齐与模型拼接的几何理论，不涉及 agent、代码或优化流程，仅对策略迁移有极间接启发。"
+    },
+    {
+      "id": "2610.30971",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "时间序列基础模型用于土壤湿度预测的垂直应用，没有 agent 架构或方法贡献。"
+    },
+    {
+      "id": "2610.31005",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "长文本图文对齐与显著性坍缩，属多模态检索，与 agent 或代码优化无关。"
+    },
+    {
+      "id": "2610.31012",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "提出上下文敏感的 LLM 判断轨迹评估框架，有 agent 评测的弱可迁移性，但无 agent 执行/工具/规划内容。"
+    },
+    {
+      "id": "2610.31038",
+      "relevant": false,
+      "score": 0.12,
+      "reason_zh": "决策配置空间与不确定性敏感性分析的管理科学框架，与 LLM agent 无关。"
+    },
+    {
+      "id": "2610.31041",
+      "relevant": false,
+      "score": 0.22,
+      "reason_zh": "教育自适应系统中的算法漂移与公平性干预，虽含反馈闭环建模，但属垂直教育应用。"
+    },
+    {
+      "id": "2610.31046",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "反蒸馏的 logit 适配器训练防御，属模型训练/保护机制，不涉及 agent 行为。"
+    },
+    {
+      "id": "2610.31060",
+      "relevant": false,
+      "score": 0.42,
+      "reason_zh": "显式与应用型心智理论差距诊断，含测试时轻量参数自适应机制，对 agent 推理时自我改进有弱启发。"
+    },
+    {
+      "id": "2610.31100",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "Flood-It 谜题的 A* 与 SAT/CP 求解器对比，属经典搜索与约束求解，无 LLM agent 成分。"
+    },
+    {
+      "id": "2610.31104",
+      "relevant": false,
+      "score": 0.08,
+      "reason_zh": "BANKING77/CLINC150 意图分类工程调优报告，与 agent 或代码优化无关。"
+    },
+    {
+      "id": "2610.31120",
+      "relevant": false,
+      "score": 0.18,
+      "reason_zh": "扩散语言模型并行解码的 token 提交策略，属推理效率方法，不含 agent 规划或工具使用。"
+    },
+    {
+      "id": "2610.31146",
+      "relevant": false,
+      "score": 0.08,
+      "reason_zh": "基于 Fisher 向量的图像检索特征聚合，与研究方向无关。"
+    },
+    {
+      "id": "2610.31198",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "扩散语言模型的任务-时间感知量化，属模型压缩推理加速，非 agent 方法。"
+    },
+    {
+      "id": "2610.31215",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "蛋白质序列-结构统一扩散语言模型，属领域基础模型，与 agent 研究无关。"
+    },
+    {
+      "id": "2610.31248",
+      "relevant": false,
+      "score": 0.08,
+      "reason_zh": "光伏预测误差的专家集成组合，纯时间序列集成方法。"
+    },
+    {
+      "id": "2610.31338",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "树式投机解码的候选剪枝加速，虽有验证前筛选思想，但面向推理服务而非 agent。"
+    },
+    {
+      "id": "2610.31429",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "视频生成模型物理一致性时序评估，与 agent 或代码无关。"
+    },
+    {
+      "id": "2610.31438",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "可调控指令遵循强度的蒸馏适配器，属模型控制方法，不涉及 agent 决策流程。"
+    },
+    {
+      "id": "2610.31506",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "家庭食物推荐的美德约束公平分配，垂直推荐应用，无 agent 通用方法。"
+    },
+    {
+      "id": "2610.31519",
+      "relevant": false,
+      "score": 0.38,
+      "reason_zh": "制药合规文本生成的生产案例，将规则从提示迁移到检索时结构化上下文，对 agent 上下文工程有弱参考但无通用方法贡献。"
+    },
+    {
+      "id": "2610.31522",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "揭示隐藏未来信息泄漏会造成虚假性能增益，并给出前缀不变性审计与泄漏度量方法，这种“表面指标提升需配合整体行为校验”的思路可迁移到自动代码优化中的 speedup 可信性验证。"
+    },
+    {
+      "id": "2610.31576",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "研究扩散语言模型的解掩码策略与 NFE 效率权衡，属模型推理加速而非 agent 或程序优化方法。"
+    },
+    {
+      "id": "2610.31579",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "关于用户对高自信 LLM 的顺从与信任校准的人类实验，不涉及 agent 架构、规划或代码优化方法。"
+    }
+  ]
+}
