@@ -169,7 +169,7 @@ def process_single_item(chain, item: Dict, language: str) -> Dict:
 
 def process_all_items(data: List[Dict], model_name: str, language: str, max_workers: int) -> List[Dict]:
     """并行处理所有数据项"""
-    llm = ChatOpenAI(model=model_name).with_structured_output(
+    llm = ChatOpenAI(model=model_name, max_retries=6).with_structured_output(
         Structure, method="json_mode"
     )
 
