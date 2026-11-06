@@ -4,6 +4,7 @@
 import argparse
 import os
 import smtplib
+import time
 from email.message import EmailMessage
 from pathlib import Path
 
@@ -44,12 +45,7 @@ def main():
             f"在线阅读：https://fyrsta7.github.io/26summer-daily_arXiv_ai_enhanced/\n"
         )
 
-        with smtplib.SMTP_SSL("smtp.163.com", 465, timeout=60) as smtp:
-            smtp.login(sender, password)
-            refused = smtp.send_message(message)
-            if refused:
-                raise RuntimeError(f"SMTP refused recipients: {', '.join(refused)}")
-
+        send_with_retry(message, sender, password)
         print(f"No-new-content email accepted by smtp.163.com for {recipient}")
         return
 
@@ -94,13 +90,29 @@ def main():
             path.read_bytes(), maintype=maintype, subtype=subtype, filename=path.name
         )
 
-    with smtplib.SMTP_SSL("smtp.163.com", 465, timeout=60) as smtp:
-        smtp.login(sender, password)
-        refused = smtp.send_message(message)
-        if refused:
-            raise RuntimeError(f"SMTP refused recipients: {', '.join(refused)}")
-
+    send_with_retry(message, sender, password)
     print(f"Email accepted by smtp.163.com for {recipient}; papers={paper_count}")
+
+
+def send_with_retry(message, sender, password, attempts=4):
+    """Retry transient SMTP failures such as write timeouts and dropped connections."""
+    last_error = None
+    for attempt in range(1, attempts + 1):
+        try:
+            with smtplib.SMTP_SSL("smtp.163.com", 465, timeout=180) as smtp:
+                smtp.login(sender, password)
+                refused = smtp.send_message(message)
+            if refused:
+                raise RuntimeError(f"SMTP refused recipients: {', '.join(refused)}")
+            return
+        except smtplib.SMTPAuthenticationError:
+            raise
+        except OSError as e:  # smtplib.SMTPException and socket timeouts are OSError
+            last_error = e
+            print(f"SMTP attempt {attempt}/{attempts} failed: {e!r}")
+            if attempt < attempts:
+                time.sleep(30 * attempt)
+    raise RuntimeError(f"Email failed after {attempts} attempts: {last_error!r}")
 
 
 if __name__ == "__main__":
