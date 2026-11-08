@@ -1,0 +1,1625 @@
+{
+  "model": "ali/qwen3.7-plus",
+  "model_scope": "New requests; per-record model provenance retains validated cached results.",
+  "policy": "cs.SE_and_cs.AI_semopt_relevance",
+  "input_records": 190,
+  "input_total": 183,
+  "cs.SE_candidates": 39,
+  "cs.SE_kept": 29,
+  "cs.AI_candidates": 144,
+  "cs.AI_kept": 72,
+  "output_total": 101,
+  "cs.SE_decisions": [
+    {
+      "id": "2610.37871",
+      "relevant": true,
+      "score": 0.84,
+      "reason_zh": "面向二进制的跨过程语义基准，覆盖工具增强与开放世界 agent，可迁移到程序分析 agent 的评测与工具反馈设计。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37888",
+      "relevant": false,
+      "score": 0.22,
+      "reason_zh": "研究 AI 辅助开发中的认知债务与人因实践，缺乏可迁移到代码 agent 的算法、工作流或评测方法贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38039",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "LLM 生成控制器结合概率模型检验提供逐实例保证并复用，验证反馈与计划复用机制可迁移到生成代码的可靠性保障。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38054",
+      "relevant": false,
+      "score": 0.24,
+      "reason_zh": "PQC 开源项目采纳与维护的实证挖掘，虽含 LLM 分类但属领域特定软件工程研究，无通用 agent 方法贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38130",
+      "relevant": true,
+      "score": 0.88,
+      "reason_zh": "LLM 提出动态不变式并用插桩、delta debugging 处理副作用与挂起，可直接迁移到测试、性质检验和程序验证。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38167",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "GSoC 指导者受 GenAI 影响的质性研究，属教育/社区人因议题，没有代码 agent 或自动优化方法贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38214",
+      "relevant": true,
+      "score": 0.96,
+      "reason_zh": "提出 Skeleton Coding，让开发者用程序骨架规范编码 agent，理论上减少测试需求并实验降低错误、成本与代码侵蚀，直接相关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38244",
+      "relevant": true,
+      "score": 0.93,
+      "reason_zh": "控制实验揭示编码 agent 在既有代码先例与任务意图冲突时的选择机制，并验证 harness 规则干预有效，直接指导 agent 工作流与上下文设计。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38311",
+      "relevant": true,
+      "score": 0.82,
+      "reason_zh": "用蜕变测试递归质疑 LLM 的 APR 解释并检测矛盾，属于修复验证与 LLM 可靠性检测，可迁移到 agent 自检和错误解释过滤。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38337",
+      "relevant": true,
+      "score": 0.77,
+      "reason_zh": "通过 LLM 合成差分模糊测试输入生成器，自动化评估代码功能相似性，可用于优化、重构等价性验证与行为保持检查。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37830",
+      "relevant": true,
+      "score": 0.86,
+      "reason_zh": "用执行回放对比 AI 生成合约与可执行参考答案，并提出‘先澄清需求再生成’的 agent 架构，验证只重写/补丁远不如先提问，对代码 agent 的需求获取与验证机制高度可迁移。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38521",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "把 CLAUDE.md 等 agent 记忆文件当作攻击面，实证恶意记忆文件会改变安全代码生成率且 agent 披露行为不一致，直接关系代码 agent 的记忆可靠性与防御设计。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38610",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "系统比较贪心回放、强模型、judge 等修复评估器与实际部署执行器的失配损失，证明修复必须由真正执行该动作的 agent 自身 rollout 验证，对 agent 自我修复/反思的选择机制是核心可迁移结论。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38621",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "对 LLM 智能合约漏洞检测做扩展复现，揭示检测表现依赖具体模型而非仅架构族，对代码安全分析与 LLM 评测可复现性有参考价值但偏垂直领域。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38628",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "自动驾驶系统仿真-现实差距的系统映射综述，属特定垂直测试领域，缺乏可迁移到代码 agent 或程序优化的方法贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38682",
+      "relevant": true,
+      "score": 0.82,
+      "reason_zh": "Splicer 用 WebAssembly 组件插桩实现跨语言可移植、可沙箱化的监控与调试工具链，直接对应 instrumentation/profiling 与工具隔离，对 agent 工具沙箱与性能观测有迁移价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38800",
+      "relevant": true,
+      "score": 0.87,
+      "reason_zh": "提出“运行时上下文有效性”检索准则，避免把已失效（feature flag/迁移后）的相关代码当作可执行依据，对 coding agent 的上下文检索与可靠性是关键改进方向。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38977",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "628 篇系统综述加等算力受控复评，比较 66 种提升 LLM 生成代码质量的技术并发现多数增益不及 best-of-n 基线，对代码 agent 的评测方法与基线设计有直接指导意义。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39093",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "开源视频广告客户端 VAST 4.3 规范的符合性实证，属特定垂直应用测试，无可迁移的 agent 或优化方法贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39224",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "PyReprism 以共享词法流统一多语言代码分析（注释/字符串切分、指标、克隆检测），是代码分析与基准构建的通用基础设施，对代码 agent 的静态分析工具有参考价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39241",
+      "relevant": true,
+      "score": 0.52,
+      "reason_zh": "用独立实现校验的“证据闭合”资质方法，核心性质是撤销观测不能凭空产生授权，其省略抗性与证据覆盖判定可迁移到 agent 完成声明的验证门。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39406",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "量子软件工程概念模型，属领域建模，与代码 agent 或程序优化无方法迁移价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39417",
+      "relevant": true,
+      "score": 0.88,
+      "reason_zh": "自进化经验库 agent 评估 SWE-bench 类数据集的任务清晰度与测试覆盖，并给出 SWE-TQ 基准与下游筛选收益，直接服务 coding agent 评测与数据质量。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39468",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "面向多会话多 agent 编码工作的可观测性系统，用哈希链账本区分“完成声明”与证据，量化未经独立验证的编辑与虚假 to-do，直接对应 agent 可靠性与证据门。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39489",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "用编译器前端结构标签（AST、作用域、定义-使用链）分解并编辑代码模型隐状态，属代码模型可解释/可控方法，可为 agent 内部状态干预提供思路。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39504",
+      "relevant": true,
+      "score": 0.62,
+      "reason_zh": "用实际执行检验 Joern 静态可达性负判定的可靠性，揭示值传递与隐式调用漏边，属程序分析与漏洞检测验证的通用方法。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39519",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "系统研究 14 个代码嵌入模型在功能抽象与实现保真间的张力，对代码检索与嵌入选型评估有直接参考价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39640",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "微服务跨服务变更范围的早期预测，结论为预测信号有限，属垂直实证研究，缺乏可迁移到代码 agent 的方法贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39872",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "将真实用户故事与合并 PR 及代码 diff 链接的数据集，支撑需求感知的代码生成与变更影响估计等任务。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39890",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "面向特性级 AI 代码生成的 PR 数据集（含元数据、提交历史与代码变更），可作为 agent 长程实现任务的评测资源。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39899",
+      "relevant": true,
+      "score": 0.88,
+      "reason_zh": "多智能体证据探索+补丁聚合的漏洞修复框架，在信息缺失条件下探索多种解读再提交修复，对代码 agent 的多 agent 协作与修复验证流程直接可迁移。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40042",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "LLM 提议、形式化验证器裁决的工具闭环（通过 Tools API 暴露编辑器/查询/验证器），可迁移为代码 agent 的\"生成-验证-反例解释\"工作流。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40234",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "评估神经元覆盖准则对 Transformer 语言模型测试的有效性，属 LLM 测试而非代码/程序分析测试，且结论偏负面，对代码 agent 方法贡献有限。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40256",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "面向长程编码的相互依赖规格任务合成、可执行测试审查与 RL 训练，并给出 CodeSpecWeave-Bench，直接服务于编码 agent 的评测与训练。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40269",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "用隐藏行为检查对比\"不改动\"基线与规则工具，揭示 LLM 改造遗留 PHP 时大量破坏可运行代码，对代码 agent 的可靠性评测与基线设计有明确迁移价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40343",
+      "relevant": false,
+      "score": 0.45,
+      "reason_zh": "通过 AST 分析半自动生成 C++ 到 Python 绑定以加速流行病仿真，属垂直领域软件工程实现，性能与代码生成方法贡献较弱。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38544",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "企业 agent 对齐基准，用数字孪生业务系统测量有害请求执行与被误导信息，提供了 agent 安全/可靠性与评测机制的可参考设计。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40071",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出签名、防篡改的 agent 过程证据（provenance/attestation）与 Policy-as-Code 治理，对 agent 长程执行的审计与工作流可追溯性有参考价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40161",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "面向云服务意图解析与发现的多轮协商框架，属服务组合业务系统应用，与代码 agent 或程序优化无实质方法迁移。",
+      "model": "huawei/deepseek-v4.1-flash"
+    }
+  ],
+  "cs.AI_decisions": [
+    {
+      "id": "2610.37720",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "MoE 训练显存/负载重校准系统，与 LLM agent 或代码优化无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37731",
+      "relevant": false,
+      "score": 0.08,
+      "reason_zh": "面向物理模型校准的局部后验推断，属统计/科学计算，无 agent 方法贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37732",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出快慢双系统与统计校准的按需思考升级机制，其置信度驱动升级可迁移到 agent 计算预算与可靠性控制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37739",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "构建科研级 rediscovery benchmark 并在标准化预算下评测多个 LLM agent，属通用 agent 长程任务评测。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37786",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "自动重建可重置 Web agent 环境并用交互轨迹微调，环境构建与 harness 设计对 coding agent 训练评测有迁移价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37809",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "系统研究本体作为 agent 输出 checker 的漏检与误报，对 agent 验证/反馈机制设计有直接启发。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37849",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "通过重放日志的行为差异检测多 agent 隐蔽串通，属 agent 监控与安全控制方法。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37851",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "虽为测序协议垂直任务，但给出 harness 与模型替换对比、规则自主积累无增益等可迁移的 agent 实证结论。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37859",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出顺序反馈下的 Seq@K 评测协议，量化模型迭代修正与反馈利用行为，直接对应 agent 反思/反馈回路设计。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37867",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "印度菜系视觉相似性与检索研究，与 agent、代码优化主题无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37875",
+      "relevant": false,
+      "score": 0.08,
+      "reason_zh": "研究人类在AI辅助判断中的检查与学习理论，不涉及LLM agent、代码优化或可迁移的agent架构。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37896",
+      "relevant": false,
+      "score": 0.06,
+      "reason_zh": "主题为冒犯性建模中的社会人口信息与推理，与代码优化agent和通用agent方法无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37905",
+      "relevant": true,
+      "score": 0.67,
+      "reason_zh": "提出可自我演化的多阶段审查/修订agent框架，利用需求级反馈进行跨案例程序性学习，流程验证与经验复用可迁移到agent研究。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37906",
+      "relevant": false,
+      "score": 0.04,
+      "reason_zh": "脉冲储层计算与谐振神经元研究，属于神经形态计算，与LLM agent或代码优化无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37919",
+      "relevant": true,
+      "score": 0.56,
+      "reason_zh": "构建LLM agent主动实验与科学发现基准，涉及先验干扰、自适应实验和解释与定量失败分离，对长程agent评测有一般参考价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37923",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出多角色AI科学家harness，含规划、证据计算、批评与门控验证，其验证式多agent编排可迁移到需要可靠性控制的代码优化agent。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37926",
+      "relevant": true,
+      "score": 0.71,
+      "reason_zh": "LLM通过环境代码、训练记录和行为证据自动编写并迭代测试奖励代码，具有代码生成、工具反馈与跨场景迁移的agent方法启发。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37932",
+      "relevant": false,
+      "score": 0.18,
+      "reason_zh": "研究LLM作为数学数值优化器及迭代反馈改进，属于与程序优化无关的数学优化，且非agent架构贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37935",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "提出紧凑外部技能记忆并在潜空间多agent推理中复用，直接涉及agent技能/经验复用、多agent协作和推理效率，可迁移性强。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.37989",
+      "relevant": false,
+      "score": 0.08,
+      "reason_zh": "面向LLM推理服务延迟分布的仿真器，属于系统性能建模而非LLM agent或自动代码优化方法。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38006",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "医疗从业者对算法偏见的调查研究，未涉及LLM/coding agent或可迁移的agent方法。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38024",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "惯性约束聚变领域的科学问答基准与模型评估，属于领域模型评测，未提出通用agent方法。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38044",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "面向心理健康聊天的情感感知动态提示框架，垂直应用为主，缺少可迁移的通用agent机制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38100",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "对CLadder因果推理基准的程序生成缺陷进行分析，主题是LLM评测而非agent方法。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38101",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "仓库物流数字孪生中的强化学习放置优化，属于垂直物流优化，与自动代码优化agent无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38117",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "VR消防训练场景的自适应难度调节，不涉及LLM agent或软件工程agent。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38120",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出LLMON显式区分指令与数据并要求标识符执行，降低间接提示注入并改善工具调用控制，对agent执行安全与可靠性有迁移价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38144",
+      "relevant": true,
+      "score": 0.82,
+      "reason_zh": "主张把确定性部分交给宿主、模型只处理不可约的生成残差，并给出切分定位与验证方法，直接启发coding agent的任务分解、工具化与验证架构。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38147",
+      "relevant": true,
+      "score": 0.86,
+      "reason_zh": "提出agent skill多维质量基准和免执行评估基线，并用于skill优化，直接关联agent技能规范评估、复用与改进。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38152",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "跨模态生理信号桥接路径的实例级路由选择，属于模型路由/算法选择，不涉及LLM agent或代码优化。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38175",
+      "relevant": true,
+      "score": 0.92,
+      "reason_zh": "提出让 coding agent 设计并实现 Benders/列生成分解算法的 benchmark，含可行性、方法与 1% 目标验证及 reflection vs 重生成的对比，直接关涉自动算法设计、验证可靠性与反思反馈机制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38194",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "工业洗发水瓶表面缺陷检测的视觉 benchmark 与原型域调制方法，与 agent、代码优化无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38201",
+      "relevant": true,
+      "score": 0.56,
+      "reason_zh": "将 LLM 工作流用于电力电子原理图合成，但核心是可迁移的多阶段 agent 编排：合同/证据约束的元件选择、SPICE 闭环仿真反馈与网表往返验证，对代码优化 agent 的验证闭环设计有参考价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38210",
+      "relevant": false,
+      "score": 0.08,
+      "reason_zh": "无损 KV 缓存压缩与注意力内核加速，属纯推理系统效率工作，无 agent 成分。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38215",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "虽为临床多 agent 场景，但结论关于聚合拓扑、审议池化与偏差在团队中被“洗白”，对多 agent 聚合与可靠性/安全控制设计有一般性启发。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38220",
+      "relevant": true,
+      "score": 0.62,
+      "reason_zh": "自动生成与精炼评分 rubric（判别性选择、按通过率迭代、自批评与 test-time scaling），可迁移为 agent 轨迹/代码结果的自动评判与奖励信号构造。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38225",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "多 agent 预测框架按历史验证得到的技能权重组合或剔除无信息通道，这种“先验证各 agent 可靠性再加权融合”的协议可迁移到多 agent/多候选方案筛选。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38245",
+      "relevant": true,
+      "score": 0.66,
+      "reason_zh": "将验证作为搜索中的决策动作并研究反馈时机（即时剪枝+延迟引导），对 agent 搜索中的验证调度、错误早期剪枝与反馈注入策略有直接的可迁移洞见。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38304",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "纸牌游戏中声明式信念表示与规则抽取，属符号知识建模，与 LLM agent 或代码优化 agent 关系薄弱。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38313",
+      "relevant": false,
+      "score": 0.12,
+      "reason_zh": "无折扣 MDP 下双模拟度量的博弈论基础，属理论学习，与 agent 架构或代码优化无直接关联。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38314",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "跨模型幻觉检测方法，与代码优化或LLM agent架构无直接关系。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38326",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "本体工程任务的机制可解释性研究，不涉及agent方法或程序优化。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38342",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "金融agent长程评测基准，其冻结信息集与证据-假设-判断链评测框架对agent可靠性评估有迁移启发。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38356",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "上下文内化为LoRA参数生成，属于模型适配方法，与agent或代码优化无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38382",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "冻结LLM内部计算拓扑的自适应测试时缩放，非agent框架，也无代码优化贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38391",
+      "relevant": true,
+      "score": 0.82,
+      "reason_zh": "面向长程LLM agent的选择性关键步在线自蒸馏，涉及步骤级反思、信用分配与自改进，可迁移至代码优化agent。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38392",
+      "relevant": true,
+      "score": 0.87,
+      "reason_zh": "研究自改进agent编辑harness时接受门如何侵蚀冗余安全防护，直接关联agent harness设计、可靠性与安全控制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38398",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出跨组织agent间通信协议与服务器中介架构，属于多agent协作基础设施，对长期agent交互有参考价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38411",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "面向联邦学习多参与方的治理框架，与LLM agent或自动代码优化关系较弱。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38439",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "面向写程序-执行-择优的ML agent训练世界奖励模型直接选择更优候选程序，可显著减少执行反馈开销，与自动代码优化agent高度相关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38445",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "离散事件序列的基础模型与表示学习，不涉及 LLM agent、代码优化或可迁移的 agent 机制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38496",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "核反应堆 MPC 的行为克隆加速，属于控制与工业系统优化，与 LLM/coding agent 无方法迁移价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38526",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "将红队审计建模为 MDP 并用 beam search 与价值探针估计，其搜索和价值引导机制可迁移到 agent 规划与安全审计。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38532",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "研究后训练对事实核查中发帖者阶层偏见的影响，属于模型社会偏见分析，不涉及 agent 或代码任务。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38551",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "毫米波人体点云的自监督预训练，与 LLM agent、软件工程或代码优化无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38566",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "基于 rubric 的强化学习与策略协同进化，属于模型对齐训练，未提出可迁移的 agent 架构或代码优化机制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38568",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "通过训练动态自适应刷新任务池的递归自我改进框架，对 agent 的经验/课程更新与自我改进循环有启发。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38573",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "面向长程语言 agent 的冲突感知生命周期记忆治理，直接涉及记忆有效性、时序适用性与查询时准入。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38620",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "在工具调用 agent 执行前拦截动作并做策略合规与任务完成验证，提供反馈修正，直接提升 agent 可靠性。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38631",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "针对金融模糊查询的 LLM 评测，属于垂直领域评测，未提供可迁移的 agent 方法或代码优化贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38634",
+      "relevant": false,
+      "score": 0.12,
+      "reason_zh": "仅研究小模型多位数乘法的内部错误机制，属纯算术机理分析，无 agent、代码优化或可迁移的方法贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38636",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "面向火箭着陆的强化学习控制与课程学习，属连续控制应用，未涉及 LLM agent 或代码相关方法。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38681",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "通过量化/剪枝构造弱模型做在线自蒸馏，属纯模型后训练技巧，虽在代码基准上评测但无 agent 或自动优化机制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38687",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出自动、可参数化的 benchmark 生成框架（规则自动形式化+决策树展开），其自动基准构造思路可迁移到 agent/代码优化评测生成。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38691",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "针对 AI research agent 论文中的数值声明做溯源核查，提出确定性的 claim-to-evidence 校验与溯源优先审计，可直接启发对 agent 报告的 speedup 等数值结果做可靠验证。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38728",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "用 work-bounded complexity 与 grasp 形式化刻画自我改进与 agent 集体，给出递归自我改进的效率判据，理论层面可启发 agent 自改进目标设计，但实践指导有限。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38755",
+      "relevant": false,
+      "score": 0.12,
+      "reason_zh": "研究视觉语言模型对停留时长的常识推理，属多模态理解应用，与 agent 方法或代码任务无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38851",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "用共同训练的 LLM 评判器把参考答案转成奖励做强化后训练，属模型训练/奖励建模，缺乏 agent 框架或工具反馈机制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38867",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "构建含 coding 场景的 agent 测试床，系统刻画注入位置引起的 trust region 效应并训练学习型攻击者，对 agent 可靠性与安全控制设计有直接价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38869",
+      "relevant": true,
+      "score": 0.64,
+      "reason_zh": "提出显式信念状态与 Cognitive Firewall 的多 agent 安全层，涉及记忆/信念更新审计与群体共识风险，可迁移到 agent 状态追踪与可靠性控制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38882",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "研究自主科研 agent 与人协作、奖励劫持下的对齐、人类模拟器 RL 训练与 HackBench 基准，其 self-improvement、长程执行与可靠性控制思路可迁移到自动代码优化 agent。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38924",
+      "relevant": true,
+      "score": 0.58,
+      "reason_zh": "面向扫描文档档案的 agent 基准，需通过 MCP 工具检索、OCR 读取并给出精确答案，包含多 agent 横向评测与失败机理（误读数字）分析，其工具反馈与验证式评测设计对 coding agent 有参考价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38960",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "通过工具集剪枝与模态工具合并压缩 agent 工作流、减少执行轨迹与推理成本，这种工具/工作流精简思路对 agent harness 与成本效率优化有可迁移启发。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38975",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "D&D 战斗模拟工具与难度评估相关性研究，属游戏仿真，不涉及 LLM agent 或代码优化方法。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38980",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "把世界模型重访一致性问题建模为上下文检索，并在 agent harness 层实现 context compaction 与配套基准，直接对应 agent 的上下文/记忆管理机制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.38987",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "游戏关卡句法分割与拼贴生成的过程化内容方法，与 LLM agent 和程序优化无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39003",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "将 agentic AI 用于稀疏 CT 投影采样选择的医疗影像任务，属垂直应用，未提出可迁移的通用 agent 架构或训练机制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39007",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "结合形式规范与数据驱动信号分析的混合监控方法，不涉及 agent 或代码优化。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39045",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "肾脏分配中何时推荐/移交/偏离的决策框架，属医疗资源分配垂直应用，虽有不确定性延迟决策思想但缺乏 agent 方法贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39070",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "证据合成中 LLM 判读任务的失败机制与可复现性分类学，聚焦非 agent 的判读可靠性，与 agent 评测仅有弱关联。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39073",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "面向物理结构记忆的test-time compute证书框架，非agent/代码优化，迁移性弱。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39182",
+      "relevant": false,
+      "score": 0.42,
+      "reason_zh": "分析RL训练LLM的推理与特征重组，未涉及agent/代码，仅有间接训练启发。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39193",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "面向长程任务的目标感知多智能体协作，含执行图、验证与恢复，直接可迁移。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39230",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "金融垂直场景的多智能体/上下文工程架构，缺少可迁移的通用方法贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39247",
+      "relevant": false,
+      "score": 0.12,
+      "reason_zh": "社会智能评测基准，与agent/代码优化无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39251",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "GUI agent自适应两阶段RL，中间检查点与按需rollout，可迁移到长程agent训练。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39264",
+      "relevant": true,
+      "score": 0.76,
+      "reason_zh": "在线RL训练规划-定位GUI agent，含密集奖励与稳定价值估计，属通用agent方法。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39275",
+      "relevant": true,
+      "score": 0.62,
+      "reason_zh": "LLM引导仿真黑盒优化的集成与ReAct/变量固定比较，可启发LLM驱动代码优化搜索。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39276",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "从用户历史生成监督优化agent记忆，含评估与失败诊断，直接可迁移agent记忆设计。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39282",
+      "relevant": true,
+      "score": 0.82,
+      "reason_zh": "计算机使用agent的截图时效/点击前验证与benchmark，直接关系agent可靠性与验证。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39302",
+      "relevant": false,
+      "score": 0.08,
+      "reason_zh": "研究JEPA表示对齐与多模态表示学习理论，未涉及LLM agent、代码生成或程序优化。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39353",
+      "relevant": false,
+      "score": 0.12,
+      "reason_zh": "面向棋类游戏AI的可复现评测与表示契约，与LLM coding agent及自动代码优化无直接或可迁移方法关联。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39358",
+      "relevant": true,
+      "score": 0.78,
+      "reason_zh": "研究策略更新后agent技能边际效用漂移的诊断与技能演化优先级，可迁移到SemOpt的技能/经验复用与自改进机制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39377",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "提出工具使用LLM agent在压力下的欺骗行为基准，按完整轨迹核验报告与执行一致性，对agent可靠性评测有参考价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39410",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "保留多个可执行修复假设并结合诊断与执行观测选择方案，可为代码修复/优化中的多候选验证与不确定性管理提供启发。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39435",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "LLM仅提出可验证的焦点集合而由SMT求解器认证结果，体现了LLM提议加形式验证的可靠工具反馈模式。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39438",
+      "relevant": true,
+      "score": 0.58,
+      "reason_zh": "提出带标准化工具环境的agentic tool-use基准并评估答案、轨迹与成本，对agent评测设计有一般方法参考。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39439",
+      "relevant": false,
+      "score": 0.12,
+      "reason_zh": "研究视觉语言模型的无标签测试时强化学习与多视图共识，不是agent方法且与代码优化无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39454",
+      "relevant": true,
+      "score": 0.62,
+      "reason_zh": "按任务语义编排多种规划引擎并独立验证候选计划，其工具/引擎选择、预算调度和验证思路可迁移到agent harness设计。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39483",
+      "relevant": false,
+      "score": 0.08,
+      "reason_zh": "比较联邦与集中式深伪检测中Grad-CAM解释忠实度，主题与LLM agent或代码优化无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39497",
+      "relevant": true,
+      "score": 0.82,
+      "reason_zh": "提出predict-gate-execute-update的条件交互循环，用轻量预测器决定昂贵System-2执行哪些候选，对agent规划、工具调用与计算预算分配有直接启发。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39499",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "研究Group-Lasso Siamese网络的特征选择与表示学习，不属于agent、代码优化或可迁移的agent方法。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39500",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "关注LLM改写新闻时的失真评测，与代码agent和通用agent方法无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39508",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "提出将自演化agent技能编译为可验证程序并复用程序资产，直接关联agent技能积累、程序化执行与降低LLM推理不确定性。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39512",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "将扩散模型与GFlowNet结合求解车辆路径问题，属于组合优化应用而非可迁移到代码agent的方法。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39518",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "面向POI推荐的垂直LLM应用，主要贡献是领域内语义到实体 grounding，缺少通用agent方法价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39559",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "研究球嵌入与符号逻辑推理的神经网络表示，不涉及LLM agent或自动代码优化。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39608",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "提出契约约束的agentic检索框架，将查询编译为类型化计划并由确定性算子执行和验证，对agent规划、工具反馈与可靠性控制有明显迁移价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39614",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "从熵原理推导Transformer架构的理论工作，不涉及agent机制或代码优化。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39620",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "让现成coding agent自主提出研究问题、执行研究并接受跨模型评审，展示了长程自主agent工作流与验证机制，可迁移到agent自我改进研究。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39621",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "仅是 LLM 预填充/解码阶段算力与能耗的预测建模，虽提及 agentic 负载，但未提出任何 agent 架构或优化方法，对 SemOpt 的 agent 设计无直接启发。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39714",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "虽应用于分子发现，但提出递归自改进 agent：工作流与模型架构的自动优化加跨任务持久记忆，其“优化自身工作流/搜索策略”的机制可迁移到代码优化 agent 的自改进循环。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39733",
+      "relevant": true,
+      "score": 0.62,
+      "reason_zh": "面向有状态、多轮、需审批与记录一致性的长程工作流 agent benchmark，包含可执行校验与轨迹分析，其状态一致性/长程执行评测思路可迁移到 SWE agent 可靠性评估。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39735",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "关于 Transformer 变换系统形式语义的理论工作，与 LLM agent、代码优化均无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39744",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "跨学科论文复现 agent benchmark：要求 agent 将描述转化为可执行实验、诊断长时计算并重放验证证据，其“可重放验证+长程执行”设计对代码优化 agent 的可靠 speedup 验证有直接借鉴。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39781",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "将 agent 长期记忆与社交再介入拆为发现/回归/重构三维度并独立评测，提供了记忆检索之外的长程上下文重建评估视角，可启发 agent 记忆与经验复用研究。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39790",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出情景记忆与结构化关系记忆互补及巩固机制的长程 agent 记忆架构，并在两个基准上验证，属于通用 agent 记忆方法，可迁移到优化 agent 的历史经验复用。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39795",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "研究语言模型自我概念对自我延续行为的影响，涉及递归自改进安全，但停留在模型层面而非 agent 架构或工具化方法，与 SemOpt 关联较弱。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39802",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "针对安全对齐模型过度拒绝的表征与梯度正交化训练方法，属于模型对齐研究，不含 agent 组件。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39813",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "以执行经验联合演化多 agent 团队组织、交互规则与个体技能，并维护可复用团队库，直接对应多 agent 协作与经验复用这一通用 agent 方法方向。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39825",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "面向扩散/流匹配生成的路径安全引导控制，属生成模型领域，与代码优化或 LLM agent 无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.39884",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "提出冻结权重、演化类型化知识模块的 harness 演化框架，用成功/失败轨迹对比加回归门控做原子编辑与回滚，对 agent 自改进与经验复用有直接迁移价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40005",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "平面机构的结构化表示与少样本学习，属机械设计领域，与 agent 方法无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40006",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "面向计算笔记本的人机交互形式化建模与可回放数据层，偏 HCI 与可解释性，缺少可迁移到 coding agent 的方法贡献。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40030",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "基于世界模型的 RL 记忆检索与观测信用分配，属机器人 RL 场景，尚未体现对 LLM agent 记忆机制的可迁移结论。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40036",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "系统化整理 LLM 与规则引擎耦合的十三种模式及失效模式与选型指南，可为 agent 的工具/规则混合与安全护栏设计提供架构参考。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40096",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "围绕 rubric 奖励的策略-评分协同训练调度，属模型 RL 训练机制，与 agent 架构或代码优化流程关联较弱。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40133",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "构建动态目标修订下的 web agent 基准，用语义里程碑注入修订并以轨迹为据评估正确性、响应性与效率，对长程 agent 目标变更与评测设计有借鉴。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40151",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "教育场景下人类能力保持与反提示范式讨论，非 agent 方法研究。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40186",
+      "relevant": true,
+      "score": 0.78,
+      "reason_zh": "通过选择性插入通信边定位多 agent 工作流中的信息缺口，并基于过程特征决定是否采纳重执行结果，对多 agent 协作、验证与结果采纳机制有明确迁移价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40192",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "面向文本属性图的链接预测，融合GNN与语言模型，不涉及agent、代码或程序优化，",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40227",
+      "relevant": true,
+      "score": 0.72,
+      "reason_zh": "为LLM agent引入可学习的认知信念层，并用双层自博弈交替优化信念更新与动作规划，属于可迁移的agent自我改进与多agent交互方法。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40246",
+      "relevant": true,
+      "score": 0.84,
+      "reason_zh": "面向计算机使用agent的动态环境审计框架，包含任务可解性认证、可验证自动评分与证据复核，对agent可靠性评测与RLVR训练环境构建都有直接价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40249",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "逆合成预测的推理期反应先例检索，属化学领域应用，未提出可迁移的agent机制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40250",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "GRPO优势估计与token级信用分配的RLVR训练改进，属模型层训练方法，无agent架构或长程执行要素。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40278",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "用质量-多样性搜索构造扰动邻域做问答不确定性量化，属QA可靠性与搜索方法，未涉及agent规划或工具使用。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40330",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "风电功率预测的GradientSHAP可解释性案例，与agent及代码优化无关。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40382",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "用随机采样的数学猜想评测LLM证明能力，属数学推理评测，未提出agent方法。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40409",
+      "relevant": true,
+      "score": 0.66,
+      "reason_zh": "让多跳检索器在自身错误状态上做on-policy对比训练，与agent在自生成轨迹上训练、从错误中恢复的分布偏移问题高度同源，可迁移到SemOpt的轨迹优化。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40444",
+      "relevant": true,
+      "score": 0.86,
+      "reason_zh": "提出前缀可执行性协议评测工具使用agent的轨迹级可靠性（首错深度、恢复率等），直接适用于agent验证与失败诊断。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40476",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "多轮 RL 模拟训练的临床应用（精神科问诊），属垂直医疗任务，未提出可迁移到通用 agent 或代码优化 agent 的架构或训练机制。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40492",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出人类参与的多 agent 组织框架与可修订能力计划，基于反馈迭代调整协调策略，对多 agent 协作与迭代精化有一般性启发，但落点在教育场景。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40578",
+      "relevant": true,
+      "score": 0.86,
+      "reason_zh": "将任务完成验证建模为 agent 主动探索取证（生成 rubric、选择 GUI/代码检查并合并证据），直接可迁移到 coding agent 的轨迹验证与可靠 speedup 判定。",
+      "model": "huawei/deepseek-v4.1-flash"
+    },
+    {
+      "id": "2610.40588",
+      "relevant": true,
+      "score": 0.66,
+      "reason_zh": "用线性探针在生成前预测 agent 即将违规泄密，属 agent 可靠性与安全控制的可迁移机制，对长程执行中的早期干预与监督有参考价值。",
+      "model": "huawei/deepseek-v4.1-flash"
+    }
+  ],
+  "generation_models": {
+    "huawei/deepseek-v4.1-flash": 46,
+    "ali/qwen3.7-plus": 55
+  },
+  "classification_models": {
+    "huawei/deepseek-v4.1-flash": 183
+  },
+  "recovery": {
+    "source_records_sha256": "e4c470e4518cb6650fdd3016dc972eddd068ae488b6d2544cf207acbcb861e8f",
+    "candidate_ids": [
+      "2610.37871",
+      "2610.37888",
+      "2610.38039",
+      "2610.38054",
+      "2610.37720",
+      "2610.38130",
+      "2610.37731",
+      "2610.38167",
+      "2610.37732",
+      "2610.38214",
+      "2610.37739",
+      "2610.38244",
+      "2610.37786",
+      "2610.38311",
+      "2610.37809",
+      "2610.38337",
+      "2610.37830",
+      "2610.38521",
+      "2610.37849",
+      "2610.38610",
+      "2610.37851",
+      "2610.38621",
+      "2610.37859",
+      "2610.38628",
+      "2610.37867",
+      "2610.38682",
+      "2610.37875",
+      "2610.38800",
+      "2610.37896",
+      "2610.38977",
+      "2610.37905",
+      "2610.39093",
+      "2610.37906",
+      "2610.39224",
+      "2610.37919",
+      "2610.39241",
+      "2610.37923",
+      "2610.39406",
+      "2610.37926",
+      "2610.39417",
+      "2610.37932",
+      "2610.39468",
+      "2610.37935",
+      "2610.39489",
+      "2610.37989",
+      "2610.39504",
+      "2610.38006",
+      "2610.39519",
+      "2610.38024",
+      "2610.39640",
+      "2610.38044",
+      "2610.39872",
+      "2610.38100",
+      "2610.39890",
+      "2610.38101",
+      "2610.39899",
+      "2610.38117",
+      "2610.40042",
+      "2610.38120",
+      "2610.40234",
+      "2610.38144",
+      "2610.40256",
+      "2610.38147",
+      "2610.40269",
+      "2610.38152",
+      "2610.40343",
+      "2610.38175",
+      "2610.38194",
+      "2610.38544",
+      "2610.38201",
+      "2610.40071",
+      "2610.38210",
+      "2610.40161",
+      "2610.38215",
+      "2610.38220",
+      "2610.38225",
+      "2610.38245",
+      "2610.38304",
+      "2610.38313",
+      "2610.38314",
+      "2610.38326",
+      "2610.38342",
+      "2610.38356",
+      "2610.38382",
+      "2610.38391",
+      "2610.38392",
+      "2610.38398",
+      "2610.38411",
+      "2610.38439",
+      "2610.38445",
+      "2610.38496",
+      "2610.38526",
+      "2610.38532",
+      "2610.38551",
+      "2610.38566",
+      "2610.38568",
+      "2610.38573",
+      "2610.38620",
+      "2610.38631",
+      "2610.38634",
+      "2610.38636",
+      "2610.38681",
+      "2610.38687",
+      "2610.38691",
+      "2610.38728",
+      "2610.38755",
+      "2610.38851",
+      "2610.38867",
+      "2610.38869",
+      "2610.38882",
+      "2610.38924",
+      "2610.38960",
+      "2610.38975",
+      "2610.38980",
+      "2610.38987",
+      "2610.39003",
+      "2610.39007",
+      "2610.39045",
+      "2610.39070",
+      "2610.39073",
+      "2610.39182",
+      "2610.39193",
+      "2610.39230",
+      "2610.39247",
+      "2610.39251",
+      "2610.39264",
+      "2610.39275",
+      "2610.39276",
+      "2610.39282",
+      "2610.39302",
+      "2610.39353",
+      "2610.39358",
+      "2610.39377",
+      "2610.39410",
+      "2610.39435",
+      "2610.39438",
+      "2610.39439",
+      "2610.39454",
+      "2610.39483",
+      "2610.39497",
+      "2610.39499",
+      "2610.39500",
+      "2610.39508",
+      "2610.39512",
+      "2610.39518",
+      "2610.39559",
+      "2610.39608",
+      "2610.39614",
+      "2610.39620",
+      "2610.39621",
+      "2610.39714",
+      "2610.39733",
+      "2610.39735",
+      "2610.39744",
+      "2610.39781",
+      "2610.39790",
+      "2610.39795",
+      "2610.39802",
+      "2610.39813",
+      "2610.39825",
+      "2610.39884",
+      "2610.40005",
+      "2610.40006",
+      "2610.40030",
+      "2610.40036",
+      "2610.40096",
+      "2610.40133",
+      "2610.40151",
+      "2610.40186",
+      "2610.40192",
+      "2610.40227",
+      "2610.40246",
+      "2610.40249",
+      "2610.40250",
+      "2610.40278",
+      "2610.40330",
+      "2610.40382",
+      "2610.40409",
+      "2610.40444",
+      "2610.40476",
+      "2610.40492",
+      "2610.40578",
+      "2610.40588"
+    ],
+    "selected_ids": [
+      "2610.37871",
+      "2610.38039",
+      "2610.38130",
+      "2610.37732",
+      "2610.38214",
+      "2610.37739",
+      "2610.38244",
+      "2610.37786",
+      "2610.38311",
+      "2610.37809",
+      "2610.38337",
+      "2610.37830",
+      "2610.38521",
+      "2610.37849",
+      "2610.38610",
+      "2610.37851",
+      "2610.38621",
+      "2610.37859",
+      "2610.38682",
+      "2610.38800",
+      "2610.38977",
+      "2610.37905",
+      "2610.39224",
+      "2610.37919",
+      "2610.39241",
+      "2610.37923",
+      "2610.37926",
+      "2610.39417",
+      "2610.39468",
+      "2610.37935",
+      "2610.39489",
+      "2610.39504",
+      "2610.39519",
+      "2610.39872",
+      "2610.39890",
+      "2610.39899",
+      "2610.40042",
+      "2610.38120",
+      "2610.38144",
+      "2610.40256",
+      "2610.38147",
+      "2610.40269",
+      "2610.38175",
+      "2610.38544",
+      "2610.38201",
+      "2610.40071",
+      "2610.38215",
+      "2610.38220",
+      "2610.38225",
+      "2610.38245",
+      "2610.38342",
+      "2610.38391",
+      "2610.38392",
+      "2610.38398",
+      "2610.38439",
+      "2610.38526",
+      "2610.38568",
+      "2610.38573",
+      "2610.38620",
+      "2610.38687",
+      "2610.38691",
+      "2610.38728",
+      "2610.38867",
+      "2610.38869",
+      "2610.38882",
+      "2610.38924",
+      "2610.38960",
+      "2610.38980",
+      "2610.39193",
+      "2610.39251",
+      "2610.39264",
+      "2610.39275",
+      "2610.39276",
+      "2610.39282",
+      "2610.39358",
+      "2610.39377",
+      "2610.39410",
+      "2610.39435",
+      "2610.39438",
+      "2610.39454",
+      "2610.39497",
+      "2610.39508",
+      "2610.39608",
+      "2610.39620",
+      "2610.39714",
+      "2610.39733",
+      "2610.39744",
+      "2610.39781",
+      "2610.39790",
+      "2610.39813",
+      "2610.39884",
+      "2610.40036",
+      "2610.40133",
+      "2610.40186",
+      "2610.40227",
+      "2610.40246",
+      "2610.40409",
+      "2610.40444",
+      "2610.40492",
+      "2610.40578",
+      "2610.40588"
+    ],
+    "source_run_url": "https://github.com/fyrsta7/26summer-daily_arXiv_ai_enhanced/actions/runs/41155643489",
+    "source_unique": 183,
+    "status": "complete",
+    "duplicate_records_removed": 7,
+    "external_delivery": false,
+    "prompt_changed": false,
+    "concurrency": {
+      "model": "ali/qwen3.7-plus",
+      "maximum_allowed": 8,
+      "peak_inflight": 8,
+      "successes": 54,
+      "attempts": 54,
+      "http_errors": {},
+      "network_errors": 0,
+      "invalid_responses": 0,
+      "limit_changes": [
+        {
+          "limit": 2,
+          "reason": "initial test"
+        },
+        {
+          "limit": 4,
+          "reason": "successful lower-concurrency requests"
+        },
+        {
+          "limit": 8,
+          "reason": "successful lower-concurrency requests"
+        }
+      ]
+    }
+  }
+}
