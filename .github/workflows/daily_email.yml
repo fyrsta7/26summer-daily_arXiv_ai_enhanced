@@ -20,6 +20,10 @@ concurrency:
   group: daily-arxiv-delivery
   cancel-in-progress: false
 
+# Shared model for every stage of the daily digest.
+env:
+  MODEL_NAME: ali/qwen3.7-plus
+
 jobs:
   gate:
     runs-on: ubuntu-latest
@@ -95,7 +99,7 @@ jobs:
         export TOKEN_GITHUB=${{ github.token }}
         export LANGUAGE="${{ vars.LANGUAGE }}"
         export CATEGORIES="${{ vars.CATEGORIES }}"
-        export MODEL_NAME="${{ vars.MODEL_NAME }}"
+        export MODEL_NAME="${{ env.MODEL_NAME }}"
         
         # 使用Scrapy爬取
         # Use Scrapy to crawl
@@ -154,7 +158,7 @@ jobs:
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
-        MODEL_NAME: ${{ vars.MODEL_NAME }}
+        MODEL_NAME: ${{ env.MODEL_NAME }}
       run: |
         source .venv/bin/activate
         today=${{ steps.crawl_step.outputs.crawl_date }}
@@ -167,7 +171,7 @@ jobs:
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
-        MODEL_NAME: ${{ vars.MODEL_NAME }}
+        MODEL_NAME: ${{ env.MODEL_NAME }}
       run: |
         source .venv/bin/activate
         today=${{ steps.crawl_step.outputs.crawl_date }}
@@ -195,7 +199,7 @@ jobs:
         export OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
         export OPENAI_BASE_URL=${{ secrets.OPENAI_BASE_URL }}
         export LANGUAGE="${{ vars.LANGUAGE }}"
-        export MODEL_NAME="${{ vars.MODEL_NAME }}"
+        export MODEL_NAME="${{ env.MODEL_NAME }}"
         
         python enhance.py --data ../data/${today}.jsonl
         
