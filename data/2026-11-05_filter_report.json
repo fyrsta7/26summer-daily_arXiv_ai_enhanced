@@ -1171,5 +1171,25 @@
         }
       ]
     }
+  },
+  "source_fidelity_review": {
+    "basis": "Original English abstracts",
+    "scope": "Targeted wording corrections after semantic sampling; original source metadata and numerical results unchanged.",
+    "changes": [
+      {
+        "paper_id": "2611.04836",
+        "field": "AI.result",
+        "old_phrase": "SR最高提升4.9%",
+        "new_phrase": "SR最高提升4.9个百分点",
+        "reason": "原文4.9 points为绝对百分点，而非相对百分比"
+      },
+      {
+        "paper_id": "2611.03725",
+        "field": "AI.result",
+        "old_phrase": "在注入故障运行中F1达0.84（优于Claude Code的0.80和Codex的0.82）",
+        "new_phrase": "在注入故障运行中F1达0.84，与Claude Code的0.80和Codex的0.82效果相当",
+        "reason": "保留原文comparable effectiveness结论，避免用数值差异声称已证明优越"
+      }
+    ]
   }
 }

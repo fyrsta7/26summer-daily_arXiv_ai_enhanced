@@ -2351,5 +2351,53 @@
         }
       ]
     }
+  },
+  "source_fidelity_review": {
+    "basis": "Original English abstracts",
+    "scope": "Targeted wording corrections after semantic sampling; original source metadata and numerical results unchanged.",
+    "changes": [
+      {
+        "paper_id": "2611.00505",
+        "field": "AI.result",
+        "old_phrase": "参考引导下，11个模型在JudgeBench上达90.3-93.4%，媲美Opus 5.5和带推理的GPT-5.6，且成本仅为其1/16。",
+        "new_phrase": "参考引导下，11个模型在JudgeBench上达90.3–93.4%，与Opus 5.5及带推理的GPT-5.6无显著差异；在PPE best-of-16上，每个参考引导的System-1评判模型以约1/16的单提示成本匹配带推理的GPT-5.6。",
+        "reason": "将1/16成本正确归属PPE best-of-16，而非JudgeBench"
+      },
+      {
+        "paper_id": "2611.00340",
+        "field": "AI.result",
+        "old_phrase": "成本增加2.03倍",
+        "new_phrase": "token成本为原始模型的2.03倍",
+        "reason": "原文是2.03 times总成本，不是额外增加2.03倍"
+      },
+      {
+        "paper_id": "2611.00340",
+        "field": "AI.result",
+        "old_phrase": "成本增加18.65倍",
+        "new_phrase": "token成本为原始模型的18.65倍",
+        "reason": "原文是18.65 times总成本，不是额外增加18.65倍"
+      },
+      {
+        "paper_id": "2611.00340",
+        "field": "AI.result",
+        "old_phrase": "增加了2.2倍token",
+        "new_phrase": "token使用量增至2.2倍",
+        "reason": "原文2.2-fold为使用量变为2.2倍"
+      },
+      {
+        "paper_id": "2611.00340",
+        "field": "AI.abstract_zh",
+        "old_phrase": "token使用量增加了2.2倍",
+        "new_phrase": "token使用量增至2.2倍",
+        "reason": "原文2.2-fold为使用量变为2.2倍"
+      },
+      {
+        "paper_id": "2611.00407",
+        "field": "AI.conclusion",
+        "old_phrase": "结合完整轨迹和结构化证据的确定性规则检查是捕获已知利用的最可靠方法",
+        "new_phrase": "研究中的双规则确定性检查捕获了所有已知利用；完整轨迹和额外结构化证据分别暴露了8B监控器的幻觉解释与误报问题",
+        "reason": "保留不同实验的区分，原文未提出合并方法或证明普遍最可靠"
+      }
+    ]
   }
 }

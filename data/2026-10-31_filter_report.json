@@ -1621,5 +1621,39 @@
         }
       ]
     }
+  },
+  "source_fidelity_review": {
+    "basis": "Original English abstracts",
+    "scope": "Targeted wording corrections after semantic sampling; original source metadata and numerical results unchanged.",
+    "changes": [
+      {
+        "paper_id": "2610.38215",
+        "field": "AI.result",
+        "old_phrase": "则无法修复该差异",
+        "new_phrase": "则无法可靠地修复该差异",
+        "reason": "保留原文 cannot reliably repair 的可靠性限定"
+      },
+      {
+        "paper_id": "2610.38215",
+        "field": "AI.conclusion",
+        "old_phrase": "消除该偏见的唯一有效防御策略",
+        "new_phrase": "降低该差异的防御策略",
+        "reason": "原文报告差异降低67–94%，不意味着完全消除"
+      },
+      {
+        "paper_id": "2610.38398",
+        "field": "AI.conclusion",
+        "old_phrase": "且其引入的系统开销在可控和可量化范围内",
+        "new_phrase": "并通过延迟测量量化了域服务器持续中介引入的通信与处理开销",
+        "reason": "原文只量化开销，未证明开销可接受或可控"
+      },
+      {
+        "paper_id": "2610.39733",
+        "field": "AI.conclusion",
+        "old_phrase": "提供了可靠且防污染的工具",
+        "new_phrase": "提供了评估工具，并通过私下保留任务环境、评分器和完整轨迹来减少污染",
+        "reason": "保留原文减少污染的目标，避免声称完全免疫"
+      }
+    ]
   }
 }

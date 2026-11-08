@@ -139,5 +139,18 @@
         }
       ]
     }
+  },
+  "source_fidelity_review": {
+    "basis": "Original English abstracts",
+    "scope": "Targeted wording corrections after semantic sampling; original source metadata and numerical results unchanged.",
+    "changes": [
+      {
+        "paper_id": "2610.40535",
+        "field": "AI.result",
+        "old_phrase": "初步MNIST实验表明，RIP协议比最先进的已部署证明系统运行更快",
+        "new_phrase": "作者实现了协议，报告了初步MNIST实验，并表明RIP协议可以比最先进的已部署证明系统更快",
+        "reason": "保留 can 的限定，不将速度比较无依据地仅归因于MNIST实验"
+      }
+    ]
   }
 }

@@ -1046,5 +1046,18 @@
         }
       ]
     }
+  },
+  "source_fidelity_review": {
+    "basis": "Original English abstracts",
+    "scope": "Targeted wording corrections after semantic sampling; original source metadata and numerical results unchanged.",
+    "changes": [
+      {
+        "paper_id": "2610.41472",
+        "field": "AI.conclusion",
+        "old_phrase": "通过严格的静态验证和运行时监控保证了修复保真度",
+        "new_phrase": "在声明的规则族和操作符契约范围内，通过静态验证和运行时监控保障经检查的修复属性",
+        "reason": "保留原文限定的规则族和操作符契约，避免无条件语义正确性保证"
+      }
+    ]
   }
 }
