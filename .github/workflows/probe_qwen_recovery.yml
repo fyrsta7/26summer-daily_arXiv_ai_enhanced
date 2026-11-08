@@ -1,0 +1,122 @@
+name: Test Qwen recovery compatibility
+
+on:
+  push:
+    branches: [diagnostic/qwen-recovery-20261108]
+    paths: [.github/workflows/probe_qwen_recovery.yml]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-arxiv-delivery
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    if: github.run_number == 1 && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Test model, then exact failed paper with unchanged prompt
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+        run: |
+          python3 - <<'PY'
+          import json, lzma, os, time
+          from pathlib import Path
+          from urllib.error import HTTPError, URLError
+          from urllib.request import Request, build_opener, HTTPRedirectHandler
+          from scripts.recover_daily_batches import validate_ai, verify_records
+
+          key = os.environ.get('OPENAI_API_KEY', '')
+          base = os.environ.get('OPENAI_BASE_URL', '').rstrip('/')
+          if not key or not base.startswith('https://'):
+              raise SystemExit('Probe requires existing HTTPS endpoint and API credential')
+          model = 'ali/qwen3.7-plus'
+          output = Path('.qwen-probe')
+          output.mkdir(exist_ok=True)
+          def safe(value):
+              return str(value).replace(key, '[REDACTED]').replace(base, '[ENDPOINT]')
+          class NoRedirect(HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+          def request_once(label, messages, max_tokens, structured=False):
+              payload = {'model': model, 'messages': messages, 'max_tokens': max_tokens, 'temperature': 0}
+              if structured:
+                  payload['response_format'] = {'type': 'json_object'}
+              request = Request(base + '/chat/completions', data=json.dumps(payload).encode(),
+                                headers={'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json'})
+              result = {'test': label, 'requested_model': model, 'requests': 1, 'retries': 0}
+              started = time.monotonic()
+              raw = ''
+              try:
+                  with build_opener(NoRedirect).open(request, timeout=180) as response:
+                      result['http_status'] = response.status
+                      raw = response.read(131072).decode('utf-8', errors='replace')
+              except HTTPError as error:
+                  result['http_status'] = error.code
+                  raw = error.read(131072).decode('utf-8', errors='replace')
+              except (URLError, TimeoutError, OSError) as error:
+                  result.update(http_status=None, error_type=type(error).__name__, error='Connection failed or timed out')
+              result['elapsed_seconds'] = round(time.monotonic() - started, 2)
+              content = ''
+              try:
+                  body = json.loads(raw)
+                  if body.get('choices'):
+                      choice = body['choices'][0]
+                      content = choice.get('message', {}).get('content') or ''
+                      result.update(response_model=safe(body.get('model', '')), finish_reason=safe(choice.get('finish_reason', '')),
+                                    content_preview=safe(content)[:1200])
+                      result['usage'] = {k: v for k, v in body.get('usage', {}).items()
+                                         if k in ('prompt_tokens', 'completion_tokens', 'total_tokens') and isinstance(v, (int, float))}
+                  elif raw:
+                      result['error'] = safe(json.dumps(body.get('error', body), ensure_ascii=False))[:1200]
+              except (ValueError, TypeError, KeyError):
+                  if raw:
+                      result['error'] = safe(raw)[:1200]
+              return result, content
+          def record(result):
+              (output / (result['test'] + '.json')).write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
+              print('PROBE_RESULT ' + json.dumps(result, ensure_ascii=False), flush=True)
+
+          result, content = request_once('minimal', [{'role': 'user', 'content': 'Reply exactly OK, with no explanation.'}], 128)
+          result['usable_response'] = result.get('http_status') == 200 and content.strip() == 'OK'
+          record(result)
+          if not result['usable_response']:
+              raise SystemExit(1)
+          manifest = json.loads(Path('recovery/oct31-nov05-2026/manifest.json').read_text())
+          sources = json.loads(lzma.decompress(Path(manifest['source_file']).read_bytes()))
+          spec = next(x for x in manifest['dates'] if x['date'] == '2026-10-31')
+          verify_records(sources['2026-10-31'], spec)
+          paper = next(x for x in sources['2026-10-31'] if x['id'] == '2610.38215')
+          system = Path('ai/system.txt').read_text().replace('{language}', 'Chinese')
+          user = Path('ai/template.txt').read_text().replace('{content}', paper['summary'])
+          time.sleep(1)
+          result, content = request_once('original-prompt-paper', [{'role': 'system', 'content': system}, {'role': 'user', 'content': user}], 4096, True)
+          result['paper_id'] = paper['id']
+          result['prompt_changed'] = False
+          try:
+              analysis = json.loads(content)
+              validate_ai(analysis, paper)
+              result['structured_validation_passed'] = result.get('http_status') == 200
+          except (ValueError, TypeError, KeyError) as error:
+              result.update(structured_validation_passed=False, validation_error=safe(str(error))[:300])
+          if result['structured_validation_passed']:
+              (output / 'paper-2610.38215_AI.json').write_text(safe(json.dumps(analysis, ensure_ascii=False, indent=2)), encoding='utf-8')
+          record(result)
+          raise SystemExit(0 if result['structured_validation_passed'] else 1)
+          PY
+      - name: Preserve sanitized probe evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qwen-recovery-compatibility
+          path: .qwen-probe/
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: warn
