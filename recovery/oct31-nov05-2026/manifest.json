@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "model": "huawei/deepseek-v4.1-flash",
+  "dates": [
+    {
+      "date": "2026-10-31",
+      "run_id": 41155643489,
+      "job_id": 124401772233,
+      "raw_records": 190,
+      "unique_ids": 183,
+      "url": "https://github.com/fyrsta7/26summer-daily_arXiv_ai_enhanced/actions/runs/41155643489",
+      "records_sha256": "e4c470e4518cb6650fdd3016dc972eddd068ae488b6d2544cf207acbcb861e8f"
+    },
+    {
+      "date": "2026-11-01",
+      "run_id": 41261344678,
+      "job_id": 124715124154,
+      "raw_records": 202,
+      "unique_ids": 193,
+      "url": "https://github.com/fyrsta7/26summer-daily_arXiv_ai_enhanced/actions/runs/41261344678",
+      "records_sha256": "77b1c7d3f4bd7e50904301d812c6d4bc34fc669409b9c4a1d4e5924db53277dd"
+    },
+    {
+      "date": "2026-11-02",
+      "run_id": 41372802103,
+      "job_id": 125046724893,
+      "raw_records": 202,
+      "unique_ids": 193,
+      "url": "https://github.com/fyrsta7/26summer-daily_arXiv_ai_enhanced/actions/runs/41372802103",
+      "records_sha256": "77b1c7d3f4bd7e50904301d812c6d4bc34fc669409b9c4a1d4e5924db53277dd"
+    },
+    {
+      "date": "2026-11-03",
+      "run_id": 41560133243,
+      "job_id": 125668605080,
+      "raw_records": 120,
+      "unique_ids": 117,
+      "url": "https://github.com/fyrsta7/26summer-daily_arXiv_ai_enhanced/actions/runs/41560133243",
+      "records_sha256": "7aaf977e3049a3d71ceebb8544c22f4ecffc4d95bdc329dde4073b368f83e473"
+    },
+    {
+      "date": "2026-11-04",
+      "run_id": 41754478664,
+      "job_id": 126327315678,
+      "raw_records": 291,
+      "unique_ids": 271,
+      "url": "https://github.com/fyrsta7/26summer-daily_arXiv_ai_enhanced/actions/runs/41754478664",
+      "records_sha256": "39885f9d726882c3aca2e3e189a46178c9b568c3955bf883e3b1e2337c945c73"
+    },
+    {
+      "date": "2026-11-05",
+      "run_id": 41948938481,
+      "job_id": 126988059975,
+      "raw_records": 141,
+      "unique_ids": 132,
+      "url": "https://github.com/fyrsta7/26summer-daily_arXiv_ai_enhanced/actions/runs/41948938481",
+      "records_sha256": "f5c878bec4db9d889ce7103a354535323828ff33f477d7716a9f3f8ec5cb5323"
+    }
+  ],
+  "source": "Original GitHub Actions crawler logs, not submission-date search",
+  "expected_unique_candidates": 713
+}

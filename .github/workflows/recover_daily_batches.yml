@@ -1,0 +1,91 @@
+name: Recover missing daily batches
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - recovery/oct31-nov05-2026/manifest.json
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+# Share the normal delivery lock, so the model never sees both jobs together.
+concurrency:
+  group: daily-arxiv-delivery
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test recovery invariants
+        run: python3 -m unittest discover -s tests -p test_recover_daily_batches.py -v
+      - uses: actions/cache/restore@v4
+        with:
+          path: .recovery-cache
+          key: arxiv-recovery-20261031-1105-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: arxiv-recovery-20261031-1105-
+      - name: Replay verified original batches serially
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          MODEL_NAME: ${{ vars.MODEL_NAME }}
+          CATEGORIES: ${{ vars.CATEGORIES }}
+          LANGUAGE: Chinese
+        run: python3 scripts/recover_daily_batches.py --manifest recovery/oct31-nov05-2026/manifest.json
+      - name: Independently recheck all six results
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/recover_daily_batches.py --manifest recovery/oct31-nov05-2026/manifest.json --verify-only
+      - name: Publish verified backfill without email
+        env:
+          EMAIL: ${{ vars.EMAIL }}
+          NAME: ${{ vars.NAME }}
+        run: |
+          set -euo pipefail
+          find data -maxdepth 1 -type f -name '*.jsonl' -printf '%f\n' | sort > assets/file-list.txt
+          git config user.email "$EMAIL"
+          git config user.name "$NAME"
+          for date in 2026-10-31 2026-11-01 2026-11-02 2026-11-03 2026-11-04 2026-11-05; do
+            git add "data/${date}.jsonl" "data/${date}.md" "data/${date}_AI_enhanced_Chinese.jsonl" "data/${date}_filter_report.json"
+          done
+          git add assets/file-list.txt
+          if git diff --staged --quiet; then
+            echo 'All six original batches are already restored and verified.'
+            exit 0
+          fi
+          git commit -m 'backfill: restore verified Oct 31 through Nov 5 daily batches'
+          git push origin HEAD:main
+      - name: Save resumable model results
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .recovery-cache
+          key: arxiv-recovery-20261031-1105-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Preserve recovery results for verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verified-daily-recovery-${{ github.run_attempt }}
+          include-hidden-files: true
+          path: |
+            .recovery-cache
+            data/2026-10-31*
+            data/2026-11-01*
+            data/2026-11-02*
+            data/2026-11-03*
+            data/2026-11-04*
+            data/2026-11-05*
+          if-no-files-found: warn
+          retention-days: 14
