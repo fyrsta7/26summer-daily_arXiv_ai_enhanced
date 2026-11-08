@@ -1,0 +1,1175 @@
+{
+  "model": "ali/qwen3.7-plus",
+  "model_scope": "New requests; per-record model provenance retains validated cached results.",
+  "policy": "cs.SE_and_cs.AI_semopt_relevance",
+  "input_records": 141,
+  "input_total": 132,
+  "cs.SE_candidates": 25,
+  "cs.SE_kept": 14,
+  "cs.AI_candidates": 107,
+  "cs.AI_kept": 46,
+  "output_total": 60,
+  "cs.SE_decisions": [
+    {
+      "id": "2611.03662",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出针对 LLM Agent 工具协议 (MCP) SDK 的自动化一致性测试与验证框架，直接提升 Agent 工具调用的可靠性。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03705",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "主要面向电子表格处理的特定垂直应用，缺乏向通用代码 Agent 或程序优化迁移的通用方法贡献。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04042",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "针对 LLM 推测解码引擎的运行时契约进行正确性测试与验证，属于底层推理引擎的运行时优化与验证范畴。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04206",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "属于软件工程研究社区的计量分析与综述，缺乏具体的方法、工具或评测基准贡献。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04367",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "直接研究 Coding Agent 对上下文文件中策略指令的遵从性，为优化 Agent 提示词和工作流控制提供实证依据。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04383",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "属于探讨 Coding Agent 时代软件工程范式的概念性观点文章，缺乏具体的方法、工具或实验贡献。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04456",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "对 Agent 技能的演化进行大规模实证研究，其关于技能可靠性、自动更新和回归测试的发现对工程化 Agent 系统有直接迁移价值。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03725",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "提出针对 RAG 管道（Agent 核心组件）的无参考自动化故障定位方法与数据集，直接提升 Agent 长程执行和工具调用的调试能力。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04579",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "主要贡献为移动端 Agent 系统的插件架构与业务实现，缺乏向通用代码 Agent 或程序优化迁移的底层方法贡献。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04769",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出面向微服务依赖的 REST API 自动化测试基准平台，其追踪感知的故障区分方法对复杂系统下的 Agent 集成测试具有参考价值。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04783",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "属于软件工程教育与人因研究，探讨学生使用AI的认知贡献，无代码agent或优化方法迁移价值。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04883",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "关注开源硬件RISC-V的可重复构建与依赖管理，与代码agent或语义优化无关。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05013",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "研究JIT漏洞预测的数据标签策略对下游任务的影响，为代码agent的漏洞分析与修复评测提供数据集构建参考。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05056",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "研究GitHub Copilot对残障开发者生产力的影响，属于人因与项目管理范畴，无方法学贡献。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03853",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "比较医疗领域RPA与LLM Agent的性能，属于单一垂直业务应用，缺乏可迁移至代码agent的通用方法。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05094",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "深入分析Coding Agent的规范驱动工作流、多Agent协作与验证机制，直接契合代码agent的长程执行与可靠性研究。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05121",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "系统研究GPU程序数值bug特征并提出自动检测工具，为代码agent的调试与自动修复提供领域特定的分析与验证方法。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05168",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出跨领域特定语言的代码生成评测基准DSL-Bench，包含语义验证机制，对代码agent的生成与验证有直接价值。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05176",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "将流程挖掘集成到XR元建模平台，属于纯业务系统实现，与代码优化或agent无关。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05314",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "揭示基于信息检索的Bug定位基准中标签噪声的普遍性及其对评估的影响，为代码检索与调试agent的评测提供数据可靠性参考。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04180",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出多agent协作的ML pipeline合成框架，包含验证门控、技能自演化、错误传播阻断等机制，对coding agent的工作流设计和可靠性保障有直接迁移价值",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04320",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "首次系统研究LLM代码生成中规划与编码能力分离的实证工作，发现强弱planner+弱coder组合可媲美全强模型，对coding agent架构设计有直接指导意义",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04338",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "研究LLM实验中的预注册协议修复分类学，属于科研方法论范畴，虽涉及LLM生成代码的验证但核心贡献不在coding agent或SemOpt方法",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04399",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "揭示agent评测基础设施中的静默错误（评分器、成本计算、轨迹记录），提出可审计的评测检查方案，对coding agent benchmark设计和评测可靠性有重要参考价值",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04420",
+      "relevant": false,
+      "score": 0.45,
+      "reason_zh": "研究自动化科研pipeline中verifier强度与发现质量的关系，核心结论是扩大proposer池比加强验证更有效，虽涉及LLM+verifier架构但偏向科研自动化而非代码agent",
+      "model": "ali/qwen3.7-plus"
+    }
+  ],
+  "cs.AI_decisions": [
+    {
+      "id": "2611.03650",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "研究LLM对齐欺骗行为与价值观的关系，属于模型对齐分析而非agent方法，对coding agent研究迁移价值有限",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03651",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "关于机器人几何证书与SLAM图优化的数学接口，与程序优化或LLM agent无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03684",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "分析语言模型内部化学知识表征，属于模型可解释性研究，不涉及agent架构或代码优化方法",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03685",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出实时视觉agent benchmark，发现推理努力增加反而减少交互轮次的现象，对agent评测和推理-行动权衡有启发",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03698",
+      "relevant": true,
+      "score": 0.78,
+      "reason_zh": "提出RSI-Dojo训练LLM agent执行模型后训练，包含轨迹收集、harness改进、自我改进机制，与agent训练和workflow优化直接相关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03713",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出Unsatz benchmark要求agent自主构建科学模型ansatz，涉及实验规划、工具使用、迭代修正，对agent规划和长程任务设计有参考价值",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03721",
+      "relevant": true,
+      "score": 0.62,
+      "reason_zh": "提出Simjecture框架让agent通过反例驱动证伪进行物理研究，包含假设修复和长程调查流程，对agent反思与迭代改进有启发",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03723",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出EMBERS对Deep Research agent进行缺陷引导的鲁棒性测试，识别多阶段执行中的九类缺陷，对agent可靠性评测直接相关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03739",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "研究推理文本的拓扑简单性假说，属于推理特性分析而非agent方法",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03765",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出VagueBench评测具身agent在模糊指令下的鲁棒性，发现agent过度依赖辅助语境信号，对agent可靠性与指令理解研究有参考价值",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03832",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "药物发现垂直应用，但提出了共享科学记忆（含provenance追踪）、批量处理减少LLM决策开销、工具选择与结果审查的agent架构设计，这些模式可迁移到代码优化agent管理大规模代码库与优化轨迹的场景",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03834",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "模型合并与推理压缩方法，属于纯模型层面优化而非agent系统，与代码优化agent无直接关联",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03849",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "工业设备故障诊断方法，使用LaplaceNet进行传感器异常分析，与LLM agent或代码优化无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03861",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "关于因果学习与干预能力的理论分析论文，不涉及agent架构或代码优化实践",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03882",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "教育领域评估学生推理的多agent框架，属于垂直应用且未提出可迁移的通用agent方法",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03930",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "直接研究agent长期记忆的任务条件效用评估方法，在软件工程与科学编码benchmark上进行了测试，提出按任务效用而非单一重要性评分的记忆评估框架，对coding agent的记忆设计有直接参考价值",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03946",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "研究团队协作中AI使用的观察性论文，提出Human-AI-Human协作拓扑，但偏向工作流分析而非agent架构设计，方法贡献有限",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03980",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "LLM在舆论动力学中的对齐漂移研究，属于社会模拟领域，与代码优化agent无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03983",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "医疗健康领域的运动处方多agent框架，虽有安全审计修复机制但属于垂直应用无通用方法贡献",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.03985",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "金融交易中LLM决策模型的评估，与代码优化或agent架构无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04003",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出基于Wiki的Agent程序性记忆方法，通过蒸馏执行轨迹和反馈实现经验复用与持续学习，对Agent记忆与反思机制有直接启发",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04006",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "研究视觉语言动作模型中动作头与预训练表示的协同适应，属于机器人控制领域的模型微调，与LLM Agent或代码优化无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04032",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "提出LLM推理服务配置调优的模拟器与搜索Agent，属于LLM Serving基础设施优化，未提出通用Agent方法或涉及代码/编译器优化",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04035",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出递归自我改进的基础模型系统，通过知识仓库存储技能、记忆与反思，实现无人类专家的持续自我改进，对Agent自我改进与记忆架构有重要参考价值",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04048",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "研究提示社会规范效用对LLM在社会困境中决策行为的影响，属于LLM对齐与行为模拟，与Agent架构或代码优化无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04054",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "提出主动学习中基于影响函数的数据移除方法以改善高斯过程建模，属于传统机器学习优化，与LLM Agent无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04055",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "提出针对混合GDN-MoE模型的投机解码加速方法，属于LLM推理系统底层优化，无Agent参与且非代码优化",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04057",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "提出用于生产环境训练集群硬件选择的吞吐量预测服务，属于机器学习工程与系统调度，与LLM Agent或代码优化无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04059",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "提出基于子模函数和梯度引导合成的指令微调数据选择方法，属于模型训练数据工程，与LLM Agent或代码优化无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04061",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "研究可验证奖励强化学习(RLVR)训练中的先入为主偏差现象，属于模型训练与强化学习机制分析，与LLM Agent或代码优化无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04079",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出跨范式推理框架，通过策略选择和结构化指导提升程序合成与优化等任务的求解能力，对coding agent的策略路由有启发。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04100",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出Agent Board作为多agent持久协调的harness，支持任务发布、阻塞与中断处理，对长程多agent协作架构设计有直接参考价值。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04101",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "仅将结构化记忆应用于医疗临床决策的垂直任务评估，无通用agent方法贡献。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04113",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "研究进化策略微调LLM时的优化悖论，属于纯模型训练与优化机制，不涉及agent。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04126",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "将LLM agent用于血糖预测的医疗垂直任务，虽包含代码生成但无通用agent架构或方法贡献。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04142",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "通过序列模式挖掘分析Web agent执行轨迹以实现可解释的早期终止，对agent轨迹分析、可靠性控制与资源优化有迁移价值。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04153",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "研究美国联邦AI清单的问责制与治理问题，与agent技术或代码优化无关。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04181",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "探讨序列处理AI的内源时间结构与生物脑节律，属于认知科学理论探讨，与agent或代码优化无关。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04196",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出用于漏洞利用的多agent架构，包含阶段感知分解、并行探索与共享结构化记忆，其长程任务编排与验证机制对coding agent高度可迁移。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04203",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "研究推荐系统中用户agent与平台agent的博弈与福利分析，无通用agent架构或工程方法贡献。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04228",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出结合符号与具身约束的agent规划评测基准，对长程任务规划与复杂约束满足的agent设计有启发。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04230",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "纯数学组合优化问题的精确求解与证明，无通用agent方法或架构贡献。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04241",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出层次化子目标与技能组合的VLA数据集，对agent的长程任务分解与规划有潜在启发。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04260",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出通过新词元进行接种提示以控制模型不良行为，对agent的安全控制与对齐机制有参考价值。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04264",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "研究RAG检索在语料投毒下的可靠性，对依赖外部检索的agent的鲁棒性设计有启发。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04277",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "提出基于兄弟harness的agent训练与轨迹复用方法，并在SWE-Gym等代码基准上验证，直接相关且高度可迁移。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04279",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "离散扩散模型的蒸馏与推理加速方法，属于纯模型优化，无agent架构或工作流贡献。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04301",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "仅将现有方法应用于地球观测垂直领域，缺乏通用agent架构或方法贡献。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04315",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出通过表征层面的谱锁定解决长程多agent系统中的任务与角色漂移，对多agent协作与长程执行有显著启发。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04321",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "提出基于角色契约的agent轨迹控制方法，解决黑盒多agent系统中的角色越权与漂移问题，对多agent可靠性控制有直接价值。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04323",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "纯模型并行训练的通信压缩与量化方法，无agent参与，属于模型训练基础设施优化",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04330",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "5G网络干扰检测的强化学习应用，垂直领域任务，无通用agent方法贡献",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04342",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "低资源语言仇恨言论检测的prompt工程比较，无agent且与代码优化无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04369",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "5G网络干扰检测的benchmark，垂直领域评估，无agent方法",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04371",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "具身AI科学发现的综述，提出workflow分析框架（记录-诊断-校准-确认循环）和反馈机制分类，对长程agent任务设计和验证流程有潜在启发",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04380",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "LLM量化推理服务的benchmark综述，关注速度与精度权衡，无agent方法",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04391",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "机器人VLA策略的人机迁移框架，具身智能领域，与coding agent无直接关联",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04395",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "发现训练数据中可靠元数据会隐性控制模型行为（cue following），对agent训练数据质量和可靠性审计有重要启示",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04413",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "图像压缩的高斯拟合与码率分配优化，与agent和代码优化无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04447",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "用Lean形式化PTX以证明GPU kernel正确性，涉及形式化验证方法，可迁移到自动代码优化的正确性验证环节",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04458",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出LLM生成启发式规则并结合环境反馈进行闭环优化的机制，对SemOpt中基于反馈的代码优化循环设计有启发。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04473",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "深入分析了科学推理agent“治标不治本”的因果推理失败模式，对coding agent在调试和性能优化时寻找根本原因具有实证参考价值。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04479",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "纯注意力机制的数学优化与稀疏化研究，不涉及LLM agent。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04481",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出基于物理证据自递归修改软硬件的agent harness架构，其闭环反馈与自我修正机制对coding agent的harness设计有借鉴意义。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04483",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出多专家agent市场的持续认知蒸馏方法，涉及agent记忆、经验复用与知识迁移，对通用agent架构设计有启发。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04487",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "基于神经网络和逻辑的工业故障诊断方法，未涉及LLM agent。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04494",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "AR眼镜的视觉空间记忆系统，属于计算机视觉与硬件交互，无LLM agent。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04507",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出基于轨迹的agent连续诊断方法并建立问题分类法，直接涉及agent评测、可靠性分析与轨迹经验复用。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04510",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "针对招聘AI决策模型的公平性审计，不涉及LLM agent。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04515",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "总结了大规模A/B测试中AI agent的构建经验，特别是通过限制非确定性边界来结合LLM与确定性代码的harness设计，对SemOpt的验证机制极具启发。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04546",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "垂直领域（法规问答）LLM助手评测benchmark，仅将现成LLM应用于法规任务，无通用agent方法贡献",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04556",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "研究多agent系统中的说服、欺骗、胁迫等相互影响机制，对agent安全控制与可靠性研究有直接启发",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04566",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "电力工程研究领域的世界模型，与coding agent或通用agent方法无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04576",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "Web设备识别中的语义查询价值评估，属于特定应用优化，与agent研究无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04637",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "SAT求解器的约束编码优化，虽SAT可用于程序验证但本文纯为组合优化技术，无agent方法贡献",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04757",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "LLM激活编辑的输入依赖性研究，属于模型内部机制/steering技术，非agent层面工作",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04772",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "部署级LLM agent系统，包含显式条件管理、失败诊断、trace验证和发布检查流程，其workflow设计和可靠性验证方法可迁移至coding agent",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04782",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "基于SAE的PII抑制评估方法，属于模型可解释性与安全研究，非agent工作",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04785",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "城市规模模拟benchmark测试LLM在犯罪调查中的长程任务能力，涉及多源信息整合与工具交互，其benchmark设计对agent评测有参考价值",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04805",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出多agent冲突答案的无监督真相发现方法，通过去相关权重处理同源agent错误相关性，对多agent协作与可靠性评估有直接价值",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04809",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "材料合成领域的知识图谱补全方法，与coding agent或通用agent方法无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04813",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "金融agent评测benchmark，提出无参考评估框架和幻觉审计机制，发现harness差异(28.6%)远大于模型差异(8.8%)，该评测方法论和harness设计洞见可迁移到coding agent评测",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04814",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "推理压缩方法属于模型推理优化而非agent方法，虽然在code generation上评测但本质是训练/推理层面的效率提升",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04817",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "视觉语言模型的数据隐私保护方法，与agent研究无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04819",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "支付欺诈检测的逆强化学习框架，属于金融安全垂直应用，无通用agent方法贡献",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04834",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "研究LLM的知识状态判断(FoK)对齐，属于模型训练方法而非agent架构或工作流设计",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04836",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出基于拓扑同构的经验规范化与复用框架(HTCE)，用于embodied agent导航，其经验索引压缩、结构化检索和轨迹复用机制可迁移到coding agent的经验学习设计",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04841",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "多模态情感分析的动态路由网络，与agent研究无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04848",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "基于Transformer的变量选择方法，属于统计机器学习，与agent无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04879",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "构建web agent对抗在线欺诈的交互式评测环境，系统研究agent在欺骗性场景下的可靠性与安全性，发现agent即使识别可疑条件仍继续执行等问题，直接对应agent评测与安全控制研究方向",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04886",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "研究生成式AI导致人类技能退化的社会学/经济学模型，与LLM agent或代码优化无关。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04887",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "关于低比特量化和强化学习后训练的系统优化，属于纯模型训练与部署技术，不涉及agent。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.04952",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出诊断自我进化agent经验复用与能力形成过程的方法，对coding agent的轨迹复用和评测有直接启发。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05039",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出LLM结合Prolog验证器的迭代生成-测试-约束框架，其工具反馈与形式化验证机制可迁移至代码生成与修复agent。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05088",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出通过预填充阶段隐藏状态检测agent恶意skill的安全控制方法，属于通用agent的可靠性与安全控制研究。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05097",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "研究脑电波基础模型的表征收敛性，属于认知科学与神经科学交叉领域，与agent或代码优化无关。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05108",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "研究agent在持续自动研究中的跨任务学习与记忆保留机制，对coding agent的长程经验复用和记忆设计有重要参考价值。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05135",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "研究LLM在民主协商和意见聚合任务中的不稳定性，属于HCI与计算社会科学，无通用agent方法贡献。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05139",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "提出长程agent的在线harness进化方法并预计算可复用知识，在DeepSWE等软件工程benchmark上验证，高度契合agent workflow与自我改进研究。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05148",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "研究通过查询路由优化数据中心LLM推理的电力灵活性，属于数据中心系统与能源调度，与agent或代码优化无关。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05151",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出基于浏览器交互RL的HTML代码生成框架，包含运行时执行轨迹驱动的token级credit assignment和防止reward hacking的Visual Anchor机制，其反馈保真度提升思路可迁移至代码优化agent的验证与奖励设计。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05167",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "多模态神经信号融合用于脑科学研究，与LLM agent或代码优化完全无关。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05171",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "将LLM agent用于激光粉末床熔融制造工艺优化，属于垂直领域应用，虽使用MCP工具调用和约束优化，但无通用agent方法贡献可迁移至代码优化。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05263",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出分层多agent RL框架，将任务分解器与执行器联合训练，使用GRPO进行分层rollout优化，其planner-actor联合优化和长程任务规划方法对coding agent的长程执行有直接启发。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05272",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "通过隐藏状态几何分析检测LLM中被抑制的知识，属于模型内部机制研究，与agent架构或代码优化无关。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05306",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "证明频繁上下文压缩在长程任务（含软件工程任务）中几乎不损失精度，提出语义状态空间模型概念，对coding agent的长程执行和上下文管理策略有参考价值。",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2611.05345",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "将speculative decoding从系统加速重新定义为长程agent推理精度分配器，通过在关键决策点训练draft model被拒绝来保证目标模型高精度编码，在coding benchmark上验证有效，对提升coding agent长程推理可靠性有直接贡献。",
+      "model": "ali/qwen3.7-plus"
+    }
+  ],
+  "generation_models": {
+    "ali/qwen3.7-plus": 60
+  },
+  "classification_models": {
+    "ali/qwen3.7-plus": 132
+  },
+  "recovery": {
+    "source_records_sha256": "f5c878bec4db9d889ce7103a354535323828ff33f477d7716a9f3f8ec5cb5323",
+    "candidate_ids": [
+      "2611.03650",
+      "2611.03651",
+      "2611.03662",
+      "2611.03684",
+      "2611.03705",
+      "2611.03685",
+      "2611.04042",
+      "2611.03698",
+      "2611.04206",
+      "2611.03713",
+      "2611.04367",
+      "2611.03721",
+      "2611.04383",
+      "2611.03723",
+      "2611.04456",
+      "2611.03725",
+      "2611.04579",
+      "2611.03739",
+      "2611.04769",
+      "2611.03765",
+      "2611.04783",
+      "2611.03832",
+      "2611.04883",
+      "2611.03834",
+      "2611.05013",
+      "2611.03849",
+      "2611.05056",
+      "2611.03853",
+      "2611.05094",
+      "2611.03861",
+      "2611.05121",
+      "2611.03882",
+      "2611.05168",
+      "2611.03930",
+      "2611.05176",
+      "2611.03946",
+      "2611.05314",
+      "2611.03980",
+      "2611.03983",
+      "2611.03985",
+      "2611.04003",
+      "2611.04180",
+      "2611.04006",
+      "2611.04320",
+      "2611.04032",
+      "2611.04338",
+      "2611.04035",
+      "2611.04399",
+      "2611.04048",
+      "2611.04420",
+      "2611.04054",
+      "2611.04055",
+      "2611.04057",
+      "2611.04059",
+      "2611.04061",
+      "2611.04079",
+      "2611.04100",
+      "2611.04101",
+      "2611.04113",
+      "2611.04126",
+      "2611.04142",
+      "2611.04153",
+      "2611.04181",
+      "2611.04196",
+      "2611.04203",
+      "2611.04228",
+      "2611.04230",
+      "2611.04241",
+      "2611.04260",
+      "2611.04264",
+      "2611.04277",
+      "2611.04279",
+      "2611.04301",
+      "2611.04315",
+      "2611.04321",
+      "2611.04323",
+      "2611.04330",
+      "2611.04342",
+      "2611.04369",
+      "2611.04371",
+      "2611.04380",
+      "2611.04391",
+      "2611.04395",
+      "2611.04413",
+      "2611.04447",
+      "2611.04458",
+      "2611.04473",
+      "2611.04479",
+      "2611.04481",
+      "2611.04483",
+      "2611.04487",
+      "2611.04494",
+      "2611.04507",
+      "2611.04510",
+      "2611.04515",
+      "2611.04546",
+      "2611.04556",
+      "2611.04566",
+      "2611.04576",
+      "2611.04637",
+      "2611.04757",
+      "2611.04772",
+      "2611.04782",
+      "2611.04785",
+      "2611.04805",
+      "2611.04809",
+      "2611.04813",
+      "2611.04814",
+      "2611.04817",
+      "2611.04819",
+      "2611.04834",
+      "2611.04836",
+      "2611.04841",
+      "2611.04848",
+      "2611.04879",
+      "2611.04886",
+      "2611.04887",
+      "2611.04952",
+      "2611.05039",
+      "2611.05088",
+      "2611.05097",
+      "2611.05108",
+      "2611.05135",
+      "2611.05139",
+      "2611.05148",
+      "2611.05151",
+      "2611.05167",
+      "2611.05171",
+      "2611.05263",
+      "2611.05272",
+      "2611.05306",
+      "2611.05345"
+    ],
+    "selected_ids": [
+      "2611.03662",
+      "2611.03685",
+      "2611.04042",
+      "2611.03698",
+      "2611.03713",
+      "2611.04367",
+      "2611.03721",
+      "2611.03723",
+      "2611.04456",
+      "2611.03725",
+      "2611.04769",
+      "2611.03765",
+      "2611.03832",
+      "2611.05013",
+      "2611.05094",
+      "2611.05121",
+      "2611.05168",
+      "2611.03930",
+      "2611.05314",
+      "2611.04003",
+      "2611.04180",
+      "2611.04320",
+      "2611.04035",
+      "2611.04399",
+      "2611.04079",
+      "2611.04100",
+      "2611.04142",
+      "2611.04196",
+      "2611.04228",
+      "2611.04241",
+      "2611.04260",
+      "2611.04264",
+      "2611.04277",
+      "2611.04315",
+      "2611.04321",
+      "2611.04371",
+      "2611.04395",
+      "2611.04447",
+      "2611.04458",
+      "2611.04473",
+      "2611.04481",
+      "2611.04483",
+      "2611.04507",
+      "2611.04515",
+      "2611.04556",
+      "2611.04772",
+      "2611.04785",
+      "2611.04805",
+      "2611.04813",
+      "2611.04836",
+      "2611.04879",
+      "2611.04952",
+      "2611.05039",
+      "2611.05088",
+      "2611.05108",
+      "2611.05139",
+      "2611.05151",
+      "2611.05263",
+      "2611.05306",
+      "2611.05345"
+    ],
+    "source_run_url": "https://github.com/fyrsta7/26summer-daily_arXiv_ai_enhanced/actions/runs/41948938481",
+    "source_unique": 132,
+    "status": "complete",
+    "duplicate_records_removed": 9,
+    "external_delivery": false,
+    "prompt_changed": false,
+    "concurrency": {
+      "model": "ali/qwen3.7-plus",
+      "maximum_allowed": 8,
+      "peak_inflight": 8,
+      "successes": 357,
+      "attempts": 358,
+      "http_errors": {},
+      "network_errors": 0,
+      "invalid_responses": 1,
+      "limit_changes": [
+        {
+          "limit": 2,
+          "reason": "initial test"
+        },
+        {
+          "limit": 4,
+          "reason": "successful lower-concurrency requests"
+        },
+        {
+          "limit": 8,
+          "reason": "successful lower-concurrency requests"
+        }
+      ]
+    }
+  }
+}
