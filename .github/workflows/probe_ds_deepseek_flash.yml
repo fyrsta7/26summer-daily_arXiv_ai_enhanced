@@ -1,0 +1,75 @@
+name: Probe ds deepseek flash once
+
+on:
+  push:
+    branches: [diagnostic/ds-deepseek-flash-20261108]
+    paths: [.github/workflows/probe_ds_deepseek_flash.yml]
+
+permissions: {}
+
+concurrency:
+  group: daily-arxiv-delivery
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    if: github.run_number == 1 && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Make exactly one minimal API request
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+        run: |
+          python3 - <<'PY'
+          import json, os, time
+          from urllib.error import HTTPError, URLError
+          from urllib.request import Request, build_opener, HTTPRedirectHandler
+
+          key = os.environ.get('OPENAI_API_KEY', '')
+          base = os.environ.get('OPENAI_BASE_URL', '').rstrip('/')
+          if not key or not base.startswith('https://'):
+              raise SystemExit('Probe requires the existing HTTPS endpoint and API credential')
+          def safe(value):
+              return str(value).replace(key, '[REDACTED]').replace(base, '[ENDPOINT]')[:1000]
+          class NoRedirect(HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+          payload = {'model': 'ds/deepseek-flash', 'messages': [
+              {'role': 'user', 'content': 'Reply exactly OK, with no explanation.'}],
+              'max_tokens': 128, 'temperature': 0}
+          request = Request(base + '/chat/completions', data=json.dumps(payload).encode(),
+                            headers={'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json'})
+          started = time.monotonic()
+          result = {'requested_model': 'ds/deepseek-flash', 'requests': 1, 'retries': 0}
+          try:
+              with build_opener(NoRedirect).open(request, timeout=90) as response:
+                  result['http_status'] = response.status
+                  raw = response.read(131072).decode('utf-8', errors='replace')
+          except HTTPError as error:
+              result['http_status'] = error.code
+              raw = error.read(131072).decode('utf-8', errors='replace')
+          except (URLError, TimeoutError, OSError) as error:
+              result.update(http_status=None, error_type=type(error).__name__,
+                            error='Connection failed or timed out; endpoint and credentials withheld')
+              raw = ''
+          result['elapsed_seconds'] = round(time.monotonic() - started, 2)
+          try:
+              body = json.loads(raw)
+              if 'choices' in body and body['choices']:
+                  choice = body['choices'][0]
+                  result['response_model'] = safe(body.get('model', ''))
+                  result['finish_reason'] = safe(choice.get('finish_reason', ''))
+                  result['content'] = safe(choice.get('message', {}).get('content', ''))
+                  result['usage'] = {k: v for k, v in body.get('usage', {}).items()
+                                     if k in ('prompt_tokens', 'completion_tokens', 'total_tokens') and isinstance(v, (int, float))}
+              elif raw:
+                  result['error'] = safe(json.dumps(body.get('error', body), ensure_ascii=False))
+          except (ValueError, TypeError, KeyError):
+              if raw:
+                  result['error'] = safe(raw)
+          result['usable_response'] = result.get('http_status') == 200 and result.get('content', '').strip() == 'OK'
+          print('PROBE_RESULT ' + json.dumps(result, ensure_ascii=False), flush=True)
+          raise SystemExit(0 if result['usable_response'] else 1)
+          PY
