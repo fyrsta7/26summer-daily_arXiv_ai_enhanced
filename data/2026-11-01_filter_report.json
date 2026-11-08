@@ -1,0 +1,143 @@
+{
+  "model": "ali/qwen3.7-plus",
+  "model_scope": "New requests; per-record model provenance retains validated cached results.",
+  "policy": "cs.SE_and_cs.AI_semopt_relevance",
+  "input_records": 202,
+  "input_total": 10,
+  "cs.SE_candidates": 0,
+  "cs.SE_kept": 0,
+  "cs.AI_candidates": 10,
+  "cs.AI_kept": 5,
+  "output_total": 5,
+  "cs.SE_decisions": [],
+  "cs.AI_decisions": [
+    {
+      "id": "2610.40482",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "金融领域知识图谱记忆管理，属于垂直应用，无通用agent方法贡献",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2610.40503",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出从环境交互中构建可执行假设并通过Lean形式化验证的框架，包含探索-修正-形式化的agent循环，对coding agent的假设验证和形式化推理有启发",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2610.40535",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出可回溯交互式证明用于AI系统监督验证，rewinding机制对agent可靠性验证和调试有潜在价值",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2610.40541",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "LLM解码长度预测的理论分析，属于推理优化而非agent研究",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2610.40545",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出基于价值索引的持久化局部遍历记忆机制，直接针对长上下文agent的检索效率问题，是agent记忆架构的新方法",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2610.40551",
+      "relevant": false,
+      "score": 0.45,
+      "reason_zh": "数学证明评估pipeline，虽有验证方法论但聚焦数学领域，与代码优化agent关联较弱",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2610.40556",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "临床基因组学领域agent应用，使用skill编排但无通用方法贡献，属于垂直任务",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2610.40560",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "将计算数学转化为可验证AI知识的框架，包含Lean形式化检查和可复用表示，对自动化科学计算agent有参考价值",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2610.40563",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "LLM模拟心理咨询客户的教育研究，与agent方法或代码优化无关",
+      "model": "ali/qwen3.7-plus"
+    },
+    {
+      "id": "2610.40589",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "多agent协作自主研究系统，包含agent间相互评估、停止/重定向调查、理论检查与实验验证，展示了多agent协作与自我纠错机制",
+      "model": "ali/qwen3.7-plus"
+    }
+  ],
+  "generation_models": {
+    "ali/qwen3.7-plus": 5
+  },
+  "classification_models": {
+    "ali/qwen3.7-plus": 10
+  },
+  "recovery": {
+    "source_records_sha256": "77b1c7d3f4bd7e50904301d812c6d4bc34fc669409b9c4a1d4e5924db53277dd",
+    "candidate_ids": [
+      "2610.40482",
+      "2610.40503",
+      "2610.40535",
+      "2610.40541",
+      "2610.40545",
+      "2610.40551",
+      "2610.40556",
+      "2610.40560",
+      "2610.40563",
+      "2610.40589"
+    ],
+    "selected_ids": [
+      "2610.40503",
+      "2610.40535",
+      "2610.40545",
+      "2610.40560",
+      "2610.40589"
+    ],
+    "source_run_url": "https://github.com/fyrsta7/26summer-daily_arXiv_ai_enhanced/actions/runs/41261344678",
+    "source_unique": 193,
+    "status": "complete",
+    "duplicate_records_removed": 192,
+    "external_delivery": false,
+    "prompt_changed": false,
+    "concurrency": {
+      "model": "ali/qwen3.7-plus",
+      "maximum_allowed": 8,
+      "peak_inflight": 8,
+      "successes": 60,
+      "attempts": 60,
+      "http_errors": {},
+      "network_errors": 0,
+      "invalid_responses": 0,
+      "limit_changes": [
+        {
+          "limit": 2,
+          "reason": "initial test"
+        },
+        {
+          "limit": 4,
+          "reason": "successful lower-concurrency requests"
+        },
+        {
+          "limit": 8,
+          "reason": "successful lower-concurrency requests"
+        }
+      ]
+    }
+  }
+}
