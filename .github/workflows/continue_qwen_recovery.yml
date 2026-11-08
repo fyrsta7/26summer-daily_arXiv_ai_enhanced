@@ -1,0 +1,78 @@
+name: Complete missing digests with Qwen
+
+on:
+  push:
+    branches: [diagnostic/qwen-recovery-20261108]
+    paths: [.github/workflows/continue_qwen_recovery.yml]
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: daily-arxiv-delivery
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Load isolated continuation script without changing main code
+        run: |
+          git fetch origin diagnostic/qwen-recovery-20261108
+          git show "$GITHUB_SHA:scripts/continue_qwen_recovery.py" > /tmp/continue_qwen_recovery.py
+          python3 -m py_compile /tmp/continue_qwen_recovery.py
+          python3 -m unittest discover -s tests -p test_recover_daily_batches.py -v
+      - uses: actions/cache/restore@v4
+        with:
+          path: .recovery-cache
+          key: qwen-arxiv-recovery-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            qwen-arxiv-recovery-
+            arxiv-recovery-20261031-1105-
+      - name: Download verified legacy checkpoints
+        uses: actions/download-artifact@v4
+        with:
+          name: verified-daily-recovery-1
+          run-id: 42477547536
+          github-token: ${{ github.token }}
+          path: .recovery-inputs/legacy
+      - name: Download successful unchanged-prompt Qwen probe
+        uses: actions/download-artifact@v4
+        with:
+          name: qwen-recovery-compatibility
+          run-id: 42489047824
+          github-token: ${{ github.token }}
+          path: .recovery-inputs/probe
+      - name: Recover and verify all dates with adaptive concurrency
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          CATEGORIES: ${{ vars.CATEGORIES }}
+          LANGUAGE: Chinese
+          EMAIL: ${{ vars.EMAIL }}
+          NAME: ${{ vars.NAME }}
+        run: python3 /tmp/continue_qwen_recovery.py --legacy .recovery-inputs/legacy --probe .recovery-inputs/probe
+      - name: Save every successful model checkpoint
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .recovery-cache
+          key: qwen-arxiv-recovery-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Preserve verification and progress evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qwen-recovery-results-${{ github.run_attempt }}
+          path: .recovery-cache/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
