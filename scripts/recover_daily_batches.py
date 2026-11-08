@@ -7,6 +7,7 @@ import ast
 import copy
 import hashlib
 import json
+import lzma
 import math
 import os
 from pathlib import Path
@@ -68,9 +69,17 @@ def verify_records(records, spec):
 
 def load_sources(manifest, cache):
     sources = {}
+    archive = None
+    if manifest.get('source_file'):
+        raw = (ROOT / manifest['source_file']).read_bytes()
+        if hashlib.sha256(raw).hexdigest() != manifest['source_sha256']:
+            raise ValueError('Verified source archive hash mismatch')
+        archive = json.loads(lzma.decompress(raw))
     for spec in manifest['dates']:
         path = cache / ('source-' + spec['date'] + '.json')
-        if path.exists():
+        if archive is not None:
+            records = archive[spec['date']]
+        elif path.exists():
             records = read_json(path)
         else:
             # gh authenticates only to GitHub; raw logs and credentials are never printed.

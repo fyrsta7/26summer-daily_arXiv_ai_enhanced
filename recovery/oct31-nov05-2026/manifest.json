@@ -57,6 +57,9 @@
       "records_sha256": "f5c878bec4db9d889ce7103a354535323828ff33f477d7716a9f3f8ec5cb5323"
     }
   ],
-  "source": "Original GitHub Actions crawler logs, not submission-date search",
-  "expected_unique_candidates": 713
+  "source": "Verified original crawler batches recovered from original GitHub Actions logs",
+  "expected_unique_candidates": 713,
+  "source_file": "recovery/oct31-nov05-2026/source.json.xz",
+  "source_sha256": "c1b92f50b0f1810182e7ef3083473ab760ae80efeb76ecaeafc8b153c17aedc6",
+  "recovery_attempt": 2
 }
