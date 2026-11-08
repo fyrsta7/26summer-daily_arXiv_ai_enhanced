@@ -2,12 +2,12 @@
   "policy": "cs.SE_semopt_relevance",
   "model": "huawei/deepseek-v4.1-flash",
   "documents": 1,
-  "cs.SE_occurrences": 37,
-  "unique_arxiv_ids": 37,
-  "selected_unique": 27,
+  "cs.SE_occurrences": 10,
+  "unique_arxiv_ids": 10,
+  "selected_unique": 4,
   "usage": {
-    "prompt_tokens": 14003,
-    "completion_tokens": 4888,
-    "total_tokens": 18891
+    "prompt_tokens": 3628,
+    "completion_tokens": 1160,
+    "total_tokens": 4788
   }
 }

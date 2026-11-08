@@ -1,0 +1,263 @@
+{
+  "model": "huawei/deepseek-v4.1-flash",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 51,
+  "input_total": 51,
+  "cs.SE_kept": 10,
+  "cs.AI_candidates": 41,
+  "cs.AI_kept": 7,
+  "output_total": 17,
+  "filter_usage": {
+    "prompt_tokens": 14277,
+    "completion_tokens": 5205,
+    "total_tokens": 19482
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2611.06977",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "研究 LLM 推理批处理几何与 bitwise 可复现性，属于推理系统确定性优化，与代码优化 agent 无直接关联。"
+    },
+    {
+      "id": "2611.06984",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "面向 MoE 的弹性专家并行与 RL 后训练资源调度，是训练效率系统工作，不涉及 agent 方法。"
+    },
+    {
+      "id": "2611.06989",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "多 agent 系统的调用粒度成本核算与 FOCUS 账本建模，偏 FinOps/可观测性，未提出可迁移的 agent 架构。"
+    },
+    {
+      "id": "2611.07066",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "传统合作式多智能体强化学习的探索约束方法，与 LLM/coding agent 无关。"
+    },
+    {
+      "id": "2611.07088",
+      "relevant": false,
+      "score": 0.45,
+      "reason_zh": "用自动搜索可验证符号程序来解释推理行为，程序综合与验证思路略有启发，但并非 agent 或代码优化方法。"
+    },
+    {
+      "id": "2611.07247",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "关于 empowerment 与人类权力的信息论形式化分析，属于 AI 安全理论，不涉及 agent 架构。"
+    },
+    {
+      "id": "2611.07296",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "热带气旋港口影响排序的推荐系统，领域应用且无通用 agent 贡献。"
+    },
+    {
+      "id": "2611.07482",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "面向推理模型的安全对齐与可验证奖励训练，属模型层训练方法，未涉及 agent 规划或工具使用。"
+    },
+    {
+      "id": "2611.07508",
+      "relevant": true,
+      "score": 0.62,
+      "reason_zh": "提出个人外部服务 agent 的平台级八维评测框架，涉及 MCP、可复用技能与工具环境，可作为 agent 评测思路跟踪。"
+    },
+    {
+      "id": "2611.07520",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "列车重调度的分布鲁棒优化与 Benders 分解，属运筹优化，与程序优化无关。"
+    },
+    {
+      "id": "2611.07528",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "多智能体路径规划的搜索分支改进，属经典 MAPF 算法，不可迁移到 LLM agent。"
+    },
+    {
+      "id": "2611.07541",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "多模态模型反事实空间推理 benchmark 与自蒸馏，与代码或通用 agent 方法无关。"
+    },
+    {
+      "id": "2611.07542",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "长上下文 LLM 服务的 KV cache 卸载优化，属推理系统性能工作，无 agent 机制。"
+    },
+    {
+      "id": "2611.07598",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "异构秩下联邦 LoRA 聚合的基一致性方法，属分布式训练，与 agent 无关。"
+    },
+    {
+      "id": "2611.07610",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "识别 LoRA 微调训练数据域的指纹研究，属模型安全分析，不涉及 agent。"
+    },
+    {
+      "id": "2611.07633",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "PII 脱敏方案的延迟与准确率对比，属 LLM 流水线工程实践，无 agent 方法贡献。"
+    },
+    {
+      "id": "2611.07653",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "药物发现多 agent 系统提出 Paper2Skill 知识技能提取与 Self-Scaling 并行探索机制，对长程多 agent 研究有可迁移启发。"
+    },
+    {
+      "id": "2611.07706",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "通用图级异常检测模型，与 LLM agent 或程序优化无关。"
+    },
+    {
+      "id": "2611.07717",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "儿科 ECG 基础模型的成人到儿童微调，纯医疗领域应用。"
+    },
+    {
+      "id": "2611.07757",
+      "relevant": true,
+      "score": 0.52,
+      "reason_zh": "多 agent 协同 LLM、专用工具与外部知识并做证据校验与重排序，其证据引导架构可迁移到 coding agent 的工具反馈与验证设计。"
+    },
+    {
+      "id": "2611.07870",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "时间序列预测的残差修正方法，与代码优化或 LLM agent 架构无关。"
+    },
+    {
+      "id": "2611.07874",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "冲突地区人道救援中 GenAI 使用的实证研究，属垂直应用且无通用 agent 方法贡献。"
+    },
+    {
+      "id": "2611.07891",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "模型量化/剪枝的规模效应分析，属纯模型压缩研究，不涉及 agent。"
+    },
+    {
+      "id": "2611.07912",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "自动驾驶世界动作模型的采样期能量引导，虽为免训练控制机制但非 agent 架构或代码相关工作。"
+    },
+    {
+      "id": "2611.07920",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "关于有限神经网络如何通过循环记忆实现长度泛化的理论，虽涉及记忆机制但面向神经科学建模，难以直接迁移到 LLM agent。"
+    },
+    {
+      "id": "2611.08042",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出 Secure Formal Raising 的安全不变量与工具调用溯源要求，涉及 agent 工具调用的权限与混淆代理风险，可启发 agent 安全控制设计。"
+    },
+    {
+      "id": "2611.08053",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "自动事实核查可能适得其反的社会学习模型，与软件 agent 无关。"
+    },
+    {
+      "id": "2611.08082",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "基于字典核的 LLM 后训练压缩部署方法，属模型压缩，无 agent 元素。"
+    },
+    {
+      "id": "2611.08086",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "单细胞基因调控的多尺度序列模型，生物领域工作，与本方向无关。"
+    },
+    {
+      "id": "2611.08116",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "报告自托管与商业 coding agent 混合部署的经验，量化协调/上下文搬运占 30-40% 工作量并给出路由策略，对 coding agent harness 与成本设计有实证参考。"
+    },
+    {
+      "id": "2611.08153",
+      "relevant": false,
+      "score": 0.05,
+      "reason_zh": "面向托卡马克的多模态生成基础模型，属聚变物理垂直应用。"
+    },
+    {
+      "id": "2611.08177",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "从纯观测中学习隐藏组合程序的 benchmark，属程序归纳评估，但无 LLM agent 或代码优化机制，迁移价值有限。"
+    },
+    {
+      "id": "2611.08232",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "真实 LLM 对话中用户核验行为的实证分析，对验证交互设计有间接启发，但不提出 agent 方法。"
+    },
+    {
+      "id": "2611.08245",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "风电功率控制的可解释策略蒸馏，属能源领域 RL 应用。"
+    },
+    {
+      "id": "2611.08262",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "多模态模型人格条件化表征几何的可解释性研究，与 agent 设计无关。"
+    },
+    {
+      "id": "2611.08284",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "用 LLM 对话模拟情境完整性规范的信息分享研究，涉及多智能体交互但无通用 agent 方法贡献。"
+    },
+    {
+      "id": "2611.08303",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "Mamba 中首 token 吸引效应的动力学理论分析，与 agent 无关。"
+    },
+    {
+      "id": "2611.08308",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "由 LLM 从自然语言任务描述生成 reward machine 并由 VLM 做命题落地，属于结构化任务表示与感知反馈结合的可迁移 agent 机制。"
+    },
+    {
+      "id": "2611.08315",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "系统评测 LLM 在异构知识图谱上的多跳推理，证明图接地可降低幻觉，对 agent 检索/接地与验证循环有一般性参考。"
+    },
+    {
+      "id": "2611.08369",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "鼻咽癌临床诊疗路径的多模态 benchmark，属医疗垂直评测，无通用 agent 方法贡献。"
+    },
+    {
+      "id": "2611.08392",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "该文是ICU医疗系统仿真的患者世界模型，属于垂直医疗应用，未涉及LLM/coding agent、自动代码优化或可迁移的通用agent机制。"
+    }
+  ]
+}
