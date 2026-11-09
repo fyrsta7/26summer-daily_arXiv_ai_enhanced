@@ -1,0 +1,233 @@
+{
+  "model": "ali/qwen3.7-plus",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 42,
+  "input_total": 42,
+  "cs.SE_kept": 6,
+  "cs.AI_candidates": 36,
+  "cs.AI_kept": 2,
+  "output_total": 8,
+  "filter_usage": {
+    "prompt_tokens": 12714,
+    "completion_tokens": 5172,
+    "total_tokens": 17886
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2611.06977",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "LLM推理批处理几何与可复现性优化，属于推理系统层面工作，不涉及agent或代码优化方法"
+    },
+    {
+      "id": "2611.06984",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "MoE模型RL后训练的弹性专家并行系统优化，属于训练基础设施，无agent方法贡献"
+    },
+    {
+      "id": "2611.06989",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "多agent系统成本核算框架，虽涉及multi-agent但是FinOps/会计视角，无可迁移的agent设计方法"
+    },
+    {
+      "id": "2611.07066",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出约束探索框架EFXPLORER，通过epigraph重构分离内在奖励与任务目标并引入自适应探索预算，其探索-利用平衡机制对agent长程任务规划有潜在启发"
+    },
+    {
+      "id": "2611.07088",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "符号模型合成用于认知建模，虽合成程序但目标是解释人类/机器推理而非代码优化或agent方法"
+    },
+    {
+      "id": "2611.07247",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "AI安全中agent权力的信息论形式化，纯理论分析，无可迁移的agent架构或方法"
+    },
+    {
+      "id": "2611.07296",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "热带气旋影响港口排序的推荐系统，垂直领域应用，无通用方法贡献"
+    },
+    {
+      "id": "2611.07482",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "大推理模型安全对齐方法，通过可验证奖励和梯度投影消除安全税，其verifiable reward思路对agent验证有微弱启发但核心是训练方法"
+    },
+    {
+      "id": "2611.07520",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "GNN辅助Benders分解求解列车调度，运筹优化方法，与agent或代码优化无关"
+    },
+    {
+      "id": "2611.07528",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "多agent路径规划搜索算法改进，传统MAPF领域，与LLM agent或代码优化无关"
+    },
+    {
+      "id": "2611.07541",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "多模态模型反事实空间推理benchmark，评测静态/动态场景理解，无agent方法贡献"
+    },
+    {
+      "id": "2611.07542",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "长上下文LLM推理的KV cache卸载系统优化，纯推理系统工程，不涉及agent"
+    },
+    {
+      "id": "2611.07598",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "异构rank下联邦LoRA聚合的基对齐方法，属于分布式训练，与agent无关"
+    },
+    {
+      "id": "2611.07610",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "从LoRA微调产物恢复训练数据域的安全/隐私研究，无agent或代码优化方法"
+    },
+    {
+      "id": "2611.07633",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "LLM管道中PII脱敏方法的速度与精度比较，工程实践评估，无通用agent方法贡献"
+    },
+    {
+      "id": "2611.07706",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "图级异常检测的通用模型，属于图学习领域，与agent或代码优化无关"
+    },
+    {
+      "id": "2611.07717",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "儿科ECG基础模型，医疗垂直应用，无通用方法贡献"
+    },
+    {
+      "id": "2611.07870",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "长时间序列预测的残差修正方法，属于预测模型，与agent或代码优化无关"
+    },
+    {
+      "id": "2611.07874",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "武装冲突中GenAI负责任使用的社会学研究，无技术方法贡献"
+    },
+    {
+      "id": "2611.07891",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "分析模型压缩在大模型中损害更大的机制，属于模型压缩/量化分析，无agent方法"
+    },
+    {
+      "id": "2611.07912",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "自动驾驶世界动作模型的能量引导方法，与代码优化或通用agent方法无关"
+    },
+    {
+      "id": "2611.07920",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "关于空间记忆与泛化的理论神经科学工作，不涉及agent架构或代码优化"
+    },
+    {
+      "id": "2611.08053",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "社交学习中自动事实核查的反效果研究，属于社会计算而非agent方法"
+    },
+    {
+      "id": "2611.08082",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "LLM后训练压缩方法（字典核分解），属于纯模型压缩，无agent成分"
+    },
+    {
+      "id": "2611.08086",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "单细胞基因调控的多尺度序列模型，属于计算生物学领域"
+    },
+    {
+      "id": "2611.08153",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "托卡马克等离子体多模态基础模型，属于核聚变物理领域"
+    },
+    {
+      "id": "2611.08177",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "从纯观察中学习可复用理论的benchmark，偏认知科学，与coding agent或通用agent方法关联较弱"
+    },
+    {
+      "id": "2611.08232",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "研究用户在LLM对话中的审查行为，属于人机交互分析而非agent方法"
+    },
+    {
+      "id": "2611.08245",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "风电场功率控制的价值导向策略蒸馏，属于能源控制领域"
+    },
+    {
+      "id": "2611.08262",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "多模态语言模型中角色模拟的表征几何分析，属于模型内部机制研究"
+    },
+    {
+      "id": "2611.08284",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "基于LLM模拟的上下文完整性生成模型，属于隐私/社会规范研究"
+    },
+    {
+      "id": "2611.08303",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "Mamba模型中首token吸引现象的理论分析，属于模型架构研究"
+    },
+    {
+      "id": "2611.08369",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "鼻咽癌临床学徒式benchmark，属于医疗AI垂直应用"
+    },
+    {
+      "id": "2611.08392",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "ICU患者世界模型用于医疗系统仿真，属于医疗垂直应用"
+    },
+    {
+      "id": "2611.08403",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出步级错误定位的重采样方法提升推理效率，其错误定位与轨迹修正思路可迁移至coding agent的调试与自我修正机制"
+    },
+    {
+      "id": "2611.08412",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "检测数学证明中AI参与痕迹的实证研究，属于AI检测而非agent方法"
+    }
+  ]
+}

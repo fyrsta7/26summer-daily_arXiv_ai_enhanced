@@ -1,13 +1,13 @@
 {
   "policy": "cs.SE_semopt_relevance",
-  "model": "huawei/deepseek-v4.1-flash",
+  "model": "ali/qwen3.7-plus",
   "documents": 1,
-  "cs.SE_occurrences": 10,
-  "unique_arxiv_ids": 10,
-  "selected_unique": 4,
+  "cs.SE_occurrences": 6,
+  "unique_arxiv_ids": 6,
+  "selected_unique": 0,
   "usage": {
-    "prompt_tokens": 3628,
-    "completion_tokens": 1160,
-    "total_tokens": 4788
+    "prompt_tokens": 2409,
+    "completion_tokens": 2228,
+    "total_tokens": 4637
   }
 }
