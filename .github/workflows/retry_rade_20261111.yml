@@ -1,0 +1,72 @@
+name: Retry RADE November 11 analysis
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/retry_rade_20261111.yml
+permissions:
+  contents: read
+concurrency:
+  group: daily-arxiv-delivery
+  cancel-in-progress: false
+jobs:
+  retry-one:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install existing project dependencies
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          uv sync
+      - name: Retry only RADE using the existing enhancement pipeline
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          MODEL_NAME: ali/qwen3.7-plus
+          LANGUAGE: Chinese
+        run: |
+          source .venv/bin/activate
+          cd ai
+          python - <<'PY'
+          import copy, json, os
+          from pathlib import Path
+          from enhance import process_all_items
+          target_id = "2611.11659"
+          path = Path("../data/2026-11-11_AI_enhanced_Chinese.jsonl")
+          rows = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+          assert len(rows) == 90, "Unexpected batch size"
+          matched = [row for row in rows if row["id"] == target_id]
+          assert len(matched) == 1, "Target must be unique"
+          item = matched[0]
+          fields = ["abstract_zh", "tldr", "motivation", "method", "result", "conclusion"]
+          def valid(ai):
+              return isinstance(ai, dict) and all(
+                  isinstance(ai.get(key), str) and ai[key].strip()
+                  and "failed" not in ai[key].lower()
+                  and "unavailable" not in ai[key].lower()
+                  for key in fields
+              )
+          if valid(item.get("AI")):
+              result = copy.deepcopy(item)
+              print("Existing target is already valid; no model call.")
+          else:
+              result = process_all_items([copy.deepcopy(item)], os.environ["MODEL_NAME"], "Chinese", 1)[0]
+          assert result["id"] == target_id
+          assert valid(result.get("AI")), "Retry did not produce all six valid fields; no publication"
+          # Keep every original field except the six requested AI fields.
+          output = {"id": target_id, "AI": {key: result["AI"][key] for key in fields}}
+          Path("../rade_retry_result.json").write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n")
+          print("RADE_RESULT_BEGIN")
+          print(json.dumps(output, ensure_ascii=False))
+          print("RADE_RESULT_END")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rade-retry-result
+          path: rade_retry_result.json
+          if-no-files-found: error
+          retention-days: 7
