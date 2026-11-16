@@ -1,0 +1,305 @@
+{
+  "model": "ali/qwen3.7-plus",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 55,
+  "input_total": 54,
+  "cs.SE_kept": 6,
+  "cs.AI_candidates": 48,
+  "cs.AI_kept": 5,
+  "output_total": 11,
+  "filter_usage": {
+    "prompt_tokens": 18477,
+    "completion_tokens": 12471,
+    "total_tokens": 30948
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2611.14544",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "手写棋谱数字化任务，使用国际象棋引擎做合法性检查，与LLM agent或代码优化无关"
+    },
+    {
+      "id": "2611.14736",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "将LLM作为因果发现的语义先验来源，非agent架构或方法贡献"
+    },
+    {
+      "id": "2611.14766",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "研究AI系统对隐式时间信号的协调，对比CUA与LLM，但属认知科学实验而非agent设计方法"
+    },
+    {
+      "id": "2611.14769",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "分析偏好评估排行榜的操纵漏洞，涉及评测可靠性但非agent方法"
+    },
+    {
+      "id": "2611.14804",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "基于TabPFN的表格数据生成器用于工程设计，无agent组件"
+    },
+    {
+      "id": "2611.14850",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "推理蒸馏的teacher support压缩方法，属模型训练/蒸馏范畴"
+    },
+    {
+      "id": "2611.14910",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "LLM多任务知识编辑方法，解决Jacobian几何冲突，非agent研究"
+    },
+    {
+      "id": "2611.14924",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "边缘设备RAG部署的量化与工程优化，属系统部署而非agent方法"
+    },
+    {
+      "id": "2611.14928",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "3D IC布局的精确求解器与benchmark，属硬件EDA数学优化"
+    },
+    {
+      "id": "2611.14942",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "多模态训练对文本推理的因果消融研究，属模型内部机制分析"
+    },
+    {
+      "id": "2611.15091",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "GPU-CPU混合求解Weighted Partial MaxSAT，属组合优化求解器"
+    },
+    {
+      "id": "2611.15094",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "神经影像视觉语言模型，属医疗垂直应用无通用agent方法贡献"
+    },
+    {
+      "id": "2611.15215",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "机器人世界模型的快慢时间尺度自适应，响应-稳定-持久权衡对agent有启发但属机器人领域"
+    },
+    {
+      "id": "2611.15225",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "自动驾驶环视视频QA benchmark，属垂直领域评测"
+    },
+    {
+      "id": "2611.15238",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "自动驾驶VLM的离散扩散优化pipeline，属垂直领域模型优化"
+    },
+    {
+      "id": "2611.15389",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "土卫六探测器自主任务规划的物理约束RL，属航天垂直领域"
+    },
+    {
+      "id": "2611.15585",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "扩散模型长程规划的chunk一致性协调机制，长程规划思想可迁移但方法针对机器人轨迹"
+    },
+    {
+      "id": "2611.15592",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "typed-decision模型readout头的对照实验，属模型架构效率研究"
+    },
+    {
+      "id": "2611.15716",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "货运模式分类的XAP可靠性研究，属垂直领域可解释性"
+    },
+    {
+      "id": "2611.15843",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "Agentic可视化系统比较三种grounding策略(ReAct/RAG/ontology-guided)，研究agent推理的视觉溯源与可审计性，对agent评测与可靠性设计有参考价值"
+    },
+    {
+      "id": "2611.16173",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI治理与社会政策框架，与LLM Agent或代码优化无关。"
+    },
+    {
+      "id": "2611.16175",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "基于强化学习的游戏AI研究，不涉及LLM Agent或代码优化。"
+    },
+    {
+      "id": "2611.16211",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出神经符号AI的自适应模糊测试框架，其可靠性校准与上下文门控引导机制对coding agent的测试与验证环节有启发。"
+    },
+    {
+      "id": "2611.16300",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "问答系统的语义评估框架，与Agent或代码优化无关。"
+    },
+    {
+      "id": "2611.16335",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "探讨AI时代的因果推断与数字实验，属于数据科学方法论，与Agent无关。"
+    },
+    {
+      "id": "2611.16356",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "地球动力学建模的球面神经算子，属于科学计算AI，与Agent无关。"
+    },
+    {
+      "id": "2611.16445",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出基于多维语义响应网格的LLM异构用户模拟方法，对Agent评测中模拟多样化用户交互具有参考价值。"
+    },
+    {
+      "id": "2611.16460",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "微调小语言模型生成合成临床数据，属于医疗垂直应用，无通用Agent方法贡献。"
+    },
+    {
+      "id": "2611.16478",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "利用量化副本间的不一致性进行推理时错误检测，为Agent的可靠性控制与自我反思机制提供了新思路。"
+    },
+    {
+      "id": "2611.16498",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "研究决策编码器对LLM标注数据的需求量及噪声容忍度，属于数据标注与训练效率研究。"
+    },
+    {
+      "id": "2611.16502",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "针对LLM量化的符号调整旋转方法，属于纯模型压缩与推理加速，无Agent机制。"
+    },
+    {
+      "id": "2611.16527",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "分析LLM生成数学证明的引用风格，属于LLM行为分析，与Agent或代码优化无关。"
+    },
+    {
+      "id": "2611.16561",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "光子神经网络加速器的矩阵乘法精度提升，属于硬件加速研究。"
+    },
+    {
+      "id": "2611.16586",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "评估LLM作为数字孪生回答人格问卷的能力，偏向心理学与人格模拟，对Agent设计启发较弱。"
+    },
+    {
+      "id": "2611.16609",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "用于脑电图分类的双分支图卷积网络，属于医疗与脑机接口垂直应用。"
+    },
+    {
+      "id": "2611.16621",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "低资源字典设置下的手语检索研究，属于多模态检索，与Agent无关。"
+    },
+    {
+      "id": "2611.16628",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出将安全作为预算的约束GRPO方法以控制VLM安全性，对Agent的可靠性与安全控制机制有直接启发。"
+    },
+    {
+      "id": "2611.16647",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "基于情感惯性建模的多模态抑郁症检测，属于医疗垂直应用。"
+    },
+    {
+      "id": "2611.16666",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "预测编码中通过侧向电路实现自然梯度学习，属于神经网络训练机制优化，与Agent无关。"
+    },
+    {
+      "id": "2611.16710",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "移动设备上的声学呼吸相位检测，属于健康医疗垂直应用。"
+    },
+    {
+      "id": "2611.16722",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "研究LLM谄媚现象的用户评估，不涉及agent架构或代码优化。"
+    },
+    {
+      "id": "2611.16831",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "ESG预测的图学习与语言模型框架，属于金融垂直应用，无agent方法贡献。"
+    },
+    {
+      "id": "2611.16935",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "传染病预测基础模型，属于医疗垂直应用，无agent或代码优化内容。"
+    },
+    {
+      "id": "2611.16986",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "教育模拟的多agent系统，属于教育垂直应用且无通用agent方法贡献。"
+    },
+    {
+      "id": "2611.17031",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "视觉基础模型用于EEG信号处理，属于医疗信号跨模态应用，无agent内容。"
+    },
+    {
+      "id": "2611.17072",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "金融领域大模型LoRA微调与推理监督训练方法，无agent架构或代码优化。"
+    },
+    {
+      "id": "2611.17098",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "AI数据中心能源成本的技术经济分析，与agent或代码优化无关。"
+    },
+    {
+      "id": "2611.17309",
+      "relevant": false,
+      "score": 0.0,
+      "reason_zh": "基于能量模型的推理加速方法，属于纯模型推理机制研究，无agent内容。"
+    }
+  ]
+}
