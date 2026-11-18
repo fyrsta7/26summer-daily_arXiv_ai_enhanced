@@ -2,12 +2,12 @@
   "policy": "cs.SE_semopt_relevance",
   "model": "ali/qwen3.7-plus",
   "documents": 1,
-  "cs.SE_occurrences": 12,
-  "unique_arxiv_ids": 12,
-  "selected_unique": 12,
+  "cs.SE_occurrences": 59,
+  "unique_arxiv_ids": 59,
+  "selected_unique": 38,
   "usage": {
-    "prompt_tokens": 4456,
-    "completion_tokens": 2716,
-    "total_tokens": 7172
+    "prompt_tokens": 21145,
+    "completion_tokens": 14097,
+    "total_tokens": 35242
   }
 }
