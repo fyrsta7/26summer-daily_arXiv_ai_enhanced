@@ -1,0 +1,605 @@
+{
+  "model": "ali/qwen3.7-plus",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 126,
+  "input_total": 119,
+  "cs.SE_kept": 21,
+  "cs.AI_candidates": 98,
+  "cs.AI_kept": 39,
+  "output_total": 60,
+  "filter_usage": {
+    "prompt_tokens": 36029,
+    "completion_tokens": 19362,
+    "total_tokens": 55391
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2611.31284",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出多agent系统的不可约治理架构理论，包含分配、执行原子性、状态强制和行为漂移四个正交维度，对多agent协作系统的安全控制与架构设计有启发"
+    },
+    {
+      "id": "2611.31301",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "音视频deepfake检测benchmark，与代码优化或agent方法无关"
+    },
+    {
+      "id": "2611.31329",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "不完备数据下的模糊粗糙集属性约简方法，属于传统机器学习/数学优化，与agent无关"
+    },
+    {
+      "id": "2611.31345",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "交互式图表到代码生成的benchmark，虽涉及代码生成但聚焦可视化行为一致性，非软件工程agent方法"
+    },
+    {
+      "id": "2611.31346",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "对话中细粒度信息操纵的多模态benchmark，与agent架构或代码优化无关"
+    },
+    {
+      "id": "2611.31347",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "针对开放决策模型的对抗性攻击研究，虽涉及安全但非agent架构或代码优化方法"
+    },
+    {
+      "id": "2611.31424",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出利用良性对话历史进行间接提示注入的红队框架，对agent安全性与可靠性研究有直接价值"
+    },
+    {
+      "id": "2611.31427",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "区分agent的任务能力与接口能力，提出harness-conditioned训练和harness rehearsal方法，对coding agent的训练与harness设计高度相关"
+    },
+    {
+      "id": "2611.31457",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "大规模agent调试、聚类与监控系统Taxi，支持agent轨迹分析和评测，对agent评测与长程执行分析有工具价值"
+    },
+    {
+      "id": "2611.31475",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出从交互历史中自进化的agent框架，包含Experience和Skills两种外部知识形式及对比效用评分，对agent轨迹/经验复用和方法论有直接启发"
+    },
+    {
+      "id": "2611.31480",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "使用coding agent生成科学工作流技能，包含evaluation harness驱动真实系统并反馈失败给维护agent的方法，对coding agent的工具使用与验证流程有参考价值"
+    },
+    {
+      "id": "2611.31498",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "1型糖尿病强化学习控制器的可解释性框架，属于医疗垂直应用，无通用agent方法贡献"
+    },
+    {
+      "id": "2611.31521",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "医疗FHIR记录检索agent评测，属于医疗垂直应用且无通用方法贡献"
+    },
+    {
+      "id": "2611.31522",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "研究GUI agent在动态界面中的时序失步问题，提出Chronotope控制器和ChronotopeGym benchmark，对agent在动态环境中的可靠性与实时控制有重要参考价值"
+    },
+    {
+      "id": "2611.31539",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出无ground truth的agent评测框架，使用e-value序列作为统计证据，并以Claude优化Python包运行时间为案例，直接涉及代码优化agent的可靠speedup验证"
+    },
+    {
+      "id": "2611.31559",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "面向用户模拟的认知架构COGENT，聚焦复现人类行为而非agent任务执行方法，对coding agent设计迁移性有限"
+    },
+    {
+      "id": "2611.31570",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "自主游戏测试agent Buddy，支持长程目标探索、bug报告生成和轨迹到层次化任务网络转换，对长程agent执行与轨迹复用有参考价值"
+    },
+    {
+      "id": "2611.31571",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出安全自动形式化方法，使用蕴含图认证公式的充分性和必要性，对代码生成/验证中的形式化保证方法有潜在迁移价值"
+    },
+    {
+      "id": "2611.31579",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "乘积量化优化的数学理论证明，属于模型压缩/量化领域，与agent无关"
+    },
+    {
+      "id": "2611.31581",
+      "relevant": false,
+      "score": 0.15,
+      "reason_zh": "微调语言模型的隐私审计研究，与agent架构或代码优化无关"
+    },
+    {
+      "id": "2611.31610",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "关于LLM架构的可监控性设计，属于AI安全范畴，与coding agent或代码优化无直接关联"
+    },
+    {
+      "id": "2611.31611",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "多agent系统自动发现PDE求解器的Pareto最优配置，包含agent协作、演化搜索、工具反馈和性能评估，其多agent优化框架可迁移到代码优化agent"
+    },
+    {
+      "id": "2611.31621",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "通过训练摘要器压缩长程推理历史以扩展有效推理horizon，对coding agent的长程任务执行和记忆管理有启发"
+    },
+    {
+      "id": "2611.31638",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "推测解码加速LLM推理的纯推理优化方法，不涉及agent"
+    },
+    {
+      "id": "2611.31641",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "长期用户行为模拟框架，关注用户状态演化而非coding agent方法"
+    },
+    {
+      "id": "2611.31653",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "从arXiv论文中构建物理机制，与代码优化或agent无关"
+    },
+    {
+      "id": "2611.31654",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "AI推理基础设施的经济学分析，与agent或代码优化无关"
+    },
+    {
+      "id": "2611.31656",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "贝叶斯RAG将检索建模为控制问题并支持动态效用漂移，对coding agent的长期记忆和检索机制有迁移价值"
+    },
+    {
+      "id": "2611.31677",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "多模态扩散语言模型的解码方法，与coding agent无关"
+    },
+    {
+      "id": "2611.31682",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "基于MCP的地理空间工具使用benchmark，展示了工具增强LLM的方法，对agent工具使用和评测有参考价值"
+    },
+    {
+      "id": "2611.31684",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "超声成像的信号处理方法，与agent或代码优化无关"
+    },
+    {
+      "id": "2611.31708",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "环肽结构预测benchmark，与coding agent无关"
+    },
+    {
+      "id": "2611.31736",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出Vouch库验证LLM生成的模拟程序对what-if问题的可靠性，包含程序验证、工具反馈和可靠性评估，直接相关于coding agent的验证机制"
+    },
+    {
+      "id": "2611.31737",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "热感知的MoE模型推理系统，纯推理优化不涉及agent"
+    },
+    {
+      "id": "2611.31747",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "MoE模型的专家剪枝方法，纯模型压缩不涉及agent"
+    },
+    {
+      "id": "2611.31756",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "工具使用agent的对抗性安全benchmark，测试策略约束下的agent可靠性，对agent安全控制研究有参考价值"
+    },
+    {
+      "id": "2611.31762",
+      "relevant": true,
+      "score": 0.9,
+      "reason_zh": "使用Codex和Qwen自动重构Lean 4证明以减少源码长度和检查成本，包含代码检索、工具反馈、验证和迭代优化，直接相关于自动代码优化agent"
+    },
+    {
+      "id": "2611.31787",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "从科学图表中提取结构化数据的工作流，是数据处理pipeline而非coding agent"
+    },
+    {
+      "id": "2611.31794",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "证明coding agent本身可作为skill优化器，通过度量驱动搜索迭代改进可复用的工作流/代码/提示，直接相关于agent自我改进和代码优化"
+    },
+    {
+      "id": "2611.31795",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "构造性因果抽象框架用于模型可解释性，与coding agent或代码优化无关"
+    },
+    {
+      "id": "2611.31797",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "自动驾驶测试垂直应用，无通用agent方法贡献"
+    },
+    {
+      "id": "2611.31817",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "纯神经网络表示压缩与分析，无agent"
+    },
+    {
+      "id": "2611.31823",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "教育垂直领域的数学题生成，无通用agent方法"
+    },
+    {
+      "id": "2611.31833",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "AI可解释性评估框架，无agent"
+    },
+    {
+      "id": "2611.31851",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "社会科学模拟垂直应用，无通用agent方法贡献"
+    },
+    {
+      "id": "2611.31855",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "医疗图像垂直应用，无agent"
+    },
+    {
+      "id": "2611.31864",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "LLM pipeline配置调优，偏向工程调参而非通用agent方法"
+    },
+    {
+      "id": "2611.31873",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出基于sandbox和多agent协作的仓库级SE数据构建与验证框架，包含执行验证与仓库探索，对coding agent设计有明显启发"
+    },
+    {
+      "id": "2611.31884",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "脉冲神经网络与硬件效率优化，无agent"
+    },
+    {
+      "id": "2611.31892",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "视频扩散模型KV cache推理优化，无agent"
+    },
+    {
+      "id": "2611.31932",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "LLM机器遗忘训练方法，无agent"
+    },
+    {
+      "id": "2611.31954",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "VLA模型token剪枝推理优化，无agent"
+    },
+    {
+      "id": "2611.31969",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "扩散模型蒸馏训练方法，无agent"
+    },
+    {
+      "id": "2611.31974",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "提出评估coding agent开发独立游戏程序的benchmark，包含sandbox迭代开发、工具反馈与长程执行，直接相关"
+    },
+    {
+      "id": "2611.31983",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出用于微架构预取器自动发现的agentic框架，利用多保真度代理与硬件诊断oracle引导搜索，对自动系统/代码优化agent有直接启发"
+    },
+    {
+      "id": "2611.31990",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "扩散语言模型并行解码理论分析，无agent"
+    },
+    {
+      "id": "2611.32006",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "长表格问答的RAG与证据构建方法，无agent"
+    },
+    {
+      "id": "2611.32012",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "营销领域垂直benchmark，无通用agent方法贡献"
+    },
+    {
+      "id": "2611.32046",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "城市排水系统控制垂直应用，无通用agent方法贡献"
+    },
+    {
+      "id": "2611.32053",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "机器人操作世界模型，无agent"
+    },
+    {
+      "id": "2611.32055",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "关于MLLM强化学习中幻觉可验证性的研究，核心是模型训练方法而非agent设计，与代码优化agent关联较弱"
+    },
+    {
+      "id": "2611.32085",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "提出ExpGuard框架保护长程agent免受经验污染，涉及轨迹经验复用、检索触发风险评估与在线修复，直接对应agent可靠性与安全控制"
+    },
+    {
+      "id": "2611.32088",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "研究长期记忆检索中的需求-证据对齐问题，提出MemPath诊断框架和BiDE-Mem方法，对agent记忆与检索机制设计有迁移价值"
+    },
+    {
+      "id": "2611.32119",
+      "relevant": false,
+      "score": 0.45,
+      "reason_zh": "针对具身问答的视觉记忆预算管理，方法较领域特定，对coding agent迁移价值有限"
+    },
+    {
+      "id": "2611.32159",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "DNA minimizer密度优化，属于生物信息学算法优化，与LLM agent或代码优化无关"
+    },
+    {
+      "id": "2611.32209",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "提出跨记忆推理框架，结合工作记忆与情景记忆，通过反事实rollout验证替代动作，其记忆架构与验证机制可迁移至coding agent"
+    },
+    {
+      "id": "2611.32218",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "视觉语言导航中的几何状态演化建模，方法高度领域特定，对coding agent迁移价值有限"
+    },
+    {
+      "id": "2611.32247",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "将现成agent方法用于临床推理的垂直应用，无通用agent方法贡献"
+    },
+    {
+      "id": "2611.32292",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "视觉提示在策略自蒸馏方法，核心是模型训练技术而非agent架构"
+    },
+    {
+      "id": "2611.32304",
+      "relevant": false,
+      "score": 0.35,
+      "reason_zh": "研究VLA模型的轨迹级后门攻击，属于模型安全而非agent设计方法"
+    },
+    {
+      "id": "2611.32320",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "alpha-beta剪枝的单子续体形式化，属于博弈AI理论，与LLM agent无关"
+    },
+    {
+      "id": "2611.32321",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出FigmaEval基准评估UI设计agent，包含agent评测方法论和rubric评估体系，对agent评测有参考价值"
+    },
+    {
+      "id": "2611.32365",
+      "relevant": true,
+      "score": 0.85,
+      "reason_zh": "研究agent工作流中的控制流开销问题，提出专用决策路由架构显著降低成本和延迟，直接对应agent workflow优化与效率提升"
+    },
+    {
+      "id": "2611.32384",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出假设驱动的架构发现循环，LLM agent诊断失败模式、构建假设、测试反事实并提炼可复用设计规则，其自我改进与经验复用机制可迁移至SemOpt"
+    },
+    {
+      "id": "2611.32508",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "提出RecurSciBench基准评估数据驱动科研中的递归自我改进，涵盖跨任务/跨领域迁移评估，直接对应agent自我改进与评测"
+    },
+    {
+      "id": "2611.32646",
+      "relevant": false,
+      "score": 0.45,
+      "reason_zh": "官方统计领域的text-to-SQL基准，虽涉及代码生成但为垂直应用且无通用方法贡献"
+    },
+    {
+      "id": "2611.32657",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "医学手术规划的几何推理框架，垂直领域应用，无通用agent方法贡献"
+    },
+    {
+      "id": "2611.32663",
+      "relevant": false,
+      "score": 0.25,
+      "reason_zh": "经济世界模型研究宏观经济动态模拟，与LLM agent或代码优化无关"
+    },
+    {
+      "id": "2611.32686",
+      "relevant": true,
+      "score": 0.55,
+      "reason_zh": "提出CAPTA方法识别agent背后的LLM模型，涉及agent安全与可靠性控制，对agent系统安全研究有参考价值"
+    },
+    {
+      "id": "2611.32765",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出EviCraft基准和证据闭包概念，揭示agent工具使用中的信息泄露问题，对agent工具设计与评测方法论有启发"
+    },
+    {
+      "id": "2611.32772",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "Text-to-SQL coding agent，通过可查询知识库与SQL构建/执行交织，包含Judge裁决与证据驱动修订，属于带检索、工具反馈和验证的代码生成agent。"
+    },
+    {
+      "id": "2611.32776",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "视觉控制的世界模型与对比动作识别，属于RL/规划基础研究，与coding agent或代码优化距离较远。"
+    },
+    {
+      "id": "2611.32792",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "脑信号噪声上界估计的统计框架，属于计算神经科学，与agent或代码优化无关。"
+    },
+    {
+      "id": "2611.32811",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "将桌面建模为交互式世界模型，包含显式slot记忆与VLM推理桥接，其记忆架构与长程闭环rollout设计对agent记忆与交互设计有启发。"
+    },
+    {
+      "id": "2611.32848",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "量化小模型可信度评估中的测量伪影分析，属于模型评测方法论，无agent或代码优化内容。"
+    },
+    {
+      "id": "2611.32884",
+      "relevant": true,
+      "score": 0.7,
+      "reason_zh": "针对agent在长任务中过早提交的懒惰行为，提出基于可验证信念的RL奖励，直接改善agent决策时机与可靠性，可迁移到coding agent的长程执行。"
+    },
+    {
+      "id": "2611.32918",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "通过重放通用指令回答来缓解事实微调导致的能力退化，属于模型适配方法，与agent架构或代码优化无直接关联。"
+    },
+    {
+      "id": "2611.32931",
+      "relevant": true,
+      "score": 0.75,
+      "reason_zh": "在code-agent输出上研究高效生成式验证，通过提前读取决策分支节省计算，直接优化coding agent的验证效率。"
+    },
+    {
+      "id": "2611.32948",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "将PPO与分布式critic用于生态保护规划，属于垂直领域RL应用，无可迁移到coding agent的通用方法。"
+    },
+    {
+      "id": "2611.32954",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "本文主要研究LLM推理服务系统中的KV Cache无损压缩技术以提升吞吐量和降低延迟，属于底层系统与硬件优化，未涉及Agent架构、规划或代码优化等通用方法，仅因应用场景提及Agent而包含相关字眼。"
+    },
+    {
+      "id": "2611.33012",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "通过故障注入评估LLM Judge对临床agent轨迹的可靠性，揭示轨迹信息与证据对judge判别的影响，对agent评测与可靠性研究有参考价值。"
+    },
+    {
+      "id": "2611.33022",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "提出RecordRoute对agent失败进行定位引导的诊断，结合比较定位与局部模式预测，直接服务于agent调试与可靠性分析。"
+    },
+    {
+      "id": "2611.33035",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "AI原生无线接入网控制的混合AI综述，属于通信领域，与coding agent或代码优化无关。"
+    },
+    {
+      "id": "2611.33065",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出HUB-J框架发现、量化并缓解LLM-as-Judge的系统性偏差，对依赖judge的agent评测与训练流程有直接参考价值。"
+    },
+    {
+      "id": "2611.33086",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "网络威胁情报中基于不确定性的实体链接，属于NLP垂直应用，无可迁移到coding agent的通用贡献。"
+    },
+    {
+      "id": "2611.33098",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "提出Delegent多agent harness，将coding与搜索中的简单子任务委托给小模型，在Claude Code上实现67%成本降低且无性能损失，直接属于coding agent架构优化。"
+    },
+    {
+      "id": "2611.33106",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "国际象棋中基于时间条件的人类行为克隆，属于游戏AI，与coding agent或代码优化无关。"
+    },
+    {
+      "id": "2611.33119",
+      "relevant": true,
+      "score": 0.95,
+      "reason_zh": "MetaFORGE通过元学习迭代优化MPI并行代码生成的自然语言技能规范，结合编译器诊断、静态分析、运行时测量与负载不均衡分析驱动文本梯度精炼，并带外部记忆检索，直接属于自动代码性能优化agent。"
+    }
+  ]
+}
