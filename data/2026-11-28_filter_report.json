@@ -1,0 +1,215 @@
+{
+  "model": "ali/qwen3.7-plus",
+  "policy": "keep_all_cs.SE_and_semantically_filter_cs.AI_for_SemOpt",
+  "input_records": 36,
+  "input_total": 35,
+  "cs.SE_kept": 2,
+  "cs.AI_candidates": 33,
+  "cs.AI_kept": 6,
+  "output_total": 8,
+  "filter_usage": {
+    "prompt_tokens": 11701,
+    "completion_tokens": 10491,
+    "total_tokens": 22192
+  },
+  "cs.AI_decisions": [
+    {
+      "id": "2611.33190",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "探讨LLM作为优化器和引导器在配置调优中的实证表现，其搜索策略和角色分配对自动代码优化中的参数搜索有直接启发。"
+    },
+    {
+      "id": "2611.33263",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "心理健康安全垂直应用，主要为训练guard model，无通用agent方法贡献。"
+    },
+    {
+      "id": "2611.33303",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "逻辑推理训练数据构建与证明深度分析，无agent或代码优化相关内容。"
+    },
+    {
+      "id": "2611.33304",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "视觉与语言模型表示空间的理论分析，无agent相关内容。"
+    },
+    {
+      "id": "2611.33322",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "LLM品牌知识召回与分类准确率评估，无agent相关内容。"
+    },
+    {
+      "id": "2611.33411",
+      "relevant": true,
+      "score": 0.6,
+      "reason_zh": "提出多模型协作与任务分解工作流，发现协作结构比单纯增加模型数量更重要，对多agent协作设计有启发。"
+    },
+    {
+      "id": "2611.33497",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "提出约束对齐的RAG框架以改善长文本生成合规性，无通用agent方法贡献。"
+    },
+    {
+      "id": "2611.33555",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "AI生成同行评审检测，无agent相关内容。"
+    },
+    {
+      "id": "2611.33594",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "多模态嵌入相似性评估基准，无agent相关内容。"
+    },
+    {
+      "id": "2611.33615",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "视觉学习对数字感知影响的认知科学研究，无agent相关内容。"
+    },
+    {
+      "id": "2611.33617",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出agent驱动的CAD生成与编辑框架，涉及意图解释与几何建模工具调用，对工具使用agent设计有参考价值。"
+    },
+    {
+      "id": "2611.33679",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "LLM推理加速与KV cache优化，纯模型推理机制，无agent相关内容。"
+    },
+    {
+      "id": "2611.33715",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "多论文到幻灯片的生成与个性化，无agent相关内容。"
+    },
+    {
+      "id": "2611.33735",
+      "relevant": true,
+      "score": 0.65,
+      "reason_zh": "提出意图引导的云边端协作框架与动态子agent编排机制，对多agent协作与任务路由架构有直接启发。"
+    },
+    {
+      "id": "2611.33745",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "机器人操作的反事实世界模型与规划，无LLM agent相关内容。"
+    },
+    {
+      "id": "2611.33764",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "建筑能效优化的强化学习与世界模型，无LLM agent相关内容。"
+    },
+    {
+      "id": "2611.33775",
+      "relevant": false,
+      "score": 0.4,
+      "reason_zh": "医疗垂直领域的VLM交互式诊断基准，仅应用现成agent且无通用方法贡献。"
+    },
+    {
+      "id": "2611.33788",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "医疗电子健康记录轨迹生成，无agent相关内容。"
+    },
+    {
+      "id": "2611.33813",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "神经网络控制系统的安全证书修复，无LLM agent相关内容。"
+    },
+    {
+      "id": "2611.33818",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "手语生成的最优传输方法，无agent相关内容。"
+    },
+    {
+      "id": "2611.33946",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "HVAC控制中的强化学习成本优化，与LLM agent或代码优化无关。"
+    },
+    {
+      "id": "2611.34011",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "言语行为伦理的形式化研究，与LLM agent或代码优化无关。"
+    },
+    {
+      "id": "2611.34068",
+      "relevant": false,
+      "score": 0.3,
+      "reason_zh": "分析小型推理模型在拍卖出价中的表现与token限制，属于垂直任务实证分析，未提出通用agent方法。"
+    },
+    {
+      "id": "2611.34190",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "LLM重复采样下的水印技术研究，与agent或代码优化无关。"
+    },
+    {
+      "id": "2611.34247",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "评估LLM在药物靶点预测中的表现，属于医疗垂直应用且无通用方法贡献。"
+    },
+    {
+      "id": "2611.34248",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "强化学习中基于Shapley值的不确定性解释，与LLM agent无关。"
+    },
+    {
+      "id": "2611.34407",
+      "relevant": true,
+      "score": 0.5,
+      "reason_zh": "提出包含持久状态维护和检索协调的推荐agent框架，其状态管理与检索workflow对通用agent设计有参考价值。"
+    },
+    {
+      "id": "2611.34432",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "评估小模型在航空安全文本知识提取中的prompting策略，属于垂直领域应用。"
+    },
+    {
+      "id": "2611.34563",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "边缘AI在乳制品加工预测性维护中的应用，与LLM agent无关。"
+    },
+    {
+      "id": "2611.34612",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "探讨无需LLM的确定性权重空间编程范式，属于模型权重编辑机制，不涉及agent。"
+    },
+    {
+      "id": "2611.34698",
+      "relevant": false,
+      "score": 0.2,
+      "reason_zh": "针对VLA模型的失败驱动数据飞轮，属于模型训练与数据生成方法，非LLM agent架构。"
+    },
+    {
+      "id": "2611.34708",
+      "relevant": false,
+      "score": 0.1,
+      "reason_zh": "时序知识图谱中新兴实体的两阶段推理框架，与LLM agent或代码优化无关。"
+    },
+    {
+      "id": "2611.34751",
+      "relevant": true,
+      "score": 0.8,
+      "reason_zh": "研究LLM通过代码探索归纳并合并理论，涉及经验复用、反思与自我改进，对coding agent的长期经验管理有直接启发。"
+    }
+  ]
+}
